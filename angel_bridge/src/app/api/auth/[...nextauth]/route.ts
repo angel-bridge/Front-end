@@ -10,7 +10,11 @@ const handler = NextAuth(
             }),
         ],
         callbacks: {
-    
+            signIn: async ({ user, account }) => {
+                console.log("user:", user);
+                console.log("account:", account);
+                return true;
+            }
         },
         //secret: process.env.NEXTAUTH_SECRET,
     }

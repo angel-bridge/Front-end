@@ -1,18 +1,16 @@
-"use client"
+"use client";
 
 import Image from 'next/image';
-import { signIn } from 'next-auth/react';
 
 export default function KakaoLogin() {
-
     return (
-        <div onClick={() => signIn("kakao", { callbackUrl: '/'})}>
+        <a href="http://3.39.14.152/oauth2/authorization/kakao" target="_self">
             <Image 
                 src='/assets/kakao_login.png'
                 alt='카카오 로그인 버튼'
                 width={300}
                 height={300}
             />
-        </div>
-    )
+        </a>
+    );
 }
