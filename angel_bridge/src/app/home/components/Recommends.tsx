@@ -23,7 +23,7 @@ export default function Recommends() {
                                     objectFit: 'cover',
                                     borderRadius: '1.5rem',
                                 }}
-                            />
+                        />
                     </div>
                     <div className={style.contentText}>
                         <div className={style.contentTitle}>예비창업패키지 2주 완성</div>

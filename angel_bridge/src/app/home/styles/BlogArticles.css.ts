@@ -46,10 +46,13 @@ export const contentsWrapper = style({
 
 export const contents = style({
     display: 'flex',
-    width: '20.625rem',
+    width: '31.75rem',
+    padding: '1.25rem 1.75rem',
     flexDirection: 'column',
     alignItems: 'flex-start',
-    gap: '1rem',
+    gap: '1.25rem',
+    borderRadius: '1rem',
+    background: '#F6F6FB',
     transition: 'transform 0.3s ease',
     ':hover': {
         transform: 'translateY(-5px)',
@@ -57,70 +60,51 @@ export const contents = style({
     cursor: 'pointer',
 });
 
-export const contentImage = style({
-    width: '20.625rem',
-    height: '11.25rem',
-    borderRadius: '1.5rem',
-    overflow: 'hidden',
-    position: 'relative',
-});
-
-export const activeBadge = style({
-    display: 'inline-flex',
-    padding: '0.375rem 0.75rem',
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: '1.875rem',
-    background: '#6C54F6',
-    position: 'absolute',
-    top: '1rem',
-    left: '1rem',
-
-    color: '#FFFFFF',
-    fontSize: '0.875rem',
-    fontStyle: 'normal',
-    fontWeight: '600',
-    lineHeight: '150%',
-    letterSpacing: '-0.0175rem',
-});
-
-export const inactiveBadge = style({
-    display: 'inline-flex',
-    padding: '0.375rem 0.75rem',
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: '1.875rem',
-    background: '#697077',
-    position: 'absolute',
-    top: '1rem',
-    left: '1rem',
-
-    color: '#FFFFFF',
-    fontSize: '0.875rem',
-    fontStyle: 'normal',
-    fontWeight: '600',
-    lineHeight: '150%',
-    letterSpacing: '-0.0175rem',
-});
-
-export const contentText = style({
+export const textWrapper = style({
     display: 'flex',
     flexDirection: 'column',
+    gap: '0.25rem',
 });
 
 export const contentTitle = style({
     width: '100%',
-    color: '#21272A',
-    fontSize: '1.25rem',
+    color: '#343A3F',
+    fontSize: '1.125rem',
     fontStyle: 'normal',
     fontWeight: '600',
     lineHeight: '150%',
-    letterSpacing: '-0.025rem',
+    letterSpacing: '-0.0225rem',
 });
 
-export const contentBio = style({
+export const contentText = style({
     width: '100%',
-    color: '#4D5358',
+    alignSelf: 'stretch',
+    color: '#697077',
+    fontSize: '0.875rem',
+    fontStyle: 'normal',
+    fontWeight: '500',
+    lineHeight: '150%',
+    letterSpacing: '-0.0175rem',
+});
+
+export const writerWrapper = style({
+    width: '100%',
+    display: 'flex',
+    gap: '1.5rem',
+});
+
+export const writer = style({
+    color: '#343A3F',
+    fontSize: '0.875rem',
+    fontStyle: 'normal',
+    fontWeight: '600',
+    lineHeight: '150%',
+    letterSpacing: '-0.0175rem',
+    marginLeft: '-1rem',
+});
+
+export const writtenDate = style({
+    color: '#697077',
     fontSize: '0.875rem',
     fontStyle: 'normal',
     fontWeight: '500',
