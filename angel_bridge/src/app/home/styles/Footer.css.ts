@@ -8,7 +8,7 @@ export const footer = style({
     alignItems: 'flex-start',
     alignSelf: 'stretch',
     background: '#21272A',
-    position: 'fixed',
+    // position: 'fixed',
     bottom: '0px',
 });
 
