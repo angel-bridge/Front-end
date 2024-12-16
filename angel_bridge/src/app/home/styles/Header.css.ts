@@ -40,6 +40,18 @@ export const menuTabWrapper = style({
     alignItems: 'center',
     borderRadius: '1.875rem',
     background: '#F2F4F8',
+    position: "relative",
+    zIndex: 1,
+});
+
+export const slidingBackground = style({
+    position: "absolute",
+    width: "7.5rem",
+    height: "2.25rem",
+    background: "#6C54F6",
+    borderRadius: "1.875rem",
+    transition: "transform 0.5s ease",
+    zIndex: 2,
 });
 
 export const colorMenuTab = style({
@@ -51,8 +63,9 @@ export const colorMenuTab = style({
     alignItems: 'center',
     gap: '0.25rem',
     borderRadius: '1.875rem',
-    background: '#6C54F6',
     cursor: 'pointer',
+    position: "relative",
+    zIndex: 3,
 });
 
 export const greyMenuTab = style({

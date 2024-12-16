@@ -21,10 +21,19 @@ export default function Header() {
         { id: "qna", label: "문의", colorIcon: QnAIconColor, greyIcon: QnAIconGrey },
     ];
 
+    const activeIndex = tabs.findIndex((tab) => tab.id === activeTab);
+
     return (
         <div className={styles.header}>
             <Image src={Logo} alt="MainLogo"/>
             <div className={styles.menuTabWrapper}>
+                {/* 슬라이딩 넣구싶어서...ㅎㅎ */}
+                <div
+                    className={styles.slidingBackground}
+                    style={{
+                        transform: `translateX(${activeIndex * 7.5}rem)`,
+                    }}
+                />
                 {tabs.map((tab) => (
                     <div
                         key={tab.id}
