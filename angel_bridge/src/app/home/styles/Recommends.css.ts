@@ -50,6 +50,10 @@ export const contents = style({
     flexDirection: 'column',
     alignItems: 'flex-start',
     gap: '1rem',
+    transition: 'transform 0.3s ease', // 부드러운 애니메이션 효과
+    ':hover': {
+        transform: 'translateY(-5px)', // 호버 시 5px 상단으로 이동
+    },
     cursor: 'pointer',
 });
 
