@@ -55,9 +55,10 @@ export const contents = style({
     gap: '1.25rem',
     borderRadius: '1rem',
     background: '#F6F6FB',
-    transition: 'transform 0.3s ease',
+    transition: 'transform 0.7s ease',
     ':hover': {
         transform: 'translateY(-5px)',
+        background: '#ECECF7',
     },
     cursor: 'pointer',
 });

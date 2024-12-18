@@ -51,7 +51,7 @@ export const contents = style({
     flexDirection: 'column',
     alignItems: 'flex-start',
     gap: '1rem',
-    transition: 'transform 0.3s ease',
+    transition: 'transform 0.7s ease',
     ':hover': {
         transform: 'translateY(-5px)',
     },
