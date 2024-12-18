@@ -5,7 +5,7 @@ export const header = style({
     width: '100vw',
     padding: '1rem 2.25rem',
     background: '#FFFFFF',
-    justifyContent: 'space-around',
+    justifyContent: 'space-between',
     alignItems: 'center',
     position: 'fixed',
     top: '0px',
