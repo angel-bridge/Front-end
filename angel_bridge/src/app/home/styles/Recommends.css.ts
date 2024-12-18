@@ -4,11 +4,12 @@ export const recommends = style({
     display: 'flex',
     flexDirection: 'column',
     width: '100vw',
+    maxWidth: '90rem',
     padding: '0rem 12.5rem',
     alignItems: 'flex-start',
     gap: '1rem',
     alignSelf: 'stretch',
-    marginBottom: '2.75rem',
+    margin: '0 auto 2.75rem auto',
 });
 
 export const titleWrapper = style({

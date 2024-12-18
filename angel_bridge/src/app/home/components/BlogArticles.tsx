@@ -5,7 +5,7 @@ import ProfileImage from '@/app/home/assets/ProfileImage.jpg';
 
 export default function BlogArticles() {
     return (
-        <div className={style.recommends}>
+        <div className={style.articles}>
             <div className={style.titleWrapper}>
                 <div className={style.title}>NEW! 블로그 아티클</div>
                 <div className={style.seeAll}>전체보기</div>
