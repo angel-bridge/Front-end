@@ -12,8 +12,11 @@ import QnAIconGrey from '@/app/home/assets/QnAIcon_grey.svg';
 
 import * as styles from '@/app/home/styles/Header.css';
 
+import LoginModal from './LoginModal';
+
 export default function Header() {
     const [activeTab, setActiveTab] = useState("home");
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     const tabs = [
         { id: "home", label: "홈", colorIcon: HomeIconColor, greyIcon: HomeIconGrey },
@@ -22,6 +25,14 @@ export default function Header() {
     ];
 
     const activeIndex = tabs.findIndex((tab) => tab.id === activeTab);
+
+    const handleModalOpen = () => {
+        setIsModalOpen(true);
+    };
+
+    const handleModalClose = () => {
+        setIsModalOpen(false);
+    };
 
     return (
         <div className={styles.header}>
@@ -50,9 +61,12 @@ export default function Header() {
                     </div>
                 ))}
             </div>
-            <div className={styles.loginButton}>
+            <div className={styles.loginButton} onClick={handleModalOpen}>
                 <p className={styles.buttonText}>로그인</p>
             </div>
+
+            {/* 로그인 모달 컴포넌트 */}
+            {isModalOpen && <LoginModal onClose={handleModalClose} />}
         </div>
     )
 }
