@@ -42,7 +42,7 @@ export const indicator = style({
     width: '0.5rem',
     height: '0.5rem',
     borderRadius: '1.875rem',
-    background: '#C1C7CD',
+    background: 'var(--Grayscale-200)',
     cursor: 'pointer',
     transition: 'background-color 0.7s ease',
 });
@@ -51,5 +51,5 @@ export const activeIndicator = style({
     width: '1.75rem',
     height: '0.5rem',
     borderRadius: '1.875rem',
-    background: '#6C54F6',
+    background: 'var(--Purple-400)',
 });

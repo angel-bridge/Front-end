@@ -5,6 +5,30 @@
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css");
 
 :root {
+  --Grayscale-00: #ffffff;
+  --Grayscale-50: #f2f4f8;
+  --Grayscale-100: #dde1e6;
+  --Grayscale-200: #c1c7cd;
+  --Grayscale-300: #a2a9b0;
+  --Grayscale-400: #878d96;
+  --Grayscale-500: #697077;
+  --Grayscale-600: #4d5358;
+  --Grayscale-700: #343a3f;
+  --Grayscale-800: #21272a;
+  --Grayscale-900: #121619;
+  --Grayscale-Alpha-100: #000000;
+
+  --Purple-100: #f6f6fb;
+  --Purple-200: #ececf7;
+  --Purple-300: #9e8dff;
+  --Purple-400: #6c54f6;
+  --Purple-500: #523dc7;
+
+  --Sementic-Danger: #fa2a35;
+  --Sementic-Success: #1aa174;
+  --Sementic-Alpha-Danger-100: rgba(250, 42, 53, 0.1);
+  --Sementic-Alpha-Danger-200: rgba(250, 42, 53, 0.5);
+
   --background: #ffffff;
   --foreground: #171717;
 }

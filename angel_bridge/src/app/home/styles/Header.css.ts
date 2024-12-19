@@ -4,7 +4,7 @@ export const header = style({
     display: 'flex',
     width: '100vw',
     padding: '1rem 2.25rem',
-    background: '#FFFFFF',
+    background: 'var(--Grayscale-00)',
     justifyContent: 'space-between',
     alignItems: 'center',
     position: 'fixed',
@@ -19,12 +19,12 @@ export const loginButton = style({
     justifyItems: 'center',
     alignItems: 'center',
     borderRadius: '1.875rem',
-    background: '#21272A',
+    background: 'var(--Grayscale-800)',
     cursor: 'pointer',
 });
 
 export const buttonText = style({
-    color: '#FFFFFF',
+    color: 'var(--Grayscale-00)',
     textAlign: 'center',
     fontSize: '1rem',
     fontStyle: 'normal',
@@ -39,7 +39,7 @@ export const menuTabWrapper = style({
     padding: '0.375rem 0.5rem',
     alignItems: 'center',
     borderRadius: '1.875rem',
-    background: '#F2F4F8',
+    background: 'var(--Grayscale-50)',
     position: "relative",
     zIndex: 1,
 });
@@ -48,7 +48,7 @@ export const slidingBackground = style({
     position: "absolute",
     width: "7.5rem",
     height: "2.25rem",
-    background: "#6C54F6",
+    background: "var(--Purple-400)",
     borderRadius: "1.875rem",
     transition: "transform 0.5s ease",
     zIndex: 2,
@@ -81,7 +81,7 @@ export const greyMenuTab = style({
 });
 
 export const colorTabText = style({
-    color: '#FFFFFF',
+    color: 'var(--Grayscale-00)',
     textAlign: 'center',
     fontSize: '1.125rem',
     fontStyle: 'normal',
@@ -91,7 +91,7 @@ export const colorTabText = style({
 });
 
 export const greyTabText = style({
-    color: '#697077',
+    color: 'var(--Grayscale-500)',
     textAlign: 'center',
     fontSize: '1.125rem',
     fontStyle: 'normal',

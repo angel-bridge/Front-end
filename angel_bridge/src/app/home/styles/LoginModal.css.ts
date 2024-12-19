@@ -22,7 +22,7 @@ export const loginWrapper = style({
     alignItems: 'center',
     gap: '0.625rem',
     borderRadius: '2.5rem',
-    background: '#FFFFFF',
+    background: 'var(--Grayscale-00)',
     position: 'relative',
 
     zIndex: '11',
@@ -36,7 +36,7 @@ export const closeButton = style({
     alignItems: 'center',
     gap: '0.4375rem',
     borderRadius: '1.3425rem',
-    background: '#21272A',
+    background: 'var(--Grayscale-800)',
     cursor: 'pointer',
     position: 'absolute',
     right: '1.5rem',
@@ -53,7 +53,7 @@ export const image = style({
 });
 
 export const announceText = style({
-    color: '#4D5358',
+    color: 'var(--Grayscale-600)',
     fontSize: '1.25rem',
     fontStyle: 'normal',
     fontWeight: '500',
@@ -83,7 +83,7 @@ export const loginButton = style({
 });
 
 export const loginText = style({
-    color: '#21272A',
+    color: 'var(--Grayscale-800)',
     fontSize: '1.25rem',
     fontStyle: 'normal',
     fontWeight: '600',

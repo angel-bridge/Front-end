@@ -7,7 +7,7 @@ export const footer = style({
     justifyContent: 'space-between',
     alignItems: 'flex-start',
     alignSelf: 'stretch',
-    background: '#21272A',
+    background: 'var(--Grayscale-800)',
     // position: 'fixed',
     bottom: '0px',
 });
@@ -19,7 +19,7 @@ export const buttonWrapper = style({
 });
 
 export const button = style({
-    color: '#A2A9B0',
+    color: 'var(--Grayscale-300)',
     fontSize: '1rem',
     fontStyle: 'normal',
     fontWeight: '600',

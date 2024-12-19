@@ -22,7 +22,7 @@ export const titleWrapper = style({
 });
 
 export const title = style({
-    color: '#21272A',
+    color: 'var(--Grayscale-800)',
     fontSize: '1.5rem',
     fontStyle: 'normal',
     fontWeight: '600',
@@ -31,7 +31,7 @@ export const title = style({
 });
 
 export const seeAll = style({
-    color: '#4D5358',
+    color: 'var(--Grayscale-600)',
     fontSize: '1rem',
     fontStyle: 'normal',
     fontWeight: '500',
@@ -54,11 +54,11 @@ export const contents = style({
     alignItems: 'flex-start',
     gap: '1.25rem',
     borderRadius: '1rem',
-    background: '#F6F6FB',
+    background: 'var(--Purple-100)',
     transition: 'transform 0.7s ease',
     ':hover': {
         transform: 'translateY(-5px)',
-        background: '#ECECF7',
+        background: 'var(--Purple-200)',
     },
     cursor: 'pointer',
 });
@@ -71,7 +71,7 @@ export const textWrapper = style({
 
 export const contentTitle = style({
     width: '100%',
-    color: '#343A3F',
+    color: 'var(--Grayscale-700)',
     fontSize: '1.125rem',
     fontStyle: 'normal',
     fontWeight: '600',
@@ -82,7 +82,7 @@ export const contentTitle = style({
 export const contentText = style({
     width: '100%',
     alignSelf: 'stretch',
-    color: '#697077',
+    color: 'var(--Grayscale-500)',
     fontSize: '0.875rem',
     fontStyle: 'normal',
     fontWeight: '500',
@@ -97,7 +97,7 @@ export const writerWrapper = style({
 });
 
 export const writer = style({
-    color: '#343A3F',
+    color: 'var(--Grayscale-700)',
     fontSize: '0.875rem',
     fontStyle: 'normal',
     fontWeight: '600',
@@ -107,7 +107,7 @@ export const writer = style({
 });
 
 export const writtenDate = style({
-    color: '#697077',
+    color: 'var(--Grayscale-500)',
     fontSize: '0.875rem',
     fontStyle: 'normal',
     fontWeight: '500',

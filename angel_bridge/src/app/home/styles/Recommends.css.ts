@@ -21,7 +21,7 @@ export const titleWrapper = style({
 });
 
 export const title = style({
-    color: '#21272A',
+    color: 'var(--Grayscale-800)',
     fontSize: '1.5rem',
     fontStyle: 'normal',
     fontWeight: '600',
@@ -30,7 +30,7 @@ export const title = style({
 });
 
 export const seeAll = style({
-    color: '#4D5358',
+    color: 'var(--Grayscale-600)',
     fontSize: '1rem',
     fontStyle: 'normal',
     fontWeight: '500',
@@ -72,12 +72,12 @@ export const activeBadge = style({
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: '1.875rem',
-    background: '#6C54F6',
+    background: 'var(--Purple-400)',
     position: 'absolute',
     top: '1rem',
     left: '1rem',
 
-    color: '#FFFFFF',
+    color: 'var(--Grayscale-00)',
     fontSize: '0.875rem',
     fontStyle: 'normal',
     fontWeight: '600',
@@ -91,12 +91,12 @@ export const inactiveBadge = style({
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: '1.875rem',
-    background: '#697077',
+    background: 'var(--Grayscale-500)',
     position: 'absolute',
     top: '1rem',
     left: '1rem',
 
-    color: '#FFFFFF',
+    color: 'var(--Grayscale-00)',
     fontSize: '0.875rem',
     fontStyle: 'normal',
     fontWeight: '600',
@@ -111,7 +111,7 @@ export const contentText = style({
 
 export const contentTitle = style({
     width: '100%',
-    color: '#21272A',
+    color: 'var(Grayscale-800)',
     fontSize: '1.25rem',
     fontStyle: 'normal',
     fontWeight: '600',
@@ -121,7 +121,7 @@ export const contentTitle = style({
 
 export const contentBio = style({
     width: '100%',
-    color: '#4D5358',
+    color: 'var(--Grayscale-600)',
     fontSize: '0.875rem',
     fontStyle: 'normal',
     fontWeight: '500',
