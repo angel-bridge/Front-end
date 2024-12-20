@@ -1,4 +1,4 @@
-import { globalStyle } from "@vanilla-extract/css";
+import { globalStyle, globalFontFace } from "@vanilla-extract/css";
 
 globalStyle("*, *::before, *::after", {
   margin: 0,
@@ -6,12 +6,15 @@ globalStyle("*, *::before, *::after", {
   boxSizing: "border-box",
 });
 
+globalFontFace("Pretendard-Regular", {
+  src: "url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff')",
+  fontWeight: 400,
+  fontStyle: "normal",
+});
+
 globalStyle("html, body", {
-  fontFamily: "Arial, sans-serif",
+  fontFamily: "Pretendard-Regular, sans-serif",
   lineHeight: 1.5,
-  color: "#333",
-  backgroundColor: "#f9f9f9",
-  height: "100%",
 });
 
 globalStyle("a", {

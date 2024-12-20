@@ -1,4 +1,9 @@
-import { createTheme, createThemeContract } from "@vanilla-extract/css";
+import {
+  createTheme,
+  createThemeContract,
+  globalFontFace,
+  style,
+} from "@vanilla-extract/css";
 
 const grayColors = createThemeContract({
   grayscale00: null,
@@ -68,4 +73,240 @@ const groundColors = createThemeContract({
 export const ground = createTheme(groundColors, {
   background: "#ffffff",
   foreground: "#171717",
+});
+
+// 여기서부터 font입니다다
+globalFontFace("Pretendard", {
+  src: "url('https://cdn.jsdelivr.net/gh/fonts-archive/Pretendard/Pretendard-Bold.woff2') format('woff2')",
+  fontWeight: "700",
+  fontStyle: "normal",
+});
+
+globalFontFace("Pretendard", {
+  src: "url('https://cdn.jsdelivr.net/gh/fonts-archive/Pretendard/Pretendard-SemiBold.woff2') format('woff2')",
+  fontWeight: "600",
+  fontStyle: "normal",
+});
+
+globalFontFace("Pretendard", {
+  src: "url('https://cdn.jsdelivr.net/gh/fonts-archive/Pretendard/Pretendard-Medium.woff2') format('woff2')",
+  fontWeight: "500",
+  fontStyle: "normal",
+});
+
+globalFontFace("Pretendard", {
+  src: "url('https://cdn.jsdelivr.net/gh/fonts-archive/Pretendard/Pretendard-Regular.woff2') format('woff2')",
+  fontWeight: "400",
+  fontStyle: "normal",
+});
+
+globalFontFace("Pretendard", {
+  src: "url('https://cdn.jsdelivr.net/gh/fonts-archive/Pretendard/Pretendard-Light.woff2') format('woff2')",
+  fontWeight: "300",
+  fontStyle: "normal",
+});
+
+const typographys = createThemeContract({
+  fontFamily: null,
+  fontWeightBold: null,
+  fontWeightSemiBold: null,
+  fontWeightMedium: null,
+  fontWeightRegular: null,
+  fontWeightLight: null,
+});
+
+export const pretendardTheme = createTheme(typographys, {
+  fontFamily: "'Pretendard', sans-serif",
+  fontWeightBold: "700",
+  fontWeightSemiBold: "600",
+  fontWeightMedium: "500",
+  fontWeightRegular: "400",
+  fontWeightLight: "300",
+});
+
+export const heading48B = style({
+  fontFamily: typographys.fontFamily,
+  fontWeight: typographys.fontWeightBold,
+  fontSize: "48px",
+  lineHeight: "150%",
+  letterSpacing: "-2%",
+});
+
+export const heading40B = style({
+  fontFamily: typographys.fontFamily,
+  fontWeight: typographys.fontWeightBold,
+  fontSize: "40px",
+  lineHeight: "150%",
+  letterSpacing: "-2%",
+});
+export const heading32B = style({
+  fontFamily: typographys.fontFamily,
+  fontWeight: typographys.fontWeightBold,
+  fontSize: "32px",
+  lineHeight: "150%",
+  letterSpacing: "-2%",
+});
+export const heading28B = style({
+  fontFamily: typographys.fontFamily,
+  fontWeight: typographys.fontWeightBold,
+  fontSize: "28px",
+  lineHeight: "150%",
+  letterSpacing: "-2%",
+});
+export const title32SB = style({
+  fontFamily: typographys.fontFamily,
+  fontWeight: typographys.fontWeightSemiBold,
+  fontSize: "32px",
+  lineHeight: "150%",
+  letterSpacing: "-2%",
+});
+
+export const title28SB = style({
+  fontFamily: typographys.fontFamily,
+  fontWeight: typographys.fontWeightSemiBold,
+  fontSize: "28px",
+  lineHeight: "150%",
+  letterSpacing: "-2%",
+});
+
+export const title24SB = style({
+  fontFamily: typographys.fontFamily,
+  fontWeight: typographys.fontWeightSemiBold,
+  fontSize: "24px",
+  lineHeight: "150%",
+  letterSpacing: "-2%",
+});
+
+export const title20SB = style({
+  fontFamily: typographys.fontFamily,
+  fontWeight: typographys.fontWeightSemiBold,
+  fontSize: "20px",
+  lineHeight: "150%",
+  letterSpacing: "-2%",
+});
+
+export const title18SB = style({
+  fontFamily: typographys.fontFamily,
+  fontWeight: typographys.fontWeightSemiBold,
+  fontSize: "18px",
+  lineHeight: "150%",
+  letterSpacing: "-2%",
+});
+
+export const title16SB = style({
+  fontFamily: typographys.fontFamily,
+  fontWeight: typographys.fontWeightSemiBold,
+  fontSize: "16px",
+  lineHeight: "150%",
+  letterSpacing: "-2%",
+});
+
+export const subTitle24M = style({
+  fontFamily: typographys.fontFamily,
+  fontWeight: typographys.fontWeightSemiBold,
+  fontSize: "24px",
+  lineHeight: "150%",
+  letterSpacing: "-2%",
+});
+
+export const subTitle20M = style({
+  fontFamily: typographys.fontFamily,
+  fontWeight: typographys.fontWeightMedium,
+  fontSize: "20px",
+  lineHeight: "150%",
+  letterSpacing: "-2%",
+});
+
+export const subTitle16M = style({
+  fontFamily: typographys.fontFamily,
+  fontWeight: typographys.fontWeightMedium,
+  fontSize: "16px",
+  lineHeight: "150%",
+  letterSpacing: "-2%",
+});
+
+export const body20M = style({
+  fontFamily: typographys.fontFamily,
+  fontWeight: typographys.fontWeightMedium,
+  fontSize: "20px",
+  lineHeight: "150%",
+  letterSpacing: "-2%",
+});
+
+export const body18M = style({
+  fontFamily: typographys.fontFamily,
+  fontWeight: typographys.fontWeightMedium,
+  fontSize: "18px",
+  lineHeight: "150%",
+  letterSpacing: "-2%",
+});
+
+export const body16SB = style({
+  fontFamily: typographys.fontFamily,
+  fontWeight: typographys.fontWeightSemiBold,
+  fontSize: "16px",
+  lineHeight: "150%",
+  letterSpacing: "-2%",
+});
+
+export const body16M = style({
+  fontFamily: typographys.fontFamily,
+  fontWeight: typographys.fontWeightMedium,
+  fontSize: "16px",
+  lineHeight: "150%",
+  letterSpacing: "-2%",
+});
+
+export const body16R = style({
+  fontFamily: typographys.fontFamily,
+  fontWeight: typographys.fontWeightRegular,
+  fontSize: "16px",
+  lineHeight: "150%",
+  letterSpacing: "-2%",
+});
+
+export const body14M = style({
+  fontFamily: typographys.fontFamily,
+  fontWeight: typographys.fontWeightMedium,
+  fontSize: "14px",
+  lineHeight: "150%",
+  letterSpacing: "-2%",
+});
+
+export const body14R = style({
+  fontFamily: typographys.fontFamily,
+  fontWeight: typographys.fontWeightRegular,
+  fontSize: "14px",
+  lineHeight: "150%",
+  letterSpacing: "-2%",
+});
+
+export const label16SB = style({
+  fontFamily: typographys.fontFamily,
+  fontWeight: typographys.fontWeightSemiBold,
+  fontSize: "16px",
+  lineHeight: "150%",
+  letterSpacing: "-2%",
+});
+
+export const label16M = style({
+  fontFamily: typographys.fontFamily,
+  fontWeight: typographys.fontWeightMedium,
+  fontSize: "16px",
+  lineHeight: "150%",
+  letterSpacing: "-2%",
+});
+export const label14SB = style({
+  fontFamily: typographys.fontFamily,
+  fontWeight: typographys.fontWeightSemiBold,
+  fontSize: "14px",
+  lineHeight: "150%",
+  letterSpacing: "-2%",
+});
+export const label14M = style({
+  fontFamily: typographys.fontFamily,
+  fontWeight: typographys.fontWeightMedium,
+  fontSize: "14px",
+  lineHeight: "150%",
+  letterSpacing: "-2%",
 });
