@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "format": "prettier --check --ignore-path .gitignore .",
+    "format:fix": "prettier --write --ignore-path .gitignore ."
   },
   "dependencies": {
     "@tanstack/react-query": "^5.60.5",
@@ -14,7 +16,9 @@
     "@tanstack/react-query-next-experimental": "^5.62.8",
     "@vanilla-extract/integration": "^7.1.10",
     "axios": "^1.7.7",
+    "eslint-config-prettier": "^9.1.0",
     "next": "15.0.3",
+    "prettier": "^3.4.2",
     "react": "19.0.0-rc-66855b96-20241106",
     "react-dom": "19.0.0-rc-66855b96-20241106",
     "zustand": "^5.0.1"
