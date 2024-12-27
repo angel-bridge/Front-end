@@ -1,7 +1,7 @@
 import * as style from '@/app/home/styles/Recommends.css';
 
 import Image from 'next/image';
-import Thumbnail from '@/app/home/assets/Program_thumbnail.jpg';
+import Thumbnail from '@/app/home/assets/dummyImage.png';
 
 export default function Recommends() {
     return (
