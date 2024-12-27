@@ -17,7 +17,7 @@ export const grayColors = createThemeContract({
   grayscale700: null,
   grayscale800: null,
   grayscale900: null,
-  grayscaleAlpha: '',
+  grayscaleAlpha: null,
 })
 
 export const grayScale = createTheme(grayColors, {
@@ -35,7 +35,7 @@ export const grayScale = createTheme(grayColors, {
   grayscaleAlpha: '#000000',
 })
 
-const purpleColors = createThemeContract({
+export const purpleColors = createThemeContract({
   purple100: null,
   purple200: null,
   purple300: null,
@@ -51,7 +51,7 @@ export const purple = createTheme(purpleColors, {
   purple500: '#523dc7',
 })
 
-const sementicColors = createThemeContract({
+export const sementicColors = createThemeContract({
   sementicDanger: null,
   sementicSuccess: null,
   sementicAlphaDanger100: null,
@@ -127,7 +127,7 @@ export const pretendardTheme = createTheme(typographys, {
 export const heading48B = style({
   fontFamily: typographys.fontFamily,
   fontWeight: typographys.fontWeightBold,
-  fontSize: '48px',
+  fontSize: '4.8rem',
   lineHeight: '150%',
   letterSpacing: '-2%',
 })
@@ -135,28 +135,28 @@ export const heading48B = style({
 export const heading40B = style({
   fontFamily: typographys.fontFamily,
   fontWeight: typographys.fontWeightBold,
-  fontSize: '40px',
+  fontSize: '4.0rem',
   lineHeight: '150%',
   letterSpacing: '-2%',
 })
 export const heading32B = style({
   fontFamily: typographys.fontFamily,
   fontWeight: typographys.fontWeightBold,
-  fontSize: '32px',
+  fontSize: '3.2rem',
   lineHeight: '150%',
   letterSpacing: '-2%',
 })
 export const heading28B = style({
   fontFamily: typographys.fontFamily,
   fontWeight: typographys.fontWeightBold,
-  fontSize: '28px',
+  fontSize: '2.8rem',
   lineHeight: '150%',
   letterSpacing: '-2%',
 })
 export const title32SB = style({
   fontFamily: typographys.fontFamily,
   fontWeight: typographys.fontWeightSemiBold,
-  fontSize: '32px',
+  fontSize: '3.2rem',
   lineHeight: '150%',
   letterSpacing: '-2%',
 })
@@ -164,7 +164,7 @@ export const title32SB = style({
 export const title28SB = style({
   fontFamily: typographys.fontFamily,
   fontWeight: typographys.fontWeightSemiBold,
-  fontSize: '28px',
+  fontSize: '2.8rem',
   lineHeight: '150%',
   letterSpacing: '-2%',
 })
@@ -172,7 +172,7 @@ export const title28SB = style({
 export const title24SB = style({
   fontFamily: typographys.fontFamily,
   fontWeight: typographys.fontWeightSemiBold,
-  fontSize: '24px',
+  fontSize: '2.4rem',
   lineHeight: '150%',
   letterSpacing: '-2%',
 })
@@ -180,7 +180,7 @@ export const title24SB = style({
 export const title20SB = style({
   fontFamily: typographys.fontFamily,
   fontWeight: typographys.fontWeightSemiBold,
-  fontSize: '20px',
+  fontSize: '2.0rem',
   lineHeight: '150%',
   letterSpacing: '-2%',
 })
@@ -188,7 +188,7 @@ export const title20SB = style({
 export const title18SB = style({
   fontFamily: typographys.fontFamily,
   fontWeight: typographys.fontWeightSemiBold,
-  fontSize: '18px',
+  fontSize: '1.8rem',
   lineHeight: '150%',
   letterSpacing: '-2%',
 })
@@ -196,7 +196,7 @@ export const title18SB = style({
 export const title16SB = style({
   fontFamily: typographys.fontFamily,
   fontWeight: typographys.fontWeightSemiBold,
-  fontSize: '16px',
+  fontSize: '1.6rem',
   lineHeight: '150%',
   letterSpacing: '-2%',
 })
@@ -204,7 +204,7 @@ export const title16SB = style({
 export const subTitle24M = style({
   fontFamily: typographys.fontFamily,
   fontWeight: typographys.fontWeightSemiBold,
-  fontSize: '24px',
+  fontSize: '2.4rem',
   lineHeight: '150%',
   letterSpacing: '-2%',
 })
@@ -212,7 +212,7 @@ export const subTitle24M = style({
 export const subTitle20M = style({
   fontFamily: typographys.fontFamily,
   fontWeight: typographys.fontWeightMedium,
-  fontSize: '20px',
+  fontSize: '2.0rem',
   lineHeight: '150%',
   letterSpacing: '-2%',
 })
@@ -220,7 +220,7 @@ export const subTitle20M = style({
 export const subTitle16M = style({
   fontFamily: typographys.fontFamily,
   fontWeight: typographys.fontWeightMedium,
-  fontSize: '16px',
+  fontSize: '1.6rem',
   lineHeight: '150%',
   letterSpacing: '-2%',
 })
@@ -228,7 +228,7 @@ export const subTitle16M = style({
 export const body20M = style({
   fontFamily: typographys.fontFamily,
   fontWeight: typographys.fontWeightMedium,
-  fontSize: '20px',
+  fontSize: '2.0rem',
   lineHeight: '150%',
   letterSpacing: '-2%',
 })
@@ -236,7 +236,7 @@ export const body20M = style({
 export const body18M = style({
   fontFamily: typographys.fontFamily,
   fontWeight: typographys.fontWeightMedium,
-  fontSize: '18px',
+  fontSize: '1.8rem',
   lineHeight: '150%',
   letterSpacing: '-2%',
 })
@@ -244,7 +244,7 @@ export const body18M = style({
 export const body16SB = style({
   fontFamily: typographys.fontFamily,
   fontWeight: typographys.fontWeightSemiBold,
-  fontSize: '16px',
+  fontSize: '1.6rem',
   lineHeight: '150%',
   letterSpacing: '-2%',
 })
@@ -252,7 +252,7 @@ export const body16SB = style({
 export const body16M = style({
   fontFamily: typographys.fontFamily,
   fontWeight: typographys.fontWeightMedium,
-  fontSize: '16px',
+  fontSize: '1.6rem',
   lineHeight: '150%',
   letterSpacing: '-2%',
 })
@@ -260,7 +260,7 @@ export const body16M = style({
 export const body16R = style({
   fontFamily: typographys.fontFamily,
   fontWeight: typographys.fontWeightRegular,
-  fontSize: '16px',
+  fontSize: '1.6rem',
   lineHeight: '150%',
   letterSpacing: '-2%',
 })
@@ -268,7 +268,7 @@ export const body16R = style({
 export const body14M = style({
   fontFamily: typographys.fontFamily,
   fontWeight: typographys.fontWeightMedium,
-  fontSize: '14px',
+  fontSize: '1.4rem',
   lineHeight: '150%',
   letterSpacing: '-2%',
 })
@@ -276,7 +276,7 @@ export const body14M = style({
 export const body14R = style({
   fontFamily: typographys.fontFamily,
   fontWeight: typographys.fontWeightRegular,
-  fontSize: '14px',
+  fontSize: '1.4rem',
   lineHeight: '150%',
   letterSpacing: '-2%',
 })
@@ -284,7 +284,7 @@ export const body14R = style({
 export const label16SB = style({
   fontFamily: typographys.fontFamily,
   fontWeight: typographys.fontWeightSemiBold,
-  fontSize: '16px',
+  fontSize: '1.6rem',
   lineHeight: '150%',
   letterSpacing: '-2%',
 })
@@ -292,21 +292,21 @@ export const label16SB = style({
 export const label16M = style({
   fontFamily: typographys.fontFamily,
   fontWeight: typographys.fontWeightMedium,
-  fontSize: '16px',
+  fontSize: '1.6rem',
   lineHeight: '150%',
   letterSpacing: '-2%',
 })
 export const label14SB = style({
   fontFamily: typographys.fontFamily,
   fontWeight: typographys.fontWeightSemiBold,
-  fontSize: '14px',
+  fontSize: '1.4rem',
   lineHeight: '150%',
   letterSpacing: '-2%',
 })
 export const label14M = style({
   fontFamily: typographys.fontFamily,
   fontWeight: typographys.fontWeightMedium,
-  fontSize: '14px',
+  fontSize: '1.4rem',
   lineHeight: '150%',
   letterSpacing: '-2%',
 })
