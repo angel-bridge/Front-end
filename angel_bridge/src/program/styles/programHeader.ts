@@ -1,22 +1,5 @@
 import { style } from '@vanilla-extract/css'
-import { grayColors, subTitle16M, title16SB } from 'style/theme.css'
-
-export const recruteBtn = style([
-  title16SB,
-  {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-
-    width: '12rem',
-    height: '4.8rem',
-
-    borderRadius: '12px',
-
-    backgroundColor: grayColors.grayscale50,
-    color: grayColors.grayscale500,
-  },
-])
+import { grayColors, subTitle16M } from 'style/theme.css'
 
 export const search = style([
   subTitle16M,
@@ -33,6 +16,8 @@ export const search = style([
     border: '2px solid grayColors.grayscale50',
     backgroundColor: grayColors.grayscale00,
 
-    '::placeholder': {},
+    '::placeholder': {
+      color: grayColors.grayscale400,
+    },
   },
 ])
