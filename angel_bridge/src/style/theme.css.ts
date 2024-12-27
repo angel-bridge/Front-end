@@ -5,7 +5,7 @@ import {
   style,
 } from '@vanilla-extract/css'
 
-const grayColors = createThemeContract({
+export const grayColors = createThemeContract({
   grayscale00: null,
   grayscale50: null,
   grayscale100: null,
@@ -35,7 +35,7 @@ export const grayScale = createTheme(grayColors, {
   grayscaleAlpha: '#000000',
 })
 
-const purpleColors = createThemeContract({
+export const purpleColors = createThemeContract({
   purple100: null,
   purple200: null,
   purple300: null,
@@ -51,7 +51,7 @@ export const purple = createTheme(purpleColors, {
   purple500: '#523dc7',
 })
 
-const sementicColors = createThemeContract({
+export const sementicColors = createThemeContract({
   sementicDanger: null,
   sementicSuccess: null,
   sementicAlphaDanger100: null,
