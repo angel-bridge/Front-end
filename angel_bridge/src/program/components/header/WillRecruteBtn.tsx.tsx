@@ -1,5 +1,5 @@
-import React from 'react'
+import { graybutton } from 'style/common/button.css'
 
 export default function WillRecruteBtn() {
-  return <button>모집 예정</button>
+  return <button className={graybutton}>모집 예정</button>
 }
