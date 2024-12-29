@@ -13,6 +13,7 @@ import QnAIconGrey from '@/app/home/assets/QnAIcon_grey.svg';
 import * as styles from '@/app/home/styles/Header.css';
 
 import LoginModal from './LoginModal';
+import SignupModal from './SignupModal';
 
 export default function Header() {
     const [activeTab, setActiveTab] = useState("home");
@@ -67,6 +68,8 @@ export default function Header() {
 
             {/* 로그인 모달 컴포넌트 */}
             {isModalOpen && <LoginModal onClose={handleModalClose} />}
+            {/* 세부 정보 입력 모달 컴포넌트 */}
+            {/* {isModalOpen && <SignupModal onClose={handleModalClose} />} */}
         </div>
     )
 }
