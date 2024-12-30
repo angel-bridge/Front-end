@@ -1,4 +1,4 @@
-import Info from 'mypage/memberInfo/components/Info'
+import Info from '@/mypage/memberInfo/components/Info'
 import React from 'react'
 
 export default function page() {

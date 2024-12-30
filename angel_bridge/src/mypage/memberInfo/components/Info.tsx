@@ -2,11 +2,12 @@ import React from 'react'
 import Button from './Button'
 import { INFO_LIST, MYPAGE_BTN_LIST } from '../core/info'
 import InputWithTag from './InputWithTag'
+import { button_container } from '../styles/button.css'
 
 export default function Info() {
   return (
     <div>
-      <div>
+      <div className={button_container}>
         {MYPAGE_BTN_LIST.map((text) => {
           return <Button text={text} key={text} />
         })}

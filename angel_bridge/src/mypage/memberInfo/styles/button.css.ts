@@ -1,16 +1,23 @@
+import { title24SB, vars } from '@/style/theme.css'
 import { style } from '@vanilla-extract/css'
-import { grayColors, title24SB } from 'style/theme.css'
 
 export const buttonblack = style([
   title24SB,
   {
-    color: grayColors.grayscale800,
+    color: vars.grayScale.grayscale800,
   },
 ])
 
 export const buttongray = style([
   title24SB,
   {
-    color: grayColors.grayscale300,
+    color: vars.grayScale.grayscale300,
   },
 ])
+
+export const button_container = style({
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  gap: '2.4rem',
+})
