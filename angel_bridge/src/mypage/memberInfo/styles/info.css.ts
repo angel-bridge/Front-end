@@ -1,7 +1,11 @@
 import { label14M, vars } from '@/style/theme.css'
 import { style } from '@vanilla-extract/css'
 
-export const container = style({})
+export const container = style({
+  backgroundColor: 'blue',
+
+  height: '100vh',
+})
 
 export const label = style([
   label14M,
@@ -12,3 +16,14 @@ export const label = style([
     margin: 0,
   },
 ])
+
+export const Info_container = style({
+  display: 'flex',
+
+  justifyContent: 'space-between',
+  alignItems: 'stretch',
+  width: '104rem',
+  height: '23.8rem',
+
+  flexWrap: 'wrap',
+})

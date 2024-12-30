@@ -3,7 +3,8 @@ import Button from './Button'
 import { INFO_LIST, MYPAGE_BTN_LIST } from '../core/info'
 import InputWithTag from './InputWithTag'
 import { button_container } from '../styles/button.css'
-import { container } from '../styles/info.css'
+import { container, Info_container } from '../styles/info.css'
+import Photo from './Photo'
 
 export default function Info() {
   return (
@@ -13,7 +14,8 @@ export default function Info() {
           return <Button text={text} key={text} />
         })}
       </div>
-      <div>
+      <Photo />
+      <div className={Info_container}>
         {INFO_LIST.map((data) => {
           const { info, infodetail } = data
           return <InputWithTag info={info} infodetail={infodetail} key={info} />
