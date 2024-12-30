@@ -7,13 +7,13 @@ export default function Recommends() {
     return (
         <div className={style.recommends}>
             <div className={style.titleWrapper}>
-                <div className={style.title}>추천 프로그램</div>
-                <div className={style.seeAll}>전체보기</div>
+                <p className={style.title}>추천 프로그램</p>
+                <p className={style.seeAll}>전체보기</p>
             </div>
             <div className={style.contentsWrapper}>
                 <div className={style.contents}>
                     <div className={style.contentImage}>
-                        <div className={style.activeBadge}>모집중</div>
+                        <p className={style.activeBadge}>모집중</p>
                         <Image
                                 src={Thumbnail}
                                 alt="Program Thumbnail"
@@ -26,13 +26,13 @@ export default function Recommends() {
                         />
                     </div>
                     <div className={style.contentText}>
-                        <div className={style.contentTitle}>예비창업패키지 2주 완성</div>
-                        <div className={style.contentBio}>프로그램 한줄 소개를 작성해 주세요. 두줄은 곤란해요.</div>
+                        <p className={style.contentTitle}>예비창업패키지 2주 완성</p>
+                        <p className={style.contentBio}>프로그램 한줄 소개를 작성해 주세요. 두줄은 곤란해요.</p>
                     </div>
                 </div>
                 <div className={style.contents}>
                     <div className={style.contentImage}>
-                        <div className={style.inactiveBadge}>모집예정</div>
+                        <p className={style.inactiveBadge}>모집예정</p>
                         <Image
                                 src={Thumbnail}
                                 alt="Program Thumbnail"
@@ -45,13 +45,13 @@ export default function Recommends() {
                             />
                     </div>
                     <div className={style.contentText}>
-                        <div className={style.contentTitle}>예비창업패키지 2주 완성</div>
-                        <div className={style.contentBio}>프로그램 한줄 소개를 작성해 주세요. 두줄은 곤란해요.</div>
+                        <p className={style.contentTitle}>예비창업패키지 2주 완성</p>
+                        <p className={style.contentBio}>프로그램 한줄 소개를 작성해 주세요. 두줄은 곤란해요.</p>
                     </div>
                 </div>
                 <div className={style.contents}>
                     <div className={style.contentImage}>
-                        <div className={style.inactiveBadge}>모집예정</div>
+                        <p className={style.inactiveBadge}>모집예정</p>
                         <Image
                                 src={Thumbnail}
                                 alt="Program Thumbnail"
@@ -64,8 +64,8 @@ export default function Recommends() {
                             />
                     </div>
                     <div className={style.contentText}>
-                        <div className={style.contentTitle}>예비창업패키지 2주 완성</div>
-                        <div className={style.contentBio}>프로그램 한줄 소개를 작성해 주세요. 두줄은 곤란해요.</div>
+                        <p className={style.contentTitle}>예비창업패키지 2주 완성</p>
+                        <p className={style.contentBio}>프로그램 한줄 소개를 작성해 주세요. 두줄은 곤란해요.</p>
                     </div>
                 </div>
             </div>

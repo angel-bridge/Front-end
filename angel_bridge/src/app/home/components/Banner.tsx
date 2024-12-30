@@ -81,8 +81,8 @@ export default function Banner() {
                         key={index}
                         className={`${style.indicator} ${
                             index + 1 === (currentIndex === 0 ? images.length : currentIndex > images.length ? 1 : currentIndex)
-                            ? style.activeIndicator
-                            : ""
+                            && style.activeIndicator
+                            
                         }`}
                         onClick={() => selectSlide(index)}
                     />

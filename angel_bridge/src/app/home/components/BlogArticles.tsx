@@ -7,18 +7,18 @@ export default function BlogArticles() {
     return (
         <div className={style.articles}>
             <div className={style.titleWrapper}>
-                <div className={style.title}>NEW! 블로그 아티클</div>
-                <div className={style.seeAll}>전체보기</div>
+                <p className={style.title}>NEW! 블로그 아티클</p>
+                <p className={style.seeAll}>전체보기</p>
             </div>
             <div className={style.contentsWrapper}>
                 <div className={style.contents}>
                     <div className={style.textWrapper}>
-                        <div className={style.contentTitle}>
+                        <p className={style.contentTitle}>
                         [안 읽으면 손해!] 2025 스타트업 지원 사업 총정리
-                        </div>
-                        <div className={style.contentText}>
+                        </p>
+                        <p className={style.contentText}>
                         블로그 첫 시작 문구를 가져와 주세요 두줄정도가 적당할 것 같다고 생각 중이에요 블로그 첫 시작 문구를 가져와 주세요 두줄정도가 적당할 것 같다고 생각 중이에요 
-                        </div>
+                        </p>
                     </div>
                     <div className={style.writerWrapper}>
                         <Image
@@ -31,18 +31,18 @@ export default function BlogArticles() {
                                 borderRadius: '1.5rem',
                             }}
                             />
-                        <div className={style.writer}>엔젤브릿지</div>
-                        <div className={style.writtenDate}>2024. 12. 16</div>
+                        <p className={style.writer}>엔젤브릿지</p>
+                        <p className={style.writtenDate}>2024. 12. 16</p>
                     </div>
                 </div>
                 <div className={style.contents}>
                     <div className={style.textWrapper}>
-                        <div className={style.contentTitle}>
+                        <p className={style.contentTitle}>
                         [안 읽으면 손해!] 2025 스타트업 지원 사업 총정리
-                        </div>
-                        <div className={style.contentText}>
+                        </p>
+                        <p className={style.contentText}>
                         블로그 첫 시작 문구를 가져와 주세요 두줄정도가 적당할 것 같다고 생각 중이에요 블로그 첫 시작 문구를 가져와 주세요 두줄정도가 적당할 것 같다고 생각 중이에요 
-                        </div>
+                        </p>
                     </div>
                     <div className={style.writerWrapper}>
                         <Image
@@ -55,8 +55,8 @@ export default function BlogArticles() {
                                 borderRadius: '1.5rem',
                             }}
                             />
-                        <div className={style.writer}>엔젤브릿지</div>
-                        <div className={style.writtenDate}>2024. 12. 16</div>
+                        <p className={style.writer}>엔젤브릿지</p>
+                        <p className={style.writtenDate}>2024. 12. 16</p>
                     </div>
                 </div>
             </div>

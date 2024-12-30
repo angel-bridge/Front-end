@@ -12,6 +12,11 @@ export const footer = style({
     bottom: '0px',
 });
 
+export const logoWrapper = style({
+    display: 'flex',
+    gap: '0.5rem',
+});
+
 export const buttonWrapper = style({
     display: 'flex',
     alignItems: 'flex-start',
