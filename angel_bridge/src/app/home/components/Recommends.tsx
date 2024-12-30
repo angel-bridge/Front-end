@@ -1,7 +1,26 @@
 import * as style from '@/app/home/styles/Recommends.css';
+import ProgramCard from '@/components/common/ProgramCard';
 
-import Image from 'next/image';
-import Thumbnail from '@/app/home/assets/dummyImage.png';
+const programsDummyData = [
+    {
+        badgeText: '모집중',
+        badgeType: 'active',
+        title: '예비창업패키지 2주 완성',
+        bio: '프로그램 한줄 소개를 작성해 주세요. 두줄은 곤란해요.',
+    },
+    {
+        badgeText: '모집예정',
+        badgeType: 'inactive',
+        title: '예비창업패키지 2주 완성',
+        bio: '프로그램 한줄 소개를 작성해 주세요. 두줄은 곤란해요.',
+    },
+    {
+        badgeText: '모집예정',
+        badgeType: 'inactive',
+        title: '예비창업패키지 2주 완성',
+        bio: '프로그램 한줄 소개를 작성해 주세요. 두줄은 곤란해요.',
+    },
+];
 
 export default function Recommends() {
     return (
@@ -11,63 +30,15 @@ export default function Recommends() {
                 <p className={style.seeAll}>전체보기</p>
             </div>
             <div className={style.contentsWrapper}>
-                <div className={style.contents}>
-                    <div className={style.contentImage}>
-                        <p className={style.activeBadge}>모집중</p>
-                        <Image
-                                src={Thumbnail}
-                                alt="Program Thumbnail"
-                                width={330}
-                                height={180}
-                                style={{
-                                    objectFit: 'cover',
-                                    borderRadius: '1.5rem',
-                                }}
-                        />
-                    </div>
-                    <div className={style.contentText}>
-                        <p className={style.contentTitle}>예비창업패키지 2주 완성</p>
-                        <p className={style.contentBio}>프로그램 한줄 소개를 작성해 주세요. 두줄은 곤란해요.</p>
-                    </div>
-                </div>
-                <div className={style.contents}>
-                    <div className={style.contentImage}>
-                        <p className={style.inactiveBadge}>모집예정</p>
-                        <Image
-                                src={Thumbnail}
-                                alt="Program Thumbnail"
-                                width={330}
-                                height={180}
-                                style={{
-                                    objectFit: 'cover',
-                                    borderRadius: '1.5rem',
-                                }}
-                            />
-                    </div>
-                    <div className={style.contentText}>
-                        <p className={style.contentTitle}>예비창업패키지 2주 완성</p>
-                        <p className={style.contentBio}>프로그램 한줄 소개를 작성해 주세요. 두줄은 곤란해요.</p>
-                    </div>
-                </div>
-                <div className={style.contents}>
-                    <div className={style.contentImage}>
-                        <p className={style.inactiveBadge}>모집예정</p>
-                        <Image
-                                src={Thumbnail}
-                                alt="Program Thumbnail"
-                                width={330}
-                                height={180}
-                                style={{
-                                    objectFit: 'cover',
-                                    borderRadius: '1.5rem',
-                                }}
-                            />
-                    </div>
-                    <div className={style.contentText}>
-                        <p className={style.contentTitle}>예비창업패키지 2주 완성</p>
-                        <p className={style.contentBio}>프로그램 한줄 소개를 작성해 주세요. 두줄은 곤란해요.</p>
-                    </div>
-                </div>
+                {programsDummyData.map((program, index) => (
+                    <ProgramCard
+                        key={index}
+                        badgeText={program.badgeText}
+                        badgeType={program.badgeType}
+                        title={program.title}
+                        bio={program.bio}
+                    />
+                ))}
             </div>
         </div>
     );
