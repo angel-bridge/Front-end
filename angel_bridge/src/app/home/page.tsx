@@ -1,7 +1,7 @@
-import Header from './components/Header'
-import Banner from './components/Banner'
-import Contents from './components/Contents'
-import Footer from './components/Footer'
+import Header from './components/Header';
+import Banner from './components/Banner';
+import Contents from './components/Contents';
+import Footer from './components/Footer';
 
 export default function Home() {
     return (
@@ -11,5 +11,5 @@ export default function Home() {
             <Contents />
             <Footer />
         </div>
-    )
+    );
 }

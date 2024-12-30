@@ -1,14 +1,14 @@
 import { style } from '@vanilla-extract/css'
+import { vars } from '@/style/theme.css';
 
 export const footer = style({
     display: 'flex',
     width: '100vw',
     padding: '1.25rem 12.5rem',
+    boxSizing: 'border-box',
     justifyContent: 'space-between',
     alignItems: 'flex-start',
-    alignSelf: 'stretch',
-    background: 'var(--Grayscale-800)',
-    // position: 'fixed',
+    background: vars.grayScale.grayscale800,
     bottom: '0px',
 });
 
@@ -24,7 +24,7 @@ export const buttonWrapper = style({
 });
 
 export const button = style({
-    color: 'var(--Grayscale-300)',
+    color: vars.grayScale.grayscale300,
     fontSize: '1rem',
     fontStyle: 'normal',
     fontWeight: '600',

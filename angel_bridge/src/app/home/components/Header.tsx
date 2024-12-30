@@ -43,7 +43,7 @@ export default function Header() {
                 <div
                     className={styles.slidingBackground}
                     style={{
-                        transform: `translateX(${activeIndex * 7.5}rem)`,
+                        transform: `translateX(${activeIndex * 8}rem)`,
                     }}
                 />
                 {tabs.map((tab) => (
@@ -63,7 +63,7 @@ export default function Header() {
                 ))}
             </div>
             <button className={styles.loginButton} onClick={handleModalOpen}>
-                <p className={styles.buttonText}>로그인</p>
+                <div className={styles.buttonText}>로그인</div>
             </button>
 
             {/* 로그인 모달 컴포넌트 */}

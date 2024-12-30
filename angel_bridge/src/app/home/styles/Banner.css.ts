@@ -1,4 +1,5 @@
 import { style } from '@vanilla-extract/css'
+import { vars } from '@/style/theme.css';
 
 export const banner = style({
     display: 'flex',
@@ -42,7 +43,7 @@ export const indicator = style({
     width: '0.5rem',
     height: '0.5rem',
     borderRadius: '30px',
-    background: 'var(--Grayscale-200)',
+    background: vars.grayScale.grayscale200,
     cursor: 'pointer',
     transition: 'background-color 0.7s ease',
 });
@@ -51,5 +52,5 @@ export const activeIndicator = style({
     width: '1.75rem',
     height: '0.5rem',
     borderRadius: '30px',
-    background: 'var(--Purple-400)',
+    background: vars.purple.purple400,
 });
