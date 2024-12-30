@@ -103,7 +103,7 @@ export const heading48B = style({
   fontWeight: 700,
   fontSize: '4.8rem',
   lineHeight: '150%',
-  letterSpacing: '-0.2rem',
+  letterSpacing: '-0.02rem',
 })
 
 export const heading40B = style({
@@ -111,28 +111,28 @@ export const heading40B = style({
   fontWeight: typographys.fontWeightBold,
   fontSize: '4.0rem',
   lineHeight: '150%',
-  letterSpacing: '-0.2rem',
+  letterSpacing: '-0.02rem',
 })
 export const heading32B = style({
   fontFamily: pretendardTheme,
   fontWeight: typographys.fontWeightBold,
   fontSize: '3.2rem',
   lineHeight: '150%',
-  letterSpacing: '-0.2rem',
+  letterSpacing: '-0.02rem',
 })
 export const heading28B = style({
   fontFamily: pretendardTheme,
   fontWeight: typographys.fontWeightBold,
   fontSize: '2.8rem',
   lineHeight: '150%',
-  letterSpacing: '-0.2rem',
+  letterSpacing: '-0.02rem',
 })
 export const title32SB = style({
   fontFamily: pretendardTheme,
   fontWeight: typographys.fontWeightSemiBold,
   fontSize: '3.2rem',
   lineHeight: '150%',
-  letterSpacing: '-0.2rem',
+  letterSpacing: '-0.02rem',
 })
 
 export const title28SB = style({
@@ -140,7 +140,7 @@ export const title28SB = style({
   fontWeight: typographys.fontWeightSemiBold,
   fontSize: '2.8rem',
   lineHeight: '150%',
-  letterSpacing: '-0.2rem',
+  letterSpacing: '-0.02rem',
 })
 
 export const title24SB = style({
@@ -148,7 +148,7 @@ export const title24SB = style({
   fontWeight: typographys.fontWeightSemiBold,
   fontSize: '2.4rem',
   lineHeight: '150%',
-  letterSpacing: '-0.2rem',
+  letterSpacing: '-0.02rem',
 })
 
 export const title20SB = style({
@@ -156,7 +156,7 @@ export const title20SB = style({
   fontWeight: typographys.fontWeightSemiBold,
   fontSize: '2.0rem',
   lineHeight: '150%',
-  letterSpacing: '-0.2rem',
+  letterSpacing: '-0.02rem',
 })
 
 export const title18SB = style({
@@ -164,7 +164,7 @@ export const title18SB = style({
   fontWeight: typographys.fontWeightSemiBold,
   fontSize: '1.8rem',
   lineHeight: '150%',
-  letterSpacing: '-0.2rem',
+  letterSpacing: '-0.02rem',
 })
 
 export const title16SB = style({
@@ -172,7 +172,7 @@ export const title16SB = style({
   fontWeight: typographys.fontWeightSemiBold,
   fontSize: '1.6rem',
   lineHeight: '150%',
-  letterSpacing: '-0.2rem',
+  letterSpacing: '-0.02rem',
 })
 
 export const subTitle24M = style({
@@ -180,7 +180,7 @@ export const subTitle24M = style({
   fontWeight: typographys.fontWeightSemiBold,
   fontSize: '2.4rem',
   lineHeight: '150%',
-  letterSpacing: '-0.2rem',
+  letterSpacing: '-0.02rem',
 })
 
 export const subTitle20M = style({
@@ -188,7 +188,7 @@ export const subTitle20M = style({
   fontWeight: typographys.fontWeightMedium,
   fontSize: '2.0rem',
   lineHeight: '150%',
-  letterSpacing: '-0.2rem',
+  letterSpacing: '-0.02rem',
 })
 
 export const subTitle16M = style({
@@ -196,7 +196,7 @@ export const subTitle16M = style({
   fontWeight: typographys.fontWeightMedium,
   fontSize: '1.6rem',
   lineHeight: '150%',
-  letterSpacing: '-0.2rem',
+  letterSpacing: '-0.02rem',
 })
 
 export const body20M = style({
@@ -204,7 +204,7 @@ export const body20M = style({
   fontWeight: typographys.fontWeightMedium,
   fontSize: '2.0rem',
   lineHeight: '150%',
-  letterSpacing: '-0.2rem',
+  letterSpacing: '-0.02rem',
 })
 
 export const body18M = style({
@@ -212,7 +212,7 @@ export const body18M = style({
   fontWeight: typographys.fontWeightMedium,
   fontSize: '1.8rem',
   lineHeight: '150%',
-  letterSpacing: '-0.2rem',
+  letterSpacing: '-0.02rem',
 })
 
 export const body16SB = style({
@@ -220,7 +220,7 @@ export const body16SB = style({
   fontWeight: typographys.fontWeightSemiBold,
   fontSize: '1.6rem',
   lineHeight: '150%',
-  letterSpacing: '-0.2rem',
+  letterSpacing: '-0.02rem',
 })
 
 export const body16M = style({
@@ -228,7 +228,7 @@ export const body16M = style({
   fontWeight: typographys.fontWeightMedium,
   fontSize: '1.6rem',
   lineHeight: '150%',
-  letterSpacing: '-0.2rem',
+  letterSpacing: '-0.02rem',
 })
 
 export const body16R = style({
@@ -236,7 +236,7 @@ export const body16R = style({
   fontWeight: typographys.fontWeightRegular,
   fontSize: '1.6rem',
   lineHeight: '150%',
-  letterSpacing: '-0.2rem',
+  letterSpacing: '-0.02rem',
 })
 
 export const body14M = style({
@@ -244,7 +244,7 @@ export const body14M = style({
   fontWeight: typographys.fontWeightMedium,
   fontSize: '1.4rem',
   lineHeight: '150%',
-  letterSpacing: '-0.2rem',
+  letterSpacing: '-0.02rem',
 })
 
 export const body14R = style({
@@ -252,7 +252,7 @@ export const body14R = style({
   fontWeight: typographys.fontWeightRegular,
   fontSize: '1.4rem',
   lineHeight: '150%',
-  letterSpacing: '-0.2rem',
+  letterSpacing: '-0.02rem',
 })
 
 export const label16SB = style({
@@ -260,7 +260,7 @@ export const label16SB = style({
   fontWeight: typographys.fontWeightSemiBold,
   fontSize: '1.6rem',
   lineHeight: '150%',
-  letterSpacing: '-0.2rem',
+  letterSpacing: '-0.02rem',
 })
 
 export const label16M = style({
@@ -268,19 +268,19 @@ export const label16M = style({
   fontWeight: typographys.fontWeightMedium,
   fontSize: '1.6rem',
   lineHeight: '150%',
-  letterSpacing: '-0.2rem',
+  letterSpacing: '-0.02rem',
 })
 export const label14SB = style({
   fontFamily: pretendardTheme,
   fontWeight: typographys.fontWeightSemiBold,
   fontSize: '1.4rem',
   lineHeight: '150%',
-  letterSpacing: '-0.2rem',
+  letterSpacing: '-0.02rem',
 })
 export const label14M = style({
   fontFamily: pretendardTheme,
   fontWeight: typographys.fontWeightMedium,
   fontSize: '1.4rem',
   lineHeight: '150%',
-  letterSpacing: '-0.2rem',
+  letterSpacing: '-0.02rem',
 })
