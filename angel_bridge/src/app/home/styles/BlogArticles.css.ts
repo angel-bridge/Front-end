@@ -52,6 +52,7 @@ export const contents = style({
     display: 'flex',
     width: '31.75rem',
     padding: '1.25rem 1.75rem',
+    boxSizing: 'border-box',
     flexDirection: 'column',
     alignItems: 'flex-start',
     gap: '1.25rem',

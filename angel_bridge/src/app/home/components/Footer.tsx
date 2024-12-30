@@ -12,9 +12,9 @@ export default function Footer() {
                 <Image src={ChipButton} alt="ChipButton"/>
             </div>
             <div className={style.buttonWrapper}>
-                <button className={style.button}>About Us</button>
-                <button className={style.button}>Contact Us</button>
-                <button className={style.button}>Privacy Policy</button>
+                <div className={style.button}>About Us</div>
+                <div className={style.button}>Contact Us</div>
+                <div className={style.button}>Privacy Policy</div>
             </div>
         </footer>
     );
