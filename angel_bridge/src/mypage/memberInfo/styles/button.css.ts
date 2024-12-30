@@ -17,7 +17,8 @@ export const buttongray = style([
 
 export const button_container = style({
   display: 'flex',
-  justifyContent: 'center',
   alignItems: 'center',
   gap: '2.4rem',
+
+  cursor: 'pointer',
 })
