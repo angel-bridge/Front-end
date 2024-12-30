@@ -6,21 +6,6 @@ import {
   style,
 } from '@vanilla-extract/css'
 
-export const grayColors = createThemeContract({
-  grayscale00: null,
-  grayscale50: null,
-  grayscale100: null,
-  grayscale200: null,
-  grayscale300: null,
-  grayscale400: null,
-  grayscale500: null,
-  grayscale600: null,
-  grayscale700: null,
-  grayscale800: null,
-  grayscale900: null,
-  grayscaleAlpha: null,
-})
-
 export const global = createGlobalTheme(':root', {
   grayScale: {
     grayscale00: '#ffffff',
