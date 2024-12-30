@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Thumbnail from '@/app/home/assets/dummyImage.png';
-import * as style from '../ProgramCard.css';
+import * as style from './ProgramCard.css';
 
 interface ProgramCardProps {
     badgeText: string;
@@ -13,9 +13,9 @@ export default function ProgramCard({ badgeText, badgeType, title, bio }: Progra
     return (
         <div className={style.contents}>
             <div className={style.contentImage}>
-                <p className={badgeType === 'active' ? style.activeBadge : style.inactiveBadge}>
+                <div className={badgeType === 'active' ? style.activeBadge : style.inactiveBadge}>
                     {badgeText}
-                </p>
+                </div>
                 <Image
                     src={Thumbnail}
                     alt="Program Thumbnail"
@@ -28,8 +28,8 @@ export default function ProgramCard({ badgeText, badgeType, title, bio }: Progra
                 />
             </div>
             <div className={style.contentText}>
-                <p className={style.contentTitle}>{title}</p>
-                <p className={style.contentBio}>{bio}</p>
+                <div className={style.contentTitle}>{title}</div>
+                <div className={style.contentBio}>{bio}</div>
             </div>
         </div>
     );
