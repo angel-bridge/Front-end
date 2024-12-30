@@ -5,6 +5,7 @@ import InputWithTag from './InputWithTag'
 import { button_container } from '../styles/button.css'
 import { container, Info_container } from '../styles/info.css'
 import Photo from './Photo'
+import SaveChangeBtn from './SaveChangeBtn'
 
 export default function Info() {
   return (
@@ -21,6 +22,7 @@ export default function Info() {
           return <InputWithTag info={info} infodetail={infodetail} key={info} />
         })}
       </div>
+      <SaveChangeBtn />
     </div>
   )
 }
