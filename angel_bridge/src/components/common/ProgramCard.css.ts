@@ -1,49 +1,5 @@
 import { style } from '@vanilla-extract/css'
-
-export const recommends = style({
-    display: 'flex',
-    flexDirection: 'column',
-    width: '100vw',
-    maxWidth: '90rem',
-    padding: '0rem 12.5rem',
-    alignItems: 'flex-start',
-    gap: '1rem',
-    alignSelf: 'stretch',
-    margin: '0 auto 2.75rem auto',
-});
-
-export const titleWrapper = style({
-    display: 'flex',
-    width: '100%',
-    justifyContent: 'space-between',
-    alignItems: 'flex-end',
-    marginBottom: '1rem',
-});
-
-export const title = style({
-    color: 'var(--Grayscale-800)',
-    fontSize: '1.5rem',
-    fontStyle: 'normal',
-    fontWeight: '600',
-    lineHeight: '150%',
-    letterSpacing: '-0.03rem',
-});
-
-export const seeAll = style({
-    color: 'var(--Grayscale-600)',
-    fontSize: '1rem',
-    fontStyle: 'normal',
-    fontWeight: '500',
-    lineHeight: '150%',
-    letterSpacing: '-0.02rem',
-    cursor: 'pointer',
-});
-
-export const contentsWrapper = style({
-    display: 'flex',
-    width: '100%',
-    justifyContent: 'space-between',
-});
+import { vars } from '@/style/theme.css';
 
 export const contents = style({
     display: 'flex',
@@ -69,15 +25,16 @@ export const contentImage = style({
 export const activeBadge = style({
     display: 'inline-flex',
     padding: '0.375rem 0.75rem',
+    boxSizing: 'border-box',
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: '30px',
-    background: 'var(--Purple-400)',
+    background: vars.purple.purple400,
     position: 'absolute',
     top: '1rem',
     left: '1rem',
 
-    color: 'var(--Grayscale-00)',
+    color: vars.grayScale.grayscale00,
     fontSize: '0.875rem',
     fontStyle: 'normal',
     fontWeight: '600',
@@ -88,15 +45,16 @@ export const activeBadge = style({
 export const inactiveBadge = style({
     display: 'inline-flex',
     padding: '0.375rem 0.75rem',
+    boxSizing: 'border-box',
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: '30px',
-    background: 'var(--Grayscale-500)',
+    background: vars.grayScale.grayscale500,
     position: 'absolute',
     top: '1rem',
     left: '1rem',
 
-    color: 'var(--Grayscale-00)',
+    color: vars.grayScale.grayscale00,
     fontSize: '0.875rem',
     fontStyle: 'normal',
     fontWeight: '600',
@@ -111,7 +69,7 @@ export const contentText = style({
 
 export const contentTitle = style({
     width: '100%',
-    color: 'var(Grayscale-800)',
+    color: vars.grayScale.grayscale800,
     fontSize: '1.25rem',
     fontStyle: 'normal',
     fontWeight: '600',
@@ -121,7 +79,7 @@ export const contentTitle = style({
 
 export const contentBio = style({
     width: '100%',
-    color: 'var(--Grayscale-600)',
+    color: vars.grayScale.grayscale600,
     fontSize: '0.875rem',
     fontStyle: 'normal',
     fontWeight: '500',

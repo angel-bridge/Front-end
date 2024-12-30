@@ -26,8 +26,8 @@ export default function Recommends() {
     return (
         <div className={style.recommends}>
             <div className={style.titleWrapper}>
-                <p className={style.title}>추천 프로그램</p>
-                <p className={style.seeAll}>전체보기</p>
+                <div className={style.title}>추천 프로그램</div>
+                <div className={style.seeAll}>전체보기</div>
             </div>
             <div className={style.contentsWrapper}>
                 {programsDummyData.map((program, index) => (
