@@ -52,5 +52,5 @@ export const activeIndicator = style({
     width: '1.75rem',
     height: '0.5rem',
     borderRadius: '30px',
-    background: theme.purpleColors.purple400,
+    background: theme.global.purple.purple400,
 });

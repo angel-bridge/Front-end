@@ -1,12 +1,12 @@
 import { style } from '@vanilla-extract/css'
-import * as theme from '@/style/theme.css'
+import { vars } from '@/style/theme.css';
 
 export const header = style({
     display: 'flex',
     width: '100vw',
     padding: '1rem 2.25rem',
     boxSizing: 'border-box',
-    background: theme.grayColors.grayscale00,
+    background: vars.grayScale.grayscale00,
     justifyContent: 'space-between',
     alignItems: 'center',
     position: 'fixed',
@@ -22,12 +22,12 @@ export const loginButton = style({
     justifyItems: 'center',
     alignItems: 'center',
     borderRadius: '30px',
-    background: theme.grayColors.grayscale800,
+    background: vars.grayScale.grayscale800,
     cursor: 'pointer',
 });
 
 export const buttonText = style({
-    color: theme.grayColors.grayscale00,
+    color: vars.grayScale.grayscale00,
     textAlign: 'center',
     fontSize: '1rem',
     fontStyle: 'normal',
@@ -43,7 +43,7 @@ export const menuTabWrapper = style({
     boxSizing: 'border-box',
     alignItems: 'center',
     borderRadius: '30px',
-    background: theme.grayColors.grayscale50,
+    background: vars.grayScale.grayscale50,
     position: "relative",
     zIndex: 1,
 });
@@ -52,7 +52,7 @@ export const slidingBackground = style({
     position: "absolute",
     width: "8rem",
     height: "2.25rem",
-    background: theme.purpleColors.purple400,
+    background: vars.purple.purple400,
     borderRadius: "30px",
     transition: "transform 0.5s ease",
     zIndex: 2,
@@ -87,7 +87,7 @@ export const greyMenuTab = style({
 });
 
 export const colorTabText = style({
-    color: theme.grayColors.grayscale00,
+    color: vars.grayScale.grayscale00,
     textAlign: 'center',
     fontSize: '1.125rem',
     fontStyle: 'normal',
@@ -97,7 +97,7 @@ export const colorTabText = style({
 });
 
 export const greyTabText = style({
-    color: theme.grayColors.grayscale500,
+    color: vars.grayScale.grayscale500,
     textAlign: 'center',
     fontSize: '1.125rem',
     fontStyle: 'normal',
