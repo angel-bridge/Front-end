@@ -7,6 +7,7 @@ export const articles = style({
     width: '100vw',
     maxWidth: '90rem',
     padding: '0rem 12.5rem',
+    boxSizing: 'border-box',
     alignItems: 'flex-start',
     gap: '1rem',
     alignSelf: 'stretch',

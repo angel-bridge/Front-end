@@ -22,15 +22,15 @@ export default function BlogArticles() {
     return (
         <div className={style.articles}>
             <div className={style.titleWrapper}>
-                <p className={style.title}>NEW! 블로그 아티클</p>
-                <p className={style.seeAll}>전체보기</p>
+                <div className={style.title}>NEW! 블로그 아티클</div>
+                <div className={style.seeAll}>전체보기</div>
             </div>
             <div className={style.contentsWrapper}>
             {contentsDummyData.map((content, index) => (
                     <div key={index} className={style.contents}>
                         <div className={style.textWrapper}>
-                            <p className={style.contentTitle}>{content.title}</p>
-                            <p className={style.contentText}>{content.text}</p>
+                            <div className={style.contentTitle}>{content.title}</div>
+                            <div className={style.contentText}>{content.text}</div>
                         </div>
                         <div className={style.writerWrapper}>
                             <Image
@@ -43,8 +43,8 @@ export default function BlogArticles() {
                                     borderRadius: '1.5rem',
                                 }}
                             />
-                            <p className={style.writer}>{content.writer}</p>
-                            <p className={style.writtenDate}>{content.date}</p>
+                            <div className={style.writer}>{content.writer}</div>
+                            <div className={style.writtenDate}>{content.date}</div>
                         </div>
                     </div>
                 ))}

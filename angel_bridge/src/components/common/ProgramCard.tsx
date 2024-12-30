@@ -28,8 +28,8 @@ export default function ProgramCard({ badgeText, badgeType, title, bio }: Progra
                 />
             </div>
             <div className={style.contentText}>
-                <p className={style.contentTitle}>{title}</p>
-                <p className={style.contentBio}>{bio}</p>
+                <div className={style.contentTitle}>{title}</div>
+                <div className={style.contentBio}>{bio}</div>
             </div>
         </div>
     );
