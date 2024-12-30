@@ -19,11 +19,16 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*", "../custom.d.ts"],
-      "@style/*": ["src/style/*"]
-    },
-    "baseUrl": "./src"
+      "@/*": ["./src/*", "../custom.d.ts"]
+    }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "../custom.d.ts"],
+  "baseUrl": ".",
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "../custom.d.ts"
+  ],
   "exclude": ["node_modules"]
 }
