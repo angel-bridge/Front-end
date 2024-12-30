@@ -1,10 +1,4 @@
-import {
-  createGlobalTheme,
-  createTheme,
-  createThemeContract,
-  fontFace,
-  style,
-} from '@vanilla-extract/css'
+import { createGlobalTheme, fontFace, style } from '@vanilla-extract/css'
 
 export const global = createGlobalTheme(':root', {
   grayScale: {
@@ -47,24 +41,6 @@ const pretendardTheme = fontFace({
   src: "url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff')",
 })
 
-const typographys = createThemeContract({
-  fontFamily: null,
-  fontWeightBold: null,
-  fontWeightSemiBold: null,
-  fontWeightMedium: null,
-  fontWeightRegular: null,
-  fontWeightLight: null,
-})
-
-export const pretendardThemee = createTheme(typographys, {
-  fontFamily: "'Pretendard', sans-serif",
-  fontWeightBold: '700',
-  fontWeightSemiBold: '600',
-  fontWeightMedium: '500',
-  fontWeightRegular: '400',
-  fontWeightLight: '300',
-})
-
 export const heading48B = style({
   fontFamily: pretendardTheme,
   fontWeight: 700,
@@ -75,28 +51,28 @@ export const heading48B = style({
 
 export const heading40B = style({
   fontFamily: pretendardTheme,
-  fontWeight: typographys.fontWeightBold,
+  fontWeight: 700,
   fontSize: '4.0rem',
   lineHeight: '150%',
   letterSpacing: '-0.02rem',
 })
 export const heading32B = style({
   fontFamily: pretendardTheme,
-  fontWeight: typographys.fontWeightBold,
+  fontWeight: 700,
   fontSize: '3.2rem',
   lineHeight: '150%',
   letterSpacing: '-0.02rem',
 })
 export const heading28B = style({
   fontFamily: pretendardTheme,
-  fontWeight: typographys.fontWeightBold,
+  fontWeight: 700,
   fontSize: '2.8rem',
   lineHeight: '150%',
   letterSpacing: '-0.02rem',
 })
 export const title32SB = style({
   fontFamily: pretendardTheme,
-  fontWeight: typographys.fontWeightSemiBold,
+  fontWeight: 600,
   fontSize: '3.2rem',
   lineHeight: '150%',
   letterSpacing: '-0.02rem',
@@ -104,7 +80,7 @@ export const title32SB = style({
 
 export const title28SB = style({
   fontFamily: pretendardTheme,
-  fontWeight: typographys.fontWeightSemiBold,
+  fontWeight: 600,
   fontSize: '2.8rem',
   lineHeight: '150%',
   letterSpacing: '-0.02rem',
@@ -112,7 +88,7 @@ export const title28SB = style({
 
 export const title24SB = style({
   fontFamily: pretendardTheme,
-  fontWeight: typographys.fontWeightSemiBold,
+  fontWeight: 600,
   fontSize: '2.4rem',
   lineHeight: '150%',
   letterSpacing: '-0.02rem',
@@ -120,7 +96,7 @@ export const title24SB = style({
 
 export const title20SB = style({
   fontFamily: pretendardTheme,
-  fontWeight: typographys.fontWeightSemiBold,
+  fontWeight: 600,
   fontSize: '2.0rem',
   lineHeight: '150%',
   letterSpacing: '-0.02rem',
@@ -128,7 +104,7 @@ export const title20SB = style({
 
 export const title18SB = style({
   fontFamily: pretendardTheme,
-  fontWeight: typographys.fontWeightSemiBold,
+  fontWeight: 600,
   fontSize: '1.8rem',
   lineHeight: '150%',
   letterSpacing: '-0.02rem',
@@ -136,7 +112,7 @@ export const title18SB = style({
 
 export const title16SB = style({
   fontFamily: pretendardTheme,
-  fontWeight: typographys.fontWeightSemiBold,
+  fontWeight: 600,
   fontSize: '1.6rem',
   lineHeight: '150%',
   letterSpacing: '-0.02rem',
@@ -144,7 +120,7 @@ export const title16SB = style({
 
 export const subTitle24M = style({
   fontFamily: pretendardTheme,
-  fontWeight: typographys.fontWeightSemiBold,
+  fontWeight: 600,
   fontSize: '2.4rem',
   lineHeight: '150%',
   letterSpacing: '-0.02rem',
@@ -152,7 +128,7 @@ export const subTitle24M = style({
 
 export const subTitle20M = style({
   fontFamily: pretendardTheme,
-  fontWeight: typographys.fontWeightMedium,
+  fontWeight: 500,
   fontSize: '2.0rem',
   lineHeight: '150%',
   letterSpacing: '-0.02rem',
@@ -160,7 +136,7 @@ export const subTitle20M = style({
 
 export const subTitle16M = style({
   fontFamily: pretendardTheme,
-  fontWeight: typographys.fontWeightMedium,
+  fontWeight: 500,
   fontSize: '1.6rem',
   lineHeight: '150%',
   letterSpacing: '-0.02rem',
@@ -168,7 +144,7 @@ export const subTitle16M = style({
 
 export const body20M = style({
   fontFamily: pretendardTheme,
-  fontWeight: typographys.fontWeightMedium,
+  fontWeight: 500,
   fontSize: '2.0rem',
   lineHeight: '150%',
   letterSpacing: '-0.02rem',
@@ -176,7 +152,7 @@ export const body20M = style({
 
 export const body18M = style({
   fontFamily: pretendardTheme,
-  fontWeight: typographys.fontWeightMedium,
+  fontWeight: 500,
   fontSize: '1.8rem',
   lineHeight: '150%',
   letterSpacing: '-0.02rem',
@@ -184,7 +160,7 @@ export const body18M = style({
 
 export const body16SB = style({
   fontFamily: pretendardTheme,
-  fontWeight: typographys.fontWeightSemiBold,
+  fontWeight: 600,
   fontSize: '1.6rem',
   lineHeight: '150%',
   letterSpacing: '-0.02rem',
@@ -192,7 +168,7 @@ export const body16SB = style({
 
 export const body16M = style({
   fontFamily: pretendardTheme,
-  fontWeight: typographys.fontWeightMedium,
+  fontWeight: 500,
   fontSize: '1.6rem',
   lineHeight: '150%',
   letterSpacing: '-0.02rem',
@@ -200,7 +176,7 @@ export const body16M = style({
 
 export const body16R = style({
   fontFamily: pretendardTheme,
-  fontWeight: typographys.fontWeightRegular,
+  fontWeight: 400,
   fontSize: '1.6rem',
   lineHeight: '150%',
   letterSpacing: '-0.02rem',
@@ -208,7 +184,7 @@ export const body16R = style({
 
 export const body14M = style({
   fontFamily: pretendardTheme,
-  fontWeight: typographys.fontWeightMedium,
+  fontWeight: 500,
   fontSize: '1.4rem',
   lineHeight: '150%',
   letterSpacing: '-0.02rem',
@@ -216,7 +192,7 @@ export const body14M = style({
 
 export const body14R = style({
   fontFamily: pretendardTheme,
-  fontWeight: typographys.fontWeightRegular,
+  fontWeight: 400,
   fontSize: '1.4rem',
   lineHeight: '150%',
   letterSpacing: '-0.02rem',
@@ -224,7 +200,7 @@ export const body14R = style({
 
 export const label16SB = style({
   fontFamily: pretendardTheme,
-  fontWeight: typographys.fontWeightSemiBold,
+  fontWeight: 600,
   fontSize: '1.6rem',
   lineHeight: '150%',
   letterSpacing: '-0.02rem',
@@ -232,21 +208,21 @@ export const label16SB = style({
 
 export const label16M = style({
   fontFamily: pretendardTheme,
-  fontWeight: typographys.fontWeightMedium,
+  fontWeight: 500,
   fontSize: '1.6rem',
   lineHeight: '150%',
   letterSpacing: '-0.02rem',
 })
 export const label14SB = style({
   fontFamily: pretendardTheme,
-  fontWeight: typographys.fontWeightSemiBold,
+  fontWeight: 600,
   fontSize: '1.4rem',
   lineHeight: '150%',
   letterSpacing: '-0.02rem',
 })
 export const label14M = style({
   fontFamily: pretendardTheme,
-  fontWeight: typographys.fontWeightMedium,
+  fontWeight: 500,
   fontSize: '1.4rem',
   lineHeight: '150%',
   letterSpacing: '-0.02rem',
