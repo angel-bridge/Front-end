@@ -53,9 +53,9 @@ export default function SignupModal({ onClose }: SignupModalProps) {
     return (
         <div className={style.signupModal}>
             <div className={style.signupWrapper}>
-                <div className={style.closeButton} onClick={onClose}>
+                <button className={style.closeButton} onClick={onClose}>
                     <Image src={CloseButton} alt='closeButton' />
-                </div>
+                </button>
                 <div className={style.title}>추가 정보 입력</div>
                 <div className={style.announceText}>서비스 이용에 필요한 정보 입력 및 약관에 동의해 주세요</div>
                 <form>
@@ -114,7 +114,7 @@ export default function SignupModal({ onClose }: SignupModalProps) {
                             <div className={style.termText}>[선택] 엔젤브릿지 프로그램 개설 소식 이메일 수신</div>
                         </div>
                     </div>
-                    <div
+                    <button
                         className={`${style.signupButton} ${
                             isFormValid
                                 ? style.signupButtonVariants.active
@@ -130,7 +130,7 @@ export default function SignupModal({ onClose }: SignupModalProps) {
                         >
                             회원가입 완료
                         </div>
-                    </div>
+                    </button>
                 </form>
             </div>
         </div>

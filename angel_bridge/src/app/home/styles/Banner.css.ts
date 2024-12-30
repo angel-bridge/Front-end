@@ -41,7 +41,7 @@ export const indicatorContainer = style({
 export const indicator = style({
     width: '0.5rem',
     height: '0.5rem',
-    borderRadius: '1.875rem',
+    borderRadius: '30px',
     background: 'var(--Grayscale-200)',
     cursor: 'pointer',
     transition: 'background-color 0.7s ease',
@@ -50,6 +50,6 @@ export const indicator = style({
 export const activeIndicator = style({
     width: '1.75rem',
     height: '0.5rem',
-    borderRadius: '1.875rem',
+    borderRadius: '30px',
     background: 'var(--Purple-400)',
 });

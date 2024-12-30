@@ -21,7 +21,7 @@ export const signupWrapper = style({
     flexDirection: 'column',
     alignItems: 'center',
     gap: '0.625rem',
-    borderRadius: '2.5rem',
+    borderRadius: '40px',
     background: 'var(--Grayscale-00)',
     position: 'relative',
 });
@@ -33,7 +33,7 @@ export const closeButton = style({
     justifyContent: 'center',
     alignItems: 'center',
     gap: '0.4375rem',
-    borderRadius: '1.3425rem',
+    borderRadius: '21px',
     background: 'var(--Grayscale-800)',
     cursor: 'pointer',
     position: 'absolute',
@@ -92,7 +92,7 @@ export const inputField = style({
     padding: '1rem 1.25rem',
     justifyContent: 'space-between',
     alignItems: 'center',
-    borderRadius: '1rem',
+    borderRadius: '16px',
     border: '2px solid var(--Grayscale-100)',
     background: 'var(--Grayscale-00)',
 });
@@ -145,7 +145,7 @@ export const signupButton = style({
     justifyContent: 'center',
     alignItems: 'center',
     gap: '0.75rem',
-    borderRadius: '4.375rem',
+    borderRadius: '70px',
     cursor: 'pointer',
 });
 

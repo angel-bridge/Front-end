@@ -61,7 +61,7 @@ export const contents = style({
 export const contentImage = style({
     width: '20.625rem',
     height: '11.25rem',
-    borderRadius: '1.5rem',
+    borderRadius: '24px',
     overflow: 'hidden',
     position: 'relative',
 });
@@ -71,7 +71,7 @@ export const activeBadge = style({
     padding: '0.375rem 0.75rem',
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: '1.875rem',
+    borderRadius: '30px',
     background: 'var(--Purple-400)',
     position: 'absolute',
     top: '1rem',
@@ -90,7 +90,7 @@ export const inactiveBadge = style({
     padding: '0.375rem 0.75rem',
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: '1.875rem',
+    borderRadius: '30px',
     background: 'var(--Grayscale-500)',
     position: 'absolute',
     top: '1rem',

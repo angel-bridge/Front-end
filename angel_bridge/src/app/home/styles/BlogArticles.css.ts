@@ -53,7 +53,7 @@ export const contents = style({
     flexDirection: 'column',
     alignItems: 'flex-start',
     gap: '1.25rem',
-    borderRadius: '1rem',
+    borderRadius: '16px',
     background: 'var(--Purple-100)',
     transition: 'transform 0.7s ease',
     ':hover': {

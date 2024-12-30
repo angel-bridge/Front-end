@@ -6,7 +6,7 @@ import * as style from '@/app/home/styles/Footer.css';
 
 export default function Footer() {
     return (
-        <div className={style.footer}>
+        <footer className={style.footer}>
             <div className={style.logoWrapper}>
                 <Image src={Logo} alt="Logo"/>
                 <Image src={ChipButton} alt="ChipButton"/>
@@ -16,6 +16,6 @@ export default function Footer() {
                 <button className={style.button}>Contact Us</button>
                 <button className={style.button}>Privacy Policy</button>
             </div>
-        </div>
+        </footer>
     );
 }

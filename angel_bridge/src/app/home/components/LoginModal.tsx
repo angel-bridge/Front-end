@@ -13,18 +13,18 @@ export default function LoginModal({ onClose }: LoginModalProps) {
     return (
         <div className={style.loginModal}>
             <div className={style.loginWrapper}>
-                <div className={style.closeButton} onClick={onClose}>
+                <button className={style.closeButton} onClick={onClose}>
                     <Image src={CloseButton} alt='closeButton' />
-                </div>
+                </button>
                 <div className={style.image}>
                     <Image src={LoginImage} alt='AngelBridgeImage' />
                 </div>
                 <div className={style.announceText}>창업 시작은 엔젤브릿지와 함께</div>
                 <a href="http://3.39.14.152/oauth2/authorization/kakao" target="_self">
-                    <div className={style.loginButton}>
+                    <button className={style.loginButton}>
                         <Image src={KakaoLogo} alt='KakaoLogo' />
                         <div className={style.loginText}>카카오 로그인</div>
-                    </div>
+                    </button>
                 </a>
             </div>
         </div>

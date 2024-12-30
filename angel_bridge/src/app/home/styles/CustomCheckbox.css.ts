@@ -9,7 +9,6 @@ export const container = style({
 export const hiddenCheckbox = style({
     border: 0,
     height: '1px',
-    // margin: '-1px',
     overflow: 'hidden',
     padding: 0,
     position: 'absolute',

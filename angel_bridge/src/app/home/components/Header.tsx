@@ -62,9 +62,9 @@ export default function Header() {
                     </div>
                 ))}
             </div>
-            <div className={styles.loginButton} onClick={handleModalOpen}>
+            <button className={styles.loginButton} onClick={handleModalOpen}>
                 <p className={styles.buttonText}>로그인</p>
-            </div>
+            </button>
 
             {/* 로그인 모달 컴포넌트 */}
             {isModalOpen && <LoginModal onClose={handleModalClose} />}
