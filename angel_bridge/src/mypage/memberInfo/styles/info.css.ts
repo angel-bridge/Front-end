@@ -4,9 +4,12 @@ import { style } from '@vanilla-extract/css'
 export const container = style({
   display: 'flex',
   flexDirection: 'column',
-  justifyContent: 'center',
-  alignItems: 'stretch',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+  width: '104.rem',
+
   backgroundColor: 'blue',
+  height: '100vh',
 })
 
 export const label = style([
