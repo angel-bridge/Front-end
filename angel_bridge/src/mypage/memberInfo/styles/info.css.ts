@@ -8,7 +8,6 @@ export const container = style({
   alignItems: 'center',
   width: '104.rem',
 
-  backgroundColor: 'blue',
   height: '100vh',
 })
 

@@ -18,6 +18,7 @@ export const buttongray = style([
 export const button_container = style({
   display: 'flex',
   alignItems: 'center',
+  width: '100%',
   gap: '2.4rem',
 
   cursor: 'pointer',
@@ -33,6 +34,10 @@ export const save_change_btn = style([
     width: '24rem',
     height: '5.4rem',
     borderRadius: '16px',
+
+    border: 'none',
+
+    cursor: 'pointer',
 
     backgroundColor: vars.grayScale.grayscale100,
     color: vars.grayScale.grayscale400,

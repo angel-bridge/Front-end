@@ -7,6 +7,4 @@ export const container = style({
   alignItems: 'center',
   width: '104.rem',
   height: '64.8rem',
-
-  backgroundColor: 'blue',
 })

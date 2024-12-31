@@ -8,6 +8,4 @@ export const mypage_container = style({
 
   width: ' 100vw',
   height: '72.8rem',
-
-  backgroundColor: 'red',
 })
