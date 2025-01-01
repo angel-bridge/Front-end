@@ -7,8 +7,6 @@ export const container = style({
   justifyContent: 'space-between',
   alignItems: 'center',
   width: '104.rem',
-
-  height: '100vh',
 })
 
 export const label = style([

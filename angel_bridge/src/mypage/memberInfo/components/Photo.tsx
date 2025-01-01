@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 
-import exampleImg from '../assets/mask.png'
+import exampleImg from '../assets/Avata.png'
 import clipBtn from '../assets/clip_btn.svg'
 import {
   clip_container,
