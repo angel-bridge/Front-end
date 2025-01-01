@@ -6,7 +6,6 @@ export const container = style({
   flexDirection: 'column',
   justifyContent: 'space-between',
   alignItems: 'center',
-  width: '104.rem',
   height: '57.2rem',
 })
 

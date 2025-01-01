@@ -4,9 +4,9 @@ import { style } from '@vanilla-extract/css'
 export const button_container = style({
   display: 'flex',
   alignItems: 'center',
-  width: '100%',
+  width: '104rem',
   gap: '2.4rem',
-
+  backgroundColor: 'red',
   cursor: 'pointer',
 })
 
