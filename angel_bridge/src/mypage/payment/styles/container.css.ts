@@ -1,7 +1,7 @@
 import { vars } from '@/style/theme.css'
 import { style } from '@vanilla-extract/css'
 
-export const wrapper = style({
+export const content = style({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
@@ -28,4 +28,11 @@ export const photo_text_container = style({
 
   width: '87.2rem',
   height: '12rem',
+})
+
+export const wrapper = style({
+  display: 'flex',
+  flexDirection: 'column',
+
+  width: '104rem',
 })
