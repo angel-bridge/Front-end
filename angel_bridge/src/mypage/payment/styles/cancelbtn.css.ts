@@ -18,5 +18,7 @@ export const cancel_btn = style([
     color: vars.grayScale.grayscale300,
 
     backgroundColor: vars.grayScale.grayscale00,
+
+    cursor: 'pointer',
   },
 ])
