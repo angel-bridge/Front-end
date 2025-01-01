@@ -1,7 +1,7 @@
 import { body14M, title16SB, title20SB, vars } from '@/style/theme.css'
 import { style } from '@vanilla-extract/css'
 
-const date = style([
+const date_style = style([
   body14M,
   {
     color: vars.grayScale.grayscale300,
@@ -10,7 +10,7 @@ const date = style([
     marginBottom: '1.2rem',
   },
 ])
-const is_paied = style([
+const is_paied_style = style([
   title16SB,
   {
     color: vars.sementic.sementicSuccess,
@@ -19,7 +19,16 @@ const is_paied = style([
   },
 ])
 
-const title = style([
+const is_canceld_style = style([
+  title16SB,
+  {
+    color: vars.sementic.sementicDanger,
+    margin: 0,
+    marginBottom: '0.8rem',
+  },
+])
+
+const title_style = style([
   title20SB,
   {
     color: vars.grayScale.grayscale800,
@@ -28,7 +37,7 @@ const title = style([
   },
 ])
 
-const price = style([
+const price_style = style([
   body14M,
   {
     color: vars.grayScale.grayscale600,
@@ -36,7 +45,13 @@ const price = style([
   },
 ])
 
-export { date, is_paied, title, price }
+export {
+  date_style,
+  is_paied_style,
+  title_style,
+  price_style,
+  is_canceld_style,
+}
 
 export const texts_container = style({
   display: 'flex',

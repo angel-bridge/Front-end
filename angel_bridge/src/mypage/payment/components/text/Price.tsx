@@ -1,6 +1,6 @@
 import React from 'react'
-import { price } from '../../styles/texts.css'
+import { price_style } from '../../styles/texts.css'
 
-export default function Price() {
-  return <p className={price}>150,000원</p>
+export default function Price({ price }: { price: string }) {
+  return <p className={price_style}>{price}원</p>
 }

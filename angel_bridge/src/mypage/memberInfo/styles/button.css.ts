@@ -6,8 +6,8 @@ export const button_container = style({
   alignItems: 'center',
   width: '104rem',
   gap: '2.4rem',
-  backgroundColor: 'red',
   cursor: 'pointer',
+  marginBottom: '4rem',
 })
 
 export const save_change_btn = style([

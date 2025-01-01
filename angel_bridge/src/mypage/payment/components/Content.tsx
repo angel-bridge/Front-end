@@ -8,15 +8,23 @@ import {
   photo_text_container,
 } from '../styles/container.css'
 
-export default function Content() {
+export interface ContentProps {
+  date: string
+  ispaid: boolean
+  title: string
+  price: string
+}
+
+export default function Content(props: ContentProps) {
+  const { date, ispaid, title, price } = props
   return (
     <div className={content}>
       <div className={container}>
         <div className={photo_text_container}>
           <Photo />
-          <Texts />
+          <Texts date={date} ispaid={ispaid} title={title} price={price} />
         </div>
-        <CancelBtn />
+        {ispaid && <CancelBtn />}
       </div>
     </div>
   )

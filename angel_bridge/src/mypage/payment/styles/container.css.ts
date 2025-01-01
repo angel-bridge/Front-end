@@ -5,6 +5,7 @@ export const content = style({
   display: 'flex',
   alignItems: 'center',
   height: '16.8rem',
+  justifyContent: 'center',
 
   borderRadius: '32px',
 
@@ -14,6 +15,8 @@ export const content = style({
 export const container = style({
   display: 'flex',
   alignItems: 'flex-end',
+
+  width: '99.2rem',
   height: '12rem',
 })
 
@@ -31,4 +34,5 @@ export const wrapper = style({
   display: 'flex',
   width: '104rem',
   flexDirection: 'column',
+  gap: '2.4rem',
 })

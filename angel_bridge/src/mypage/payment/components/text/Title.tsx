@@ -1,6 +1,6 @@
 import React from 'react'
-import { title } from '../../styles/texts.css'
+import { title_style } from '../../styles/texts.css'
 
-export default function Title() {
-  return <p className={title}>예비창업페키지 2주 완성</p>
+export default function Title({ title }: { title: string }) {
+  return <p className={title_style}>{title}</p>
 }
