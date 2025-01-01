@@ -1,4 +1,4 @@
-import { body20M, label16SB, vars } from '@/style/theme.css'
+import { body20M, label14M, label16SB, vars } from '@/style/theme.css'
 import { style } from '@vanilla-extract/css'
 
 export const input = style([
@@ -43,3 +43,11 @@ export const inputwithtag_container = style({
   height: '12.6rem',
   gap: ' 0.8rem',
 })
+
+export const error_case = style([
+  label14M,
+  {
+    color: vars.sementic.sementicDanger,
+    margin: 0,
+  },
+])
