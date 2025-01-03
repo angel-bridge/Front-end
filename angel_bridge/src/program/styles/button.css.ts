@@ -1,5 +1,5 @@
+import { title16SB, vars } from '@/style/theme.css'
 import { style } from '@vanilla-extract/css'
-import { grayColors, title16SB } from 'style/theme.css'
 
 export const graybutton = style([
   title16SB,
@@ -13,8 +13,8 @@ export const graybutton = style([
 
     borderRadius: '12px',
 
-    backgroundColor: grayColors.grayscale50,
-    color: grayColors.grayscale500,
+    backgroundColor: vars.grayScale.grayscale50,
+    color: vars.grayScale.grayscale500,
   },
 ])
 
@@ -30,7 +30,7 @@ export const blackbutton = style([
 
     borderRadius: '12px',
 
-    backgroundColor: grayColors.grayscale800,
-    color: grayColors.grayscale00,
+    backgroundColor: vars.grayScale.grayscale800,
+    color: vars.grayScale.grayscale00,
   },
 ])
