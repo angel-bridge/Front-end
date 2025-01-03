@@ -1,6 +1,15 @@
 import { title16SB, vars } from '@/style/theme.css'
 import { style } from '@vanilla-extract/css'
 
+export const button_container = style({
+  display: 'flex',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+
+  width: '25.2rem',
+  height: '4.8rem',
+})
+
 export const graybutton = style([
   title16SB,
   {
@@ -15,6 +24,8 @@ export const graybutton = style([
 
     backgroundColor: vars.grayScale.grayscale50,
     color: vars.grayScale.grayscale500,
+
+    border: 'none',
   },
 ])
 
