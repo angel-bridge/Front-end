@@ -1,35 +1,33 @@
+'use client'
 import React, { useEffect, useState } from 'react'
 import { input, input_tag, inputwithtag_container } from '../styles/input.css'
 import ErrorMessage from './ErrorMessage'
+import { InputPropTypes } from '../types/inputProps'
 
-export default function PhoneNumberInput() {
-  const [value, setValue] = useState('')
+export default function PhoneNumberInput(props: InputPropTypes) {
+  const { value, onChange } = props
   const [isError, setIsError] = useState(false)
+  const pattern = /^(010|02|0[3-9]{1}[0-9]{1})-?[0-9]{3,4}-?[0-9]{4}$/
 
   useEffect(() => {
-    const phoneNum = value.replace(/-/g, '')
-    const isPhoneNumValid = /^010-\d{4}-\d{4}$/.test(value)
-
-    if (phoneNum.length === 11 && isPhoneNumValid) {
-      setIsError(false)
-    } else {
+    console.log(value)
+    console.log(isError)
+    if (pattern.test(value) === false) {
       setIsError(true)
+    } else {
+      setIsError(false)
     }
-  }, [value])
-
-  function handleInputChange(e: React.ChangeEvent<HTMLInputElement>) {
-    setValue(e.target.value)
-  }
+  }, [value, isError])
 
   return (
     <div className={inputwithtag_container}>
       <p className={input_tag}>전화번호 *</p>
       <input
-        onChange={handleInputChange}
+        onChange={onChange}
         placeholder="010-1234-1234"
         className={input}
       />
-      {isError && <ErrorMessage number={1} />}
+      {value && isError && <ErrorMessage number={1} />}
     </div>
   )
 }
