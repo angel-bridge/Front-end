@@ -1,0 +1,119 @@
+import { style } from '@vanilla-extract/css'
+import { vars } from '@/style/theme.css';
+
+export const articles = style({
+    display: 'flex',
+    flexDirection: 'column',
+    width: '100vw',
+    maxWidth: '90rem',
+    padding: '0rem 12.5rem',
+    boxSizing: 'border-box',
+    alignItems: 'flex-start',
+    gap: '1rem',
+    alignSelf: 'stretch',
+    marginBottom: '2.75rem',
+    margin: '0 auto',
+});
+
+export const titleWrapper = style({
+    display: 'flex',
+    width: '100%',
+    justifyContent: 'space-between',
+    alignItems: 'flex-end',
+    marginBottom: '1rem',
+});
+
+export const title = style({
+    color: vars.grayScale.grayscale800,
+    fontSize: '1.5rem',
+    fontStyle: 'normal',
+    fontWeight: '600',
+    lineHeight: '150%',
+    letterSpacing: '-0.03rem',
+});
+
+export const seeAll = style({
+    color: vars.grayScale.grayscale600,
+    fontSize: '1rem',
+    fontStyle: 'normal',
+    fontWeight: '500',
+    lineHeight: '150%',
+    letterSpacing: '-0.02rem',
+    cursor: 'pointer',
+});
+
+export const contentsWrapper = style({
+    display: 'flex',
+    width: '100%',
+    justifyContent: 'space-between',
+});
+
+export const contents = style({
+    display: 'flex',
+    width: '31.75rem',
+    padding: '1.25rem 1.75rem',
+    boxSizing: 'border-box',
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+    gap: '1.25rem',
+    borderRadius: '16px',
+    background: vars.purple.purple100,
+    transition: 'transform 0.7s ease',
+    ':hover': {
+        transform: 'translateY(-5px)',
+        background: vars.purple.purple200,
+    },
+    cursor: 'pointer',
+});
+
+export const textWrapper = style({
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '0.25rem',
+});
+
+export const contentTitle = style({
+    width: '100%',
+    color: vars.grayScale.grayscale700,
+    fontSize: '1.125rem',
+    fontStyle: 'normal',
+    fontWeight: '600',
+    lineHeight: '150%',
+    letterSpacing: '-0.0225rem',
+});
+
+export const contentText = style({
+    width: '100%',
+    alignSelf: 'stretch',
+    color: vars.grayScale.grayscale500,
+    fontSize: '0.875rem',
+    fontStyle: 'normal',
+    fontWeight: '500',
+    lineHeight: '150%',
+    letterSpacing: '-0.0175rem',
+});
+
+export const writerWrapper = style({
+    width: '100%',
+    display: 'flex',
+    gap: '1.5rem',
+});
+
+export const writer = style({
+    color: vars.grayScale.grayscale700,
+    fontSize: '0.875rem',
+    fontStyle: 'normal',
+    fontWeight: '600',
+    lineHeight: '150%',
+    letterSpacing: '-0.0175rem',
+    marginLeft: '-1rem',
+});
+
+export const writtenDate = style({
+    color: vars.grayScale.grayscale500,
+    fontSize: '0.875rem',
+    fontStyle: 'normal',
+    fontWeight: '500',
+    lineHeight: '150%',
+    letterSpacing: '-0.0175rem',
+});
