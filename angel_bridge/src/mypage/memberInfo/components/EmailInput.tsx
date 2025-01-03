@@ -1,31 +1,27 @@
-import React, { useState } from 'react'
+'use client'
+import React, { useEffect, useState } from 'react'
 import { input, input_tag, inputwithtag_container } from '../styles/input.css'
 import ErrorMessage from './ErrorMessage'
+import { InputPropTypes } from '../types/inputProps'
 
-export default function EmailInput() {
-  const [value, setValue] = useState('')
+export default function EmailInput(props: InputPropTypes) {
+  const { value, onChange } = props
   const [isError, setIsError] = useState(false)
+  const email = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-za-z0-9\-]+/
 
-  function handleValueError() {
-    const email = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-za-z0-9\-]+/
-
+  useEffect(() => {
     if (email.test(value) === false) {
       setIsError(true)
     } else {
       setIsError(false)
     }
-  }
-
-  function handleInputChange(e: React.ChangeEvent<HTMLInputElement>) {
-    setValue(e.target.value)
-    handleValueError()
-  }
+  }, [value])
 
   return (
     <div className={inputwithtag_container}>
       <p className={input_tag}>이메일 주소 *</p>
       <input
-        onChange={handleInputChange}
+        onChange={onChange}
         placeholder="sadfdsfsdf@adsfsd.com"
         className={input}
       />
