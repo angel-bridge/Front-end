@@ -16,6 +16,6 @@ interface FetchBlogResponse {
 
 export const getBlogArticles = async () => {
     const response: FetchBlogResponse = await instance.get(`/api/v1/blog/latest`);
-    console.log('블로그 아티클 가져옴!!', response);
+    // console.log('블로그 아티클 가져옴!!', response);
     return response.result;
 };
