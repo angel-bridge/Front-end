@@ -26,3 +26,7 @@ export const clip_container = style({
   right: 0,
   zIndex: '0',
 })
+
+export const image_input = style({
+  display: 'none',
+})
