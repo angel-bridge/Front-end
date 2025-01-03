@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import {
   error_container,
   input,
@@ -13,8 +13,7 @@ import ErrorMessage from './ErrorMessage'
 import { InputPropTypes } from '../types/inputProps'
 
 export default function NameInput(props: InputPropTypes) {
-  const { value, onChange } = props
-  const [isError, setIsError] = useState(false)
+  const { value, onChange, isError, setIsError } = props
 
   useEffect(() => {
     if (value.length > 10) {
@@ -22,6 +21,7 @@ export default function NameInput(props: InputPropTypes) {
     } else {
       setIsError(false)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value])
 
   return (

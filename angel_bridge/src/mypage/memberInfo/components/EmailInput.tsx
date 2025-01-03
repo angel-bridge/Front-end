@@ -1,16 +1,16 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 'use client'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { input, input_tag, inputwithtag_container } from '../styles/input.css'
 import ErrorMessage from './ErrorMessage'
 import { InputPropTypes } from '../types/inputProps'
 
 export default function EmailInput(props: InputPropTypes) {
-  const { value, onChange } = props
-  const [isError, setIsError] = useState(false)
+  const { value, onChange, setIsError, isError } = props
   const email = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-za-z0-9\-]+/
 
   useEffect(() => {
-    if (email.test(value) === false) {
+    if (value && email.test(value) === false) {
       setIsError(true)
     } else {
       setIsError(false)
@@ -25,7 +25,7 @@ export default function EmailInput(props: InputPropTypes) {
         placeholder="sadfdsfsdf@adsfsd.com"
         className={input}
       />
-      {isError && <ErrorMessage number={2} />}
+      {value && isError && <ErrorMessage number={2} />}
     </div>
   )
 }
