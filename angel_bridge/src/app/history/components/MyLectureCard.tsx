@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Button from '@/components/common/Button';
 import * as style from '../styles/MyLectureCard.css';
 
 interface CardProps {
@@ -10,6 +11,8 @@ interface CardProps {
 }
 
 export default function MyLectureCard({ thumbnail, state, period, title, bio }: CardProps) {
+    const isValid = state === '수강중' || state === '수강완료';
+
     return (
         <div className={style.contents}>
             <div className={style.contentInfo}>
@@ -31,6 +34,7 @@ export default function MyLectureCard({ thumbnail, state, period, title, bio }: 
                     <div className={style.contentBio}>{bio}</div>
                 </div>
             </div>
+            <Button isValid={isValid} text='미션 바로가기'/>
         </div>
     );
 }

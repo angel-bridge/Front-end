@@ -3,7 +3,7 @@ import MyLectureCard from './components/MyLectureCard';
 const MyLectureDummyData = [
   {
     // thumbnail: '',
-    state: 'ing',
+    state: '수강중',
     period: '2024. 12. 15 - 2024. 12. 28',
     title: '예비창업패키지 2주 완성',
     bio: '프로그램 한줄 소개를 작성해 주세요. 두줄은 곤란해요.',

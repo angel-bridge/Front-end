@@ -1,4 +1,5 @@
 import { style, styleVariants } from '@vanilla-extract/css'
+import { vars } from '@/style/theme.css';
 
 export const signupButton = style({
     display: 'flex',
@@ -13,7 +14,7 @@ export const signupButton = style({
 });
 
 export const signupText = style({
-    color: 'var(--Grayscale-00)',
+    color: vars.grayScale.grayscale00,
     fontSize: '1.25rem',
     fontStyle: 'normal',
     fontWeight: '600',
@@ -23,20 +24,20 @@ export const signupText = style({
 
 export const signupButtonVariants = styleVariants({
     active: {
-        background: 'var(--Purple-400)',
+        background: vars.purple.purple400,
         cursor: 'pointer',
     },
     disabled: {
-        background: 'var(--Grayscale-100)',
+        background: vars.grayScale.grayscale100,
         cursor: 'not-allowed',
     },
 });
 
 export const signupTextVariants = styleVariants({
     active: {
-        color: 'var(--Grayscale-00)',
+        color: vars.grayScale.grayscale00,
     },
     disabled: {
-        color: 'var(--Grayscale-400)',
+        color: vars.grayScale.grayscale400,
     },
 });
