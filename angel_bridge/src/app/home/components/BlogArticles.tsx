@@ -1,7 +1,11 @@
+"use client"
+
 import * as style from '@/app/home/styles/BlogArticles.css';
 
 import Image from 'next/image';
 import ProfileImage from '@/app/home/assets/ProfileImage.jpg';
+import { useState, useEffect } from 'react';
+import { BlogResult, getBlogArticles } from '@/api/blog';
 
 const contentsDummyData = [
     {
@@ -19,6 +23,21 @@ const contentsDummyData = [
 ];
 
 export default function BlogArticles() {
+    const [articles, setArticles] = useState<BlogResult[]>([]);
+
+    useEffect(() => {
+        const fetchArticles = async () => {
+            try {
+                const blogData = await getBlogArticles();
+                setArticles(blogData);
+            } catch (error) {
+                console.error("블로그 아티클 불러오기 실패:", error);
+            }
+        };
+
+        fetchArticles();
+    }, []);
+
     return (
         <div className={style.articles}>
             <div className={style.titleWrapper}>
@@ -26,11 +45,11 @@ export default function BlogArticles() {
                 <div className={style.seeAll}>전체보기</div>
             </div>
             <div className={style.contentsWrapper}>
-            {contentsDummyData.map((content, index) => (
+            {articles.map((article, index) => (
                     <div key={index} className={style.contents}>
                         <div className={style.textWrapper}>
-                            <div className={style.contentTitle}>{content.title}</div>
-                            <div className={style.contentText}>{content.text}</div>
+                            <div className={style.contentTitle}>{article.title}</div>
+                            <div className={style.contentText}>{article.content}</div>
                         </div>
                         <div className={style.writerWrapper}>
                             <Image
@@ -43,8 +62,8 @@ export default function BlogArticles() {
                                     borderRadius: '1.5rem',
                                 }}
                             />
-                            <div className={style.writer}>{content.writer}</div>
-                            <div className={style.writtenDate}>{content.date}</div>
+                            <div className={style.writer}>{article.author}</div>
+                            <div className={style.writtenDate}>{article.postingDate}</div>
                         </div>
                     </div>
                 ))}

@@ -4,7 +4,7 @@ interface Image {
     imageFile: string;
 }
 
-interface FetchResponse {
+interface FetchBannerResponse {
     timestamp: string;
     code: number;
     message: string;
@@ -12,7 +12,7 @@ interface FetchResponse {
 }
 
 export const getBanners = async () => {
-    const response: FetchResponse = await instance.get(`/api/v1/banner`);
+    const response: FetchBannerResponse = await instance.get(`/api/v1/banner`);
     console.log('배너이미지 가져옴!!', response);
     return response.result;
 };
