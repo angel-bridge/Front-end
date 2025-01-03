@@ -1,5 +1,5 @@
 import React from 'react'
-import { search_style, searchIcon_style } from '@/program/styles/search.css'
+import { search_style } from '@/program/styles/search.css'
 
 export default function Search() {
   return (
