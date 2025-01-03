@@ -1,14 +1,14 @@
 'use client'
 import React, { useState } from 'react'
 import {
-  error_case,
+  error_container,
   input,
   input_tag,
   inputwithtag_container,
 } from '../styles/input.css'
 import { label } from '../styles/info.css'
 
-import Error from '../assets/error.svg'
+import ErrorMessage from './ErrorMessage'
 
 export default function NameInput() {
   const [value, setValue] = useState('')
@@ -35,14 +35,14 @@ export default function NameInput() {
         className={input}
         onChange={handleInputChange}
       />
-      {isError && (
-        <p className={error_case}>공백 포함 10자 이내로 입력해주세요</p>
-      )}
+      <div className={error_container}>
+        {isError && <ErrorMessage number={0} />}
 
-      <p className={label}>
-        {value ? value.length : 2}
-        /10
-      </p>
+        <p className={label}>
+          {value ? value.length : 2}
+          /10
+        </p>
+      </div>
     </div>
   )
 }
