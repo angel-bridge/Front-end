@@ -42,6 +42,8 @@ export const inputwithtag_container = style({
 
   height: '12.6rem',
   gap: ' 0.8rem',
+
+  marginBottom: '1.6rem',
 })
 
 export const error_case = style([
@@ -51,3 +53,38 @@ export const error_case = style([
     margin: 0,
   },
 ])
+
+export const error_icon = style({
+  position: 'relative',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  width: '1.2rem',
+  height: '1.2rem',
+})
+
+export const error_style = style({
+  display: 'flex',
+  alignItems: 'center',
+  gap: '0.4rem',
+
+  marginLeft: '1rem',
+})
+
+export const error_container = style({
+  display: 'flex',
+  alignItems: 'center',
+
+  justifyContent: 'space-between',
+  width: '48rem',
+  height: '2.2rem',
+})
+
+export const name_error_container = style({
+  display: 'flex',
+  alignItems: 'center',
+
+  justifyContent: 'flex-end',
+  width: '48rem',
+  height: '2.2rem',
+})
