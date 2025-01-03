@@ -7,21 +7,6 @@ import ProfileImage from '@/app/home/assets/ProfileImage.jpg';
 import { useState, useEffect } from 'react';
 import { BlogResult, getBlogArticles } from '@/api/blog';
 
-const contentsDummyData = [
-    {
-        title: "[안 읽으면 손해!] 2025 스타트업 지원 사업 총정리",
-        text: "블로그 첫 시작 문구를 가져와 주세요 두줄정도가 적당할 것 같다고 생각 중이에요 블로그 첫 시작 문구를 가져와 주세요 두줄정도가 적당할 것 같다고 생각 중이에요",
-        writer: "엔젤브릿지",
-        date: "2024. 12. 16",
-    },
-    {
-        title: "[안 읽으면 손해!] 2025 스타트업 지원 사업 총정리",
-        text: "블로그 첫 시작 문구를 가져와 주세요 두줄정도가 적당할 것 같다고 생각 중이에요 블로그 첫 시작 문구를 가져와 주세요 두줄정도가 적당할 것 같다고 생각 중이에요",
-        writer: "엔젤브릿지",
-        date: "2024. 12. 16",
-    },
-];
-
 export default function BlogArticles() {
     const [articles, setArticles] = useState<BlogResult[]>([]);
 
@@ -62,7 +47,7 @@ export default function BlogArticles() {
                                     borderRadius: '1.5rem',
                                 }}
                             />
-                            <div className={style.writer}>{article.author}</div>
+                            <div className={style.writer}>엔젤브릿지</div>
                             <div className={style.writtenDate}>{article.postingDate}</div>
                         </div>
                     </div>

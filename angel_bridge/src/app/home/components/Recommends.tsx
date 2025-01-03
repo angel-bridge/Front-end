@@ -14,7 +14,7 @@ export default function Recommends() {
                 const data = await getRecommendedProgram();
                 setPrograms(data);
             } catch (error) {
-                console.error("Failed to fetch recommended programs:", error);
+                console.error("추천 프로그램 불러오기 실패:", error);
             }
         };
 

@@ -3,7 +3,6 @@ import { instance } from "./instance";
 export interface BlogResult {
     title: string;
     content: string;
-    author: string;
     postingDate: string;
     link: string;
 }
