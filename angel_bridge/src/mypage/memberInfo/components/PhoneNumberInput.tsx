@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { input, input_tag, inputwithtag_container } from '../styles/input.css'
 import ErrorMessage from './ErrorMessage'
 
@@ -6,23 +6,19 @@ export default function PhoneNumberInput() {
   const [value, setValue] = useState('')
   const [isError, setIsError] = useState(false)
 
-  function handleValueError() {
+  useEffect(() => {
     const phoneNum = value.replace(/-/g, '')
-    const isPhoneNum = value.match(/-/g)?.length
-    if (isPhoneNum) {
-      if (isPhoneNum < 3) {
-        setIsError(true)
-      }
-    } else if (phoneNum.length != 11) {
-      setIsError(true)
-    } else {
+    const isPhoneNumValid = /^010-\d{4}-\d{4}$/.test(value)
+
+    if (phoneNum.length === 11 && isPhoneNumValid) {
       setIsError(false)
+    } else {
+      setIsError(true)
     }
-  }
+  }, [value])
 
   function handleInputChange(e: React.ChangeEvent<HTMLInputElement>) {
     setValue(e.target.value)
-    handleValueError()
   }
 
   return (
