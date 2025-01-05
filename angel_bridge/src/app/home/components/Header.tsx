@@ -67,9 +67,9 @@ export default function Header() {
             </button>
 
             {/* 로그인 모달 컴포넌트 */}
-            {isModalOpen && <LoginModal onClose={handleModalClose} />}
+            {/* {isModalOpen && <LoginModal onClose={handleModalClose} />} */}
             {/* 세부 정보 입력 모달 컴포넌트 */}
-            {/* {isModalOpen && <SignupModal onClose={handleModalClose} />} */}
+            {isModalOpen && <SignupModal onClose={handleModalClose} />}
         </div>
     )
 }
