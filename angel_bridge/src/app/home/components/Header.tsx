@@ -43,7 +43,7 @@ export default function Header() {
                 <div
                     className={styles.slidingBackground}
                     style={{
-                        transform: `translateX(${activeIndex * 8}rem)`,
+                        transform: `translateX(${activeIndex * 12}rem)`,
                     }}
                 />
                 {tabs.map((tab) => (
