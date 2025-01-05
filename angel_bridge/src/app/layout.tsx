@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Providers from "./Providers";
+import "../style/global.css";
 
 export const metadata: Metadata = {
   title: "Angel-Bridge",
