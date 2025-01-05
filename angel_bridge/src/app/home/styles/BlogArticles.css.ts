@@ -95,7 +95,6 @@ export const writer = style([
     font.label14SB,
     {
         color: vars.grayScale.grayscale700,
-        marginLeft: '-1rem',
     }
 ]);
 
