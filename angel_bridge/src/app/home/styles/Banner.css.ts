@@ -7,9 +7,9 @@ export const banner = style({
     alignItems: 'center',
     position: 'relative',
     width: '100vw',
-    height: '12.5rem',
+    height: '20rem',
     justifyContent: 'center',
-    marginTop: '5rem',
+    marginTop: '8rem',
     overflow: 'hidden',
 });
 
@@ -34,14 +34,14 @@ export const image = style({
 
 export const indicatorContainer = style({
     position: 'absolute',
-    bottom: '0.62rem',
+    bottom: '1rem',
     display: 'flex',
-    gap: '0.5rem',
+    gap: '0.8rem',
 });
 
 export const indicator = style({
-    width: '0.5rem',
-    height: '0.5rem',
+    width: '0.8rem',
+    height: '0.8rem',
     borderRadius: '30px',
     background: vars.grayScale.grayscale200,
     cursor: 'pointer',
@@ -49,8 +49,8 @@ export const indicator = style({
 });
 
 export const activeIndicator = style({
-    width: '1.75rem',
-    height: '0.5rem',
+    width: '2.8rem',
+    height: '0.58rem',
     borderRadius: '30px',
     background: vars.purple.purple400,
 });

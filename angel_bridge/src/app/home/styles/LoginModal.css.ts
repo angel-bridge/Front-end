@@ -1,4 +1,6 @@
 import { style } from '@vanilla-extract/css'
+import { vars } from '@/style/theme.css'
+import * as font from '@/style/theme.css'
 
 export const loginModal = style({
     width: '100vw',
@@ -16,13 +18,13 @@ export const loginModal = style({
 
 export const loginWrapper = style({
     display: 'flex',
-    width: '35rem',
-    padding: '2.5rem',
+    width: '56rem',
+    padding: '4rem',
     flexDirection: 'column',
     alignItems: 'center',
-    gap: '0.625rem',
+    gap: '1rem',
     borderRadius: '40px',
-    background: 'var(--Grayscale-00)',
+    background: vars.grayScale.grayscale00,
     position: 'relative',
 
     zIndex: '11',
@@ -30,51 +32,49 @@ export const loginWrapper = style({
 
 export const closeButton = style({
     display: 'flex',
-    width: '1.75rem',
-    height: '1.75rem',
+    width: '2.8rem',
+    height: '2.8rem',
     justifyContent: 'center',
     alignItems: 'center',
-    gap: '0.4375rem',
+    gap: '0.7rem',
     borderRadius: '21px',
-    background: 'var(--Grayscale-800)',
+    background: vars.grayScale.grayscale800,
     cursor: 'pointer',
     position: 'absolute',
-    right: '1.5rem',
-    top: '1.1875rem',
+    right: '2.4rem',
+    top: '1.9rem',
     
     zIndex: '12',
 });
 
 export const image = style({
-    width: '30rem',
-    height: '12.14575rem',
-    marginTop: '1.25rem',
+    width: '48rem',
+    height: '19.4rem',
+    marginTop: '2rem',
     zIndex: '12',
 });
 
-export const announceText = style({
-    color: 'var(--Grayscale-600)',
-    fontSize: '1.25rem',
-    fontStyle: 'normal',
-    fontWeight: '500',
-    lineHeight: '150%',
-    letterSpacing: '-0.025rem',
-    textAlign: 'center',
-    alignSelf: 'stretch',
-    marginTop: '0.75rem',
-    marginBottom: '2.48rem',
-
-    zIndex: '12',
-});
+export const announceText = style([
+    font.subTitle20SB, {
+        color: vars.grayScale.grayscale600,
+        textAlign: 'center',
+        alignSelf: 'stretch',
+        marginTop: '0.75rem',
+        marginBottom: '2.48rem',
+    
+        zIndex: '12',
+    }
+]);
 
 export const loginButton = style({
     display: 'flex',
-    width: '30rem',
-    height: '4rem',
-    padding: '1rem, 2.5rem',
+    width: '48rem',
+    height: '6.4rem',
+    padding: '1.6rem, 4rem',
     justifyContent: 'center',
     alignItems: 'center',
-    gap: '0.75rem',
+    gap: '1.2rem',
+    borderColor: '#FEE500',
     borderRadius: '70px',
     background: '#FEE500',
     cursor: 'pointer',
@@ -82,13 +82,10 @@ export const loginButton = style({
     zIndex: '12',
 });
 
-export const loginText = style({
-    color: 'var(--Grayscale-800)',
-    fontSize: '1.25rem',
-    fontStyle: 'normal',
-    fontWeight: '600',
-    lineHeight: '150%',
-    letterSpacing: '-0.025rem',
-
-    zIndex: '13',
-});
+export const loginText = style([
+    font.title20SB, 
+    {
+        color: vars.grayScale.grayscale800,
+        zIndex: '13',
+    }
+]);

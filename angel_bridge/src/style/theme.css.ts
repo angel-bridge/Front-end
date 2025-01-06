@@ -142,6 +142,14 @@ export const subTitle16M = style({
   letterSpacing: '-0.02rem',
 })
 
+export const subTitle20SB = style({
+  fontFamily: pretendardTheme,
+  fontWeight: 600,
+  fontSize: '2.0rem',
+  lineHeight: '150%',
+  letterSpacing: '-0.04rem',
+})
+
 export const body20M = style({
   fontFamily: pretendardTheme,
   fontWeight: 500,
