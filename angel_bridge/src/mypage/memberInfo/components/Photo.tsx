@@ -27,10 +27,16 @@ export default function Photo() {
 
     reader.readAsDataURL(file)
   }
+
   return (
     <div className={photo_container}>
       <div className={image_container}>
-        <Image src={image} fill alt="기본이미지" />
+        <Image
+          style={{ borderRadius: ' 50%' }}
+          src={image}
+          fill
+          alt="기본이미지"
+        />
       </div>
       <div className={clip_container}>
         <label>

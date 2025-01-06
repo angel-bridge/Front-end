@@ -8,14 +8,13 @@ export const photo_container = style({
   alignItems: 'flex-end',
   width: '12rem',
   height: '12rem',
-
-  borderRadius: '50%',
 })
 
 export const image_container = style({
   position: 'relative',
-  width: '12rem',
+  width: '20rem',
   height: '12rem',
+  borderRadius: '50%',
 })
 
 export const clip_container = style({
