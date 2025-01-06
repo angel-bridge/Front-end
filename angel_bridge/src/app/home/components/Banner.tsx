@@ -2,26 +2,37 @@
 
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
-import BannerImage from '@/app/home/assets/BannerImage.png';
-import BannerImage1 from '@/app/home/assets/BannerImage1.png';
-import BannerImage2 from '@/app/home/assets/BannerImage2.png';
+import { getBanners } from '@/api/banner';
 
 import * as style from '@/app/home/styles/Banner.css';
 
-const images =[
-    BannerImage, BannerImage1, BannerImage2, 
-]
-
 export default function Banner() {
+    const [images, setImages] = useState<string[]>([]);
     const [currentIndex, setCurrentIndex] = useState(1);
     const [isTransitioning, setIsTransitioning] = useState(true);
     const timerRef = useRef<NodeJS.Timeout | null>(null);
 
     // 무한 슬라이드용 배열
-    const extendedImages = [images[images.length - 1], ...images, images[0]];
+    const extendedImages = [images[images.length - 1], ...images, images[0]].filter(Boolean);
+
+    useEffect(() => {
+        const fetchBanners = async () => {
+            try {
+                const banners = await getBanners();
+                const imageUrls = banners.map((banner) => banner.imageFile);
+                console.log(banners);
+                setImages(imageUrls);
+            } catch (error) {
+                console.error("배너 이미지 가져오기 실패:", error);
+            }
+        };
+    
+        fetchBanners();
+    }, []);
 
     // 슬라이드 전환 타이머
     useEffect(() => {
+        if (images.length === 0) return;
         timerRef.current = setInterval(() => {
             setCurrentIndex((prevIndex) => prevIndex + 1);
         }, 3000);
