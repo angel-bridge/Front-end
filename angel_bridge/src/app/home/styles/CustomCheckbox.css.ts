@@ -17,8 +17,8 @@ export const hiddenCheckbox = style({
 });
 
 export const styledCheckbox = style({
-    width: '1.5rem',
-    height: '1.5rem',
+    width: '2.4rem',
+    height: '2.4rem',
     cursor: 'pointer',
     backgroundSize: 'cover',
 });
