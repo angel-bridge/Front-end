@@ -1,17 +1,17 @@
 import { style } from '@vanilla-extract/css'
-import { vars } from '@/style/theme.css';
+import { vars } from '@/style/theme.css'
+import * as font from '@/style/theme.css'
 
 export const articles = style({
     display: 'flex',
     flexDirection: 'column',
     width: '100vw',
-    maxWidth: '90rem',
-    padding: '0rem 12.5rem',
+    maxWidth: '104rem',
     boxSizing: 'border-box',
     alignItems: 'flex-start',
-    gap: '1rem',
+    gap: 'auto',
     alignSelf: 'stretch',
-    marginBottom: '2.75rem',
+    marginBottom: '10rem',
     margin: '0 auto',
 });
 
@@ -20,27 +20,23 @@ export const titleWrapper = style({
     width: '100%',
     justifyContent: 'space-between',
     alignItems: 'flex-end',
-    marginBottom: '1rem',
+    marginBottom: '1.6rem',
 });
 
-export const title = style({
-    color: vars.grayScale.grayscale800,
-    fontSize: '1.5rem',
-    fontStyle: 'normal',
-    fontWeight: '600',
-    lineHeight: '150%',
-    letterSpacing: '-0.03rem',
-});
+export const title = style([
+    font.title24SB,
+    {
+        color: vars.grayScale.grayscale800,
+    }
+])
 
-export const seeAll = style({
-    color: vars.grayScale.grayscale600,
-    fontSize: '1rem',
-    fontStyle: 'normal',
-    fontWeight: '500',
-    lineHeight: '150%',
-    letterSpacing: '-0.02rem',
-    cursor: 'pointer',
-});
+export const seeAll = style([
+    font.subTitle16M, 
+    {
+        color: vars.grayScale.grayscale600,
+        cursor: 'pointer',
+    }
+]);
 
 export const contentsWrapper = style({
     display: 'flex',
@@ -50,12 +46,12 @@ export const contentsWrapper = style({
 
 export const contents = style({
     display: 'flex',
-    width: '31.75rem',
-    padding: '1.25rem 1.75rem',
+    width: '50.8rem',
+    padding: '2rem 2.8rem',
     boxSizing: 'border-box',
     flexDirection: 'column',
     alignItems: 'flex-start',
-    gap: '1.25rem',
+    gap: '2rem',
     borderRadius: '16px',
     background: vars.purple.purple100,
     transition: 'transform 0.7s ease',
@@ -69,51 +65,42 @@ export const contents = style({
 export const textWrapper = style({
     display: 'flex',
     flexDirection: 'column',
-    gap: '0.25rem',
+    gap: '0.4rem',
 });
 
-export const contentTitle = style({
-    width: '100%',
-    color: vars.grayScale.grayscale700,
-    fontSize: '1.125rem',
-    fontStyle: 'normal',
-    fontWeight: '600',
-    lineHeight: '150%',
-    letterSpacing: '-0.0225rem',
-});
+export const contentTitle = style([
+    font.title18SB, 
+    {
+        width: '100%',
+        color: vars.grayScale.grayscale700,
+    }
+]);
 
-export const contentText = style({
-    width: '100%',
-    alignSelf: 'stretch',
-    color: vars.grayScale.grayscale500,
-    fontSize: '0.875rem',
-    fontStyle: 'normal',
-    fontWeight: '500',
-    lineHeight: '150%',
-    letterSpacing: '-0.0175rem',
-});
+export const contentText = style([
+    font.body14M,
+    {
+        width: '100%',
+        alignSelf: 'stretch',
+        color: vars.grayScale.grayscale500,
+    }
+]);
 
 export const writerWrapper = style({
     width: '100%',
     display: 'flex',
-    gap: '1.5rem',
+    gap: '1.2rem',
 });
 
-export const writer = style({
-    color: vars.grayScale.grayscale700,
-    fontSize: '0.875rem',
-    fontStyle: 'normal',
-    fontWeight: '600',
-    lineHeight: '150%',
-    letterSpacing: '-0.0175rem',
-    marginLeft: '-1rem',
-});
+export const writer = style([
+    font.label14SB,
+    {
+        color: vars.grayScale.grayscale700,
+    }
+]);
 
-export const writtenDate = style({
-    color: vars.grayScale.grayscale500,
-    fontSize: '0.875rem',
-    fontStyle: 'normal',
-    fontWeight: '500',
-    lineHeight: '150%',
-    letterSpacing: '-0.0175rem',
-});
+export const writtenDate = style([
+    font.label14M, 
+    {
+        color: vars.grayScale.grayscale500,
+    }
+]);
