@@ -14,8 +14,11 @@ export const program_container = style({
   alignItems: 'center',
   flexWrap: 'wrap',
 
-  width: '104rem',
   maxHeight: '110rem',
+})
 
-  gap: '3.2rem',
+export const main_container = style({
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '1.6rem',
 })

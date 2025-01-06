@@ -14,7 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body>
+      <body style={{ fontSize: '62.5%' }}>
         <Providers>{children}</Providers>
       </body>
     </html>

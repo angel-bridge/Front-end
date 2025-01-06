@@ -9,13 +9,14 @@ export default function Programs() {
       {DUMMY_DATA.map((data, index) => {
         const { badgeText, badgeType, bio, title } = data
         return (
-          <ProgramCard
-            badgeText={badgeText}
-            badgeType={badgeType}
-            bio={bio}
-            title={title}
-            key={index}
-          />
+          <div style={{ marginBottom: '3.2rem' }} key={index}>
+            <ProgramCard
+              badgeText={badgeText}
+              badgeType={badgeType}
+              bio={bio}
+              title={title}
+            />
+          </div>
         )
       })}
     </div>
