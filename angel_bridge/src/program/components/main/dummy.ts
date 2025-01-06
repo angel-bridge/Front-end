@@ -24,8 +24,8 @@ const DUMMY_DATA = [
     bio: '프로그램소개입니다다',
   },
   {
-    badgeText: '모집중',
-    badgeType: 'active',
+    badgeText: '모집예정',
+    badgeType: 'inactive',
     title: '예비창업패키지 2주 완성',
     bio: '프로그램소개입니다다',
   },
