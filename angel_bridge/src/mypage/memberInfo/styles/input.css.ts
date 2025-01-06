@@ -85,6 +85,5 @@ export const name_error_container = style({
   alignItems: 'center',
 
   justifyContent: 'flex-end',
-  width: '48rem',
   height: '2.2rem',
 })
