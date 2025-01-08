@@ -5,10 +5,10 @@ import { getDetailProgram } from '../utils/getDetailProgram'
 export default function useGetDetailProgram({
   educationId,
 }: {
-  educationId: number
+  educationId: string
 }) {
   const { data, isLoading, isError } = useQuery({
-    queryKey: ['searchPrograms', { educationId }],
+    queryKey: ['detailProgram', educationId],
     queryFn: () => getDetailProgram({ educationId }),
   })
 
