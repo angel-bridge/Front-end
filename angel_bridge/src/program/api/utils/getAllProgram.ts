@@ -1,18 +1,11 @@
 import { instance } from '@/api/instance'
-
-export interface ResultType {
-  educationId: number
-  preImage: string
-  description: string
-  title: string
-  recruitmentStatus: string
-}
+import { DataType } from '@/program/types/dataType'
 
 interface AllProgramType {
   timestamp: string
   code: number
   message: string
-  result: ResultType[]
+  result?: DataType[]
 }
 
 export const getAllPrograms = async () => {

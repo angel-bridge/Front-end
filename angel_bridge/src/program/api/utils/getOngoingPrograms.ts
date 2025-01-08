@@ -1,6 +1,14 @@
 import { instance } from '@/api/instance'
 import { DataType } from '@/program/types/dataType'
 
+export interface ResultType {
+  educationId: number
+  preImage: string
+  description: string
+  title: string
+  recruitmentStatus: string
+}
+
 interface AllProgramType {
   timestamp: string
   code: number
@@ -8,9 +16,9 @@ interface AllProgramType {
   result: DataType[]
 }
 
-export const getUpcomingProgram = async () => {
+export const getOngoingProgram = async () => {
   const response: AllProgramType = await instance.get(
-    `/api/v1/education/upcoming`,
+    `/api/v1/education/ongoing`,
   )
   return response.result
 }
