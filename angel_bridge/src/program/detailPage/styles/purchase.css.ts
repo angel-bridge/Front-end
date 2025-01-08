@@ -1,6 +1,15 @@
 import { subTitle16M, title20SB, vars } from '@/style/theme.css'
 import { style } from '@vanilla-extract/css'
 
+export const wrapper = style({
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+
+  height: ' 39rem',
+  backgroundColor: vars.purple.purple300,
+})
+
 export const title = style([
   title20SB,
   {
@@ -50,4 +59,5 @@ export const container = style({
   justifyContent: 'space-around',
   alignItems: 'center',
   backgroundColor: vars.grayScale.grayscale800,
+  height: '10rem',
 })

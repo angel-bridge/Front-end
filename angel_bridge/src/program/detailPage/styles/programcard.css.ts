@@ -7,15 +7,15 @@ export const programcard_container = style({
   justifyContent: 'center',
   gap: '6rem',
   flexDirection: 'column',
-  marginBottom: '4rem',
-  marginTop: '4rem',
+  marginTop: '6rem',
 })
 
 export const program_photo_and_detail = style({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  backgroundColor: 'red',
+  gap: '6rem',
+  marginBottom: '6rem',
 })
 
 export const programPhoto = style({
