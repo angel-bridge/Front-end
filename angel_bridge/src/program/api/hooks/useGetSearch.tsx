@@ -8,7 +8,7 @@ interface SearchParams {
   status: string
 }
 
-export default function useSearch({ keyword, page, status }: SearchParams) {
+export default function useGetSearch({ keyword, page, status }: SearchParams) {
   const { data, isLoading, isError } = useQuery({
     queryKey: ['searchPrograms', { keyword, page, status }],
     queryFn: () => getSearch({ keyword, page, status }),
