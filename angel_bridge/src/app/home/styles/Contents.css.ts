@@ -4,6 +4,6 @@ export const contents = style({
     display: 'flex',
     flexDirection: 'column',
     width: '100vw',
-    marginTop: '2.75rem',
-    marginBottom: '6.25rem',
+    marginTop: '4.4rem',
+    marginBottom: '10rem',
 });

@@ -1,28 +1,26 @@
+"use client"
+
 import * as style from '@/app/home/styles/Recommends.css';
 import ProgramCard from '@/components/common/ProgramCard';
-
-const programsDummyData = [
-    {
-        badgeText: '모집중',
-        badgeType: 'active',
-        title: '예비창업패키지 2주 완성',
-        bio: '프로그램 한줄 소개를 작성해 주세요. 두줄은 곤란해요.',
-    },
-    {
-        badgeText: '모집예정',
-        badgeType: 'inactive',
-        title: '예비창업패키지 2주 완성',
-        bio: '프로그램 한줄 소개를 작성해 주세요. 두줄은 곤란해요.',
-    },
-    {
-        badgeText: '모집예정',
-        badgeType: 'inactive',
-        title: '예비창업패키지 2주 완성',
-        bio: '프로그램 한줄 소개를 작성해 주세요. 두줄은 곤란해요.',
-    },
-];
+import { useState, useEffect } from 'react';
+import { getRecommendedProgram, ProgramResult } from '@/api/education';
 
 export default function Recommends() {
+    const [programs, setPrograms] = useState<ProgramResult[]>([]);
+
+    useEffect(() => {
+        const fetchPrograms = async () => {
+            try {
+                const data = await getRecommendedProgram();
+                setPrograms(data);
+            } catch (error) {
+                console.error("추천 프로그램 불러오기 실패:", error);
+            }
+        };
+
+        fetchPrograms();
+    }, []);
+
     return (
         <div className={style.recommends}>
             <div className={style.titleWrapper}>
@@ -30,13 +28,19 @@ export default function Recommends() {
                 <div className={style.seeAll}>전체보기</div>
             </div>
             <div className={style.contentsWrapper}>
-                {programsDummyData.map((program, index) => (
+                {programs.map((program) => (
                     <ProgramCard
-                        key={index}
-                        badgeText={program.badgeText}
-                        badgeType={program.badgeType}
+                        key={program.educationId}
+                        badgeText={
+                            program.recruitmentStatus === "ONGOING" ? "모집중"
+                                : program.recruitmentStatus === "UPCOMING" ? "모집예정"
+                                : "모집완료"
+                        }
+                        badgeType={
+                            program.recruitmentStatus === "ONGOING" ? "active" : "inactive"
+                        }
                         title={program.title}
-                        bio={program.bio}
+                        bio={program.description}
                     />
                 ))}
             </div>

@@ -1,10 +1,11 @@
 import { style } from '@vanilla-extract/css'
-import { vars } from '@/style/theme.css';
+import { vars } from '@/style/theme.css'
+import * as font from '@/style/theme.css'
 
 export const header = style({
     display: 'flex',
     width: '100vw',
-    padding: '1rem 2.25rem',
+    padding: '1.6rem 3.6rem',
     boxSizing: 'border-box',
     background: vars.grayScale.grayscale00,
     justifyContent: 'space-between',
@@ -15,9 +16,9 @@ export const header = style({
 });
 
 export const loginButton = style({
-    width: '7.5rem',
-    height: '2.5rem',
-    padding: '0.5rem 1.5rem',
+    width: '12rem',
+    height: '4rem',
+    padding: '0.8rem 2.4rem',
     boxSizing: 'border-box',
     justifyItems: 'center',
     alignItems: 'center',
@@ -26,20 +27,17 @@ export const loginButton = style({
     cursor: 'pointer',
 });
 
-export const buttonText = style({
-    color: vars.grayScale.grayscale00,
-    textAlign: 'center',
-    fontSize: '1rem',
-    fontStyle: 'normal',
-    fontWeight: '600',
-    lineHeight: '150%',
-    letterSpacing: '-0.02rem',
-});
+export const buttonText = style([
+    font.title16SB, 
+    {
+        color: vars.grayScale.grayscale00,
+    }
+]);
 
 export const menuTabWrapper = style({
     display: 'flex',
-    height: '3rem',
-    padding: '0.375rem 0.5rem',
+    height: '4.8rem',
+    padding: '0.6rem 0.8rem',
     boxSizing: 'border-box',
     alignItems: 'center',
     borderRadius: '30px',
@@ -50,8 +48,8 @@ export const menuTabWrapper = style({
 
 export const slidingBackground = style({
     position: "absolute",
-    width: "8rem",
-    height: "2.25rem",
+    width: "12rem",
+    height: "3.6rem",
     background: vars.purple.purple400,
     borderRadius: "30px",
     transition: "transform 0.5s ease",
@@ -60,13 +58,13 @@ export const slidingBackground = style({
 
 export const colorMenuTab = style({
     display: 'flex',
-    width: '8rem',
-    height: '2.25rem',
-    padding: '0.25rem 0.75rem',
+    width: '12rem',
+    height: '3.6rem',
+    padding: '0.4rem 1.5rem',
     boxSizing: 'border-box',
     justifyContent: 'center',
     alignItems: 'center',
-    gap: '0.25rem',
+    gap: '0.4rem',
     borderRadius: '30px',
     cursor: 'pointer',
     position: "relative",
@@ -75,33 +73,29 @@ export const colorMenuTab = style({
 
 export const greyMenuTab = style({
     display: 'flex',
-    width: '8rem',
-    height: '2.25rem',
-    padding: '0.25rem 0.75rem',
+    width: '12rem',
+    height: '3.6rem',
+    padding: '0.4rem 1.5rem',
     boxSizing: 'border-box',
     justifyContent: 'center',
     alignItems: 'center',
-    gap: '0.25rem',
+    gap: '0.4rem',
     background: 'transparent',
     cursor: 'pointer',
 });
 
-export const colorTabText = style({
-    color: vars.grayScale.grayscale00,
-    textAlign: 'center',
-    fontSize: '1.125rem',
-    fontStyle: 'normal',
-    fontWeight: '600',
-    lineHeight: '150%',
-    letterSpacing: '-0.0225rem',
-});
+export const colorTabText = style([
+    font.title18SB,
+    {
+        color: vars.grayScale.grayscale00,
+        textAlign: 'center',
+    }
+]);
 
-export const greyTabText = style({
-    color: vars.grayScale.grayscale500,
-    textAlign: 'center',
-    fontSize: '1.125rem',
-    fontStyle: 'normal',
-    fontWeight: '600',
-    lineHeight: '150%',
-    letterSpacing: '-0.0225rem',
-});
+export const greyTabText = style([
+    font.title18SB,
+    {
+        color: vars.grayScale.grayscale500,
+        textAlign: 'center',
+    }
+]);
