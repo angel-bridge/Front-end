@@ -1,5 +1,5 @@
-import { graybutton } from '@/program/styles/button.css'
+import { blackbutton } from '@/program/styles/button.css'
 
 export default function TakingButton() {
-  return <button className={graybutton}>수강중</button>
+  return <button className={blackbutton}>수강중</button>
 }

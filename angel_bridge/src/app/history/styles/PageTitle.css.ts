@@ -5,6 +5,7 @@ import * as font from '@/style/theme.css'
 export const wrapper = style({
     display: 'flex',
     flexDirection: 'column',
+    alignItems: 'flex-start',
     gap: '2.4rem',
     marginBottom: '4.4rem',
 })
