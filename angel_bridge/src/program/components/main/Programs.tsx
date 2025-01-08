@@ -1,12 +1,12 @@
 import React from 'react'
 import ProgramCard from '@/components/common/ProgramCard'
 import { program_container } from './styles/programmain.css'
-import { ResultType } from '@/program/api/utils/getAllProgram'
+import { DataType } from '@/program/types/dataType'
 
 export default function Programs({
   programs,
 }: {
-  programs: ResultType[] | undefined
+  programs: null | DataType[]
 }) {
   return (
     <div className={program_container}>
