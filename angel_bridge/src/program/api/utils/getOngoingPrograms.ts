@@ -1,14 +1,6 @@
 import { instance } from '@/api/instance'
 import { DataType } from '@/program/types/dataType'
 
-export interface ResultType {
-  educationId: number
-  preImage: string
-  description: string
-  title: string
-  recruitmentStatus: string
-}
-
 interface AllProgramType {
   timestamp: string
   code: number
