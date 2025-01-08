@@ -2,6 +2,6 @@ import { style } from '@vanilla-extract/css'
 
 export const detail_photo = style({
   position: 'relative',
-  width: '20rem',
-  height: '30rem',
+  width: '104rem',
+  height: '431.2rem',
 })

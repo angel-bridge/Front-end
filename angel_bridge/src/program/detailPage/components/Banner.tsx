@@ -1,5 +1,4 @@
 import React from 'react'
-import { banner } from '../styles/banner.css'
 import bannerImg from '../assets/banner.png'
 import Image from 'next/image'
 
