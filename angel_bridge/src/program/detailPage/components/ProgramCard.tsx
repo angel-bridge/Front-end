@@ -31,18 +31,19 @@ export default function ProgramCard() {
             <div className={programPhoto}>
               <Image src={data?.preFile} alt="프로그램 이미지" fill />
             </div>
+            <div className={container}>
+              <p className={program_title}>{data?.title}</p>
+              <ProgramDescription
+                description={data?.description}
+                educationStartDate={data?.educationStartDate}
+                educationEndDate={data?.educationEndDate}
+                recruitmentStartDate={data?.recruitmentStartDate}
+                recruitmentEndDate={data?.recruitmentEndDate}
+                price={data?.price}
+              />
+            </div>
           </div>
-          <div className={container}>
-            <p className={program_title}>{data?.title}</p>
-            <ProgramDescription
-              description={data?.description}
-              educationStartDate={data?.educationStartDate}
-              educationEndDate={data?.educationEndDate}
-              recruitmentStartDate={data?.recruitmentStartDate}
-              recruitmentEndDate={data?.recruitmentEndDate}
-              price={data?.price}
-            />
-          </div>
+
           <div className={banneranddetail_style}>
             <BannerAndPurchase />
             <ProgramSummary detailFile={data?.detailFile} />

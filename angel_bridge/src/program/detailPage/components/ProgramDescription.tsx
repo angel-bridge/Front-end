@@ -7,7 +7,12 @@ import {
   detail_wrapper,
 } from '../styles/programcard.css'
 
-export default function ProgramDescription(props: DetailType) {
+type ProgramDescriptionProps = Omit<
+  DetailType,
+  'title' | 'preFile' | 'detailFile'
+>
+
+export default function ProgramDescription(props: ProgramDescriptionProps) {
   const {
     description,
     educationEndDate,
