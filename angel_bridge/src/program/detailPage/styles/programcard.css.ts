@@ -4,14 +4,25 @@ import { style } from '@vanilla-extract/css'
 export const programcard_container = style({
   display: 'flex',
   alignItems: 'center',
+  justifyContent: 'center',
   gap: '6rem',
+  flexDirection: 'column',
+  marginBottom: '4rem',
+  marginTop: '4rem',
+})
+
+export const program_photo_and_detail = style({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  backgroundColor: 'red',
 })
 
 export const programPhoto = style({
   position: 'relative',
   width: '44.8rem',
   height: '24.4rem',
-  borderRadius: '32.15px',
+  borderRadius: '32px',
 })
 
 export const program_title = style([
@@ -51,4 +62,23 @@ export const detail_wrapper = style({
   gap: '1.6rem',
 
   width: '53.2rem',
+})
+
+//타이틀 포함
+export const container = style({
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '2.8rem',
+})
+
+export const banneranddetail_style = style({
+  display: 'flex',
+  flexDirection: 'column',
+})
+
+export const program_layout = style({
+  display: 'flex',
+  flexDirection: 'column',
+
+  backgroundColor: 'red',
 })

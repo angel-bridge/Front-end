@@ -5,10 +5,16 @@ import { useParams } from 'next/navigation'
 import React from 'react'
 import ProgramDescription from './ProgramDescription'
 import {
+  banneranddetail_style,
+  container,
+  program_layout,
+  program_photo_and_detail,
   program_title,
   programcard_container,
   programPhoto,
 } from '../styles/programcard.css'
+import ProgramSummary from './ProgramSummary'
+import BannerAndPurchase from './BannerAndPurchase'
 
 export default function ProgramCard() {
   const params = useParams()
@@ -21,18 +27,26 @@ export default function ProgramCard() {
       {isLoading && <p>loading</p>}
       {data && (
         <div className={programcard_container}>
-          <div className={programPhoto}>
-            <Image src={data?.preFile} alt="프로그램 이미지" fill />
+          <div className={program_photo_and_detail}>
+            <div className={programPhoto}>
+              <Image src={data?.preFile} alt="프로그램 이미지" fill />
+            </div>
           </div>
-          <p className={program_title}>{data?.title}</p>
-          <ProgramDescription
-            description={data?.description}
-            educationStartDate={data?.educationStartDate}
-            educationEndDate={data?.educationEndDate}
-            recruitmentStartDate={data?.recruitmentStartDate}
-            recruitmentEndDate={data?.recruitmentEndDate}
-            price={data?.price}
-          />
+          <div className={container}>
+            <p className={program_title}>{data?.title}</p>
+            <ProgramDescription
+              description={data?.description}
+              educationStartDate={data?.educationStartDate}
+              educationEndDate={data?.educationEndDate}
+              recruitmentStartDate={data?.recruitmentStartDate}
+              recruitmentEndDate={data?.recruitmentEndDate}
+              price={data?.price}
+            />
+          </div>
+          <div className={banneranddetail_style}>
+            <BannerAndPurchase />
+            <ProgramSummary detailFile={data?.detailFile} />
+          </div>
         </div>
       )}
     </>
