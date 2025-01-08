@@ -1,22 +1,32 @@
 import { instance } from '@/api/instance'
-import { DataType } from '@/program/types/dataType'
+import { StaticImport } from 'next/dist/shared/lib/get-img-props'
+
+interface DetailType {
+  title: string
+  description: string
+  educationStartDate: string
+  educationEndDate: string
+  recruitmentStartDate: string
+  recruitmentEndDate: string
+  price: string
+  preFile: string | StaticImport
+  detailFile: string
+}
 
 interface AllProgramType {
   timestamp: string
   code: number
   message: string
-  result: DataType[]
+  result: DetailType
 }
 
 export const getDetailProgram = async ({
   educationId,
 }: {
-  educationId: number
+  educationId: string | number
 }) => {
-  const response: AllProgramType = await instance.get(`/api/v1/education/`, {
-    params: {
-      educationId,
-    },
-  })
+  const response: AllProgramType = await instance.get(
+    `/api/v1/education/${educationId}`,
+  )
   return response.result
 }
