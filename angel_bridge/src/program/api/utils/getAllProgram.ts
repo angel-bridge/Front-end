@@ -1,8 +1,21 @@
 import { instance } from '@/api/instance'
 
-interface AllProgramInterface {}
+export interface ResultType {
+  educationId: number
+  preImage: string
+  description: string
+  title: string
+  recruitmentStatus: string
+}
+
+interface AllProgramType {
+  timestamp: string
+  code: number
+  message: string
+  result: ResultType[]
+}
 
 export const getAllPrograms = async () => {
-  const response: AllProgramInterface = await instance.get(`/api/v1/education`)
-  return response
+  const response: AllProgramType = await instance.get(`/api/v1/education`)
+  return response.result
 }
