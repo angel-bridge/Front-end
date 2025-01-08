@@ -2,6 +2,7 @@ import React from 'react'
 import ProgramCard from '@/components/common/ProgramCard'
 import { program_container } from './styles/programmain.css'
 import { DataType } from '@/program/types/dataType'
+import Link from 'next/link'
 
 export default function Programs({
   programs,
@@ -14,15 +15,17 @@ export default function Programs({
         const { description, recruitmentStatus, title, educationId, preImage } =
           data
         return (
-          <div style={{ marginBottom: '3.2rem' }} key={educationId}>
-            <ProgramCard
-              badgeText={recruitmentStatus}
-              badgeType={recruitmentStatus}
-              bio={description}
-              title={title}
-              preImage={preImage}
-            />
-          </div>
+          <Link href={`program/${educationId}`}>
+            <div style={{ marginBottom: '3.2rem' }} key={educationId}>
+              <ProgramCard
+                badgeText={recruitmentStatus}
+                badgeType={recruitmentStatus}
+                bio={description}
+                title={title}
+                preImage={preImage}
+              />
+            </div>
+          </Link>
         )
       })}
     </div>
