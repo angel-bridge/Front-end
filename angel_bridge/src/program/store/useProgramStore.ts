@@ -4,18 +4,24 @@ import { DataType } from '../types/dataType'
 
 interface ProgramStorType {
   program: DataType[]
-  setProgram: (data: DataType[]) => void
+  setProgram: (data: DataType[] | undefined) => void
 
   isClickUpcomings: boolean
   isClickOngoings: boolean
 
   setIsClickUpcoming: () => void
   setIsClickOngoings: () => void
+
+  search: string
+  setSearch: (data: string) => void
+
+  listKind: string
+  setListKind: (data: string) => void
 }
 
 export const useProgramStore = create<ProgramStorType>((set) => ({
   program: [],
-  setProgram: (data: DataType[]) => set({ program: data }),
+  setProgram: (data: DataType[] | undefined) => set({ program: data }),
 
   //Control Btn
   isClickUpcomings: false,
@@ -30,4 +36,10 @@ export const useProgramStore = create<ProgramStorType>((set) => ({
       isClickOngoings: !state.isClickOngoings,
       isClickUpcomings: false,
     })),
+
+  //검색
+  search: '',
+  setSearch: (data: string) => set({ search: data }),
+  listKind: '',
+  setListKind: (data: string) => set({ listKind: data }),
 }))
