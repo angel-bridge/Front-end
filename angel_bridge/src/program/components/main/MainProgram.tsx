@@ -21,7 +21,7 @@ export default function MainProgram() {
   const { data: all, isLoading } = useGetAllPrograms()
   const { data: ongoings } = useGetOngoings()
   const { data: upcomings } = useGetUpcoming()
-  const { data: searchlist } = useGetSearch({
+  const { data: searchlist, isLoading: LoadingSearch } = useGetSearch({
     keyword: search,
     page: 1,
     status: listKind,
@@ -62,6 +62,7 @@ export default function MainProgram() {
   return (
     <>
       {isLoading && <p>loading...</p>}
+      {LoadingSearch && <p>검색 결과 로딩중....</p>}
       <div className={main_container}>
         <p className={length_style}>전체 {program ? program?.length : '0'}개</p>
         <Programs programs={program} />
