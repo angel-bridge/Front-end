@@ -17,23 +17,7 @@ export const button_style = style([
     border: 'none',
 
     color: vars.grayScale.grayscale00,
-  },
-])
 
-//미션제출현황 버튼들입니다.
-const bottom_button_common_style = style([
-  title16SB,
-  {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-
-    width: '12rem',
-    height: '4.8rem',
-
-    borderRadius: '12px',
-
-    border: 'none',
     cursor: 'pointer',
   },
 ])
@@ -75,3 +59,9 @@ export const bottom_gray_style = style([
   },
   title16SB,
 ])
+
+export const close_modal = style({
+  position: 'relative',
+  width: '2.8rem',
+  height: '2.8rem',
+})

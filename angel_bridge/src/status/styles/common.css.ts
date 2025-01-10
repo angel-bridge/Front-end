@@ -109,3 +109,20 @@ export const subText_container_style = style({
   height: '15rem',
   gap: '1.2rem',
 })
+
+export const modal_title_closebtn = style({
+  display: 'flex',
+  flexDirection: 'row',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+  width: '39.7rem',
+})
+
+export const modal_container = style({
+  position: 'absolute',
+  right: '47.9rem',
+
+  zIndex: '1',
+
+  backgroundColor: 'red',
+})
