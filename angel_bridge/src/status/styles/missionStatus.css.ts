@@ -10,13 +10,14 @@ export const card_container = style([
     justifyContent: 'center',
     alignItems: 'center',
 
-    width: '6.6rem',
-    height: '14.8rem',
-    paddingTop: '2rem',
-    paddingBottom: '2rem',
-    paddingRight: '3.2rem',
-    paddingLeft: '3.2rem',
+    width: '13rem',
+    height: '18.8rem',
+
     gap: '0.8rem',
+
+    borderRadius: '20px',
+
+    backgroundColor: vars.purple.purple100,
   },
 ])
 

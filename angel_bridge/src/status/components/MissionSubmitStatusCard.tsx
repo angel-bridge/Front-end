@@ -1,22 +1,29 @@
 import Image from 'next/image'
 import React from 'react'
-import * as style from '../styles/missionStatus'
+import * as style from '../styles/missionStatus.css'
+import { MISSION_STATUS } from '../core/missionStatus'
 
-type Variants = 'green' | 'orange' | 'red' | 'gray' | 'purple'
+type Variants = 'green' | 'orange' | 'red' | 'purple' | 'gray'
 
 export default function MissionSubmitStatusCard({
-  img,
+  attendanceStatus,
   round,
-  text,
-  variants,
 }: {
-  img: string
+  attendanceStatus: string
   round: number
-  text: string
-  variants: Variants
 }) {
+  const status = MISSION_STATUS.find((data) => {
+    return data.submitStatus === attendanceStatus
+  })
+
+  const img = status?.badge
+  const text = status?.text
+  const variants = status?.badgecolor as Variants
+
   return (
-    <div className={`${style.card_container} ${style.text_style[variants]}`}>
+    <div
+      className={`${style.card_container} variants && ${style.text_style[variants]}`}
+    >
       <div className={style.status_img}>
         <Image fill src={img} alt="미션 현황" />
       </div>

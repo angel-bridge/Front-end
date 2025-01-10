@@ -7,22 +7,32 @@ import red from '../assets/red.svg'
 export const MISSION_STATUS = [
   {
     badge: green,
+    badgecolor: 'green',
     text: '출석',
+    submitStatus: 'ONTIME',
   },
   {
     badge: orange,
+    badgecolor: 'orange',
     text: '지각',
+    submitStatus: 'LATE',
   },
   {
     badge: red,
-    text: '결결석',
+    badgecolor: 'red',
+    text: '결석',
+    submitStatus: 'ABCENT',
   },
   {
     badge: gray,
+    badgecolor: 'gray',
     text: '공개예정',
+    submitStatus: 'PENDING',
   },
   {
     badge: purple,
-    text: '오늘늘',
+    badgecolor: 'purple',
+    text: '오늘',
+    submitStatus: 'TODAY',
   },
 ]

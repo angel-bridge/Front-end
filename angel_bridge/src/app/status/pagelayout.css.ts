@@ -1,9 +1,12 @@
 import { style } from '@vanilla-extract/css'
 
 export const layout = style({
-  width: '144rem',
+  width: '100vw',
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'center',
 
-  marginRight: '20rem',
-  marginLeft: '20rem',
-  marginTop: '10rem',
+  marginTop: '6rem',
+  gap: '6rem',
 })
