@@ -21,7 +21,7 @@ export const DUMMY_DATA = [
     startTime: '2025-01-06T15:00:00',
     endTime: '2025-01-09T14:59:00',
     assignmentStatus: '오늘회차',
-    attendanceStatus: 'ONTIME',
+    attendanceStatus: 'TODAY',
   },
   {
     assignmentId: 6,
