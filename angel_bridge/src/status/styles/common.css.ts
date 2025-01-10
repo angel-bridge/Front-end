@@ -12,26 +12,33 @@ import { style } from '@vanilla-extract/css'
 //upper쪽 전체 담는 애
 export const upper_container = style({
   display: 'flex',
-  justifyContent: ' center',
-  flexDirection: 'column',
 
-  width: '99.2rem',
-  height: '48rem',
+  justifyContent: 'center',
+  alignItems: 'center',
+  width: '107.2rem',
+  height: '54.4rem',
 
   borderRadius: '40px',
-  paddingTop: '4rem',
-  paddingBottom: '4rem',
-  paddingRight: '3.2rem',
-  paddingLeft: '3.2rem',
 
   backgroundColor: vars.purple.purple100,
 })
 
-export const upper_cards_container = style({
+export const upper_content_container = style({
   display: 'flex',
   justifyContent: ' center',
+  flexDirection: 'column',
+  width: '99.2rem',
+  height: '48rem',
+  gap: '2.8rem',
+})
+
+export const upper_cards_container = style({
+  display: 'flex',
+  justifyContent: ' space-between',
   alignItems: 'center',
-  gap: '2.4rem',
+
+  width: '99.2rem',
+  height: '40.4rem',
 })
 
 export const upper_title_style = style([
@@ -46,8 +53,9 @@ export const content_container = style({
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'center',
+  alignItems: 'flex-start',
+
   width: '44.2rem',
-  height: '34.8rem',
 
   paddingTop: '2.8rem',
   paddingBottom: '2.8rem',

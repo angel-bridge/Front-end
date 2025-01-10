@@ -5,7 +5,7 @@ import { style } from '@vanilla-extract/css'
 export const status_constainer = style({
   display: 'flex',
   flexDirection: 'column',
-  gap: '2rem',
+  justifyContent: 'space-between',
   height: '40.4rem',
 })
 
@@ -52,7 +52,6 @@ export const notion_container = style([
     borderRadius: '20px',
     width: '23.2rem',
     height: '19.2rem',
-    marginTop: '1.2rem',
     backgroundColor: vars.grayScale.grayscale00,
   },
 ])
