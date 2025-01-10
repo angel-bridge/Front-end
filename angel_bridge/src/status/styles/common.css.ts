@@ -119,10 +119,9 @@ export const modal_title_closebtn = style({
 })
 
 export const modal_container = style({
-  position: 'absolute',
-  right: '47.9rem',
-
+  position: 'fixed',
+  left: '50%',
+  top: '50%',
+  transform: 'translate(-50%, -50%)',
   zIndex: '1',
-
-  backgroundColor: 'red',
 })
