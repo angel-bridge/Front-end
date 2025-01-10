@@ -7,7 +7,7 @@ import { MODAL_TYPE } from '@/status/core/modalType'
 import { useModalStore } from '@/status/store/useModal'
 
 export default function Modal({ modalType }: { modalType: string }) {
-  const { setIsMdoalClose } = useModalStore()
+  const { setIsMdoalClose, setIsSubmitModalOpen } = useModalStore()
   const modal = MODAL_TYPE.find((modal) => {
     return modalType === modal.type
   })
@@ -16,6 +16,10 @@ export default function Modal({ modalType }: { modalType: string }) {
 
   function handleCloseModal() {
     setIsMdoalClose()
+  }
+
+  function handleOpenSubmitModal() {
+    setIsSubmitModalOpen()
   }
 
   return (
@@ -39,7 +43,16 @@ export default function Modal({ modalType }: { modalType: string }) {
             </p>
           </div>
         </div>
-        <button className={button_style}>{buttonText}</button>
+        <button
+          onClick={
+            modalType != 'clickGreenOrOrange'
+              ? undefined
+              : handleOpenSubmitModal
+          }
+          className={button_style}
+        >
+          {buttonText}
+        </button>
       </div>
     </div>
   )
