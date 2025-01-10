@@ -1,10 +1,15 @@
 import UpperFrame from '@/status/components/UpperFrame'
 import React from 'react'
+import Header from '../home/components/Header'
+import { layout } from './pagelayout.css'
 
 export default function page() {
   return (
-    <div>
-      <UpperFrame />
-    </div>
+    <>
+      <Header />
+      <div className={layout}>
+        <UpperFrame />
+      </div>
+    </>
   )
 }
