@@ -3,12 +3,15 @@ import React, { useState } from 'react'
 import { button_style } from '../styles/button.css'
 import * as style from '../styles/common.css'
 import Modal from './modal/Modal'
+import { useModalStore } from '../store/useModal'
 
 export default function MissonCard() {
+  const { isModalOpen, setIsModalOpen } = useModalStore()
   const [detailModal, setDetailModal] = useState(false)
 
   function handleDetailMissionModal() {
     setDetailModal(true)
+    setIsModalOpen()
   }
 
   return (
@@ -27,7 +30,7 @@ export default function MissonCard() {
       <button onClick={handleDetailMissionModal} className={button_style}>
         미션 자세히 보기
       </button>
-      {detailModal && <Modal modalType={'clickDetail'} />}
+      {isModalOpen && detailModal && <Modal modalType={'clickDetail'} />}
     </div>
   )
 }

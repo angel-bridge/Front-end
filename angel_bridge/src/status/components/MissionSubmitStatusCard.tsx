@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import * as style from '../styles/missionStatus.css'
 import { MISSION_STATUS } from '../core/missionStatus'
 import Modal from './modal/Modal'
+import { useModalStore } from '../store/useModal'
 
 type Variants = 'green' | 'orange' | 'red' | 'purple' | 'gray'
 
@@ -14,6 +15,7 @@ export default function MissionSubmitStatusCard({
   attendanceStatus: string
   round: number
 }) {
+  const { isModalOpen, setIsModalOpen } = useModalStore()
   const [submitModal, setSubmitModal] = useState(false)
   const status = MISSION_STATUS.find((data) => {
     return data.submitStatus === attendanceStatus
@@ -26,11 +28,16 @@ export default function MissionSubmitStatusCard({
 
   function handleModal() {
     setSubmitModal(true)
+    setIsModalOpen()
   }
   return (
     <>
-      {/* {submitModal && modalType && <Modal modalType={modalType} />} */}
+      {modalType != 'noModal' && modalType && submitModal && isModalOpen && (
+        <Modal modalType={modalType} />
+      )}
+
       <div
+        style={{ pointerEvents: modalType === 'noModal' ? 'none' : 'auto' }}
         onClick={handleModal}
         className={`${style.card_container} variants && ${style.text_style[variants]}`}
       >

@@ -5,7 +5,7 @@ export const MODAL_TYPE = [
   },
   {
     type: 'clickRedOrPurple',
-    buttonText: '미션 제출하기기',
+    buttonText: '미션 제출하기',
   },
   {
     type: 'clickDetail',

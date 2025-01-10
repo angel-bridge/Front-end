@@ -31,6 +31,7 @@ export const MISSION_STATUS = [
     badgecolor: 'gray',
     text: '공개예정',
     submitStatus: 'PENDING',
+    modalType: 'noModal',
   },
   {
     badge: purple,

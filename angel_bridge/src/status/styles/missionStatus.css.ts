@@ -18,6 +18,8 @@ export const card_container = style([
     borderRadius: '20px',
 
     backgroundColor: vars.purple.purple100,
+
+    cursor: 'pointer',
   },
 ])
 

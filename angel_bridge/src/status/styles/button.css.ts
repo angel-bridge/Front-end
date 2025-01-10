@@ -64,4 +64,6 @@ export const close_modal = style({
   position: 'relative',
   width: '2.8rem',
   height: '2.8rem',
+
+  cursor: 'pointer',
 })

@@ -4,13 +4,19 @@ import * as style from '../../styles/common.css'
 import modalcancel from '../../assets/modalCancel.svg'
 import Image from 'next/image'
 import { MODAL_TYPE } from '@/status/core/modalType'
+import { useModalStore } from '@/status/store/useModal'
 
 export default function Modal({ modalType }: { modalType: string }) {
+  const { setIsMdoalClose } = useModalStore()
   const modal = MODAL_TYPE.find((modal) => {
     return modalType === modal.type
   })
 
   const buttonText = modal?.buttonText
+
+  function handleCloseModal() {
+    setIsMdoalClose()
+  }
 
   return (
     <div className={style.modal_container}>
@@ -18,7 +24,7 @@ export default function Modal({ modalType }: { modalType: string }) {
         <div className={style.text_container_style}>
           <div className={style.modal_title_closebtn}>
             <p className={style.title_style}>2일차</p>
-            <div className={close_modal}>
+            <div onClick={handleCloseModal} className={close_modal}>
               <Image src={modalcancel} fill alt="모달 닫기" />
             </div>
           </div>
