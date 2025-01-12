@@ -25,6 +25,7 @@ export const global = createGlobalTheme(':root', {
   sementic: {
     sementicDanger: '#fa2a35',
     sementicSuccess: '#1aa174',
+    sementicWarning: '#FF7B00',
     sementicAlphaDanger100: 'rgba(250, 42, 53, 0.1)',
     sementicAlphaDanger200: 'rgba(250, 42, 53, 0.5)',
   },
