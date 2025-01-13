@@ -2,10 +2,10 @@
 import { useQuery } from '@tanstack/react-query'
 import { getMissionBox } from '../utils/getMissionBox'
 
-export default function useGetMissionBox() {
+export default function useGetMissionBox(educationId: number) {
   const { data } = useQuery({
-    queryKey: ['getMissionBox'],
-    queryFn: () => getMissionBox,
+    queryKey: ['getMissionBox', { educationId }],
+    queryFn: () => getMissionBox(educationId),
   })
   return { data }
 }
