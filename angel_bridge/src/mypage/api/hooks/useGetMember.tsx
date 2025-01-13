@@ -1,13 +1,12 @@
-"use client"
+'use client'
 import { useQuery } from '@tanstack/react-query'
-import React from 'react'
+import { getMember } from '../utils/getMembet'
 
 export default function useGetMember() {
-    const {data} = useQuery({ queryKey: "", queryFn: ''})
-        
-    
-  return (
+  const { data, isLoading, isError } = useQuery({
+    queryKey: ['getMember'],
+    queryFn: () => getMember(),
+  })
 
-
-)
+  return { data, isLoading, isError }
 }
