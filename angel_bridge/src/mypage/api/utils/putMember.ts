@@ -6,12 +6,14 @@ interface CancelResponse {
   message: string
 }
 
-export const postCancelPayments = async (
-  data: {
-    nickname: string
-    email: string
-    phoneNumber: string
-  },
+export type PutMemberData = {
+  nickname: string
+  email: string
+  phoneNumber: string
+}
+
+export const putMember = async (
+  data: PutMemberData,
   profileImage: string | null,
 ) => {
   const response: CancelResponse = await instance.put(`/api/v1/member`, {

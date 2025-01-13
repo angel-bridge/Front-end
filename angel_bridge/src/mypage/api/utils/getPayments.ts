@@ -20,7 +20,7 @@ interface PaymentResponse {
   result: Payment
 }
 
-export const getMember = async () => {
+export const getPayments = async () => {
   const response: PaymentResponse = await instance.get(`/api/v1/payments`)
   return response.result
 }
