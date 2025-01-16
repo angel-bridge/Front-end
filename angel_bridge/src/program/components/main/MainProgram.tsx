@@ -57,16 +57,23 @@ export default function MainProgram() {
     isClickUpcomings,
     listKind,
     search,
+    searchlist,
+    LoadingSearch,
   ])
 
   return (
     <>
       {isLoading && <p>loading...</p>}
-      {LoadingSearch && <p>검색 결과 로딩중....</p>}
-      <div className={main_container}>
-        <p className={length_style}>전체 {program ? program?.length : '0'}개</p>
-        <Programs programs={program} />
-      </div>
+      {LoadingSearch ? (
+        <p>검색 결과 로딩중....</p>
+      ) : (
+        <div className={main_container}>
+          <p className={length_style}>
+            전체 {program ? program?.length : '0'}개
+          </p>
+          <Programs programs={program} />
+        </div>
+      )}
     </>
   )
 }

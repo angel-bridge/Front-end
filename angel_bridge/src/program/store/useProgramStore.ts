@@ -40,6 +40,6 @@ export const useProgramStore = create<ProgramStorType>((set) => ({
   //검색
   search: '',
   setSearch: (data: string) => set({ search: data }),
-  listKind: '',
+  listKind: 'ALL',
   setListKind: (data: string) => set({ listKind: data }),
 }))
