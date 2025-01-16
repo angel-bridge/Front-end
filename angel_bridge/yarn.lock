@@ -847,6 +847,11 @@
   dependencies:
     "@tanstack/query-core" "5.60.5"
 
+"@tosspayments/tosspayments-sdk@^2.3.4":
+  version "2.3.4"
+  resolved "https://registry.yarnpkg.com/@tosspayments/tosspayments-sdk/-/tosspayments-sdk-2.3.4.tgz#f3d0fc3893d680ec93dba5ca80243097d29f666d"
+  integrity sha512-YypRXqS+9XtQew5TQBa21Ww8Z7QH+fOkuedfH/BaomsCqBv3qS4wMNCSYrq8pxQ7NBOOuPDw0DLvY7Bg5FWNmQ==
+
 "@types/estree@1.0.6":
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/@types/estree/-/estree-1.0.6.tgz#628effeeae2064a1b4e79f78e81d87b7e5fc7b50"
