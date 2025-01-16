@@ -2,10 +2,11 @@
 import { useQuery } from '@tanstack/react-query'
 import { getAllPrograms } from '../utils/getAllProgram'
 
-export default function useGetAllPrograms() {
+export default function useGetAllPrograms({ page }: { page: number }) {
   const { data, isLoading, isError } = useQuery({
-    queryKey: ['allPrograms'],
-    queryFn: getAllPrograms,
+    queryKey: ['allPrograms', { page }],
+    queryFn: () => getAllPrograms({ page }),
+    staleTime: 2000,
   })
   return { data, isLoading, isError }
 }

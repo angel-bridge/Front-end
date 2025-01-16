@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 'use client'
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import Programs from './Programs'
 import { length_style, main_container } from './styles/programmain.css'
 import { useProgramStore } from '@/program/store/useProgramStore'
@@ -8,8 +8,11 @@ import useGetAllPrograms from '@/program/api/hooks/useGetAllPrograms'
 import useGetOngoings from '@/program/api/hooks/useGetOngoings'
 import useGetUpcoming from '@/program/api/hooks/useGetUpcoming'
 import useGetSearch from '@/program/api/hooks/useGetSearch'
+import PageNation from './PageNation'
 
 export default function MainProgram() {
+  const [currentPage, setCurrentPage] = useState(1)
+
   const {
     program,
     setProgram,
@@ -19,7 +22,7 @@ export default function MainProgram() {
     listKind,
     setListKind,
   } = useProgramStore()
-  const { data: all, isLoading } = useGetAllPrograms()
+  const { data: all, isLoading } = useGetAllPrograms({ page: currentPage })
   const { data: ongoings } = useGetOngoings()
   const { data: upcomings } = useGetUpcoming()
   const { data: searchlist, isLoading: LoadingSearch } = useGetSearch({
@@ -62,6 +65,15 @@ export default function MainProgram() {
     LoadingSearch,
   ])
 
+  //pagenation함수수
+  function onClickNextPage() {
+    setCurrentPage((prev) => prev + 1)
+  }
+
+  function onClickPrevPage() {
+    setCurrentPage((prev) => prev - 1)
+  }
+
   return (
     <>
       {isLoading && <p>loading...</p>}
@@ -73,6 +85,11 @@ export default function MainProgram() {
             전체 {program ? program?.length : '0'}개
           </p>
           <Programs programs={program} />
+          <PageNation
+            onClickNextPage={onClickNextPage}
+            onClickPrevPage={onClickPrevPage}
+            currentPage={currentPage}
+          />
         </div>
       )}
     </>

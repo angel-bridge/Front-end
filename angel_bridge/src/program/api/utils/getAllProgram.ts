@@ -8,7 +8,9 @@ interface AllProgramType {
   result?: DataType[]
 }
 
-export const getAllPrograms = async () => {
-  const response: AllProgramType = await instance.get(`/api/v1/education`)
+export const getAllPrograms = async ({ page = 1 }) => {
+  const response: AllProgramType = await instance.get(`/api/v1/education`, {
+    params: { page },
+  })
   return response.result
 }
