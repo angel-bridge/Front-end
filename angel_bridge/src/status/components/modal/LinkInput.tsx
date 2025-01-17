@@ -1,7 +1,7 @@
 import React from 'react'
 import * as style from '@/mypage/memberInfo/styles/input.css'
 import ErrorMessage from '@/mypage/memberInfo/components/ErrorMessage'
-import { save_change_btn } from '@/mypage/memberInfo/styles/button.css'
+import { gray_button_style } from '@/status/styles/button.css'
 
 export default function LinkInput() {
   return (
@@ -12,7 +12,7 @@ export default function LinkInput() {
         placeholder="수행한 과제의 노션 링크를 제출해 주세요"
       />
       <ErrorMessage number={3} />
-      <button className={save_change_btn}>미션 제출하기기</button>
+      <button className={gray_button_style}>미션 제출하기</button>
     </div>
   )
 }
