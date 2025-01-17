@@ -1,5 +1,5 @@
-import FAQ from '../assets/FQA.png'
-import ASK from '../assets/ASK.png'
+import ASK from '../assets/ASK.svg'
+import FAQ from '../assets/faqsvg.svg'
 
 export const INQUIRY_LIST = [
   {
