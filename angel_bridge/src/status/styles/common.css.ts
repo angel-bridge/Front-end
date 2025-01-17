@@ -125,3 +125,15 @@ export const modal_container = style({
   transform: 'translate(-50%, -50%)',
   zIndex: '1',
 })
+
+export const modal_background = style({
+  position: 'fixed',
+  top: 0,
+  left: 0,
+  bottom: 0,
+  right: 0,
+  background: 'rgba(0,0,0,0.5)',
+  zIndex: 10,
+  height: '100%',
+  width: '100%',
+})
