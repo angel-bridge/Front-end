@@ -10,21 +10,21 @@ export const MISSION_STATUS = [
     badgecolor: 'green',
     text: '출석',
     submitStatus: 'ONTIME',
-    modalType: 'clickGreenOrOrange',
+    modalType: 'submitcomplete',
   },
   {
     badge: orange,
     badgecolor: 'orange',
     text: '지각',
     submitStatus: 'LATE',
-    modalType: 'clickGreenOrOrange',
+    modalType: 'submitcomplete',
   },
   {
     badge: red,
     badgecolor: 'red',
     text: '결석',
     submitStatus: 'ABCENT',
-    modalType: 'clickRedOrPurple',
+    modalType: 'submityet',
   },
   {
     badge: gray,
@@ -38,6 +38,6 @@ export const MISSION_STATUS = [
     badgecolor: 'purple',
     text: '오늘',
     submitStatus: 'TODAY',
-    modalType: 'clickRedOrPurple',
+    modalType: 'submityet',
   },
 ]

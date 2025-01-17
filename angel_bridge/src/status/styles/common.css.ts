@@ -48,7 +48,7 @@ export const upper_title_style = style([
   },
 ])
 
-//공통 컨테이너너
+//공통 컨테이너
 export const content_container = style({
   display: 'flex',
   flexDirection: 'column',
@@ -97,17 +97,17 @@ export const description_style = style([
 export const text_container_style = style({
   display: 'flex',
   flexDirection: 'column',
-  height: '28.4rem',
   gap: '2.4rem',
   width: '39.8rem',
 })
 
-//서브제목이랑 설명 담는 부분분
+//서브제목이랑 설명 담는 부분
 export const subText_container_style = style({
   display: 'flex',
   flexDirection: 'column',
   height: '15rem',
   gap: '1.2rem',
+  marginBottom: '4rem',
 })
 
 export const modal_title_closebtn = style({
@@ -123,7 +123,7 @@ export const modal_container = style({
   left: '50%',
   top: '50%',
   transform: 'translate(-50%, -50%)',
-  zIndex: '1',
+  zIndex: '100',
 })
 
 export const modal_background = style({
@@ -132,8 +132,20 @@ export const modal_background = style({
   left: 0,
   bottom: 0,
   right: 0,
-  background: 'rgba(0,0,0,0.5)',
+  backgroundColor: 'rgba(0,0,0,0.3)',
   zIndex: 10,
   height: '100%',
+  width: '100%',
+})
+
+export const modal_background_two = style({
+  position: 'fixed',
+  top: 0,
+  left: 0,
+  bottom: 0,
+  right: 0,
+  zIndex: 10,
+  height: '100%',
+  backgroundColor: 'rgba(0,0,0,0.1)',
   width: '100%',
 })
