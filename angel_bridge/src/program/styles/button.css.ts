@@ -26,6 +26,8 @@ export const graybutton = style([
     color: vars.grayScale.grayscale500,
 
     border: 'none',
+
+    cursor: 'pointer',
   },
 ])
 
@@ -43,5 +45,6 @@ export const blackbutton = style([
 
     backgroundColor: vars.grayScale.grayscale800,
     color: vars.grayScale.grayscale00,
+    cursor: 'pointer',
   },
 ])
