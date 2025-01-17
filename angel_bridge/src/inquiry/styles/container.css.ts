@@ -51,6 +51,7 @@ export const image_container_style = style({
 
 export const pagecompo_style = style({
   display: 'flex',
+  justifyContent: 'center',
   alignItems: ' center',
   gap: '6rem',
 })
