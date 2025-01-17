@@ -1,7 +1,7 @@
 'use client'
 import React from 'react'
 import { PieChart } from 'react-minimal-pie-chart'
-import { vars } from '@/style/theme.css'
+import { heading28B, vars } from '@/style/theme.css'
 import { piechart_container, piechart_percent } from '../styles/status.css'
 
 export default function PieChartCard() {
@@ -11,7 +11,7 @@ export default function PieChartCard() {
         <p>미션 수행도</p>
         <p className={piechart_percent}>32%</p>
       </div>
-      <div style={{}}>
+      <div>
         <PieChart
           data={[
             {
@@ -22,6 +22,7 @@ export default function PieChartCard() {
           reveal={32}
           style={{
             width: '13.6rem',
+            height: '13.6rem',
             padding: '1.2rem',
           }}
           lineWidth={18}
@@ -32,7 +33,11 @@ export default function PieChartCard() {
           labelPosition={0}
           label={({ dataEntry }) => dataEntry.value + '%'}
           labelStyle={{
-            color: ' #6C54F6',
+            fontWeight: 700,
+            fontSize: '2.8rem',
+            lineHeight: '150%',
+            letterSpacing: '-0.02rem',
+            fill: vars.purple.purple400,
           }}
         />
       </div>
