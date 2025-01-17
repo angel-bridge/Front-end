@@ -46,37 +46,6 @@
 </table>
 <br/>
 
-## 🌉 엔젤브릿지 BE
-
-<br/>
-<table align="center">
-    <tr align="center">
-        <td>
-              <b>이한슬</b>
-              <br/>
-            <a href="https://github.com/sseuldev">
-              <img style="height: 200px;" src="https://avatars.githubusercontent.com/sseuldev" width="200">
-            </a>
-        </td>
-        <td>
-              <b>최서지</b>
-              <br/>
-            <a href="https://github.com/choiseoji">
-              <img style="height: 200px;" src="https://avatars.githubusercontent.com/choiseoji" width="200">
-            </a> 
-        </td>
-    </tr>
-    <tr align="center">
-        <td>
-           Backend
-      </td>
-        <td>
-           Backend
-        </td>
-    </tr>
-</table>
-<br/>
-
 
 </aside>
 
