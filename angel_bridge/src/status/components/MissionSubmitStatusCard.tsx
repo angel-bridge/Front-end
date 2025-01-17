@@ -3,8 +3,11 @@ import Image from 'next/image'
 import React, { useState } from 'react'
 import * as style from '../styles/missionStatus.css'
 import { MISSION_STATUS } from '../core/missionStatus'
-import Modal from './modal/Modal'
+import ConfirmMissonModal from './modal/ConfirmMissonModal'
+import SubmitMissionModal from './modal/SubmitMissionModal'
 import { useModalStore } from '../store/useModal'
+import SubmitModal from './modal/SubmitModal'
+import { modal_background } from '../styles/common.css'
 
 type Variants = 'green' | 'orange' | 'red' | 'purple' | 'gray'
 
@@ -15,8 +18,10 @@ export default function MissionSubmitStatusCard({
   attendanceStatus: string
   round: number
 }) {
-  const { isModalOpen, setIsModalOpen } = useModalStore()
-  const [submitModal, setSubmitModal] = useState(false)
+  const [confirmSubmitModal, setConfirmSubmitModal] = useState(false)
+  const [toSubmitModal, setToSubmitModal] = useState(false)
+  const { isSubmitModal } = useModalStore()
+
   const status = MISSION_STATUS.find((data) => {
     return data.submitStatus === attendanceStatus
   })
@@ -26,19 +31,43 @@ export default function MissionSubmitStatusCard({
   const variants = status?.badgecolor as Variants
   const modalType = status?.modalType
 
-  function handleModal() {
-    setSubmitModal(true)
-    setIsModalOpen()
+  function handleModal(modalType: string | undefined) {
+    if (modalType === 'submitcomplete') {
+      setConfirmSubmitModal(true)
+    } else if (modalType === 'submityet') {
+      setToSubmitModal(true)
+    }
   }
+
+  //제출확인하기 모달 닫기
+  function closeSubmitConfirmModal() {
+    setConfirmSubmitModal(false)
+  }
+
+  //제출하러가기 모달 닫기
+  function closeSubmitMissionModal() {
+    setToSubmitModal(false)
+  }
+
   return (
     <>
-      {modalType != 'noModal' && modalType && submitModal && isModalOpen && (
-        <Modal modalType={modalType} />
+      {modalType == 'submitcomplete' && confirmSubmitModal && (
+        <div className={modal_background}>
+          <ConfirmMissonModal
+            closeSubmitConfirmModal={closeSubmitConfirmModal}
+          />
+        </div>
       )}
+
+      {modalType == 'submityet' && toSubmitModal && (
+        <SubmitMissionModal closeSubmitMissionModal={closeSubmitMissionModal} />
+      )}
+
+      {isSubmitModal && <SubmitModal />}
 
       <div
         style={{ pointerEvents: modalType === 'noModal' ? 'none' : 'auto' }}
-        onClick={handleModal}
+        onClick={() => handleModal(modalType)}
         className={`${style.card_container} variants && ${style.text_style[variants]}`}
       >
         <div className={style.status_img}>
