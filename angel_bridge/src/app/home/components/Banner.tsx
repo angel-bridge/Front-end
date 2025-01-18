@@ -12,9 +12,6 @@ export default function Banner() {
     const [isTransitioning, setIsTransitioning] = useState(true);
     const timerRef = useRef<NodeJS.Timeout | null>(null);
 
-    // 무한 슬라이드용 배열
-    const extendedImages = [images[images.length - 1], ...images, images[0]].filter(Boolean);
-
     useEffect(() => {
         const fetchBanners = async () => {
             try {
@@ -33,6 +30,7 @@ export default function Banner() {
     // 슬라이드 전환 타이머
     useEffect(() => {
         if (images.length === 0) return;
+
         timerRef.current = setInterval(() => {
             setCurrentIndex((prevIndex) => prevIndex + 1);
         }, 3000);
@@ -40,7 +38,7 @@ export default function Banner() {
         return () => {
             if (timerRef.current) clearInterval(timerRef.current);
         };
-    }, []);
+    }, [images]);
 
     const selectSlide = (index: number) => {
         clearInterval(timerRef.current!);
@@ -64,6 +62,10 @@ export default function Banner() {
             setIsTransitioning(true);
         }, 100);
     };
+
+    if (images.length === 0) return null;
+    // 무한 슬라이드용 배열
+    const extendedImages = [images[images.length - 1], ...images, images[0]];
 
     return (
         <div className={style.banner}>

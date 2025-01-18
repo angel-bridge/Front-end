@@ -8,6 +8,7 @@ interface ProgramCardProps {
   title: string
   bio: string
   preImage?: string
+  onClick: () => void;
 }
 
 export default function ProgramCard({
@@ -16,9 +17,10 @@ export default function ProgramCard({
   title,
   bio,
   preImage,
+  onClick,
 }: ProgramCardProps) {
   return (
-    <div className={style.contents}>
+    <div className={style.contents} onClick={onClick}>
       <div className={style.contentImage}>
         <div
           className={
