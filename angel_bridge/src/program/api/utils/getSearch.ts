@@ -1,11 +1,11 @@
 import { instance } from '@/api/instance'
-import { ContentType } from '@/program/types/dataType'
+import { DataType } from '@/program/types/dataType'
 
 interface AllProgramType {
   timestamp: string
   code: number
   message: string
-  result: ContentType
+  result: DataType[]
 }
 
 export const getSearch = async ({ keyword = '', page = 1, status = '' }) => {

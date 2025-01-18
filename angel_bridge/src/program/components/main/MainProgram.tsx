@@ -28,20 +28,21 @@ export default function MainProgram() {
   const { data: upcomings } = useGetUpcoming()
   const { data: searchlist, isLoading: LoadingSearch } = useGetSearch({
     keyword: search,
-    page: 1,
+    page: currentPage,
     status: listKind,
   })
 
   useEffect(() => {
     if (search) {
       if (isClickOngoings && ongoings) {
-        setProgram(searchlist?.content)
+        setProgram(searchlist)
         setListKind('ONGOING')
+        console.log(searchlist)
       } else if (isClickUpcomings && upcomings) {
-        setProgram(searchlist?.content)
+        setProgram(searchlist)
         setListKind('UPCOMING')
       } else if (all) {
-        setProgram(searchlist?.content)
+        setProgram(searchlist)
         setListKind('ALL')
       }
     } else {

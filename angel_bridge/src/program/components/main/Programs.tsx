@@ -9,7 +9,6 @@ export default function Programs({
 }: {
   programs: null | DataType[]
 }) {
-  console.log(programs)
   return (
     <div className={program_container}>
       {programs?.map((data) => {
