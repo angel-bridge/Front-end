@@ -12,8 +12,8 @@ import QnAIconGrey from '@/app/home/assets/QnAIcon_grey.svg';
 
 import * as styles from '@/app/home/styles/Header.css';
 
-import LoginModal from './LoginModal';
-import SignupModal from './SignupModal';
+import LoginModal from '../../app/home/components/LoginModal';
+import SignupModal from '../../app/home/components/SignupModal';
 
 export default function Header() {
     const [activeTab, setActiveTab] = useState("home");
