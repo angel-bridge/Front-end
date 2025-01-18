@@ -7,11 +7,12 @@ interface ProgramCardProps {
     badgeType: string;
     title: string;
     bio: string;
+    onClick: () => void
 }
 
-export default function ProgramCard({ badgeText, badgeType, title, bio }: ProgramCardProps) {
+export default function ProgramCard({ badgeText, badgeType, title, bio, onClick }: ProgramCardProps) {
     return (
-        <div className={style.contents}>
+        <div className={style.contents} onClick={onClick}>
             <div className={style.contentImage}>
                 <div className={badgeType === 'active' ? style.activeBadge : style.inactiveBadge}>
                     {badgeText}

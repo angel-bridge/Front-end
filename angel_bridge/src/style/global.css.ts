@@ -42,3 +42,7 @@ globalStyle('img', {
   height: 'auto',
   display: 'block',
 })
+
+globalStyle('.link', {
+  textDecoration: 'none',
+})
