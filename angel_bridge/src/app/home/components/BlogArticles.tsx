@@ -34,6 +34,7 @@ export default function BlogArticles() {
             </div>
             <div className={style.contentsWrapper}>
             {articles.map((article, index) => (
+                <Link href = {article.link}>
                     <div key={index} className={style.contents}>
                         <div className={style.textWrapper}>
                             <div className={style.contentTitle}>{article.title}</div>
@@ -54,6 +55,7 @@ export default function BlogArticles() {
                             <div className={style.writtenDate}>{article.postingDate}</div>
                         </div>
                     </div>
+                </Link>
                 ))}
             </div>
         </div>
