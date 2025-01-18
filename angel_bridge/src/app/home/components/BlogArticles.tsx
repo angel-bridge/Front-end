@@ -34,7 +34,7 @@ export default function BlogArticles() {
             </div>
             <div className={style.contentsWrapper}>
             {articles.map((article, index) => (
-                <Link href = {article.link}>
+                <Link key={index} href = {article.link}>
                     <div key={index} className={style.contents}>
                         <div className={style.textWrapper}>
                             <div className={style.contentTitle}>{article.title}</div>

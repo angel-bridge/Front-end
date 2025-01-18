@@ -1,4 +1,4 @@
-import { body16R, title16SB, title28SB, vars } from '@/style/theme.css'
+import { body16R, title28SB, vars } from '@/style/theme.css'
 import { style } from '@vanilla-extract/css'
 
 export const programcard_container = style({
