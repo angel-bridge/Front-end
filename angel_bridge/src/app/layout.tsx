@@ -7,6 +7,9 @@ import Footer from '@/common/components/Footer'
 export const metadata: Metadata = {
   title: 'Angel-Bridge',
   description: '엔브입니다!',
+  icons: {
+    icon: "/assets/favicon.ico",
+},
 }
 
 export default function RootLayout({
