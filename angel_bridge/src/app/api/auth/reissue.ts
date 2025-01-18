@@ -12,7 +12,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
 
     try {
-        const response = await fetch("http://3.39.14.152/api/auth/reissue", {
+        const response = await fetch("/api/v1/auth/reissue", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -26,7 +26,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
         const data = await response.json();
         res.status(200).json(data);
-    } catch (error: any) {
-        res.status(500).json({ message: "서버 에러", error: error.message });
+    } catch (error: unknown) {
+        if (error instanceof Error) {
+            res.status(500).json({ message: "서버 에러", error: error.message });
+        } else {
+            res.status(500).json({ message: "서버 에러", error: "알 수 없는 에러 발생" });
+        }
     }
 }
