@@ -7,7 +7,6 @@ import ProgramDescription from './ProgramDescription'
 import {
   banneranddetail_style,
   container,
-  program_layout,
   program_photo_and_detail,
   program_title,
   programcard_container,
