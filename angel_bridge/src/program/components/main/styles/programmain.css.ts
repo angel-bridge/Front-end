@@ -10,10 +10,9 @@ export const length_style = style([
 
 export const program_container = style({
   display: 'flex',
-  justifyContent: 'space-between',
   alignItems: 'center',
+  justifyContent: 'space-between',
   flexWrap: 'wrap',
-
   maxHeight: '110rem',
 })
 
