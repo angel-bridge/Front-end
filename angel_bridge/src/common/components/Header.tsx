@@ -30,7 +30,8 @@ export default function Header() {
         { id: "/inquiry", label: "문의", colorIcon: QnAIconColor, greyIcon: QnAIconGrey },
     ];
 
-    const activeIndex = tabs.findIndex((tab) => tab.id === pathname);
+    const activeSection = `/${pathname.split("/")[1] || ""}`;
+    const activeIndex = tabs.findIndex((tab) => tab.id === activeSection);
 
     const handleModalOpen = () => {
         setIsModalOpen(true);
@@ -52,23 +53,25 @@ export default function Header() {
             </Link>
             <div className={styles.menuTabWrapper}>
                 {/* 슬라이딩 넣구싶어서...ㅎㅎ */}
-                <div
-                    className={styles.slidingBackground}
-                    style={{
-                        transform: `translateX(${activeIndex * 12}rem)`,
-                    }}
-                />
+                {activeIndex >= 0 && (
+                    <div
+                        className={styles.slidingBackground}
+                        style={{
+                            transform: `translateX(${activeIndex * 12}rem)`,
+                        }}
+                    />
+                )}
                 {tabs.map((tab) => (
                     <div
                         key={tab.id}
-                        className={pathname === tab.id ? styles.colorMenuTab : styles.greyMenuTab}
+                        className={activeSection === tab.id ? styles.colorMenuTab : styles.greyMenuTab}
                         onClick={() => handleClickTab(tab.id)}
                     >
                         <Image
-                            src={pathname === tab.id ? tab.colorIcon : tab.greyIcon}
+                            src={activeSection === tab.id ? tab.colorIcon : tab.greyIcon}
                             alt={`${tab.label}Button`}
                         />
-                        <div className={pathname === tab.id ? styles.colorTabText : styles.greyTabText}>
+                        <div className={activeSection === tab.id ? styles.colorTabText : styles.greyTabText}>
                             {tab.label}
                         </div>
                     </div>
