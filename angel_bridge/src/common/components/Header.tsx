@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 import Logo from '@/app/home/assets/Logo_purple.svg';
 import HomeIconColor from '@/app/home/assets/HomeIcon_color.svg';
@@ -15,9 +16,9 @@ import QnAIconGrey from '@/app/home/assets/QnAIcon_grey.svg';
 import * as styles from '@/app/home/styles/Header.css';
 
 import LoginModal from '../../app/home/components/LoginModal';
-import SignupModal from '../../app/home/components/SignupModal';
 
 export default function Header() {
+    const pathname = usePathname();
     const router = useRouter();
     
     const [activeTab, setActiveTab] = useState("/");
@@ -29,7 +30,7 @@ export default function Header() {
         { id: "/inquiry", label: "문의", colorIcon: QnAIconColor, greyIcon: QnAIconGrey },
     ];
 
-    const activeIndex = tabs.findIndex((tab) => tab.id === activeTab);
+    const activeIndex = tabs.findIndex((tab) => tab.id === pathname);
 
     const handleModalOpen = () => {
         setIsModalOpen(true);
@@ -60,14 +61,14 @@ export default function Header() {
                 {tabs.map((tab) => (
                     <div
                         key={tab.id}
-                        className={activeTab === tab.id ? styles.colorMenuTab : styles.greyMenuTab}
+                        className={pathname === tab.id ? styles.colorMenuTab : styles.greyMenuTab}
                         onClick={() => handleClickTab(tab.id)}
                     >
                         <Image
-                            src={activeTab === tab.id ? tab.colorIcon : tab.greyIcon}
+                            src={pathname === tab.id ? tab.colorIcon : tab.greyIcon}
                             alt={`${tab.label}Button`}
                         />
-                        <div className={activeTab === tab.id ? styles.colorTabText : styles.greyTabText}>
+                        <div className={pathname === tab.id ? styles.colorTabText : styles.greyTabText}>
                             {tab.label}
                         </div>
                     </div>
@@ -78,9 +79,7 @@ export default function Header() {
             </button>
 
             {/* 로그인 모달 컴포넌트 */}
-            {/* {isModalOpen && <LoginModal onClose={handleModalClose} />} */}
-            {/* 세부 정보 입력 모달 컴포넌트 */}
-            {isModalOpen && <SignupModal onClose={handleModalClose} />}
+            {isModalOpen && <LoginModal onClose={handleModalClose} />}
         </div>
     )
 }
