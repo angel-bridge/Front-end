@@ -50,10 +50,14 @@
     </tr>
     <tr align="center">
         <td>
-           Frontend
+           @hae2ni
+          <br/>
+          프로그램, 수강내역, <br/>마이페이지
       </td>
         <td>
-           Frontend
+           @billy0904
+          <br/>
+          홈, 로그인/회원가입, <br/>관리자 화면
         </td>
     </tr>
 </table>
@@ -82,15 +86,21 @@
 
 ## 💡 서비스 핵심 기능 소개
 
-### 1️⃣ 추천 프로그램
+### 1️⃣ 홈페이지
+<img width="1267" alt="Image" src="https://github.com/user-attachments/assets/5faed384-2781-482b-b176-7b05c0cb22c6" />
 
-#### 💬 <b> what? </b> </br>
+### 2️⃣ 프로그램 페이지
+<img width="1265" alt="Image" src="https://github.com/user-attachments/assets/32681b8e-33f5-4d21-a7d7-3223723412f7" />
 
-추천 프로그램 <br/>
+### 3️⃣ 수강내역 페이지
+<img width="1269" alt="Image" src="https://github.com/user-attachments/assets/3d7a88b1-a617-4cc5-b128-8aebe0fe2b18" />
 
-#### 👀 <b> how? </b>
+### 4️⃣ 마이페이지
+<img width="1267" alt="Image" src="https://github.com/user-attachments/assets/1dafa2e5-d238-420d-96a8-bb9e5aea9819" />
+<img width="1266" alt="Image" src="https://github.com/user-attachments/assets/1afd7d37-7cbf-4fd1-b9ec-151b321354f8" />
 
-구현 방법 설명
+### 5️⃣ 문의 페이지
+<img width="1265" alt="Image" src="https://github.com/user-attachments/assets/9a8fb75a-8f5a-4ec2-b8f4-d91b6a7c3784" />
 
 
 
