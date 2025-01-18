@@ -1,6 +1,8 @@
 "use client"
 
 import React, { useState } from 'react';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Logo from '@/app/home/assets/Logo_purple.svg';
 import HomeIconColor from '@/app/home/assets/HomeIcon_color.svg';
@@ -16,13 +18,15 @@ import LoginModal from '../../app/home/components/LoginModal';
 import SignupModal from '../../app/home/components/SignupModal';
 
 export default function Header() {
-    const [activeTab, setActiveTab] = useState("home");
+    const router = useRouter();
+    
+    const [activeTab, setActiveTab] = useState("/");
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const tabs = [
-        { id: "home", label: "홈", colorIcon: HomeIconColor, greyIcon: HomeIconGrey },
-        { id: "program", label: "프로그램", colorIcon: ProgramIconColor, greyIcon: ProgramIconGrey },
-        { id: "qna", label: "문의", colorIcon: QnAIconColor, greyIcon: QnAIconGrey },
+        { id: "/", label: "홈", colorIcon: HomeIconColor, greyIcon: HomeIconGrey },
+        { id: "/program", label: "프로그램", colorIcon: ProgramIconColor, greyIcon: ProgramIconGrey },
+        { id: "/inquiry", label: "문의", colorIcon: QnAIconColor, greyIcon: QnAIconGrey },
     ];
 
     const activeIndex = tabs.findIndex((tab) => tab.id === activeTab);
@@ -35,9 +39,16 @@ export default function Header() {
         setIsModalOpen(false);
     };
 
+    const handleClickTab = (id: string) => {
+        setActiveTab(id);
+        router.push(id);
+    };
+
     return (
         <div className={styles.header}>
-            <Image src={Logo} alt="MainLogo"/>
+            <Link href='/'>
+                <Image src={Logo} alt="MainLogo"/>
+            </Link>
             <div className={styles.menuTabWrapper}>
                 {/* 슬라이딩 넣구싶어서...ㅎㅎ */}
                 <div
@@ -50,7 +61,7 @@ export default function Header() {
                     <div
                         key={tab.id}
                         className={activeTab === tab.id ? styles.colorMenuTab : styles.greyMenuTab}
-                        onClick={() => setActiveTab(tab.id)}
+                        onClick={() => handleClickTab(tab.id)}
                     >
                         <Image
                             src={activeTab === tab.id ? tab.colorIcon : tab.greyIcon}
