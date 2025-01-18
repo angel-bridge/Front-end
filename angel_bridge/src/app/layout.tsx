@@ -6,7 +6,10 @@ import Footer from '@/common/components/Footer'
 
 export const metadata: Metadata = {
   title: 'Angel-Bridge',
-  description: '엔브입니다!',
+  description: '챌린지형 창업 교육 플랫폼, 창업의 시작은 엔젤브릿지와 함께',
+  icons: {
+    icon: "/assets/favicon.ico",
+},
 }
 
 export default function RootLayout({

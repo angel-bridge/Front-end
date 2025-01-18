@@ -21,7 +21,6 @@ export default function Header() {
     const pathname = usePathname();
     const router = useRouter();
     
-    const [activeTab, setActiveTab] = useState("/");
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const tabs = [
@@ -42,7 +41,6 @@ export default function Header() {
     };
 
     const handleClickTab = (id: string) => {
-        setActiveTab(id);
         router.push(id);
     };
 

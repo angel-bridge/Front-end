@@ -8,7 +8,7 @@ interface ProgramCardProps {
   title: string
   bio: string
   preImage?: string
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 export default function ProgramCard({
