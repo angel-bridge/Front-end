@@ -6,6 +6,19 @@
 <img width="500" src="https://github.com/user-attachments/assets/2e56434d-8993-4c1e-b7c4-1b24da8dd5c2" />
 <br/>
 
+<br />
+<a href="https://hits.seeyoufarm.com">
+  <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fangel-bridge%2FFront-end&count_bg=%235452FF&title_bg=%239E8DFF&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false"/>
+</a>
+
+<br>
+
+<a href="https://www.instagram.com/angel_bridge.kr/">
+<img alt="Instagram" src="https://img.shields.io/badge/-Instagram-white?logo=Instagram&logoColor=d42121">
+</a>
+
+<br />
+
 ✨ <b> 챌린지형 창업 교육 플랫폼 ✨ <br/>
 창업의 시작은 엔젤브릿지와 함께</b> <br />
 
