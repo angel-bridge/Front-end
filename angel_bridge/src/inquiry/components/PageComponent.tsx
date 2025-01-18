@@ -7,9 +7,10 @@ export default function PageComponent() {
   return (
     <div className={pagecompo_style}>
       {INQUIRY_LIST.map((data) => {
-        const { title, discription, image } = data
+        const { title, discription, image, link } = data
         return (
           <Container
+            link={link}
             key={title}
             title={title}
             discription={discription}

@@ -1,11 +1,11 @@
 import { instance } from '@/api/instance'
-import { DataType } from '@/program/types/dataType'
+import { ContentType } from '@/program/types/dataType'
 
 interface AllProgramType {
   timestamp: string
   code: number
   message: string
-  result: DataType[]
+  result: ContentType
 }
 
 export const getUpcomingProgram = async () => {
