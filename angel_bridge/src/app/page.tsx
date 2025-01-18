@@ -1,7 +1,11 @@
-import EnvHandler from './api/auth/envHandler';
+import Banner from './home/components/Banner';
+import Contents from './home/components/Contents';
 
 export default function Home() {
-  return (
-    <EnvHandler />
-  );
+    return (
+        <div>
+            <Banner />
+            <Contents />
+        </div>
+    );
 }

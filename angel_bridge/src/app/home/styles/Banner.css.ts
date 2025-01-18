@@ -1,0 +1,56 @@
+import { style } from '@vanilla-extract/css'
+import { vars } from '@/style/theme.css';
+
+export const banner = style({
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    position: 'relative',
+    width: '100vw',
+    height: '20rem',
+    justifyContent: 'center',
+    marginTop: '8rem',
+    overflow: 'hidden',
+});
+
+export const slidesContainer = style({
+    display: 'flex',
+    transition: 'transform 0.7s ease-in-out',
+    width: '100%',
+    height: '100%',
+    willChange: 'transform',
+});
+
+export const slide = style({
+    flexShrink: 0,
+    width: '100vw',
+    height: '100%',
+    position: 'relative',
+});
+
+export const image = style({
+    objectFit: 'cover',
+});
+
+export const indicatorContainer = style({
+    position: 'absolute',
+    bottom: '1rem',
+    display: 'flex',
+    gap: '0.8rem',
+});
+
+export const indicator = style({
+    width: '0.8rem',
+    height: '0.8rem',
+    borderRadius: '30px',
+    background: vars.grayScale.grayscale200,
+    cursor: 'pointer',
+    transition: 'background-color 0.7s ease',
+});
+
+export const activeIndicator = style({
+    width: '2.8rem',
+    height: '0.58rem',
+    borderRadius: '30px',
+    background: vars.purple.purple400,
+});
