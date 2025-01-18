@@ -22,6 +22,7 @@ export default function MainProgram() {
     listKind,
     setListKind,
   } = useProgramStore()
+
   const { data: all, isLoading } = useGetAllPrograms({ page: currentPage })
   const { data: ongoings } = useGetOngoings()
   const { data: upcomings } = useGetUpcoming()
@@ -34,22 +35,22 @@ export default function MainProgram() {
   useEffect(() => {
     if (search) {
       if (isClickOngoings && ongoings) {
-        setProgram(searchlist)
+        setProgram(searchlist?.content)
         setListKind('ONGOING')
       } else if (isClickUpcomings && upcomings) {
-        setProgram(searchlist)
+        setProgram(searchlist?.content)
         setListKind('UPCOMING')
       } else if (all) {
-        setProgram(searchlist)
+        setProgram(searchlist?.content)
         setListKind('ALL')
       }
     } else {
       if (isClickOngoings && ongoings) {
-        setProgram(ongoings)
+        setProgram(ongoings.content)
       } else if (isClickUpcomings && upcomings) {
-        setProgram(upcomings)
+        setProgram(upcomings.content)
       } else if (all) {
-        setProgram(all)
+        setProgram(all.content)
       }
     }
   }, [

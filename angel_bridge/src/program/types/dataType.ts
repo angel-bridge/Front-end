@@ -5,3 +5,10 @@ export interface DataType {
   title: string
   recruitmentStatus: string
 }
+
+export interface ContentType {
+  total: number
+  pageNum: number
+  totalPages: number
+  content: DataType[]
+}
