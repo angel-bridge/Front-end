@@ -22,12 +22,13 @@ export default function MainProgram() {
     listKind,
     setListKind,
   } = useProgramStore()
+
   const { data: all, isLoading } = useGetAllPrograms({ page: currentPage })
   const { data: ongoings } = useGetOngoings()
   const { data: upcomings } = useGetUpcoming()
   const { data: searchlist, isLoading: LoadingSearch } = useGetSearch({
     keyword: search,
-    page: 1,
+    page: currentPage,
     status: listKind,
   })
 
@@ -36,6 +37,7 @@ export default function MainProgram() {
       if (isClickOngoings && ongoings) {
         setProgram(searchlist)
         setListKind('ONGOING')
+        console.log(searchlist)
       } else if (isClickUpcomings && upcomings) {
         setProgram(searchlist)
         setListKind('UPCOMING')
@@ -45,11 +47,11 @@ export default function MainProgram() {
       }
     } else {
       if (isClickOngoings && ongoings) {
-        setProgram(ongoings)
+        setProgram(ongoings.content)
       } else if (isClickUpcomings && upcomings) {
-        setProgram(upcomings)
+        setProgram(upcomings.content)
       } else if (all) {
-        setProgram(all)
+        setProgram(all.content)
       }
     }
   }, [
