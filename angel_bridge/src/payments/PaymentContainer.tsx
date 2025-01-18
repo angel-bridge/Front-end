@@ -10,6 +10,7 @@ const customerkey = nanoid()
 
 export default function PaymentContainer() {
   const { data: paymentWidget } = usePaymentWidget(clientKey, ANONYMOUS)
+
   const paymentMethodsWidgetRef = useRef<ReturnType<
     PaymentWidgetInstance['renderPaymentMethods']
   > | null>(null)
