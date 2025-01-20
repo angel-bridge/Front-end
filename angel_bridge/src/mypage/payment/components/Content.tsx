@@ -7,24 +7,25 @@ import {
   content,
   photo_text_container,
 } from '../styles/container.css'
+import { PaymentContent } from '@/mypage/api/utils/getPayments'
 
-export interface ContentProps {
-  date: string
-  ispaid: boolean
-  title: string
-  price: string
-}
+export default function Content(props: PaymentContent) {
+  const { date, status, imageUrl, educationName, price } = props
+  console.log(imageUrl)
 
-export default function Content(props: ContentProps) {
-  const { date, ispaid, title, price } = props
   return (
     <div className={content}>
       <div className={container}>
         <div className={photo_text_container}>
-          <Photo />
-          <Texts date={date} ispaid={ispaid} title={title} price={price} />
+          <Photo imageUrl={imageUrl} />
+          <Texts
+            date={date}
+            status={status}
+            title={educationName}
+            price={price}
+          />
         </div>
-        {ispaid && <CancelBtn />}
+        {status === '결제 완료' && <CancelBtn />}
       </div>
     </div>
   )
