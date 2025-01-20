@@ -1,16 +1,19 @@
 import { authInstance } from '@/api/authInstance'
 
-export interface CompleteCancled {
+export interface PaymentContent {
   enrollementId: number
   imageUrl: string
   educationName: string
   price: string
-  approvedAt: string
+  status: string
+  date: string
 }
 
 export interface Payment {
-  canceled: CompleteCancled[]
-  complete: CompleteCancled[]
+  total: number
+  pageNum: number
+  totalPages: number
+  content: PaymentContent[]
 }
 
 interface PaymentResponse {
