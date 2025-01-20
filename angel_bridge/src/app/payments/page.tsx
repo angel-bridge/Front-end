@@ -1,4 +1,3 @@
-import Checkout from '@/payments/Example'
 import CheckoutPage from '@/payments/ExampleCode'
 import React from 'react'
 

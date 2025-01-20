@@ -5,6 +5,7 @@ import {
   TossPaymentsWidgets,
 } from '@tosspayments/tosspayments-sdk'
 import { useEffect, useState } from 'react'
+import * as style from './style.css'
 
 // const clientKey = process.env.NEXT_PUBLIC_CLIENT_KEY as string
 const customerKey = 'UTuk_CpV40JbupUHAF0De'
@@ -73,38 +74,17 @@ export default function CheckoutPage() {
   }, [widgets, amount])
 
   return (
-    <div className="wrapper">
+    <div className={style.wrapper_style}>
       <div className="box_section">
         {/* 결제 UI */}
         <div id="payment-method" />
         {/* 이용약관 UI */}
         <div id="agreement" />
         {/* 쿠폰 체크박스 */}
-        <div>
-          <div>
-            <label htmlFor="coupon-box">
-              <input
-                id="coupon-box"
-                type="checkbox"
-                aria-checked="true"
-                disabled={!ready}
-                onChange={(event) => {
-                  // ------  주문서의 결제 금액이 변경되었을 경우 결제 금액 업데이트 ------
-                  //   setAmount(
-                  //     event.target.checked
-                  //       ? amount.value - 5_000
-                  //       : amount.value + 5_000,
-                  //   )
-                }}
-              />
-              <span>5,000원 쿠폰 적용</span>
-            </label>
-          </div>
-        </div>
-
+        {/* //있으면 넣을예정 */}
         {/* 결제하기 버튼 */}
         <button
-          className="button"
+          className={style.button_style}
           disabled={!ready}
           onClick={async () => {
             try {
