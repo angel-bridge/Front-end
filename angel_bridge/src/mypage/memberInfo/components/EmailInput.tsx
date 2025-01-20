@@ -6,7 +6,7 @@ import ErrorMessage from './ErrorMessage'
 import { InputPropTypes } from '../types/inputProps'
 
 export default function EmailInput(props: InputPropTypes) {
-  const { value, onChange, setIsError, isError } = props
+  const { value, onChange, setIsError, isError, apiValue } = props
   const email = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-za-z0-9\-]+/
 
   useEffect(() => {
@@ -20,11 +20,7 @@ export default function EmailInput(props: InputPropTypes) {
   return (
     <div className={inputwithtag_container}>
       <p className={input_tag}>이메일 주소 *</p>
-      <input
-        onChange={onChange}
-        placeholder="sadfdsfsdf@adsfsd.com"
-        className={input}
-      />
+      <input onChange={onChange} placeholder={apiValue} className={input} />
       {value && isError && <ErrorMessage number={2} />}
     </div>
   )
