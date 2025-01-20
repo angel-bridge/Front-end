@@ -8,7 +8,6 @@ import IsPaidBtn from './common/components/IsPaidBtn'
 
 export default function PageCompo() {
   const [isInfo, setIsInfo] = useState(true)
-
   function handleSwitchToInfo() {
     setIsInfo(true)
   }
