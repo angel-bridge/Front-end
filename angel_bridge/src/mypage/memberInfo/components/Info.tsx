@@ -9,11 +9,14 @@ import EmailInput from './EmailInput'
 import exampleImg from '../assets/Avata.png'
 import { StaticImageData } from 'next/image'
 import useGetMember from '@/mypage/api/hooks/useGetMember'
+import usePutMember from '@/mypage/api/hooks/usePutMember'
+import { PutMemberData } from '@/mypage/api/utils/putMember'
 
 //회원정보
 export default function Info() {
   const { data } = useGetMember()
-  console.log(data)
+  const { mutate } = usePutMember()
+
   const [name, setName] = useState('')
   const [phone, setPhone] = useState('')
   const [email, setEmail] = useState('')
@@ -43,6 +46,15 @@ export default function Info() {
 
   function handleImageUplaod(newImg: string) {
     setIsImage(newImg)
+  }
+
+  function handleSaveBtn() {
+    const updatedData: PutMemberData = {
+      nickname: name,
+      email: email,
+      phoneNumber: phone,
+    }
+    mutate({ data: updatedData, profileImage: image as string })
   }
 
   return (
@@ -75,7 +87,7 @@ export default function Info() {
           onChange={(e) => setEmail(e.target.value)}
         />
       </div>
-      <SaveChangeBtn isChange={isChange} />
+      <SaveChangeBtn onClick={handleSaveBtn} isChange={isChange} />
     </div>
   )
 }
