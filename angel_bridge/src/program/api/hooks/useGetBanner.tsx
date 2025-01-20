@@ -2,9 +2,9 @@
 import { useQuery } from '@tanstack/react-query'
 import { getBanner } from '../utils/getBanner'
 
-export default function useGetBanner({ educationId }: { educationId: string }) {
+export default function useGetBanner() {
   const { data, isLoading, isError } = useQuery({
-    queryKey: ['detailProgram', educationId],
+    queryKey: ['getBanner'],
     queryFn: () => getBanner(),
   })
 

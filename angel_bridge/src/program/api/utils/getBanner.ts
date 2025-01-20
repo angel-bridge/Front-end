@@ -13,5 +13,5 @@ interface BannerType {
 
 export const getBanner = async () => {
   const response: BannerType = await instance.get(`/api/v1/banner/education`)
-  return response.result
+  return response?.result
 }
