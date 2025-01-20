@@ -1,6 +1,6 @@
 import { authInstance } from '@/api/authInstance'
 
-export interface Mmeber {
+export interface Member {
   memberId: number
   nickname: string
   email: string
@@ -12,14 +12,18 @@ export interface Mmeber {
   isRegistered: boolean
 }
 
-interface MmeberResponse {
+interface MemberData {
   timestamp: string
   code: number
   message: string
-  result: Mmeber
+  result: Member
+}
+
+interface MemberResponse {
+  data: MemberData
 }
 
 export const getMember = async () => {
-  const response: MmeberResponse = await authInstance.get(`/api/v1/member`)
-  return response
+  const response: MemberResponse = await authInstance.get(`/api/v1/member`)
+  return response?.data?.result
 }
