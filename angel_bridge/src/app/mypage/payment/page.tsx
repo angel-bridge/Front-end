@@ -1,17 +1,14 @@
+import Wrapper from '@/mypage/payment/components/Wrapper'
 import React from 'react'
-import { mypage_container, page_container } from './styles/mypagecontainer.css'
-import Header from '../home/components/Header'
+import { mypage_container, page_container } from '../styles/mypagecontainer.css'
 import MyPageHeader from '@/mypage/MyPageHeader'
-import Info from '@/mypage/memberInfo/components/Info'
 
-//MyPage
 export default function page() {
   return (
     <div className={page_container}>
-      <Header />
       <div className={mypage_container}>
         <MyPageHeader />
-        <Info />
+        <Wrapper />
       </div>
     </div>
   )
