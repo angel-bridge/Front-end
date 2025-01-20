@@ -1,4 +1,4 @@
-import { instance } from '@/api/instance'
+import { authInstance } from '@/api/authInstance'
 
 interface CancelResponse {
   timestamp: string
@@ -16,7 +16,7 @@ export const putMember = async (
   data: PutMemberData,
   profileImage: string | null,
 ) => {
-  const response: CancelResponse = await instance.put(`/api/v1/member`, {
+  const response: CancelResponse = await authInstance.put(`/api/v1/member`, {
     ...data,
     profileImage,
   })

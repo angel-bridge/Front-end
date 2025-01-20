@@ -1,4 +1,4 @@
-import { instance } from '@/api/instance'
+import { authInstance } from '@/api/authInstance'
 
 export interface Mmeber {
   memberId: number
@@ -20,6 +20,6 @@ interface MmeberResponse {
 }
 
 export const getMember = async () => {
-  const response: MmeberResponse = await instance.get(`/api/v1/member`)
+  const response: MmeberResponse = await authInstance.get(`/api/v1/member`)
   return response.result
 }

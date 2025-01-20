@@ -8,8 +8,13 @@ import PhoneNumberInput from './PhoneNumberInput'
 import EmailInput from './EmailInput'
 import exampleImg from '../assets/Avata.png'
 import { StaticImageData } from 'next/image'
+import useGetMember from '@/mypage/api/hooks/useGetMember'
 
+//회원정보
 export default function Info() {
+  const { data } = useGetMember()
+  console.log(data)
+
   const [name, setName] = useState('')
   const [phone, setPhone] = useState('')
   const [email, setEmail] = useState('')
@@ -31,8 +36,6 @@ export default function Info() {
       return error === true
     })
     setIsChange(hasChanges && !hasErrors)
-
-    console.log(hasErrors, isChange)
   }, [email, name, phone, errors, isChange, image])
 
   function handleErrorUpdate(field: string, isError: boolean) {

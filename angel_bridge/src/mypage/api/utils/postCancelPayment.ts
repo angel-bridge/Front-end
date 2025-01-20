@@ -1,4 +1,4 @@
-import { instance } from '@/api/instance'
+import { authInstance } from '@/api/authInstance'
 
 interface CancelResponse {
   timestamp: string
@@ -10,7 +10,7 @@ export const postCancelPayments = async (
   educationId: number,
   cancelReason: string = '마음이 바뀌어서 결제 취소합니다',
 ) => {
-  const response: CancelResponse = await instance.post(
+  const response: CancelResponse = await authInstance.post(
     `/api/v1/payments/cancel/${educationId}`,
     {
       cancelReason,

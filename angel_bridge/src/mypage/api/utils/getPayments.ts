@@ -1,4 +1,4 @@
-import { instance } from '@/api/instance'
+import { authInstance } from '@/api/authInstance'
 
 export interface CompleteCancled {
   enrollementId: number
@@ -21,6 +21,6 @@ interface PaymentResponse {
 }
 
 export const getPayments = async () => {
-  const response: PaymentResponse = await instance.get(`/api/v1/payments`)
+  const response: PaymentResponse = await authInstance.get(`/api/v1/payments`)
   return response.result
 }
