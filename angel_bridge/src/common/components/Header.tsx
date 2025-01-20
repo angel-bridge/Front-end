@@ -16,6 +16,7 @@ import QnAIconGrey from '@/app/home/assets/QnAIcon_grey.svg';
 import * as styles from '@/app/home/styles/Header.css';
 
 import LoginModal from '../../app/home/components/LoginModal';
+import ProfileButton from '@/app/login/components/ProfileButton';
 
 export default function Header() {
     const pathname = usePathname();
@@ -75,9 +76,10 @@ export default function Header() {
                     </div>
                 ))}
             </div>
-            <button className={styles.loginButton} onClick={handleModalOpen}>
+            {/* <button className={styles.loginButton} onClick={handleModalOpen}>
                 <div className={styles.buttonText}>로그인</div>
-            </button>
+            </button> */}
+            <ProfileButton />
 
             {/* 로그인 모달 컴포넌트 */}
             {isModalOpen && <LoginModal onClose={handleModalClose} />}
