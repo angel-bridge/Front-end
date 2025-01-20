@@ -11,9 +11,10 @@ export const length_style = style([
 export const program_container = style({
   display: 'flex',
   alignItems: 'center',
-  justifyContent: 'space-between',
   flexWrap: 'wrap',
-  maxHeight: '110rem',
+  maxWidth: '104rem',
+  rowGap: '3.2rem',
+  columnGap: '2.5rem',
 })
 
 export const main_container = style({
