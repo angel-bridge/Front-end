@@ -5,11 +5,17 @@ import ProgramBanner from '@/program/components/header/ProgramBanner'
 
 export default function page() {
   return (
-    <>
+    <main
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+      }}
+    >
       <ProgramBanner />
-      <main className={page_layout}>
+      <div className={page_layout}>
         <PageComp />
-      </main>
-    </>
+      </div>
+    </main>
   )
 }

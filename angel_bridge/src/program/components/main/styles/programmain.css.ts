@@ -12,7 +12,6 @@ export const program_container = style({
   display: 'flex',
   alignItems: 'center',
   flexWrap: 'wrap',
-  maxWidth: '104rem',
   rowGap: '3.2rem',
   columnGap: '2.5rem',
 })

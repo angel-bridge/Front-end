@@ -79,6 +79,4 @@ export const banneranddetail_style = style({
 export const program_layout = style({
   display: 'flex',
   flexDirection: 'column',
-
-  backgroundColor: 'red',
 })
