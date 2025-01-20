@@ -21,5 +21,5 @@ interface MmeberResponse {
 
 export const getMember = async () => {
   const response: MmeberResponse = await authInstance.get(`/api/v1/member`)
-  return response.result
+  return response
 }
