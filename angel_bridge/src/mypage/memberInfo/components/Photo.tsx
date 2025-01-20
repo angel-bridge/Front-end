@@ -1,3 +1,4 @@
+'use client'
 import React from 'react'
 import Image, { StaticImageData } from 'next/image'
 import clipBtn from '../assets/clip_btn.svg'
@@ -11,9 +12,14 @@ import {
 interface PhotoProps {
   image: string | StaticImageData
   handleImageUplaod: (newImg: string) => void
+  kakaoImg: string | undefined
 }
 
-export default function Photo({ image, handleImageUplaod }: PhotoProps) {
+export default function Photo({
+  image,
+  handleImageUplaod,
+  kakaoImg,
+}: PhotoProps) {
   function handleClickChangePhoto(e: React.ChangeEvent<HTMLInputElement>) {
     const file = e.target.files?.[0]
     if (!file) return
@@ -34,7 +40,7 @@ export default function Photo({ image, handleImageUplaod }: PhotoProps) {
       <div className={image_container}>
         <Image
           style={{ borderRadius: ' 50%' }}
-          src={image}
+          src={kakaoImg ? kakaoImg : image}
           fill
           alt="기본이미지"
         />

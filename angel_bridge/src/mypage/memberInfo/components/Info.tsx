@@ -14,7 +14,6 @@ import useGetMember from '@/mypage/api/hooks/useGetMember'
 export default function Info() {
   const { data } = useGetMember()
   console.log(data)
-
   const [name, setName] = useState('')
   const [phone, setPhone] = useState('')
   const [email, setEmail] = useState('')
@@ -48,21 +47,28 @@ export default function Info() {
 
   return (
     <div className={container}>
-      <Photo image={image} handleImageUplaod={handleImageUplaod} />
+      <Photo
+        kakaoImg={data?.profileImageUrl}
+        image={image}
+        handleImageUplaod={handleImageUplaod}
+      />
       <div className={Info_container}>
         <NameInput
+          apiValue={data?.nickname}
           setIsError={(isError: boolean) => handleErrorUpdate('name', isError)}
           isError={errors.name}
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
         <PhoneNumberInput
+          apiValue={data?.phoneNumber}
           isError={errors.phone}
           setIsError={(isError: boolean) => handleErrorUpdate('phone', isError)}
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
         />
         <EmailInput
+          apiValue={data?.email}
           setIsError={(isError: boolean) => handleErrorUpdate('email', isError)}
           isError={errors.email}
           value={email}
