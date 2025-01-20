@@ -12,6 +12,7 @@ import PageNation from './PageNation'
 
 export default function MainProgram() {
   const [currentPage, setCurrentPage] = useState(1)
+  const [totalPage, setTotalPage] = useState(1)
 
   const {
     program,
@@ -37,7 +38,6 @@ export default function MainProgram() {
       if (isClickOngoings && ongoings) {
         setProgram(searchlist)
         setListKind('ONGOING')
-        console.log(searchlist)
       } else if (isClickUpcomings && upcomings) {
         setProgram(searchlist)
         setListKind('UPCOMING')
@@ -48,10 +48,13 @@ export default function MainProgram() {
     } else {
       if (isClickOngoings && ongoings) {
         setProgram(ongoings.content)
+        setTotalPage(ongoings.totalPages)
       } else if (isClickUpcomings && upcomings) {
         setProgram(upcomings.content)
+        setTotalPage(upcomings.totalPages)
       } else if (all) {
         setProgram(all.content)
+        setTotalPage(all.totalPages)
       }
     }
   }, [
@@ -65,15 +68,20 @@ export default function MainProgram() {
     search,
     searchlist,
     LoadingSearch,
+    totalPage,
   ])
 
-  //pagenation함수수
+  //pagenation함수
   function onClickNextPage() {
     setCurrentPage((prev) => prev + 1)
   }
 
   function onClickPrevPage() {
     setCurrentPage((prev) => prev - 1)
+  }
+
+  function onClickPageNumber(page: number) {
+    setCurrentPage(page)
   }
 
   return (
@@ -88,9 +96,11 @@ export default function MainProgram() {
           </p>
           <Programs programs={program} />
           <PageNation
+            onClickPageNumber={onClickPageNumber}
             onClickNextPage={onClickNextPage}
             onClickPrevPage={onClickPrevPage}
             currentPage={currentPage}
+            totalPage={totalPage}
           />
         </div>
       )}

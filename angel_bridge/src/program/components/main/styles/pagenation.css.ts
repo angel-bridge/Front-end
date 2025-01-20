@@ -3,6 +3,8 @@ import { style } from '@vanilla-extract/css'
 
 export const pagenationNumber = style({
   display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
   width: '2.8rem',
   height: '2.8rem',
   paddingRight: '1rem',
@@ -12,6 +14,7 @@ export const pagenationNumber = style({
   borderRadius: '50%',
   backgroundColor: vars.grayScale.grayscale800,
   color: vars.grayScale.grayscale00,
+  cursor: 'pointer',
 })
 
 export const pageButton = style({
@@ -29,5 +32,6 @@ export const pageNumberContainer = style([
     alignItems: 'center',
     marginTop: '8rem',
     marginBottom: '4rem',
+    cursor: 'pointer',
   },
 ])
