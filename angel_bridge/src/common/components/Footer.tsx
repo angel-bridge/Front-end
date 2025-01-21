@@ -1,5 +1,9 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import Logo from '@/app/home/assets/Logo_grey.svg';
+import Instagram from '@/common/assets/instagram_button.svg'
+import Mail from '@/common/assets/mail_button.svg'
+import Notion from '@/common/assets/notion_button.svg'
 import ChipButton from '@/app/home/assets/ChipButton.svg';
 
 import * as style from '@/app/home/styles/Footer.css';
@@ -12,9 +16,15 @@ export default function Footer() {
                 <Image src={ChipButton} alt="ChipButton"/>
             </div>
             <div className={style.buttonWrapper}>
-                <div className={style.button}>About Us</div>
-                <div className={style.button}>Contact Us</div>
-                <div className={style.button}>Privacy Policy</div>
+                <Link href = 'https://www.instagram.com/angel_bridge.kr/' target='_blank' className={style.button}>
+                    <Image src={Instagram} alt="InstagramButton"/> 
+                </Link>
+                <Link href='mailto:example@example.com' className={style.button}>
+                    <Image src={Mail} alt="MailButton" />
+                </Link>
+                <Link href='https://www.notion.so' target='_blank' className={style.button}>
+                    <Image src={Notion} alt="NotionButton" />
+                </Link>
             </div>
         </footer>
     );

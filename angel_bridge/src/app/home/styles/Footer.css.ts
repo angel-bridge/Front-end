@@ -21,13 +21,9 @@ export const logoWrapper = style({
 export const buttonWrapper = style({
     display: 'flex',
     alignItems: 'flex-start',
-    gap: '2.9rem',
+    gap: '1.6rem',
 });
 
-export const button = style([
-    font.title16SB,
-    {
-        color: vars.grayScale.grayscale300,
-        cursor: 'pointer',
-    }
-]);
+export const button = style({
+    cursor: 'pointer',
+});
