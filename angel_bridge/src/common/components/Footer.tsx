@@ -22,7 +22,7 @@ export default function Footer() {
                 <Link href='mailto:example@example.com' className={style.button}>
                     <Image src={Mail} alt="MailButton" />
                 </Link>
-                <Link href='https://www.notion.so' target='_blank' className={style.button}>
+                <Link href='https://angelbridge.notion.site/Privacy-Policy-18259bdbf30a803bb683d5d7eb22926b?pvs=4' target='_blank' className={style.button}>
                     <Image src={Notion} alt="NotionButton" />
                 </Link>
             </div>
