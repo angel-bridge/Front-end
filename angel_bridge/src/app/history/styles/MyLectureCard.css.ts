@@ -23,7 +23,7 @@ export const contentImage = style({
     height: '18rem',
     borderRadius: '24px',
     overflow: 'hidden',
-    // position: 'relative',
+    position: 'relative',
 });
 
 export const contentInfo= style({

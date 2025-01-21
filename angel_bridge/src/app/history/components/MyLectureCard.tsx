@@ -20,8 +20,7 @@ export default function MyLectureCard({ thumbnail, state, period, title, bio }: 
                     <Image
                         src={thumbnail}
                         alt="Program Thumbnail"
-                        width={180}
-                        height={180}
+                        fill
                         style={{
                             objectFit: 'cover',
                             borderRadius: '24px',
