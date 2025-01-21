@@ -1,22 +1,31 @@
 import React from 'react'
-import { DUMMY_DATA } from './dummy'
 import ProgramCard from '@/components/common/ProgramCard'
 import { program_container } from './styles/programmain.css'
+import { DataType } from '@/program/types/dataType'
+import Link from 'next/link'
 
-export default function Programs() {
+export default function Programs({
+  programs,
+}: {
+  programs: null | DataType[]
+}) {
   return (
     <div className={program_container}>
-      {DUMMY_DATA.map((data, index) => {
-        const { badgeText, badgeType, bio, title } = data
+      {programs?.map((data) => {
+        const { description, recruitmentStatus, title, educationId, preImage } =
+          data
         return (
-          <div style={{ marginBottom: '3.2rem' }} key={index}>
-            <ProgramCard
-              badgeText={badgeText}
-              badgeType={badgeType}
-              bio={bio}
-              title={title}
-            />
-          </div>
+          <Link href={`program/${educationId}`} key={educationId}>
+            <div style={{ marginBottom: '3.2rem' }} key={educationId}>
+              <ProgramCard
+                badgeText={recruitmentStatus}
+                badgeType={recruitmentStatus}
+                bio={description}
+                title={title}
+                preImage={preImage}
+              />
+            </div>
+          </Link>
         )
       })}
     </div>

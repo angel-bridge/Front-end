@@ -1,3 +1,11 @@
+import Banner from './home/components/Banner';
+import Contents from './home/components/Contents';
+
 export default function Home() {
-  return <div>엔브브</div>;
+    return (
+        <div>
+            <Banner />
+            <Contents />
+        </div>
+    );
 }

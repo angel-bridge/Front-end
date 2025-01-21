@@ -1,6 +1,6 @@
 import { globalStyle, globalFontFace } from '@vanilla-extract/css'
 
-globalStyle('*, *::before, *::after', {
+globalStyle('*, *::before, *::after, body', {
   margin: 0,
   padding: 0,
   boxSizing: 'border-box',
@@ -41,4 +41,8 @@ globalStyle('img', {
   maxWidth: '100%',
   height: 'auto',
   display: 'block',
+})
+
+globalStyle('.link', {
+  textDecoration: 'none',
 })
