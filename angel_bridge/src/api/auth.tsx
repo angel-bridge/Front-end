@@ -12,7 +12,7 @@ async function fetchAccessToken(refreshToken: string) {
 
 async function fetchRefreshToken() {
     const response = await axios.get("https://api.angelbridge.site/api/v1/auth/checkToken");
-    console.log("리프레시 토큰 API로 받아온거:", response.data.result);
+    console.log("리프레시 토큰 API로 받아온거:", response);
     return response.data.result;
 }
 
