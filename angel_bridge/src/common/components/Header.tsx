@@ -34,6 +34,7 @@ export default function Header() {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [hasLoaded, setHasLoaded] = useState(false); 
+    const [isFetching, setIsFetching] = useState(false);
 
     const tabs = [
         { id: '/', label: '홈', colorIcon: HomeIconColor, greyIcon: HomeIconGrey },
@@ -60,9 +61,11 @@ export default function Header() {
     const refreshMutation = useRefreshTokenMutation();
 
     useEffect(() => {
-        if (hasLoaded) return;
+        if (hasLoaded || isFetching) return;
 
         const initializeAuth = async () => {
+            setIsFetching(true);
+
             try {
                 const accessToken = localStorage.getItem('accessToken');
 
@@ -73,6 +76,7 @@ export default function Header() {
                     if (decodedToken.exp > currentTime) {
                         setIsLoggedIn(true);
                         setHasLoaded(true);
+                        setIsFetching(false);
                         return;
                     } else {
                         localStorage.removeItem('accessToken');
@@ -103,11 +107,12 @@ export default function Header() {
                 setIsLoggedIn(false);
             } finally {
                 setHasLoaded(true);
+                setIsFetching(false);
             }
         };
 
         initializeAuth();
-    }, [accessMutation, refreshMutation, hasLoaded]);
+    }, [accessMutation, refreshMutation, hasLoaded, isFetching]);
 
     return (
         <div className={styles.header}>
