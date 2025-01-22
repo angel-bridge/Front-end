@@ -27,10 +27,12 @@ export default function Photo({
     const reader = new FileReader()
     reader.readAsDataURL(file)
     reader.onload = (e) => {
+      //성공하면 2, 진행 주이면 1, 실패가 0반환환
       if (reader.readyState === 2 && e.target?.result) {
-        handleImageUplaod(e.target.result as string)
+        handleImageUplaod(e.target.result)
       }
     }
+    console.log(file)
 
     reader.readAsDataURL(file)
   }
@@ -40,7 +42,7 @@ export default function Photo({
       <div className={image_container}>
         <Image
           style={{ borderRadius: ' 50%' }}
-          src={kakaoImg ? kakaoImg : image}
+          src={image != '' ? kakaoImg : image}
           fill
           alt="기본이미지"
         />
@@ -52,6 +54,7 @@ export default function Photo({
             className={image_input}
             onChange={handleClickChangePhoto}
             type="file"
+            accept="image/*"
           />
         </label>
       </div>
