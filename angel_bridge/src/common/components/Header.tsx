@@ -70,8 +70,6 @@ export default function Header() {
 
                 if (decodedToken.exp > currentTime) {
                     setIsLoggedIn(true);
-                } else if (refreshToken) {
-                    mutation.mutate(refreshToken);
                 } else {
                     setIsLoggedIn(false);
                     localStorage.removeItem("accessToken");
@@ -80,10 +78,8 @@ export default function Header() {
                 console.error("토큰 디코딩 에러:", error);
                 setIsLoggedIn(false);
             }
-        } else if (refreshToken) {
-            mutation.mutate(refreshToken);
         } else {
-            setIsLoggedIn(false);
+            mutation.mutate();
         }
     }, [mutation]);
 

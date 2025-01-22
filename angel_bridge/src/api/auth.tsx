@@ -3,16 +3,15 @@
 import { useMutation } from '@tanstack/react-query';
 import axios from 'axios';
 
-async function fetchAccessToken(refreshToken: string) {
+async function fetchAccessToken() {
     const response = await axios.post("https://api.angelbridge.site/api/v1/auth/refresh", {
-        refreshToken,
     });
     return response.data.accessToken;
 }
 
 export function useAccessTokenMutation() {
     return useMutation({
-        mutationFn: (refreshToken: string) => fetchAccessToken(refreshToken),
+        mutationFn: () => fetchAccessToken(),
         onSuccess: (newAccessToken) => {
             // Access 토큰 저장
             localStorage.setItem("accessToken", newAccessToken);
