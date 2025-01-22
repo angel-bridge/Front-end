@@ -13,12 +13,32 @@ export type PutMemberData = {
 }
 
 export const putMember = async (
-  data: PutMemberData,
-  profileImage: string | null,
-) => {
-  const response: CancelResponse = await authInstance.put(`/api/v1/member`, {
-    ...data,
-    profileImage,
-  })
+  updatedData: PutMemberData,
+  newImage: string | undefined,
+): Promise<CancelResponse> => {
+  const formData = new FormData()
+
+  if (updatedData) {
+    const jsonBlob = new Blob([JSON.stringify(updatedData)], {
+      type: 'application/json',
+    })
+    formData.append('data', jsonBlob)
+  }
+
+  if (newImage) {
+    formData.append('profileImage', newImage)
+  }
+
+  // Axios PUT 요청
+  const response: CancelResponse = await authInstance.put(
+    `/api/v1/member`,
+    formData,
+    {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    },
+  )
+
   return response
 }
