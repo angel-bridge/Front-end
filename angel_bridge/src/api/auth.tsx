@@ -6,12 +6,16 @@ import axios from 'axios';
 async function fetchAccessToken(refreshToken: string) {
     const response = await axios.post("https://api.angelbridge.site/api/v1/auth/reissue", {
         refreshToken,
+    }, {
+        withCredentials: true,
     });
     return response.data.accessToken;
 }
 
 async function fetchRefreshToken() {
-    const response = await axios.get("https://api.angelbridge.site/api/v1/auth/checkToken");
+    const response = await axios.get("https://api.angelbridge.site/api/v1/auth/checkToken", {
+        withCredentials: true,
+    });
     console.log("리프레시 토큰 API로 받아온거:", response);
     return response.data.result;
 }
