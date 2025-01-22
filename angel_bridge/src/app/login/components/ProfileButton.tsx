@@ -9,6 +9,7 @@ import Profile from '@/app/login/assets/profile_img.jpg'
 export default function ProfileButton() {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const modalRef = useRef<HTMLDivElement>(null);
+    const buttonRef = useRef<HTMLButtonElement>(null);
     const router = useRouter();
 
     const toggleModal = () => {
@@ -16,7 +17,12 @@ export default function ProfileButton() {
     };
 
     const handleClickOutside = (event: MouseEvent) => {
-        if (modalRef.current && !modalRef.current.contains(event.target as Node)) {
+        if (
+            modalRef.current &&
+            !modalRef.current.contains(event.target as Node) &&
+            buttonRef.current &&
+            !buttonRef.current.contains(event.target as Node)
+        ) {
             setIsModalOpen(false);
         }
     };
@@ -40,7 +46,7 @@ export default function ProfileButton() {
 
     return (
         <div>
-            <button className={styles.loginButton} onClick={toggleModal}>
+            <button className={styles.profileButton} onClick={toggleModal} ref={buttonRef}>
                 <div className={styles.profileImage}>
                     <Image src={Profile} alt="프로필 이미지" fill />
                 </div>

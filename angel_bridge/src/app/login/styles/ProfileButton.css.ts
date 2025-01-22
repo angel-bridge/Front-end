@@ -2,7 +2,7 @@ import { style } from '@vanilla-extract/css'
 import { vars } from '@/style/theme.css'
 import * as font from '@/style/theme.css'
 
-export const loginButton = style({
+export const profileButton = style({
     display: 'flex',
     width: '14rem',
     height: '4.8rem',
