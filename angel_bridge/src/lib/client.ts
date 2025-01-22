@@ -4,7 +4,7 @@ export const Client = async <T>(
     body: any = null,
     headers: Record<string, string> = {}
 ): Promise<T> => {
-    const baseUrl = "http://3.39.14.152";
+    const baseUrl = "https://api.angelbridge.site";
     const options: RequestInit = {
         method,
         headers: {

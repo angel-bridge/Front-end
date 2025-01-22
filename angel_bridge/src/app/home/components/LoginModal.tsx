@@ -20,7 +20,7 @@ export default function LoginModal({ onClose }: LoginModalProps) {
                     <Image src={LoginImage} alt='AngelBridgeImage' />
                 </div>
                 <div className={style.announceText}>창업 시작은 엔젤브릿지와 함께</div>
-                <a href="http://3.39.14.152/oauth2/authorization/kakao" target="_self">
+                <a href="https://api.angelbridge.site/oauth2/authorization/kakao" target="_self">
                     <button className={style.loginButton}>
                         <Image src={KakaoLogo} alt='KakaoLogo' />
                         <div className={style.loginText}>카카오 로그인</div>
