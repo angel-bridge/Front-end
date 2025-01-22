@@ -9,7 +9,12 @@ async function fetchAccessToken(refreshToken: string): Promise<string> {
         { refreshToken },
         { withCredentials: true }
     );
-    return response.data.accessToken;
+    const authorizationHeader = response.headers['authorization'];
+    if (authorizationHeader && authorizationHeader.startsWith('Bearer ')) {
+        return authorizationHeader.split(' ')[1];
+    }
+
+    throw new Error('Authorization header is missing or malformed');
 }
 
 async function fetchRefreshToken(): Promise<string> {
