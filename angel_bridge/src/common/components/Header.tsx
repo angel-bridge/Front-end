@@ -62,7 +62,7 @@ export default function Header() {
     useEffect(() => {
         if (hasLoaded) return;
 
-        const checkTokens = async () => {
+        const initializeAuth = async () => {
             try {
                 const accessToken = localStorage.getItem('accessToken');
 
@@ -82,7 +82,14 @@ export default function Header() {
                 await refreshMutation.mutateAsync(undefined, {
                     onSuccess: (refreshToken) => {
                         if (refreshToken) {
-                            accessMutation.mutate(refreshToken);
+                            accessMutation.mutate(refreshToken, {
+                                onSuccess: () => {
+                                    setIsLoggedIn(true);
+                                },
+                                onError: () => {
+                                    setIsLoggedIn(false);
+                                },
+                            });
                         } else {
                             setIsLoggedIn(false);
                         }
@@ -91,15 +98,15 @@ export default function Header() {
                         setIsLoggedIn(false);
                     },
                 });
-                setHasLoaded(true);
             } catch (error) {
-                console.error('토큰 체크 에러', error);
+                console.error('초기화 실패:', error);
                 setIsLoggedIn(false);
+            } finally {
                 setHasLoaded(true);
             }
         };
 
-        checkTokens();
+        initializeAuth();
     }, [accessMutation, refreshMutation, hasLoaded]);
 
     return (
