@@ -6,6 +6,7 @@ import {
 } from '@tosspayments/tosspayments-sdk'
 import { useEffect, useState } from 'react'
 import * as style from './style.css'
+import { nanoid } from 'nanoid'
 
 // const clientKey = process.env.NEXT_PUBLIC_CLIENT_KEY as string
 const customerKey = 'UTuk_CpV40JbupUHAF0De'
@@ -92,7 +93,7 @@ export default function CheckoutPage() {
               // 결제를 요청하기 전에 orderId, amount를 서버에 저장하세요.
               // 결제 과정에서 악의적으로 결제 금액이 바뀌는 것을 확인하는 용도입니다.
               await widgets?.requestPayment({
-                orderId: '4_DzX0TF0_aBbqE0ZXqxT',
+                orderId: nanoid(),
                 orderName: '토스 티셔츠 외 2건',
                 successUrl: window.location.origin + '/success',
                 failUrl: window.location.origin + '/fail',
