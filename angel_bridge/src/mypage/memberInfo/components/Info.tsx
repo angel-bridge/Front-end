@@ -6,11 +6,10 @@ import SaveChangeBtn from './SaveChangeBtn'
 import NameInput from './NameInput'
 import PhoneNumberInput from './PhoneNumberInput'
 import EmailInput from './EmailInput'
-import exampleImg from '../assets/Avata.png'
-import { StaticImageData } from 'next/image'
 import useGetMember from '@/mypage/api/hooks/useGetMember'
 import usePutMember from '@/mypage/api/hooks/usePutMember'
 import { PutMemberData } from '@/mypage/api/utils/putMember'
+import exampleImg from '../assets/Avata.png'
 
 //회원정보
 export default function Info() {
@@ -21,7 +20,7 @@ export default function Info() {
   const [phone, setPhone] = useState('')
   const [email, setEmail] = useState('')
 
-  const [image, setIsImage] = useState<string | StaticImageData>(exampleImg)
+  const [image, setIsImage] = useState(exampleImg)
 
   const [errors, setErrors] = useState({
     name: false,
@@ -32,8 +31,7 @@ export default function Info() {
   const [isChange, setIsChange] = useState(false)
 
   useEffect(() => {
-    const hasChanges =
-      name != '' || phone != '' || email != '' || image != exampleImg
+    const hasChanges = name != '' || phone != '' || email != '' || image != ''
     const hasErrors = Object.values(errors).some((error) => {
       return error === true
     })
@@ -44,17 +42,19 @@ export default function Info() {
     setErrors((prev) => ({ ...prev, [field]: isError }))
   }
 
-  function handleImageUplaod(newImg: string) {
-    setIsImage(newImg)
+  function handleImageUplaod(file) {
+    setIsImage(file)
   }
 
   function handleSaveBtn() {
     const updatedData: PutMemberData = {
-      nickname: name,
-      email: email,
-      phoneNumber: phone,
+      nickname: name !== '' ? name : data?.nickname || '',
+      email: email !== '' ? email : data?.email || '',
+      phoneNumber: phone !== '' ? phone : data?.phoneNumber || '',
     }
-    mutate({ data: updatedData, profileImage: image as string })
+
+    // 실제 API 호출 부분
+    mutate({ updatedData, newImage: image })
   }
 
   return (
