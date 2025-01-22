@@ -62,6 +62,8 @@ export default function Header() {
         const accessToken = localStorage.getItem("accessToken");
         const refreshToken = getCookie("refreshToken");
 
+        console.log("들어왔니", refreshToken);
+
         if (accessToken) {
             try {
                 const decodedToken = jwtDecode<JwtPayload>(accessToken);
