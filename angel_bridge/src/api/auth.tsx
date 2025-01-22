@@ -11,10 +11,11 @@ async function fetchAccessToken(refreshToken: string): Promise<string> {
     );
     const authorizationHeader = response.headers['authorization'];
     if (authorizationHeader && authorizationHeader.startsWith('Bearer ')) {
+        console.log("파싱한 액세스토큰", authorizationHeader.split(' ')[1]);
         return authorizationHeader.split(' ')[1];
     }
 
-    throw new Error('Authorization header is missing or malformed');
+    throw new Error('Authorization header 없음');
 }
 
 async function fetchRefreshToken(): Promise<string> {
