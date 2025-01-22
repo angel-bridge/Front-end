@@ -1,4 +1,4 @@
-"use client"
+'use client';
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
@@ -19,7 +19,7 @@ import LoginModal from '../../app/home/components/LoginModal';
 import ProfileButton from '@/app/login/components/ProfileButton';
 import { jwtDecode } from 'jwt-decode';
 
-import { useAccessTokenMutation } from '@/api/auth';
+import { useAccessTokenMutation, useRefreshTokenMutation } from '@/api/auth';
 
 interface JwtPayload {
     exp: number;
@@ -30,20 +30,18 @@ interface JwtPayload {
 export default function Header() {
     const pathname = usePathname();
     const router = useRouter();
-    
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const [isLoggedIn, setIsLoggedIn] = useState(false); 
-    const [hasCheckedToken, setHasCheckedToken] = useState(false);
 
-    const mutation = useAccessTokenMutation();
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [hasLoaded, setHasLoaded] = useState(false); 
 
     const tabs = [
-        { id: "/", label: "홈", colorIcon: HomeIconColor, greyIcon: HomeIconGrey },
-        { id: "/program", label: "프로그램", colorIcon: ProgramIconColor, greyIcon: ProgramIconGrey },
-        { id: "/inquiry", label: "문의", colorIcon: QnAIconColor, greyIcon: QnAIconGrey },
+        { id: '/', label: '홈', colorIcon: HomeIconColor, greyIcon: HomeIconGrey },
+        { id: '/program', label: '프로그램', colorIcon: ProgramIconColor, greyIcon: ProgramIconGrey },
+        { id: '/inquiry', label: '문의', colorIcon: QnAIconColor, greyIcon: QnAIconGrey },
     ];
 
-    const activeSection = `/${pathname.split("/")[1] || ""}`;
+    const activeSection = `/${pathname.split('/')[1] || ''}`;
     const activeIndex = tabs.findIndex((tab) => tab.id === activeSection);
 
     const handleModalOpen = () => {
@@ -58,44 +56,58 @@ export default function Header() {
         router.push(id);
     };
 
-    useEffect(() => {
-        const checkAuth = () => {
-            const accessToken = localStorage.getItem("accessToken");
+    const accessMutation = useAccessTokenMutation();
+    const refreshMutation = useRefreshTokenMutation();
 
-            if (accessToken) {
-                try {
+    useEffect(() => {
+        if (hasLoaded) return;
+
+        const checkTokens = async () => {
+            try {
+                const accessToken = localStorage.getItem('accessToken');
+
+                if (accessToken) {
                     const decodedToken = jwtDecode<JwtPayload>(accessToken);
                     const currentTime = Math.floor(Date.now() / 1000);
 
                     if (decodedToken.exp > currentTime) {
                         setIsLoggedIn(true);
+                        setHasLoaded(true);
+                        return;
                     } else {
-                        localStorage.removeItem("accessToken");
-                        setIsLoggedIn(false);
+                        localStorage.removeItem('accessToken');
                     }
-                } catch (error) {
-                    console.error("토큰 디코딩 에러:", error);
-                    setIsLoggedIn(false);
                 }
-            } else {
-                mutation.mutate();
-            }
 
-            setHasCheckedToken(true);
+                await refreshMutation.mutateAsync(undefined, {
+                    onSuccess: (refreshToken) => {
+                        if (refreshToken) {
+                            accessMutation.mutate(refreshToken);
+                        } else {
+                            setIsLoggedIn(false);
+                        }
+                    },
+                    onError: () => {
+                        setIsLoggedIn(false);
+                    },
+                });
+                setHasLoaded(true);
+            } catch (error) {
+                console.error('토큰 체크 에러', error);
+                setIsLoggedIn(false);
+                setHasLoaded(true);
+            }
         };
 
-        if (!hasCheckedToken) {
-            checkAuth();
-        }
-    }, [mutation, hasCheckedToken]);
+        checkTokens();
+    }, [accessMutation, refreshMutation, hasLoaded]);
 
     return (
         <div className={styles.header}>
             <Link href='/'>
-                <Image src={Logo} alt="MainLogo"/>
+                <Image src={Logo} alt='MainLogo' />
             </Link>
             <div className={styles.menuTabWrapper}>
-                {/* 슬라이딩 넣구싶어서...ㅎㅎ */}
                 {activeIndex >= 0 && (
                     <div
                         className={styles.slidingBackground}
@@ -107,14 +119,24 @@ export default function Header() {
                 {tabs.map((tab) => (
                     <div
                         key={tab.id}
-                        className={activeSection === tab.id ? styles.colorMenuTab : styles.greyMenuTab}
+                        className={
+                            activeSection === tab.id
+                                ? styles.colorMenuTab
+                                : styles.greyMenuTab
+                        }
                         onClick={() => handleClickTab(tab.id)}
                     >
                         <Image
                             src={activeSection === tab.id ? tab.colorIcon : tab.greyIcon}
                             alt={`${tab.label}Button`}
                         />
-                        <div className={activeSection === tab.id ? styles.colorTabText : styles.greyTabText}>
+                        <div
+                            className={
+                                activeSection === tab.id
+                                    ? styles.colorTabText
+                                    : styles.greyTabText
+                            }
+                        >
                             {tab.label}
                         </div>
                     </div>
@@ -128,8 +150,7 @@ export default function Header() {
                 </button>
             )}
 
-            {/* 로그인 모달 컴포넌트 */}
             {isModalOpen && <LoginModal onClose={handleModalClose} />}
         </div>
-    )
+    );
 }
