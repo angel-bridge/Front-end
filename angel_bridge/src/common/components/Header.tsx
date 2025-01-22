@@ -18,7 +18,6 @@ import * as styles from '@/app/home/styles/Header.css';
 import LoginModal from '../../app/home/components/LoginModal';
 import ProfileButton from '@/app/login/components/ProfileButton';
 import { jwtDecode } from 'jwt-decode';
-import { getCookie } from '@/lib/cookies';
 
 import { useAccessTokenMutation } from '@/api/auth';
 
@@ -60,7 +59,7 @@ export default function Header() {
 
     useEffect(() => {
         const accessToken = localStorage.getItem("accessToken");
-        const refreshToken = getCookie("refreshToken");
+        const refreshToken = localStorage.getItem("refreshToken");
 
         console.log("들어왔니", refreshToken);
 
