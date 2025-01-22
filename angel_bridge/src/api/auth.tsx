@@ -4,7 +4,7 @@ import { useMutation } from '@tanstack/react-query';
 import axios from 'axios';
 
 async function fetchAccessToken() {
-    const response = await axios.post("https://api.angelbridge.site/api/v1/auth/refresh", {
+    const response = await axios.post("https://api.angelbridge.site/api/v1/auth/reissue", {
     });
     return response.data.accessToken;
 }
