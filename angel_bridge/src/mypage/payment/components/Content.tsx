@@ -7,11 +7,18 @@ import {
   content,
   photo_text_container,
 } from '../styles/container.css'
-import { PaymentContent } from '@/mypage/api/utils/getPayments'
 
-export default function Content(props: PaymentContent) {
+export interface ContentProps {
+  date: string
+  status: string
+  imageUrl: string
+  educationName: string
+  price: string
+  enrollementId: number
+}
+
+export default function Content(props: ContentProps) {
   const { date, status, imageUrl, educationName, price } = props
-  console.log(imageUrl)
 
   return (
     <div className={content}>

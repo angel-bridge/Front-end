@@ -1,6 +1,5 @@
 import React from 'react'
 import { mypage_container, page_container } from './styles/mypagecontainer.css'
-import Header from '../home/components/Header'
 import MyPageHeader from '@/mypage/MyPageHeader'
 import Info from '@/mypage/memberInfo/components/Info'
 
@@ -8,7 +7,6 @@ import Info from '@/mypage/memberInfo/components/Info'
 export default function page() {
   return (
     <div className={page_container}>
-      <Header />
       <div className={mypage_container}>
         <MyPageHeader />
         <Info />
