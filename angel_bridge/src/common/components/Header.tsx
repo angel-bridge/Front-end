@@ -33,6 +33,9 @@ export default function Header() {
     
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isLoggedIn, setIsLoggedIn] = useState(false); 
+    const [hasCheckedToken, setHasCheckedToken] = useState(false);
+
+    const mutation = useAccessTokenMutation();
 
     const tabs = [
         { id: "/", label: "홈", colorIcon: HomeIconColor, greyIcon: HomeIconGrey },
@@ -55,33 +58,36 @@ export default function Header() {
         router.push(id);
     };
 
-    const mutation = useAccessTokenMutation();
-
     useEffect(() => {
-        const accessToken = localStorage.getItem("accessToken");
-        const refreshToken = localStorage.getItem("refreshToken");
+        const checkAuth = () => {
+            const accessToken = localStorage.getItem("accessToken");
 
-        console.log("들어왔니", refreshToken);
+            if (accessToken) {
+                try {
+                    const decodedToken = jwtDecode<JwtPayload>(accessToken);
+                    const currentTime = Math.floor(Date.now() / 1000);
 
-        if (accessToken) {
-            try {
-                const decodedToken = jwtDecode<JwtPayload>(accessToken);
-                const currentTime = Math.floor(Date.now() / 1000);
-
-                if (decodedToken.exp > currentTime) {
-                    setIsLoggedIn(true);
-                } else {
+                    if (decodedToken.exp > currentTime) {
+                        setIsLoggedIn(true);
+                    } else {
+                        localStorage.removeItem("accessToken");
+                        setIsLoggedIn(false);
+                    }
+                } catch (error) {
+                    console.error("토큰 디코딩 에러:", error);
                     setIsLoggedIn(false);
-                    localStorage.removeItem("accessToken");
                 }
-            } catch (error) {
-                console.error("토큰 디코딩 에러:", error);
-                setIsLoggedIn(false);
+            } else {
+                mutation.mutate();
             }
-        } else {
-            mutation.mutate();
+
+            setHasCheckedToken(true);
+        };
+
+        if (!hasCheckedToken) {
+            checkAuth();
         }
-    }, [mutation]);
+    }, [mutation, hasCheckedToken]);
 
     return (
         <div className={styles.header}>
