@@ -59,48 +59,48 @@ export default function Header() {
     const accessMutation = useAccessTokenMutation();
     const refreshMutation = useRefreshTokenMutation();
 
-    // useEffect(() => {
-    //     if (hasLoaded) return;
+    useEffect(() => {
+        if (hasLoaded) return;
 
-    //     const checkTokens = async () => {
-    //         try {
-    //             const accessToken = localStorage.getItem('accessToken');
+        const checkTokens = async () => {
+            try {
+                const accessToken = localStorage.getItem('accessToken');
 
-    //             if (accessToken) {
-    //                 const decodedToken = jwtDecode<JwtPayload>(accessToken);
-    //                 const currentTime = Math.floor(Date.now() / 1000);
+                if (accessToken) {
+                    const decodedToken = jwtDecode<JwtPayload>(accessToken);
+                    const currentTime = Math.floor(Date.now() / 1000);
 
-    //                 if (decodedToken.exp > currentTime) {
-    //                     setIsLoggedIn(true);
-    //                     setHasLoaded(true);
-    //                     return;
-    //                 } else {
-    //                     localStorage.removeItem('accessToken');
-    //                 }
-    //             }
+                    if (decodedToken.exp > currentTime) {
+                        setIsLoggedIn(true);
+                        setHasLoaded(true);
+                        return;
+                    } else {
+                        localStorage.removeItem('accessToken');
+                    }
+                }
 
-    //             await refreshMutation.mutateAsync(undefined, {
-    //                 onSuccess: (refreshToken) => {
-    //                     if (refreshToken) {
-    //                         accessMutation.mutate(refreshToken);
-    //                     } else {
-    //                         setIsLoggedIn(false);
-    //                     }
-    //                 },
-    //                 onError: () => {
-    //                     setIsLoggedIn(false);
-    //                 },
-    //             });
-    //             setHasLoaded(true);
-    //         } catch (error) {
-    //             console.error('토큰 체크 에러', error);
-    //             setIsLoggedIn(false);
-    //             setHasLoaded(true);
-    //         }
-    //     };
+                await refreshMutation.mutateAsync(undefined, {
+                    onSuccess: (refreshToken) => {
+                        if (refreshToken) {
+                            accessMutation.mutate(refreshToken);
+                        } else {
+                            setIsLoggedIn(false);
+                        }
+                    },
+                    onError: () => {
+                        setIsLoggedIn(false);
+                    },
+                });
+                setHasLoaded(true);
+            } catch (error) {
+                console.error('토큰 체크 에러', error);
+                setIsLoggedIn(false);
+                setHasLoaded(true);
+            }
+        };
 
-    //     checkTokens();
-    // }, [accessMutation, refreshMutation, hasLoaded]);
+        checkTokens();
+    }, [accessMutation, refreshMutation, hasLoaded]);
 
     return (
         <div className={styles.header}>

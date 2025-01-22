@@ -4,14 +4,14 @@ import { useMutation } from '@tanstack/react-query';
 import axios from 'axios';
 
 async function fetchAccessToken(refreshToken: string) {
-    const response = await axios.post("https://api.angelbridge.site/api/v1/auth/reissue", {
+    const response = await axios.post("https://asdf/api/v1/auth/reissue", {
         refreshToken,
     });
     return response.data.accessToken;
 }
 
 async function fetchRefreshToken() {
-    const response = await axios.post("https://api.angelbridge.site/api/v1/auth/checkToken", {}, {
+    const response = await axios.post("https://asdf/api/v1/auth/checkToken", {}, {
         withCredentials: true, // 쿠키 포함 설정
     });
     console.log("리프레시 토큰 API로 받아온거:", response.data.result);
