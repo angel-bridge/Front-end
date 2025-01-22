@@ -6,8 +6,6 @@ import axios from 'axios';
 async function fetchAccessToken(refreshToken: string) {
     const response = await axios.post("https://api.angelbridge.site/api/v1/auth/reissue", {
         refreshToken,
-    }, {
-        withCredentials: true,
     });
     return response.data.accessToken;
 }
