@@ -21,6 +21,12 @@ import { jwtDecode } from 'jwt-decode';
 
 import { useAccessTokenMutation } from '@/api/auth';
 
+interface JwtPayload {
+    exp: number;
+    iat: number;
+    sub: string;
+}
+
 export default function Header() {
     const pathname = usePathname();
     const router = useRouter();
@@ -57,7 +63,7 @@ export default function Header() {
 
         if (accessToken) {
             try {
-                const decodedToken: any = jwtDecode(accessToken);
+                const decodedToken = jwtDecode<JwtPayload>(accessToken);
                 const currentTime = Math.floor(Date.now() / 1000);
 
                 if (decodedToken.exp > currentTime) {
