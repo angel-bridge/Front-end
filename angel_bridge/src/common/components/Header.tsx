@@ -78,32 +78,21 @@ export default function Header() {
                         setHasLoaded(true);
                         setIsFetching(false);
                         return;
-                    } else {
-                        localStorage.removeItem('accessToken');
                     }
+                    localStorage.removeItem('accessToken');
                 }
 
                 await refreshMutation.mutateAsync(undefined, {
-                    onSuccess: (refreshToken) => {
+                    onSuccess: async (refreshToken) => {
                         if (refreshToken) {
-                            accessMutation.mutate(refreshToken, {
-                                onSuccess: () => {
-                                    setIsLoggedIn(true);
-                                },
-                                onError: () => {
-                                    setIsLoggedIn(false);
-                                },
+                            await accessMutation.mutateAsync(refreshToken, {
+                                onSuccess: () => setIsLoggedIn(true),
+                                onError: () => setIsLoggedIn(false),
                             });
-                        } else {
-                            setIsLoggedIn(false);
                         }
                     },
-                    onError: () => {
-                        setIsLoggedIn(false);
-                    },
                 });
-            } catch (error) {
-                console.error('초기화 실패:', error);
+            } catch {
                 setIsLoggedIn(false);
             } finally {
                 setHasLoaded(true);
