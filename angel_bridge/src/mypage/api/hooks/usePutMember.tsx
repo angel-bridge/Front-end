@@ -5,12 +5,12 @@ export default function usePutMember() {
   const { mutate } = useMutation({
     mutationKey: ['putMemberInfo'],
     mutationFn: ({
-      data,
-      profileImage,
+      updatedData,
+      newImage,
     }: {
-      data: PutMemberData
-      profileImage: string | null
-    }) => putMember(data, profileImage),
+      updatedData: PutMemberData
+      newImage: string | null
+    }) => putMember(updatedData, newImage),
   })
   return { mutate }
 }
