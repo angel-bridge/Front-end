@@ -91,6 +91,9 @@ export default function Header() {
                             });
                         }
                     },
+                    onError: () => {
+                        setIsLoggedIn(false);
+                    },
                 });
             } catch {
                 setIsLoggedIn(false);
