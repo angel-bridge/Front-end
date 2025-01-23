@@ -9,24 +9,29 @@ import { useEffect, useState } from 'react'
 import * as style from './style.css'
 import usePostSaveAmount from './api/hooks/usePostSaveAmount'
 import { useSearchParams } from 'next/navigation'
+import { useEducationIdStore } from './store/useEducationIdStore'
 
 export function CheckoutPage() {
   const searchParams = useSearchParams()
+  const { setEducationId } = useEducationIdStore()
 
   const clientKey = process.env.NEXT_PUBLIC_CLIENT_KEY as string
   const customerKey = 'UTuk_CpV40JbupUHAF0De'
   const educationId = searchParams.get('educationId')
-
   const { mutate: postSaveAmountMutate } = usePostSaveAmount()
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [amount, setAmount] = useState({
     currency: 'KRW',
-    value: 50000,
+    value: 500,
   })
 
   const [ready, setReady] = useState(false)
   const [widgets, setWidgets] = useState<TossPaymentsWidgets | null>(null)
+
+  useEffect(() => {
+    setEducationId(educationId)
+  }, [])
 
   useEffect(() => {
     async function fetchPaymentWidgets() {
@@ -81,14 +86,17 @@ export function CheckoutPage() {
     widgets.setAmount(amount)
   }, [widgets, amount])
 
+  //educationId 저장
+
   async function onClickBtn() {
+    const amountValue = amount.value
     const orderId = nanoid()
 
     try {
       postSaveAmountMutate(
         {
           orderId,
-          amount,
+          amount: amountValue,
         },
         {
           onSuccess: async () => {
@@ -99,8 +107,8 @@ export function CheckoutPage() {
               customerName: '김토스',
               customerEmail: 'customer123@gmail.com',
               customerMobilePhone: '01012341234',
-              successUrl: `${window.location.origin}/payment/success?educationId=${educationId}&orderId=${orderId}&amount=${amount}`,
-              failUrl: `${window.location.origin}/payment/fail?orderId=${orderId}`,
+              successUrl: `${window.location.origin}/payments/success`,
+              failUrl: `${window.location.origin}/payments/fail`,
             })
           },
           onError: (error) => {

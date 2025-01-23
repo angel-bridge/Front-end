@@ -11,13 +11,8 @@ export interface AmountType {
 export default function usePostSaveAmount() {
   const { mutate } = useMutation({
     mutationKey: ['postSaveAmount'],
-    mutationFn: ({
-      orderId,
-      amount,
-    }: {
-      orderId: string
-      amount: AmountType
-    }) => postSaveAmount(orderId, amount),
+    mutationFn: ({ orderId, amount }: { orderId: string; amount: number }) =>
+      postSaveAmount(orderId, amount),
   })
   return { mutate }
 }
