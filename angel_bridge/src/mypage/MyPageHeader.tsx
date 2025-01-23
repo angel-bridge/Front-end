@@ -1,21 +1,19 @@
 'use client'
-import { useState } from 'react'
 import { button_container } from './memberInfo/styles/button.css'
 import InfoBtn from './common/components/InfoBtn'
 import IsPaidBtn from './common/components/IsPaidBtn'
-import { useRouter } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 
 export default function MyPageHeader() {
-  const [isInfo, setIsInfo] = useState(true)
   const router = useRouter()
+  const pathname = usePathname()
+  const isInfo = !pathname.includes('payment')
 
   function handleSwitchToInfo() {
-    setIsInfo(true)
     router.push('/mypage')
   }
 
   function handleSwitchToPaied() {
-    setIsInfo(false)
     router.push('/mypage/payment')
   }
 
