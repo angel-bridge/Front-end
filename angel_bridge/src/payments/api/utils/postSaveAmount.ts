@@ -1,4 +1,5 @@
 import { authInstance } from '@/api/authInstance'
+import { AmountType } from '../hooks/usePostSaveAmount'
 
 interface postSaveAmountResponse {
   timestamp: string
@@ -6,7 +7,7 @@ interface postSaveAmountResponse {
   message: string
 }
 
-export const postSaveAmount = async (orderId: string, amount: number) => {
+export const postSaveAmount = async (orderId: string, amount: AmountType) => {
   const response: postSaveAmountResponse = await authInstance.post(
     `/api/v1/payments/saveAmount`,
     {
