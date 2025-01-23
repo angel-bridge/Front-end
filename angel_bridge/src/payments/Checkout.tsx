@@ -13,12 +13,13 @@ export function CheckoutPage() {
   const clientKey = process.env.NEXT_PUBLIC_CLIENT_KEY as string
   const customerKey = 'UTuk_CpV40JbupUHAF0De'
 
-  const { mustate } = usePostSaveAmount()
+  const { mutate: postSaveAmountMutate } = usePostSaveAmount()
 
   const [amount, setAmount] = useState({
     currency: 'KRW',
     value: 50_000,
   })
+
   const [ready, setReady] = useState(false)
   const [widgets, setWidgets] = useState<TossPaymentsWidgets | null>(null)
 
@@ -72,6 +73,39 @@ export function CheckoutPage() {
     widgets.setAmount(amount)
   }, [widgets, amount])
 
+  async function onClickBtn() {
+    const orderId = nanoid()
+
+    try {
+      postSaveAmountMutate(
+        {
+          orderId,
+          amount,
+        },
+        {
+          onSuccess: async () => {
+            // ------ 서버 저장 성공 후 결제 진행 ------
+            await widgets?.requestPayment({
+              orderId,
+              orderName: '토스 티셔츠 외 2건',
+              customerName: '김토스',
+              customerEmail: 'customer123@gmail.com',
+              customerMobilePhone: '01012341234',
+              successUrl: `${window.location.origin}/payment/success?educationId=${educationId}&orderId=${orderId}&amount=${amount}`,
+              failUrl: `${window.location.origin}/payment/fail`,
+            })
+          },
+          onError: (error) => {
+            console.error('Failed to save order:', error)
+            alert('결제 요청 중 문제가 발생했습니다. 다시 시도해주세요.')
+          },
+        },
+      )
+    } catch (error) {
+      console.error('Payment request failed:', error)
+    }
+  }
+
   return (
     <div className="wrapper">
       <div className="box_section">
@@ -86,25 +120,7 @@ export function CheckoutPage() {
         <button
           className={style.button_style}
           disabled={!ready}
-          onClick={async () => {
-            try {
-              // ------ '결제하기' 버튼 누르면 결제창 띄우기 ------
-              // 결제를 요청하기 전에 orderId, amount를 서버에 저장하세요.
-              // 결제 과정에서 악의적으로 결제 금액이 바뀌는 것을 확인하는 용도입니다.
-              await widgets.requestPayment({
-                orderId: 'yqPwvWha_N1asJ5DC1l9J',
-                orderName: '토스 티셔츠 외 2건',
-                successUrl: window.location.origin + '/success',
-                failUrl: window.location.origin + '/fail',
-                customerEmail: 'customer123@gmail.com',
-                customerName: '김토스',
-                customerMobilePhone: '01012341234',
-              })
-            } catch (error) {
-              // 에러 처리하기
-              console.error(error)
-            }
-          }}
+          onClick={onClickBtn}
         >
           결제하기
         </button>
