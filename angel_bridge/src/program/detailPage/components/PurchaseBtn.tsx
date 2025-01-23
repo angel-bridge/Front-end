@@ -10,24 +10,15 @@ import {
 } from '../styles/purchase.css'
 import Image from 'next/image'
 import purchaseIcon from '../assets/purchase.svg'
-import { loadTossPayments, ANONYMOUS } from '@tosspayments/tosspayments-sdk'
-
-const amount = {
-  currency: 'KRW',
-  value: 50_000,
-}
+import { useParams, useRouter } from 'next/navigation'
 
 export default function PurchaseBtn() {
-  async function handleClickPayment() {
-    await pay.requestPayment({
-      orderId: Math.random().toString(32),
-      orderName: '토스 티셔츠 외 2건',
-      successUrl: window.location.origin + '/sandbox/success',
-      failUrl: window.location.origin + '/sandbox/fail',
-      customerEmail: 'customer123@gmail.com',
-      customerName: '김토스',
-      customerMobilePhone: '01012341234',
-    })
+  const params = useParams()
+  const router = useRouter()
+  const educationId = params.educationId
+
+  function onClickPurchaseBtn() {
+    router.push(`/payments?eucationId=${educationId}`)
   }
 
   return (
@@ -37,7 +28,7 @@ export default function PurchaseBtn() {
         <p className={detail}>12월 15일 (일) 자정 마감</p>
       </div>
 
-      <button className={button_style}>
+      <button onClick={onClickPurchaseBtn} className={button_style}>
         <span className={icon}>
           <Image src={purchaseIcon} alt="구매" fill />
         </span>
