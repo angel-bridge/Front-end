@@ -19,9 +19,10 @@ export function CheckoutPage() {
 
   const { mutate: postSaveAmountMutate } = usePostSaveAmount()
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [amount, setAmount] = useState({
     currency: 'KRW',
-    value: 50_000,
+    value: 50000,
   })
 
   const [ready, setReady] = useState(false)
@@ -48,7 +49,10 @@ export function CheckoutPage() {
         return
       }
       // ------ 주문의 결제 금액 설정 ------
-      await widgets.setAmount(amount)
+      await widgets.setAmount({
+        currency: 'KRW',
+        value: 5000,
+      })
 
       await Promise.all([
         // ------  결제 UI 렌더링 ------
