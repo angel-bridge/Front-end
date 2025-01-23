@@ -8,10 +8,14 @@ import { nanoid } from 'nanoid'
 import { useEffect, useState } from 'react'
 import * as style from './style.css'
 import usePostSaveAmount from './api/hooks/usePostSaveAmount'
+import { useSearchParams } from 'next/navigation'
 
 export function CheckoutPage() {
+  const searchParams = useSearchParams()
+
   const clientKey = process.env.NEXT_PUBLIC_CLIENT_KEY as string
   const customerKey = 'UTuk_CpV40JbupUHAF0De'
+  const educationId = searchParams.get('educationId')
 
   const { mutate: postSaveAmountMutate } = usePostSaveAmount()
 
@@ -92,7 +96,7 @@ export function CheckoutPage() {
               customerEmail: 'customer123@gmail.com',
               customerMobilePhone: '01012341234',
               successUrl: `${window.location.origin}/payment/success?educationId=${educationId}&orderId=${orderId}&amount=${amount}`,
-              failUrl: `${window.location.origin}/payment/fail`,
+              failUrl: `${window.location.origin}/payment/fail?orderId=${orderId}`,
             })
           },
           onError: (error) => {
