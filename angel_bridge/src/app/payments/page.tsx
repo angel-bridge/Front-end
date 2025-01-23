@@ -1,7 +1,7 @@
-import CheckoutPage from '@/payments/ExampleCode'
+import { CheckoutPage } from '@/payments/Checkout'
 import React from 'react'
 
-//결제 완료 후 리다이렉트될 화면입니다.
+//결제 창입니다.
 export default function page() {
   return (
     <div>
