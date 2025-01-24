@@ -7,7 +7,7 @@ interface postSaveAmountResponse {
   message: string
 }
 
-export const postSaveAmount = async (orderId: string, amount: AmountType) => {
+export const postSaveAmount = async (orderId: string, amount: number) => {
   const response: postSaveAmountResponse = await authInstance.post(
     `/api/v1/payments/saveAmount`,
     {
