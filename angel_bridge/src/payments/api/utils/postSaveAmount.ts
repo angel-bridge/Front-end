@@ -1,5 +1,4 @@
 import { authInstance } from '@/api/authInstance'
-import { AmountType } from '../hooks/usePostSaveAmount'
 
 interface postSaveAmountResponse {
   timestamp: string
