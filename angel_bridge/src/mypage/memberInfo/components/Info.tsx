@@ -30,6 +30,10 @@ export default function Info() {
   const [isChange, setIsChange] = useState(false)
 
   useEffect(() => {
+    console.log(data)
+  })
+
+  useEffect(() => {
     if (data) {
       setName(data.nickname || '')
       setPhone(data.phoneNumber || '')
@@ -71,9 +75,10 @@ export default function Info() {
     mutate({ updatedData, newImage: image })
   }
 
+  if (isLoading) return <p>loading....</p>
+
   return (
     <div className={container}>
-      {isLoading && <p>isLoading</p>}
       {data && (
         <>
           <Photo
