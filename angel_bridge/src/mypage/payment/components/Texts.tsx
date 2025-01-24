@@ -16,7 +16,7 @@ export default function Texts(props: TextsProps) {
   const { date, status, title, price } = props
   return (
     <div className={texts_container}>
-      <Date date={date} />
+      <Date originalDate={date} />
       <IsPaid status={status} />
       <Title title={title} />
       <Price price={price} />
