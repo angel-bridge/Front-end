@@ -1,16 +1,12 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 'use client'
-import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { authInstance } from '@/api/authInstance'
-import { useEducationIdStore } from './store/useEducationIdStore'
 
 export default function SuccessPage() {
   const [isConfirmed, setIsConfirmed] = useState(false)
   const [error, setError] = useState<string | null>(null)
-
-  const { educationId } = useEducationIdStore()
 
   const router = useRouter()
 
@@ -18,6 +14,7 @@ export default function SuccessPage() {
   const orderId = searchParams.get('orderId')
   const amount = searchParams.get('amount')
   const paymentKey = searchParams.get('paymentKey')
+  const educationId = localStorage.getItem('educationId')
 
   // async function confirmPayment({ educationId }: { educationId: number }) {
   //   // TODO: API를 호출해서 서버에게 paymentKey, orderId, amount를 넘겨주세요.
@@ -37,10 +34,10 @@ export default function SuccessPage() {
   // }
 
   useEffect(() => {
-    async function confirmPayment() {
+    async function confirmPayment(educationId: string) {
       try {
         const response = await authInstance.post(
-          `/api/vi/payments/confirm/${educationId}`,
+          `/api/v1/payments/confirm/${educationId}`,
           {
             paymentKey,
             orderId,
@@ -54,13 +51,17 @@ export default function SuccessPage() {
         }
       } catch (err) {
         console.error(err)
-        router.push(`/payment/fail?message=${err}`)
+        router.push(`/payments/fai`)
       }
     }
     if (educationId && orderId && amount && paymentKey) {
-      confirmPayment()
+      confirmPayment(educationId)
     } else {
       setError('결제 정보가 부족합니다.')
+      console.log(educationId)
+      console.log(orderId)
+      console.log(amount)
+      console.log(paymentKey)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [educationId, orderId, amount, paymentKey])
