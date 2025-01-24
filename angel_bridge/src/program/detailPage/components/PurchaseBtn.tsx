@@ -15,10 +15,13 @@ import { useParams, useRouter } from 'next/navigation'
 export default function PurchaseBtn() {
   const params = useParams()
   const router = useRouter()
-  const educationId = params.educationId
+  const educationId = params.educationId as string
 
   function onClickPurchaseBtn() {
     router.push(`/payments?eucationId=${educationId}`)
+    if (typeof window !== 'undefined' && educationId != undefined) {
+      localStorage.setItem('educationId', educationId)
+    }
   }
 
   return (
