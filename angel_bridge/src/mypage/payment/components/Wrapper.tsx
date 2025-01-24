@@ -1,18 +1,28 @@
 'use client'
 
-import React from 'react'
+import React, { useEffect } from 'react'
 import Content, { ContentProps } from './Content'
 import { wrapper_style } from '../styles/container.css'
 import useGetPayment from '@/mypage/api/hooks/useGetPayment'
-import Image from 'next/image'
 
 export default function Wrapper() {
-  const { data, isLoading, isError } = useGetPayment()
-  // console.log(data.content)
+  const { data, isLoading, refetch } = useGetPayment()
+
+  useEffect(() => {
+    if (!data) {
+      refetch()
+    }
+  }, [data, refetch])
+
+  if (isLoading) {
+    return <p>isLoading</p>
+  }
+  if (!data) {
+    return <p>data가 없습니다.</p>
+  }
 
   return (
     <div className={wrapper_style}>
-      {isLoading && <p>loading....</p>}
       {data?.content &&
         data?.content.map((data: ContentProps) => {
           return (
