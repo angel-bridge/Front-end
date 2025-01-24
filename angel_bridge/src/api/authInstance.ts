@@ -7,17 +7,26 @@ export const authInstance = axios.create({
   },
 })
 
-authInstance.interceptors.request.use((config) => {
-  const accessToken = process.env.NEXT_PUBLIC_ACCESS_TOKEN
-  if (accessToken) {
-    config.headers['Authorization'] = `Bearer ${accessToken}`
-  }
-  authInstance.interceptors.response.use(
-    (response) => response.data,
-    async (error) => {
-      console.error('API 에러:', error.message)
-      return Promise.reject(error)
-    },
-  )
-  return config
-})
+authInstance.interceptors.request.use(
+  (config) => {
+    const accessToken = process.env.NEXT_PUBLIC_ACCESS_TOKEN
+    if (accessToken) {
+      config.headers['Authorization'] = `Bearer ${accessToken}`
+    }
+    return config
+  },
+  (error) => {
+    console.error('Request error:', error)
+    return Promise.reject(error)
+  },
+)
+
+authInstance.interceptors.response.use(
+  (response) => {
+    return response
+  },
+  (error) => {
+    console.error('API 에러:', error.message)
+    return Promise.reject(error)
+  },
+)
