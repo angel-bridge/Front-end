@@ -8,16 +8,10 @@ import { nanoid } from 'nanoid'
 import { useEffect, useState } from 'react'
 import * as style from './style.css'
 import usePostSaveAmount from './api/hooks/usePostSaveAmount'
-import { useSearchParams } from 'next/navigation'
-import { useEducationIdStore } from './store/useEducationIdStore'
 
 export function CheckoutPage() {
-  const searchParams = useSearchParams()
-  const { setEducationId } = useEducationIdStore()
-
   const clientKey = process.env.NEXT_PUBLIC_CLIENT_KEY as string
   const customerKey = 'UTuk_CpV40JbupUHAF0De'
-  const educationId = searchParams.get('educationId')
   const { mutate: postSaveAmountMutate } = usePostSaveAmount()
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -28,10 +22,6 @@ export function CheckoutPage() {
 
   const [ready, setReady] = useState(false)
   const [widgets, setWidgets] = useState<TossPaymentsWidgets | null>(null)
-
-  useEffect(() => {
-    setEducationId(educationId)
-  }, [])
 
   useEffect(() => {
     async function fetchPaymentWidgets() {
