@@ -1,18 +1,12 @@
 'use client'
 
-import React, { useEffect } from 'react'
+import React from 'react'
 import Content, { ContentProps } from './Content'
 import { wrapper_style } from '../styles/container.css'
 import useGetPayment from '@/mypage/api/hooks/useGetPayment'
 
 export default function Wrapper() {
-  const { data, isLoading, refetch } = useGetPayment()
-
-  useEffect(() => {
-    if (!data) {
-      refetch()
-    }
-  }, [data, refetch])
+  const { data, isLoading } = useGetPayment()
 
   if (isLoading) {
     return <p>isLoading</p>

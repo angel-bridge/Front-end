@@ -1,7 +1,7 @@
-import Wrapper from '@/mypage/payment/components/Wrapper'
 import React from 'react'
 import { mypage_container, page_container } from '../styles/mypagecontainer.css'
 import MyPageHeader from '@/mypage/MyPageHeader'
+import Wrapper from '@/mypage/payment/components/Wrapper'
 
 export default function page() {
   return (
