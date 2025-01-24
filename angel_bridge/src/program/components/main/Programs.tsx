@@ -16,7 +16,7 @@ export default function Programs({
           data
         return (
           <Link href={`program/${educationId}`} key={educationId}>
-            <div style={{ marginBottom: '3.2rem' }} key={educationId}>
+            <div key={educationId}>
               <ProgramCard
                 badgeText={recruitmentStatus}
                 badgeType={recruitmentStatus}
