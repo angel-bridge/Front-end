@@ -31,7 +31,7 @@ export default function NameInput(props: InputPropTypes) {
       <div className={!isError ? name_error_container : error_container}>
         {isError && <ErrorMessage number={0} />}
         <p className={label}>
-          {value ? value.length : 2}
+          {apiValue ? apiValue.length : 2}
           /10
         </p>
       </div>

@@ -9,7 +9,7 @@ export default function usePutMember() {
       newImage,
     }: {
       updatedData: PutMemberData
-      newImage: string | null
+      newImage: string | undefined
     }) => putMember(updatedData, newImage),
   })
   return { mutate }

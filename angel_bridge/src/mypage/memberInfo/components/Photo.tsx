@@ -12,7 +12,7 @@ import {
 interface PhotoProps {
   image: string | StaticImageData
   handleImageUplaod: (newImg: string) => void
-  kakaoImg: string | undefined
+  kakaoImg: string | StaticImageData
 }
 
 export default function Photo({
@@ -29,20 +29,21 @@ export default function Photo({
     reader.onload = (e) => {
       //성공하면 2, 진행 주이면 1, 실패가 0반환환
       if (reader.readyState === 2 && e.target?.result) {
-        handleImageUplaod(e.target.result)
+        handleImageUplaod(e.target.result as string)
       }
     }
-    console.log(file)
 
     reader.readAsDataURL(file)
   }
+
+  const imageSrc = image || kakaoImg
 
   return (
     <div className={photo_container}>
       <div className={image_container}>
         <Image
           style={{ borderRadius: ' 50%' }}
-          src={image != '' ? kakaoImg : image}
+          src={imageSrc}
           fill
           alt="기본이미지"
         />
