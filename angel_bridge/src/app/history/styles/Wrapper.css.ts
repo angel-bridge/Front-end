@@ -6,10 +6,9 @@ export const wrapper = style({
     marginTop: '13rem',
     marginBottom: '30rem',
     width: '100vw',
-    maxWidth: '104rem',
     justifyContent: 'center',
-    alignItems: 'flex-start',
+    alignItems: 'center',
     gap: '2.4rem',
     boxSizing: 'border-box',
-    padding: '0 33rem', // 이 부분 추후 수정
+    padding: '0rem 20rem',
 });

@@ -1,4 +1,3 @@
-import React from 'react'
 import MyLectureCard from './MyLectureCard'
 import { wrapper } from '../styles/Contents.css';
 

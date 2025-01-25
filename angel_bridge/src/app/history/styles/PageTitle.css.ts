@@ -14,6 +14,7 @@ export const title = style([
     font.title32SB,
     {
         color: vars.grayScale.grayscale800,
+        width: '104rem',
     }
 ]);
 
