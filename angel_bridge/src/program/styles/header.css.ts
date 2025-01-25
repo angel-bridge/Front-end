@@ -6,3 +6,10 @@ export const header_style = style({
   justifyContent: 'space-between',
   height: '4.8rem',
 })
+
+export const programbanner_style = style({
+  position: 'relative',
+  width: ' 100%',
+  height: '14rem',
+  top: '8rem',
+})
