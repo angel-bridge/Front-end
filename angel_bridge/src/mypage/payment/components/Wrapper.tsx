@@ -5,6 +5,7 @@ import Content, { ContentProps } from './Content'
 import { wrapper_style } from '../styles/container.css'
 import useGetPayment from '@/mypage/api/hooks/useGetPayment'
 
+//결제 내역 부분입니다.
 export default function Wrapper() {
   const { data, isLoading } = useGetPayment()
 
