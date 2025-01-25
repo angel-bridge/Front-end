@@ -1,5 +1,11 @@
-import { graybutton } from '@/program/styles/button.css'
+import { blackbutton, graybutton } from '@/program/styles/button.css'
 
-export default function WillTakeButton() {
-  return <button className={graybutton}>수강 예정</button>
+interface ButtonProps {
+  isSelected: boolean
+  onClick: () => void
+}
+
+export default function WillTakeButton({ isSelected, onClick }: ButtonProps) {
+  return <button className={isSelected ? blackbutton : graybutton}
+    onClick={onClick}>수강 예정</button>
 }

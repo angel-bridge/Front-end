@@ -1,48 +1,40 @@
 import MyLectureCard from './MyLectureCard'
 import { wrapper } from '../styles/Contents.css';
+import { ProgramDataType } from '@/program/types/dataType';
 
-const MyLectureDummyData = [
-    {
-        // thumbnail: '',
-        state: '수강중',
-        period: '2024. 12. 15 - 2024. 12. 28',
-        title: '예비창업패키지 2주 완성',
-        bio: '프로그램 한줄 소개를 작성해 주세요. 두줄은 곤란해요.',
-    },
-    {
-        // thumbnail: '',
-        state: '수강중',
-        period: '2024. 12. 15 - 2024. 12. 28',
-        title: '예비창업패키지 2주 완성',
-        bio: '프로그램 한줄 소개를 작성해 주세요. 두줄은 곤란해요.',
-    },
-    {
-        // thumbnail: '',
-        state: '수강중',
-        period: '2024. 12. 15 - 2024. 12. 28',
-        title: '예비창업패키지 2주 완성',
-        bio: '프로그램 한줄 소개를 작성해 주세요. 두줄은 곤란해요.',
-    },
-    {
-        // thumbnail: '',
-        state: '수강중',
-        period: '2024. 12. 15 - 2024. 12. 28',
-        title: '예비창업패키지 2주 완성',
-        bio: '프로그램 한줄 소개를 작성해 주세요. 두줄은 곤란해요.',
-    },
-];
+// export interface ContentType {
+//     thumbnail?: string
+//     state: string
+//     period: string
+//     title: string
+//     bio: string
+// }
 
-export default function Contents() {
+interface ContentsProps {
+    data: ProgramDataType[] | undefined
+    isLoading: boolean
+}
+
+export default function Contents({ data, isLoading }: ContentsProps) {
+    if (isLoading) {
+        return <div className={wrapper}>로딩 중...</div>
+    }
+
+    if (!data || data.length === 0) {
+        return <div className={wrapper}>등록된 수강 프로그램이 없습니다.</div>
+    }
+
     return (
             <div className={wrapper}>
-                {MyLectureDummyData.map((data, index) => (
+                {data.map((item, index) => (
                 <MyLectureCard
                     key={index}
-                    thumbnail={'/assets/defaultThumbnail.png'} // 썸네일 없을 경우 기본값
-                    state={data.state}
-                    period={data.period}
-                    title={data.title}
-                    bio={data.bio}
+                    thumbnail={item.preImage || '/assets/defaultThumbnail.png'} // 썸네일 없을 경우 기본값
+                    state={item.enrollmentStatus}
+                    start={item.educationStartDate}
+                    end={item.educationEndDate}
+                    title={item.title}
+                    bio={item.description}
                 />
                 ))}
             </div>

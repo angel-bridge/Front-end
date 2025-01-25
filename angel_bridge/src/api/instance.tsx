@@ -4,7 +4,7 @@ export const instance = axios.create({
     baseURL: process.env.NEXT_PUBLIC_URL,
     headers: { 
         "Content-Type": "application/json", 
-        // authorization: `Bearer ${process.env.READONLY_ACCESS_TOKEN}`
+        authorization: `Bearer ${process.env.ACCESS_TOKEN}`
         },
     });
     
