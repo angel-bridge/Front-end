@@ -18,7 +18,7 @@ export interface ContentProps {
 }
 
 export default function Content(props: ContentProps) {
-  const { date, status, imageUrl, educationName, price } = props
+  const { date, status, imageUrl, educationName, price, enrollementId } = props
 
   return (
     <div className={content}>
@@ -32,7 +32,7 @@ export default function Content(props: ContentProps) {
             price={price}
           />
         </div>
-        {status === '결제 완료' && <CancelBtn />}
+        {status === '결제 완료' && <CancelBtn enrollementId={enrollementId} />}
       </div>
     </div>
   )
