@@ -1,14 +1,6 @@
 import MyLectureCard from './MyLectureCard'
-import { wrapper } from '../styles/Contents.css';
+import { wrapper, warning } from '../styles/Contents.css';
 import { ProgramDataType } from '@/program/types/dataType';
-
-// export interface ContentType {
-//     thumbnail?: string
-//     state: string
-//     period: string
-//     title: string
-//     bio: string
-// }
 
 interface ContentsProps {
     data: ProgramDataType[] | undefined
@@ -17,11 +9,21 @@ interface ContentsProps {
 
 export default function Contents({ data, isLoading }: ContentsProps) {
     if (isLoading) {
-        return <div className={wrapper}>로딩 중...</div>
+        return (
+            <div className={wrapper}>
+                <div className={warning}>
+                로딩 중...
+                </div>
+            </div>);
     }
 
     if (!data || data.length === 0) {
-        return <div className={wrapper}>등록된 수강 프로그램이 없습니다.</div>
+        return (
+            <div className={wrapper}>
+                <div className={warning}>
+                등록된 수강 프로그램이 없습니다.
+                </div>
+            </div>);
     }
 
     return (

@@ -1,4 +1,4 @@
-import { instance } from '@/api/instance'
+import { instance } from '@/api/authInstance'
 import { DataType } from '@/program/types/dataType'
 
 interface AllProgramType {

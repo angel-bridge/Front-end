@@ -1,4 +1,4 @@
-import { instance } from '@/api/instance'
+import { authInstance } from '@/api/authInstance'
 import { ProgramContentType } from '@/program/types/dataType'
 
 interface TakingProgramType {
@@ -8,9 +8,15 @@ interface TakingProgramType {
     result?: ProgramContentType
 }
 
+interface ResponseType {
+    data: TakingProgramType
+}
+
 export const getTakingPrograms = async ({ page = 1 }) => {
-    const response: TakingProgramType = await instance.get(`/api/v1/enrollment/inprogress`, {
+    const response: ResponseType = await authInstance.get(`/api/v1/enrollment/inprogress`, {
         params: { page },
     })
-    return response.result    
+    const res: TakingProgramType = response.data
+    console.log("api 결과값", response)
+    return res.result    
 }

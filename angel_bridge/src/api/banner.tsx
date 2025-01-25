@@ -1,4 +1,4 @@
-import { instance } from "./instance";
+import { instance } from "./authInstance";
 
 interface Image {
     imageFile: string;

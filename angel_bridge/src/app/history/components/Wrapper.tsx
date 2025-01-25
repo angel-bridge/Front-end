@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import PageTitle from './PageTitle'
 import Contents from './Contents'
 import { wrapper } from '../styles/Wrapper.css'
@@ -18,34 +18,20 @@ export default function Wrapper() {
     const [takenPrograms, setTakenPrograms] = useState<ProgramContentType | undefined>(undefined)
 
     const { data: takingPrograms, isLoading: loadingTaking } = useGetTakingPrograms({ page: currentPage })
+    const { data: willTakeProgramsData, isLoading: loadingWillTake } = useGetWillTakePrograms({ page: currentPage })
+    const { data: takenProgramsData, isLoading: loadingTaken } = useGetTakenPrograms({ page: currentPage })
 
-    const [loadingWillTake, setLoadingWillTake] = useState(false)
-    const [loadingTaken, setLoadingTaken] = useState(false)
+    useEffect(() => {
+        if (selectedButton === 'willTake') {
+            setWillTakePrograms(willTakeProgramsData)
+        } else if (selectedButton === 'taken') {
+            setTakenPrograms(takenProgramsData)
+        }
+    }, [selectedButton, currentPage, willTakeProgramsData, takenProgramsData])
 
-    const fetchWillTakePrograms = async () => {
-        if (willTakePrograms) return // 이미 데이터가 있으면 호출 X
-        setLoadingWillTake(true)
-        const response = await useGetWillTakePrograms({ page: currentPage })
-        setWillTakePrograms(response.data)
-        setLoadingWillTake(false)
-    }
-
-    const fetchTakenPrograms = async () => {
-        if (takenPrograms) return // 이미 데이터가 있으면 호출 X
-        setLoadingTaken(true)
-        const response = await useGetTakenPrograms({ page: currentPage })
-        setTakenPrograms(response.data)
-        setLoadingTaken(false)
-    }
-
-    const handleButtonClick = async (button: 'taking' | 'willTake' | 'taken') => {
+    const handleButtonClick = (button: 'taking' | 'willTake' | 'taken') => {
         setSelectedButton(button)
         setCurrentPage(1)
-        if (button === 'willTake') {
-            await fetchWillTakePrograms()
-        } else if (button === 'taken') {
-            await fetchTakenPrograms()
-        }
     }
     
     const currentData: ProgramContentType | undefined =
