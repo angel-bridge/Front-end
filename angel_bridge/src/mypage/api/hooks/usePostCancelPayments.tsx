@@ -2,17 +2,18 @@ import { useMutation } from '@tanstack/react-query'
 import { postCancelPayments } from '../utils/postCancelPayment'
 
 type CancelPaymentInput = {
-  educationId: number
+  enrollementId: number
   cancelReason: string
 }
 
 export default function usePostCancelPayments() {
   const { mutate } = useMutation({
     mutationKey: ['postCancelPayment'],
-    mutationFn: ({ educationId, cancelReason }: CancelPaymentInput) =>
-      postCancelPayments(educationId, cancelReason),
+    mutationFn: ({ enrollementId, cancelReason }: CancelPaymentInput) =>
+      postCancelPayments(enrollementId, cancelReason),
     onSuccess: () => {
       console.log('success!')
+      alert('결제가 취소되었습니다')
     },
     onError: () => {
       console.log('error')
