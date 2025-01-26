@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { useState, useEffect, useRef } from 'react'
 import { useRouter } from 'next/navigation'
 import useGetMember from '@/mypage/api/hooks/useGetMember'
+import usePostLogout from '../hooks/usePostLogout'
 import * as styles from '@/app/login/styles/ProfileButton.css'
 import DefaultProfile from '@/app/login/assets/profile_img.jpg'
 import SignupModal from '@/app/home/components/SignupModal'
@@ -16,6 +17,7 @@ export default function ProfileButton() {
     const router = useRouter();
 
     const { data: member, isLoading, isError } = useGetMember();
+    const { mutate: logout } = usePostLogout();
 
     const toggleModal = () => {
         setIsModalOpen((prev) => !prev);
@@ -55,6 +57,18 @@ export default function ProfileButton() {
         setIsModalOpen(false);
     };
 
+    const handleLogout = () => {
+        logout(undefined, {
+            onSuccess: () => {
+                alert('로그아웃 되었습니다.');
+                router.push('/');
+            },
+            onError: () => {
+                alert(`로그아웃에 실패했습니다. 다시 시도해주세요!`);
+            },
+        });
+    };
+
     if (isLoading) {
         return <div>로딩 중...</div>;
     }
@@ -83,7 +97,7 @@ export default function ProfileButton() {
                     >마이페이지</button>
                     <button 
                         className={styles.modalMenu}
-                        onClick={() => alert("로그아웃 하는 척 하기...")}
+                        onClick={handleLogout}
                     >로그아웃</button>
                 </div>
             )}
