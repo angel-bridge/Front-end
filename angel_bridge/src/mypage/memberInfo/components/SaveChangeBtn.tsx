@@ -12,6 +12,7 @@ export default function SaveChangeBtn({
     <button
       onClick={onClick}
       className={isChange ? active_save_change_btn : save_change_btn}
+      disabled={isChange ? false : true}
     >
       변경사항 저장
     </button>

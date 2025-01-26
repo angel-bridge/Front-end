@@ -30,9 +30,7 @@ export default function Info() {
 
   const [isChange, setIsChange] = useState(false)
 
-  useEffect(() => {
-    console.log(data)
-  })
+  const [isSaved, setIsSaved] = useState(false)
 
   useEffect(() => {
     if (data) {
@@ -42,6 +40,12 @@ export default function Info() {
       setIsImage(data.profileImageUrl || '')
     }
   }, [data])
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsSaved(false)
+    }, 3000)
+  }, [isSaved])
 
   useEffect(() => {
     const hasChanges =
@@ -71,6 +75,8 @@ export default function Info() {
       email: email !== '' ? email : data?.email || '',
       phoneNumber: phone !== '' ? phone : data?.phoneNumber || '',
     }
+
+    setIsSaved(true)
 
     // 실제 API 호출 부분
     mutate({ updatedData, newImage: image })
@@ -116,7 +122,7 @@ export default function Info() {
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
-          <SnackBar />
+          {isSaved && <SnackBar />}
         </>
       )}
 
