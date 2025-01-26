@@ -19,6 +19,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
+      <head>
+        <meta
+          httpEquiv="Content-Security-Policy"
+          content="upgrade-insecure-requests"
+        />
+      </head>
       <body style={{ fontSize: '62.5%' }}>
         <Providers><Header /> {children}</Providers>
         <Footer />
