@@ -1,7 +1,10 @@
 import Image from 'next/image'
 import React from 'react'
 import searchIcon from '../../assets/searchIc.svg'
-import { empthy_icon, empthy_view_container } from '@/program/styles/empthyview'
+import {
+  empthy_icon,
+  empthy_view_container,
+} from '@/program/styles/empthyview.css'
 
 export default function EmptySearch() {
   return (
