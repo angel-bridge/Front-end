@@ -65,12 +65,12 @@ export default function SignupModal({ onClose }: SignupModalProps) {
         mutate(
             { email, phoneNumber, isSelect: checkedStates.news },
             {
-            onSuccess: (response) => {
-                alert(`회원가입이 완료되었습니다! res: ${response.message}`);
+            onSuccess: () => {
+                alert(`회원가입이 완료되었습니다!`);
                 onClose();
             },
             onError: () => {
-                alert(`회원가입에 실패했습니다.`);
+                alert(`회원가입에 실패했습니다. 다시 시도해주세요!`);
             },
             }
         );
