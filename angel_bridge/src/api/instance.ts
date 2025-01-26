@@ -6,3 +6,11 @@ export const instance = axios.create({
     'Content-Type': 'application/json',
   },
 })
+
+instance.interceptors.response.use(
+  (response) => response.data,
+  async (error) => {
+    console.error('API 에러:', error.message)
+    return Promise.reject(error)
+  },
+)
