@@ -7,7 +7,7 @@ export const input = style([
     display: 'flex',
     alignItems: 'center',
 
-    width: '46rem',
+    width: '48rem',
     height: '6.4rem',
 
     borderRadius: '16px',

@@ -7,17 +7,17 @@ import { texts_container } from '../styles/texts.css'
 
 interface TextsProps {
   date: string
-  ispaid: boolean
+  status: string
   title: string
   price: string
 }
 
 export default function Texts(props: TextsProps) {
-  const { date, ispaid, title, price } = props
+  const { date, status, title, price } = props
   return (
     <div className={texts_container}>
-      <Date date={date} />
-      <IsPaid ispaid={ispaid} />
+      <Date originalDate={date} />
+      <IsPaid status={status} />
       <Title title={title} />
       <Price price={price} />
     </div>

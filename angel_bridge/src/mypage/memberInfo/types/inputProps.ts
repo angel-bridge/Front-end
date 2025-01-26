@@ -3,4 +3,5 @@ export interface InputPropTypes {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
   isError: boolean
   setIsError: (isError: boolean) => void
+  apiValue: string | undefined
 }

@@ -30,7 +30,7 @@ export const photo_text_container = style({
   height: '12rem',
 })
 
-export const wrapper = style({
+export const wrapper_style = style({
   display: 'flex',
   width: '104rem',
   flexDirection: 'column',
