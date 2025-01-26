@@ -1,4 +1,4 @@
-import { instance } from '@/api/authInstance'
+import { instance } from '@/api/instance'
 import { StaticImport } from 'next/dist/shared/lib/get-img-props'
 
 interface DetailType {
