@@ -9,6 +9,7 @@ import EmailInput from './EmailInput'
 import useGetMember from '@/mypage/api/hooks/useGetMember'
 import usePutMember from '@/mypage/api/hooks/usePutMember'
 import { PutMemberData } from '@/mypage/api/utils/putMember'
+import SnackBar from './SnackBar'
 
 //회원정보
 export default function Info() {
@@ -115,6 +116,7 @@ export default function Info() {
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
+          <SnackBar />
         </>
       )}
 
