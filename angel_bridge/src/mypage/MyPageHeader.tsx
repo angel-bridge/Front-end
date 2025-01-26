@@ -1,20 +1,20 @@
 'use client'
-import { useState } from 'react'
-import Info from './memberInfo/components/Info'
 import { button_container } from './memberInfo/styles/button.css'
-import Wrapper from './payment/components/Wrapper'
 import InfoBtn from './common/components/InfoBtn'
 import IsPaidBtn from './common/components/IsPaidBtn'
+import { usePathname, useRouter } from 'next/navigation'
 
-export default function PageCompo() {
-  const [isInfo, setIsInfo] = useState(true)
+export default function MyPageHeader() {
+  const router = useRouter()
+  const pathname = usePathname()
+  const isInfo = !pathname.includes('mypaidList')
 
   function handleSwitchToInfo() {
-    setIsInfo(true)
+    router.push('/mypage')
   }
 
   function handleSwitchToPaied() {
-    setIsInfo(false)
+    router.push('/mypage/mypaidList')
   }
 
   return (
@@ -23,7 +23,6 @@ export default function PageCompo() {
         <InfoBtn isInfo={isInfo} onClick={handleSwitchToInfo} />
         <IsPaidBtn isInfo={isInfo} onClick={handleSwitchToPaied} />
       </div>
-      {isInfo ? <Info /> : <Wrapper />}
     </>
   )
 }
