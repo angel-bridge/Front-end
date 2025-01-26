@@ -39,10 +39,6 @@ export default function MainProgram() {
   const [isEmpthy, setIsEmpthy] = useState(0)
 
   useEffect(() => {
-    console.log(search?.length)
-  })
-
-  useEffect(() => {
     if (search?.length != 0) {
       if (searchlist?.length == 0) {
         setIsEmpthy(1)
