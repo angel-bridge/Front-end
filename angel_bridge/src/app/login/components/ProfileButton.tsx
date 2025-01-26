@@ -6,9 +6,11 @@ import { useRouter } from 'next/navigation'
 import useGetMember from '@/mypage/api/hooks/useGetMember'
 import * as styles from '@/app/login/styles/ProfileButton.css'
 import DefaultProfile from '@/app/login/assets/profile_img.jpg'
+import SignupModal from '@/app/home/components/SignupModal'
 
 export default function ProfileButton() {
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isSignupModalOpen, setIsSignupModalOpen] = useState(false);
     const modalRef = useRef<HTMLDivElement>(null);
     const buttonRef = useRef<HTMLButtonElement>(null);
     const router = useRouter();
@@ -41,6 +43,12 @@ export default function ProfileButton() {
             document.removeEventListener('mousedown', handleClickOutside);
         };
     }, [isModalOpen]);
+
+    useEffect(() => {
+        if (member && !member.isRegistered) {
+            setIsSignupModalOpen(true);
+        }
+    }, [member]);
 
     const navigate = (path: string) => {
         router.push(path);
@@ -79,6 +87,7 @@ export default function ProfileButton() {
                     >로그아웃</button>
                 </div>
             )}
+            {isSignupModalOpen && <SignupModal onClose={() => setIsSignupModalOpen(false)} />}
         </div>
     )
 }
