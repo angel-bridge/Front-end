@@ -8,6 +8,7 @@ export const programcard_container = style({
   gap: '6rem',
   flexDirection: 'column',
   marginTop: '6rem',
+  width: '100vw',
 })
 
 export const program_photo_and_detail = style({
