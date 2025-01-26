@@ -16,9 +16,15 @@ interface MissionSubmitStatusList {
   result?: MissionSubmitStatusListResult
 }
 
-export const getMissionSubmitStatusList = async ({ page = 1 }) => {
+export const getMissionSubmitStatusList = async ({
+  page = 1,
+  educationId,
+}: {
+  page: number
+  educationId: number
+}) => {
   const response: MissionSubmitStatusList = await authInstance.get(
-    `/api/v1/education/{educationId}/assignments`,
+    `/api/v1/education/${educationId}/assignments`,
     {
       params: { page },
     },
