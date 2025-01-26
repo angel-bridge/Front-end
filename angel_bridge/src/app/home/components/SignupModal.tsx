@@ -69,8 +69,8 @@ export default function SignupModal({ onClose }: SignupModalProps) {
                 alert(`회원가입이 완료되었습니다! res: ${response.message}`);
                 onClose();
             },
-            onError: (error: any) => {
-                alert(`회원가입에 실패했습니다. error: ${error.message}`);
+            onError: () => {
+                alert(`회원가입에 실패했습니다.`);
             },
             }
         );
