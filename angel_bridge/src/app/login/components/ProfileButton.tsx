@@ -3,14 +3,17 @@
 import Image from 'next/image'
 import { useState, useEffect, useRef } from 'react'
 import { useRouter } from 'next/navigation'
+import useGetMember from '@/mypage/api/hooks/useGetMember'
 import * as styles from '@/app/login/styles/ProfileButton.css'
-import Profile from '@/app/login/assets/profile_img.jpg'
+import DefaultProfile from '@/app/login/assets/profile_img.jpg'
 
 export default function ProfileButton() {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const modalRef = useRef<HTMLDivElement>(null);
     const buttonRef = useRef<HTMLButtonElement>(null);
     const router = useRouter();
+
+    const { data: member, isLoading, isError } = useGetMember();
 
     const toggleModal = () => {
         setIsModalOpen((prev) => !prev);
@@ -44,13 +47,21 @@ export default function ProfileButton() {
         setIsModalOpen(false);
     };
 
+    if (isLoading) {
+        return <div>로딩 중...</div>;
+    }
+
+    if (isError || !member) {
+        return <div>프로필 로드 중 에러 발생</div>;
+    }
+
     return (
         <div>
             <button className={styles.profileButton} onClick={toggleModal} ref={buttonRef}>
                 <div className={styles.profileImage}>
-                    <Image src={Profile} alt="프로필 이미지" fill />
+                    <Image src={member.profileImageUrl || DefaultProfile} alt="프로필 이미지" fill />
                 </div>
-                <div className={styles.buttonText}>현종혁</div>
+                <div className={styles.buttonText}>{member.nickname || '사용자'}</div>
             </button>
             {isModalOpen && (
                 <div className={styles.profileModal} ref={modalRef}>
