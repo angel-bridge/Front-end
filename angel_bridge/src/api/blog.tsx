@@ -1,4 +1,4 @@
-import { instance } from "./authInstance";
+import { instance } from "./instance";
 
 export interface BlogResult {
     title: string;
