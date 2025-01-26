@@ -39,29 +39,30 @@ export default function MainProgram() {
   const [isEmpthy, setIsEmpthy] = useState(0)
 
   useEffect(() => {
-    console.log(searchlist?.length)
-    if (searchlist?.length == 0) {
-      console.log('searchList is empthy')
-    }
+    console.log(search?.length)
   })
 
   useEffect(() => {
-    if (search) {
+    if (search?.length != 0) {
       if (searchlist?.length == 0) {
         setIsEmpthy(1)
       } else {
         if (isClickOngoings && ongoings) {
           setProgram(searchlist)
           setListKind('ONGOING')
+          setIsEmpthy(0)
         } else if (isClickUpcomings && upcomings) {
           setProgram(searchlist)
           setListKind('UPCOMING')
+          setIsEmpthy(0)
         } else if (all) {
           setProgram(searchlist)
           setListKind('ALL')
+          setIsEmpthy(0)
         }
       }
-    } else {
+    } else if (search?.length == 0) {
+      setIsEmpthy(0)
       if (isClickOngoings && ongoings) {
         if (ongoings?.content?.length !== 0) {
           setProgram(ongoings.content)
