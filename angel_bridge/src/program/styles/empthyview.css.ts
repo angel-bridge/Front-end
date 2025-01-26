@@ -12,6 +12,7 @@ export const empthy_view_container = style([
   {
     display: 'flex',
     flexDirection: 'column',
+    alignItems: 'center',
     gap: '2rem',
     color: vars.grayScale.grayscale500,
   },
