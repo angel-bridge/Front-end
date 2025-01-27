@@ -1,10 +1,13 @@
+'use client'
 import SuccessPage from '@/payments/SuccessPage'
-import React from 'react'
+import React, { Suspense } from 'react'
 
 export default function page() {
   return (
     <div>
-      <SuccessPage />
+      <Suspense>
+        <SuccessPage />
+      </Suspense>
     </div>
   )
 }

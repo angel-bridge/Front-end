@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 'use client'
-import { useEffect, useState } from 'react'
+import { Suspense, useEffect, useState } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { authInstance } from '@/api/authInstance'
 
@@ -67,24 +67,26 @@ export default function SuccessPage() {
   }, [educationId, orderId, amount, paymentKey])
 
   return (
-    <div className="result wrapper">
-      <div className="box_section">
-        {isConfirmed ? (
-          <>
-            <h2>결제 성공</h2>
-            <p>주문번호: {orderId}</p>
-            <p>결제 금액: {Number(amount).toLocaleString()}원</p>
-            <p>Payment Key: {paymentKey}</p>
-          </>
-        ) : error ? (
-          <div>
-            <h2>결제 실패</h2>
-            <p>{error}</p>
-          </div>
-        ) : (
-          <p>결제 승인 중입니다...</p>
-        )}
+    <Suspense>
+      <div className="result wrapper">
+        <div className="box_section">
+          {isConfirmed ? (
+            <>
+              <h2>결제 성공</h2>
+              <p>주문번호: {orderId}</p>
+              <p>결제 금액: {Number(amount).toLocaleString()}원</p>
+              <p>Payment Key: {paymentKey}</p>
+            </>
+          ) : error ? (
+            <div>
+              <h2>결제 실패</h2>
+              <p>{error}</p>
+            </div>
+          ) : (
+            <p>결제 승인 중입니다...</p>
+          )}
+        </div>
       </div>
-    </div>
+    </Suspense>
   )
 }
