@@ -6,7 +6,7 @@ import { ANONYMOUS } from '@tosspayments/tosspayments-sdk'
 import { PaymentWidgetInstance } from '@tosspayments/payment-widget-sdk'
 
 const clientKey = process.env.NEXT_PUBLIC_CLIENT_KEY as string
-const customerkey = nanoid()
+// const customerkey = nanoid()
 
 export default function PaymentContainer() {
   const { data: paymentWidget } = usePaymentWidget(clientKey, ANONYMOUS)
@@ -14,9 +14,9 @@ export default function PaymentContainer() {
   const paymentMethodsWidgetRef = useRef<ReturnType<
     PaymentWidgetInstance['renderPaymentMethods']
   > | null>(null)
-  const agreementsWidgetRef = useRef<ReturnType<
-    PaymentWidgetInstance['renderAgreement']
-  > | null>(null)
+  // const agreementsWidgetRef = useRef<ReturnType<
+  //   PaymentWidgetInstance['renderAgreement']
+  // > | null>(null)
   const [price, setPrice] = useState(50_000)
   const [paymentMethodsWidgetReady, isPaymentMethodsWidgetReady] =
     useState(false)
