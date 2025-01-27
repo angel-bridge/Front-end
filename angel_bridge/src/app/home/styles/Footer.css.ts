@@ -24,6 +24,21 @@ export const buttonWrapper = style({
     gap: '1.6rem',
 });
 
+export const logo = style({
+    position: 'relative',
+    width: '12.8rem',
+    height: '2.8rem',
+});
+
+export const adminButton = style({
+    position: 'relative',
+    width: '2rem',
+    height: '2rem',
+});
+
 export const button = style({
     cursor: 'pointer',
+    position: 'relative',
+    width: '3.2rem',
+    height: '3.2rem',
 });

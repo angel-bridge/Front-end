@@ -12,18 +12,22 @@ export default function Footer() {
     return (
         <footer className={style.footer}>
             <div className={style.logoWrapper}>
-                <Image src={Logo} alt="Logo"/>
-                <Image src={ChipButton} alt="ChipButton"/>
+                <div className={style.logo}>
+                    <Image src={Logo} alt="Logo" fill/>
+                </div>
+                <div className={style.adminButton}>
+                    <Image src={ChipButton} alt="ChipButton" fill/>
+                </div>
             </div>
             <div className={style.buttonWrapper}>
                 <Link href = 'https://www.instagram.com/angel_bridge.kr/' target='_blank' className={style.button}>
-                    <Image src={Instagram} alt="InstagramButton"/> 
+                    <Image src={Instagram} alt="InstagramButton" fill/> 
                 </Link>
                 <Link href='mailto:example@example.com' className={style.button}>
-                    <Image src={Mail} alt="MailButton" />
+                    <Image src={Mail} alt="MailButton" fill/>
                 </Link>
                 <Link href='https://angelbridge.notion.site/Privacy-Policy-18259bdbf30a803bb683d5d7eb22926b?pvs=4' target='_blank' className={style.button}>
-                    <Image src={Notion} alt="NotionButton" />
+                    <Image src={Notion} alt="NotionButton" fill/>
                 </Link>
             </div>
         </footer>
