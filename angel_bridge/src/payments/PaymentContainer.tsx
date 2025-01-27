@@ -45,6 +45,7 @@ export default function PaymentContainer() {
       paymentMethodsWidgetRef.current = paymentMethodsWidget
       isPaymentMethodsWidgetReady(true)
     })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [paymentWidget])
 
   useEffect(() => {
