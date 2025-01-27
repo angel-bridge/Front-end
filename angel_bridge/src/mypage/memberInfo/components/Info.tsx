@@ -6,15 +6,21 @@ import SaveChangeBtn from './SaveChangeBtn'
 import NameInput from './NameInput'
 import PhoneNumberInput from './PhoneNumberInput'
 import EmailInput from './EmailInput'
-import exampleImg from '../assets/Avata.png'
-import { StaticImageData } from 'next/image'
+import useGetMember from '@/mypage/api/hooks/useGetMember'
+import usePutMember from '@/mypage/api/hooks/usePutMember'
+import { PutMemberData } from '@/mypage/api/utils/putMember'
+import SnackBar from './SnackBar'
 
+//회원정보
 export default function Info() {
+  const { data, isLoading } = useGetMember()
+  const { mutate } = usePutMember()
+
   const [name, setName] = useState('')
   const [phone, setPhone] = useState('')
   const [email, setEmail] = useState('')
 
-  const [image, setIsImage] = useState<string | StaticImageData>(exampleImg)
+  const [image, setIsImage] = useState('')
 
   const [errors, setErrors] = useState({
     name: false,
@@ -24,49 +30,103 @@ export default function Info() {
 
   const [isChange, setIsChange] = useState(false)
 
+  const [isSaved, setIsSaved] = useState(false)
+
+  useEffect(() => {
+    if (data) {
+      setName(data.nickname || '')
+      setPhone(data.phoneNumber || '')
+      setEmail(data.email || '')
+      setIsImage(data.profileImageUrl || '')
+    }
+  }, [data])
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsSaved(false)
+    }, 3000)
+  }, [isSaved])
+
   useEffect(() => {
     const hasChanges =
-      name != '' || phone != '' || email != '' || image != exampleImg
+      name != data?.nickname ||
+      phone != data?.phoneNumber ||
+      email != data?.email ||
+      image != data?.profileImageUrl
     const hasErrors = Object.values(errors).some((error) => {
       return error === true
     })
     setIsChange(hasChanges && !hasErrors)
-
-    console.log(hasErrors, isChange)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [email, name, phone, errors, isChange, image])
 
   function handleErrorUpdate(field: string, isError: boolean) {
     setErrors((prev) => ({ ...prev, [field]: isError }))
   }
 
-  function handleImageUplaod(newImg: string) {
-    setIsImage(newImg)
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  function handleImageUplaod(file: any) {
+    setIsImage(file)
   }
+
+  function handleSaveBtn() {
+    const updatedData: PutMemberData = {
+      nickname: name !== '' ? name : data?.nickname || '',
+      email: email !== '' ? email : data?.email || '',
+      phoneNumber: phone !== '' ? phone : data?.phoneNumber || '',
+    }
+
+    setIsSaved(true)
+
+    // 실제 API 호출 부분
+    mutate({ updatedData, newImage: image })
+  }
+
+  if (isLoading) return <p>loading....</p>
 
   return (
     <div className={container}>
-      <Photo image={image} handleImageUplaod={handleImageUplaod} />
-      <div className={Info_container}>
-        <NameInput
-          setIsError={(isError: boolean) => handleErrorUpdate('name', isError)}
-          isError={errors.name}
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-        <PhoneNumberInput
-          isError={errors.phone}
-          setIsError={(isError: boolean) => handleErrorUpdate('phone', isError)}
-          value={phone}
-          onChange={(e) => setPhone(e.target.value)}
-        />
-        <EmailInput
-          setIsError={(isError: boolean) => handleErrorUpdate('email', isError)}
-          isError={errors.email}
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-      </div>
-      <SaveChangeBtn isChange={isChange} />
+      {data && (
+        <>
+          <Photo
+            kakaoImg={data?.profileImageUrl}
+            image={image}
+            handleImageUplaod={handleImageUplaod}
+          />
+          <div className={Info_container}>
+            <NameInput
+              apiValue={data?.nickname}
+              setIsError={(isError: boolean) =>
+                handleErrorUpdate('name', isError)
+              }
+              isError={errors.name}
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+            <PhoneNumberInput
+              apiValue={data?.phoneNumber}
+              isError={errors.phone}
+              setIsError={(isError: boolean) =>
+                handleErrorUpdate('phone', isError)
+              }
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+            />
+            <EmailInput
+              apiValue={data?.email}
+              setIsError={(isError: boolean) =>
+                handleErrorUpdate('email', isError)
+              }
+              isError={errors.email}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+          {isSaved && <SnackBar />}
+        </>
+      )}
+
+      <SaveChangeBtn onClick={handleSaveBtn} isChange={isChange} />
     </div>
   )
 }
