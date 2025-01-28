@@ -7,6 +7,7 @@ export const layout = style({
   justifyContent: 'center',
   alignItems: 'center',
 
-  marginTop: '6rem',
+  marginTop: '14rem',
+  marginBottom: '14rem',
   gap: '6rem',
 })
