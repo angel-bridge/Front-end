@@ -32,7 +32,7 @@ export default function ProgramDescription(props: ProgramDescriptionProps) {
       <div className={detail_style_container}>
         <DescriptionTitle number={1} />
         <p className={detail_style}>
-          {recruitmentStartDate}~{recruitmentEndDate}
+          {recruitmentStartDate} ~ {recruitmentEndDate}
         </p>
       </div>
       <div className={detail_style_container}>
