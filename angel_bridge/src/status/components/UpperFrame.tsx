@@ -16,8 +16,6 @@ export default function UpperFrame() {
   const { educationId } = params
   const { data, isLoading } = useGetMissionBox(educationId)
 
-  console.log(data)
-
   if (isLoading) {
     return <p>loading...</p>
   }
