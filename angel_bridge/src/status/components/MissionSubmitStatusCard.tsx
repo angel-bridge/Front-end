@@ -8,20 +8,36 @@ import SubmitMissionModal from './modal/SubmitMissionModal'
 import { useModalStore } from '../store/useModal'
 import SubmitModal from './modal/SubmitModal'
 import { modal_background } from '../styles/common.css'
+import useGetSubmitStatus from '../api/hooks/useGetSubmitStatus'
+import { useParams } from 'next/navigation'
 
 type Variants = 'green' | 'orange' | 'red' | 'purple' | 'gray'
 
 export default function MissionSubmitStatusCard({
   attendanceStatus,
   round,
+  assignmentId,
 }: {
   attendanceStatus: string
   round: number
+  assignmentId: number
 }) {
+  const params = useParams()
+  const educationId = params.educationId as string
+
+  const { data } = useGetSubmitStatus(
+    educationId,
+    assignmentId,
+    attendanceStatus,
+  )
+
+  console.log('일부data', data)
+
   const [confirmSubmitModal, setConfirmSubmitModal] = useState(false)
   const [toSubmitModal, setToSubmitModal] = useState(false)
   const { isSubmitModal } = useModalStore()
 
+  //각 상태에 따른 모달 확인
   const status = MISSION_STATUS.find((data) => {
     return data.submitStatus === attendanceStatus
   })
@@ -51,20 +67,26 @@ export default function MissionSubmitStatusCard({
 
   return (
     <>
+      {/* //제출한 미션 */}
       {modalType == 'submitcomplete' && confirmSubmitModal && (
         <div className={modal_background}>
           <ConfirmMissonModal
+            round={data?.round}
+            title={data?.title}
+            description={data?.description}
+            submissionLink={data?.submissionLink}
             closeSubmitConfirmModal={closeSubmitConfirmModal}
           />
         </div>
       )}
-
       {modalType == 'submityet' && toSubmitModal && (
-        <SubmitMissionModal closeSubmitMissionModal={closeSubmitMissionModal} />
+        <SubmitMissionModal
+          title={data?.title}
+          description={data?.description}
+          closeSubmitMissionModal={closeSubmitMissionModal}
+        />
       )}
-
       {isSubmitModal && <SubmitModal />}
-
       <div
         style={{ pointerEvents: modalType === 'noModal' ? 'none' : 'auto' }}
         onClick={() => handleModal(modalType)}

@@ -47,6 +47,7 @@ export default function BottomFrame() {
               round={data.round}
               attendanceStatus={data.attendanceStatus}
               key={data.assignmentId}
+              assignmentId={data.assignmentId}
             />
           )
         })}

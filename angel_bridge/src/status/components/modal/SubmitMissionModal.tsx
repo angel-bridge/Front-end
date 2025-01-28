@@ -7,7 +7,11 @@ import { useModalStore } from '@/status/store/useModal'
 
 export default function SubmitMissionModal({
   closeSubmitMissionModal,
+  title,
+  description,
 }: {
+  title: string | undefined
+  description: string | undefined
   closeSubmitMissionModal: () => void
 }) {
   const { setIsSubmitModalOpen } = useModalStore()
@@ -30,15 +34,8 @@ export default function SubmitMissionModal({
             </div>
 
             <div className={style.subText_container_style}>
-              <p className={style.second_title_style}>
-                창업아이템 배경 및 필요성
-              </p>
-              <p className={style.description_style}>
-                창업 아이템의 배경과 필요성을 명확히 하며 시작해봅시다! 시장과
-                소비자 문제를 정확히 정의함으로써 사업 모델(BM)을 구체화할
-                기초를 다지고, 창업 아이템이 제공할 수 있는 핵심 가치를
-                구상해보세요.
-              </p>
+              <p className={style.second_title_style}>{title} </p>
+              <p className={style.description_style}>{description}</p>
             </div>
           </div>
 
