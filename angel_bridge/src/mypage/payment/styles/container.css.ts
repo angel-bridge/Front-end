@@ -35,4 +35,5 @@ export const wrapper_style = style({
   width: '104rem',
   flexDirection: 'column',
   gap: '2.4rem',
+  marginBottom: '4rem',
 })
