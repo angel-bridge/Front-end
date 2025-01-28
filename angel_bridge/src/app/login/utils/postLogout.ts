@@ -7,6 +7,7 @@ export const postLogout = async () => {
             {},
             { withCredentials: true });
         console.log('Logout Response:', data);
+        localStorage.removeItem('accessToken');
         return data;
     } catch (error) {
         console.error('Logout Error:', error);
