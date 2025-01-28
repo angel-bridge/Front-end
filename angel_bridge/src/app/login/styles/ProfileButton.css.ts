@@ -51,7 +51,6 @@ export const profileModal = style({
     position: 'absolute', 
     top: '100%',
     left: '50%',
-    transform: 'translateX(-50%)',
     background: vars.grayScale.grayscale50,
 });
 
