@@ -15,7 +15,7 @@ export default function Programs({
         const { description, recruitmentStatus, title, educationId, preImage } =
           data
         return (
-          <Link href={`program/${educationId}`} key={educationId}>
+          <Link style={{ textDecoration: 'none' }} href={`program/${educationId}`} key={educationId}>
             <div key={educationId}>
               <ProgramCard
                 badgeText={recruitmentStatus}
