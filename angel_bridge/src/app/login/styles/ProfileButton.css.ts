@@ -4,7 +4,7 @@ import * as font from '@/style/theme.css'
 
 export const profileButton = style({
     display: 'flex',
-    width: '14rem',
+    minWidth: '14rem',
     height: '4.8rem',
     padding: '0.6rem 0.8rem',
     boxSizing: 'border-box',
@@ -14,6 +14,8 @@ export const profileButton = style({
     borderRadius: '30px',
     background: vars.grayScale.grayscale50,
     cursor: 'pointer',
+    flexGrow: 0,
+    flexShrink: 1,
 });
 
 export const profileImage = style({
@@ -33,6 +35,9 @@ export const buttonText = style([
         justifyContent: 'center',
         alignItems: 'center',
         color: vars.grayScale.grayscale800,
+        whiteSpace: 'nowrap',
+        overflow: 'hidden',
+        textOverflow: 'ellipsis',
     }
 ]);
 
