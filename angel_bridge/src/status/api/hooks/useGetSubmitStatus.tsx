@@ -3,7 +3,7 @@ import { useQuery } from '@tanstack/react-query'
 import { getSubmitStatus } from '../utils/getSubmitStatus'
 
 export default function useGetSubmitStatus(
-  educationId: number,
+  educationId: string,
   assignmentId: number,
   status: string,
 ) {

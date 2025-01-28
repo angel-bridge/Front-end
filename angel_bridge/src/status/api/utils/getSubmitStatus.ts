@@ -1,6 +1,6 @@
 //미션 제출 현황 card 하나씩 클릭할 때
 
-import { instance } from '@/api/instance'
+import { authInstance } from '@/api/authInstance'
 
 export interface SubmitStatusResult {
   assignmentId: number
@@ -20,15 +20,17 @@ interface SubmitStatusResponse {
 
 //status page Upper Box 부분
 export const getSubmitStatus = async (
-  educationId: number,
+  educationId: string,
   assignmentId: number,
   status: string,
 ) => {
-  const response: SubmitStatusResponse = await instance.get(
+  const response = await authInstance.get(
     `/api/v1/education/${educationId}/assignment/${assignmentId}`,
     {
       params: { status },
     },
   )
-  return response.result
+
+  const data: SubmitStatusResponse = response?.data
+  return data?.result
 }
