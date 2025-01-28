@@ -14,7 +14,7 @@ interface SubmitStatusResult {
   total: number
   pageNum: number
   totalPages: number
-  asisgnments: Assignment[]
+  content: Assignment[]
 }
 
 interface SubmitStatusResponse {
@@ -29,11 +29,13 @@ export const getMissionStatusList = async (
   educationId: string | string[] | undefined,
   page: number,
 ) => {
-  const response: SubmitStatusResponse = await authInstance.get(
-    `/api/v1/education/${educationId}/assignment`,
+  const response = await authInstance.get(
+    `/api/v1/education/${educationId}/assignments`,
     {
       params: { page },
     },
   )
-  return response.result
+
+  const data: SubmitStatusResponse = response?.data
+  return data?.result
 }
