@@ -1,25 +1,30 @@
 'use client'
 import React from 'react'
 import { PieChart } from 'react-minimal-pie-chart'
-import { heading28B, vars } from '@/style/theme.css'
+import { vars } from '@/style/theme.css'
 import { piechart_container, piechart_percent } from '../styles/status.css'
 
-export default function PieChartCard() {
+export default function PieChartCard({
+  performanceRate,
+}: {
+  performanceRate: number | undefined
+}) {
+  const performanceRateNumber = performanceRate as number
   return (
     <div className={piechart_container}>
       <div>
         <p>미션 수행도</p>
-        <p className={piechart_percent}>32%</p>
+        <p className={piechart_percent}>{performanceRate}%</p>
       </div>
       <div>
         <PieChart
           data={[
             {
-              value: 10,
+              value: performanceRateNumber,
               color: vars.purple.purple400,
             },
           ]}
-          reveal={32}
+          reveal={performanceRate}
           style={{
             width: '13.6rem',
             height: '13.6rem',
