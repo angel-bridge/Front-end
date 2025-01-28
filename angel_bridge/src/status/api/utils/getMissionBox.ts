@@ -1,4 +1,4 @@
-import { instance } from '@/api/instance'
+import { authInstance } from '@/api/authInstance'
 
 export interface MissionBoxResult {
   educationId: number
@@ -22,9 +22,13 @@ interface MissionBOxResponse {
 }
 
 //status page Upper Box 부분
-export const getMissionBox = async (educationId: number) => {
-  const response: MissionBOxResponse = await instance.get(
+export const getMissionBox = async (
+  educationId: string | string[] | undefined,
+) => {
+  const response = await authInstance.get(
     `/api/v1/education/${educationId}/assignment`,
   )
-  return response.result
+  const data: MissionBOxResponse = response?.data
+
+  return data?.result
 }

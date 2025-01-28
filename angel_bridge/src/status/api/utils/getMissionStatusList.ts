@@ -1,6 +1,5 @@
-//미션 제출 현황 card 하나씩 클릭할 때
-
-import { instance } from '@/api/instance'
+//미션 제출 현황 card 리스트
+import { authInstance } from '@/api/authInstance'
 
 interface Assignment {
   assignmentId: number
@@ -27,10 +26,10 @@ interface SubmitStatusResponse {
 
 //status page Upper Box 부분
 export const getMissionStatusList = async (
-  educationId: number,
+  educationId: string | string[] | undefined,
   page: number,
 ) => {
-  const response: SubmitStatusResponse = await instance.get(
+  const response: SubmitStatusResponse = await authInstance.get(
     `/api/v1/education/${educationId}/assignment`,
     {
       params: { page },
