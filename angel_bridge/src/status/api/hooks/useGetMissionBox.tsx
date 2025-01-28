@@ -5,9 +5,9 @@ import { getMissionBox } from '../utils/getMissionBox'
 export default function useGetMissionBox(
   educationId: string | string[] | undefined,
 ) {
-  const { data } = useQuery({
+  const { data, isLoading } = useQuery({
     queryKey: ['getMissionBox', { educationId }],
     queryFn: () => getMissionBox(educationId),
   })
-  return { data }
+  return { data, isLoading }
 }
