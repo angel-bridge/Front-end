@@ -1,7 +1,6 @@
 'use client'
 import React, { useState } from 'react'
 import * as style from '../styles/bottom.css'
-import { DUMMY_DATA } from '../core/submitStatus'
 import MissionSubmitStatusCard from './MissionSubmitStatusCard'
 import { bottom_black_style, bottom_gray_style } from '../styles/button.css'
 import useGetMissionStatusList from '../api/hooks/useGetMissionStatusList'
@@ -14,8 +13,6 @@ export default function BottomFrame() {
 
   const { data } = useGetMissionStatusList(educationId, page)
 
-  console.log(data)
-
   function handleSetPage(number: number) {
     setPage(number)
   }
@@ -24,18 +21,27 @@ export default function BottomFrame() {
     <div className={style.bottom_contaeinr}>
       <p className={style.title_style}>미션 제출 현황</p>
       <div className={style.buttons_container}>
-        <button onClick={() => handleSetPage(1)} className={bottom_black_style}>
+        <button
+          onClick={() => handleSetPage(1)}
+          className={page == 1 ? bottom_black_style : bottom_gray_style}
+        >
           1-7회차
         </button>
-        <button onClick={() => handleSetPage(2)} className={bottom_gray_style}>
+        <button
+          onClick={() => handleSetPage(2)}
+          className={page == 2 ? bottom_black_style : bottom_gray_style}
+        >
           8-14회차
         </button>
-        <button onClick={() => handleSetPage(3)} className={bottom_gray_style}>
+        <button
+          onClick={() => handleSetPage(3)}
+          className={page == 3 ? bottom_black_style : bottom_gray_style}
+        >
           15-21회차
         </button>
       </div>
       <div className={style.submitCards_container}>
-        {DUMMY_DATA.map((data) => {
+        {data?.content.map((data) => {
           return (
             <MissionSubmitStatusCard
               round={data.round}
