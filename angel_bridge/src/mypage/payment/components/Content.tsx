@@ -10,21 +10,29 @@ import {
 
 export interface ContentProps {
   date: string
-  ispaid: boolean
-  title: string
+  status: string
+  imageUrl: string
+  educationName: string
   price: string
+  enrollementId: number
 }
 
 export default function Content(props: ContentProps) {
-  const { date, ispaid, title, price } = props
+  const { date, status, imageUrl, educationName, price, enrollementId } = props
+
   return (
     <div className={content}>
       <div className={container}>
         <div className={photo_text_container}>
-          <Photo />
-          <Texts date={date} ispaid={ispaid} title={title} price={price} />
+          <Photo imageUrl={imageUrl} />
+          <Texts
+            date={date}
+            status={status}
+            title={educationName}
+            price={price}
+          />
         </div>
-        {ispaid && <CancelBtn />}
+        {status === '결제 완료' && <CancelBtn enrollementId={enrollementId} />}
       </div>
     </div>
   )

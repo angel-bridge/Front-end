@@ -3,9 +3,11 @@
 import { useMutation } from '@tanstack/react-query';
 import axios from 'axios';
 
+const baseURL = process.env.NEXT_PUBLIC_URL;
+
 async function fetchAccessToken(refreshToken: string): Promise<string> {
     const response = await axios.post(
-        "https://api.angelbridge.site/api/v1/auth/reissue",
+        `${baseURL}/api/v1/auth/reissue`,
         { refreshToken },
         { withCredentials: true }
     );
@@ -19,7 +21,7 @@ async function fetchAccessToken(refreshToken: string): Promise<string> {
 }
 
 async function fetchRefreshToken(): Promise<string> {
-    const response = await axios.get("https://api.angelbridge.site/api/v1/auth/checkToken", {
+    const response = await axios.get(`${baseURL}/api/v1/auth/checkToken`, {
         withCredentials: true,
     });
     console.log("리프레시 토큰 API로 받아온거:", response);

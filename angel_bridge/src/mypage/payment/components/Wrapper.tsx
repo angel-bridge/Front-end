@@ -1,40 +1,39 @@
+'use client'
+
 import React from 'react'
 import Content, { ContentProps } from './Content'
-import { wrapper } from '../styles/container.css'
+import { wrapper_style } from '../styles/container.css'
+import useGetPayment from '@/mypage/api/hooks/useGetPayment'
 
-const DUMMY_DATA: ContentProps[] = [
-  {
-    date: '2024.12.15',
-    ispaid: true,
-    title: '예비창업패키치 2주 완성',
-    price: '150,000',
-  },
-  {
-    date: '2024.12.15',
-    ispaid: true,
-    title: '예비창업패키치 2주 완성',
-    price: '150,000',
-  },
-  {
-    date: '2024.12.15',
-    ispaid: true,
-    title: '예비창업패키치 2주 완성',
-    price: '150,000',
-  },
-  {
-    date: '2024.12.15',
-    ispaid: false,
-    title: '예비창업패키치 2주 완성',
-    price: '150,000',
-  },
-]
-
+//결제 내역 부분입니다.
 export default function Wrapper() {
+  const { data, isLoading } = useGetPayment()
+
+  if (isLoading) {
+    return <p>isLoading</p>
+  }
+  if (!data) {
+    return <p>data가 없습니다.</p>
+  }
+
   return (
-    <div className={wrapper}>
-      {DUMMY_DATA.map((data, index) => {
-        return <Content key={index} {...data} />
-      })}
+    <div className={wrapper_style}>
+      {data?.content &&
+        data?.content.map((data: ContentProps) => {
+          return (
+            <div key={data.enrollementId}>
+              <Content
+                key={data.enrollementId}
+                date={data.date}
+                imageUrl={data.imageUrl}
+                status={data.status}
+                price={data.price}
+                educationName={data.educationName}
+                enrollementId={data.enrollementId}
+              />
+            </div>
+          )
+        })}
     </div>
   )
 }

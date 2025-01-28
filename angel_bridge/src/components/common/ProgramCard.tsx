@@ -8,7 +8,7 @@ interface ProgramCardProps {
   title: string
   bio: string
   preImage?: string
-  onClick?: () => void;
+  onClick?: () => void
 }
 
 export default function ProgramCard({
@@ -29,16 +29,17 @@ export default function ProgramCard({
         >
           {badgeText}
         </div>
-        <Image
-          src={preImage ? preImage : Thumbnail}
-          alt="Program Thumbnail"
-          width={330}
-          height={180}
-          style={{
-            objectFit: 'cover',
-            borderRadius: '1.5rem',
-          }}
-        />
+        <div className={style.img_style}>
+          <Image
+            src={preImage ? preImage : Thumbnail}
+            alt="Program Thumbnail"
+            fill
+            style={{
+              objectFit: 'cover',
+              borderRadius: '1.5rem',
+            }}
+          />
+        </div>
       </div>
       <div className={style.contentText}>
         <div className={style.contentTitle}>{title}</div>

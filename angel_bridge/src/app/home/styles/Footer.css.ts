@@ -1,6 +1,5 @@
 import { style } from '@vanilla-extract/css'
 import { vars } from '@/style/theme.css'
-import * as font from '@/style/theme.css'
 
 export const footer = style({
     display: 'flex',
@@ -21,13 +20,24 @@ export const logoWrapper = style({
 export const buttonWrapper = style({
     display: 'flex',
     alignItems: 'flex-start',
-    gap: '2.9rem',
+    gap: '1.6rem',
 });
 
-export const button = style([
-    font.title16SB,
-    {
-        color: vars.grayScale.grayscale300,
-        cursor: 'pointer',
-    }
-]);
+export const logo = style({
+    position: 'relative',
+    width: '12.8rem',
+    height: '2.8rem',
+});
+
+export const adminButton = style({
+    position: 'relative',
+    width: '2rem',
+    height: '2rem',
+});
+
+export const button = style({
+    cursor: 'pointer',
+    position: 'relative',
+    width: '3.2rem',
+    height: '3.2rem',
+});
