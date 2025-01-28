@@ -53,6 +53,8 @@ export const notion_container = style([
     width: '23.2rem',
     height: '19.2rem',
     backgroundColor: vars.grayScale.grayscale00,
+
+    cursor: 'pointer',
   },
 ])
 
