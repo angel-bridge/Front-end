@@ -74,7 +74,7 @@ export const loginButton = style({
     justifyContent: 'center',
     alignItems: 'center',
     gap: '1.2rem',
-    borderColor: '#FEE500',
+    border: 'none',
     borderRadius: '70px',
     background: '#FEE500',
     cursor: 'pointer',

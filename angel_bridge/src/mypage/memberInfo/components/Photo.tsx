@@ -1,3 +1,4 @@
+'use client'
 import React from 'react'
 import Image, { StaticImageData } from 'next/image'
 import clipBtn from '../assets/clip_btn.svg'
@@ -11,9 +12,14 @@ import {
 interface PhotoProps {
   image: string | StaticImageData
   handleImageUplaod: (newImg: string) => void
+  kakaoImg: string | StaticImageData
 }
 
-export default function Photo({ image, handleImageUplaod }: PhotoProps) {
+export default function Photo({
+  image,
+  handleImageUplaod,
+  kakaoImg,
+}: PhotoProps) {
   function handleClickChangePhoto(e: React.ChangeEvent<HTMLInputElement>) {
     const file = e.target.files?.[0]
     if (!file) return
@@ -21,6 +27,7 @@ export default function Photo({ image, handleImageUplaod }: PhotoProps) {
     const reader = new FileReader()
     reader.readAsDataURL(file)
     reader.onload = (e) => {
+      //성공하면 2, 진행 주이면 1, 실패가 0반환환
       if (reader.readyState === 2 && e.target?.result) {
         handleImageUplaod(e.target.result as string)
       }
@@ -29,12 +36,14 @@ export default function Photo({ image, handleImageUplaod }: PhotoProps) {
     reader.readAsDataURL(file)
   }
 
+  const imageSrc = image || kakaoImg
+
   return (
     <div className={photo_container}>
       <div className={image_container}>
         <Image
           style={{ borderRadius: ' 50%' }}
-          src={image}
+          src={imageSrc}
           fill
           alt="기본이미지"
         />
@@ -46,6 +55,7 @@ export default function Photo({ image, handleImageUplaod }: PhotoProps) {
             className={image_input}
             onChange={handleClickChangePhoto}
             type="file"
+            accept="image/*"
           />
         </label>
       </div>

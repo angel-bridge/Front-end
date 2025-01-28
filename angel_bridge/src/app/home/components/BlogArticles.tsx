@@ -3,6 +3,7 @@
 import * as style from '@/app/home/styles/BlogArticles.css';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import ProfileImage from '@/app/home/assets/ProfileImage.jpg';
 import { useState, useEffect } from 'react';
 import { BlogResult, getBlogArticles } from '@/api/blog';
@@ -27,10 +28,13 @@ export default function BlogArticles() {
         <div className={style.articles}>
             <div className={style.titleWrapper}>
                 <div className={style.title}>NEW! 블로그 아티클</div>
-                <div className={style.seeAll}>전체보기</div>
+                <Link href = 'https://blog.naver.com/angel_bridge' target='_blank'>
+                    <div className={style.seeAll}>전체보기</div>
+                </Link>
             </div>
             <div className={style.contentsWrapper}>
             {articles.map((article, index) => (
+                <Link key={index} href = {article.link}>
                     <div key={index} className={style.contents}>
                         <div className={style.textWrapper}>
                             <div className={style.contentTitle}>{article.title}</div>
@@ -51,6 +55,7 @@ export default function BlogArticles() {
                             <div className={style.writtenDate}>{article.postingDate}</div>
                         </div>
                     </div>
+                </Link>
                 ))}
             </div>
         </div>

@@ -1,6 +1,9 @@
 "use client"
 
 import React, { useState } from 'react';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 import Logo from '@/app/home/assets/Logo_purple.svg';
 import HomeIconColor from '@/app/home/assets/HomeIcon_color.svg';
@@ -12,20 +15,22 @@ import QnAIconGrey from '@/app/home/assets/QnAIcon_grey.svg';
 
 import * as styles from '@/app/home/styles/Header.css';
 
-import LoginModal from './LoginModal';
-import SignupModal from './SignupModal';
+import LoginModal from '../../app/home/components/LoginModal';
 
 export default function Header() {
-    const [activeTab, setActiveTab] = useState("home");
+    const pathname = usePathname();
+    const router = useRouter();
+    
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const tabs = [
-        { id: "home", label: "홈", colorIcon: HomeIconColor, greyIcon: HomeIconGrey },
-        { id: "program", label: "프로그램", colorIcon: ProgramIconColor, greyIcon: ProgramIconGrey },
-        { id: "qna", label: "문의", colorIcon: QnAIconColor, greyIcon: QnAIconGrey },
+        { id: "/", label: "홈", colorIcon: HomeIconColor, greyIcon: HomeIconGrey },
+        { id: "/program", label: "프로그램", colorIcon: ProgramIconColor, greyIcon: ProgramIconGrey },
+        { id: "/inquiry", label: "문의", colorIcon: QnAIconColor, greyIcon: QnAIconGrey },
     ];
 
-    const activeIndex = tabs.findIndex((tab) => tab.id === activeTab);
+    const activeSection = `/${pathname.split("/")[1] || ""}`;
+    const activeIndex = tabs.findIndex((tab) => tab.id === activeSection);
 
     const handleModalOpen = () => {
         setIsModalOpen(true);
@@ -35,28 +40,36 @@ export default function Header() {
         setIsModalOpen(false);
     };
 
+    const handleClickTab = (id: string) => {
+        router.push(id);
+    };
+
     return (
         <div className={styles.header}>
-            <Image src={Logo} alt="MainLogo"/>
+            <Link href='/'>
+                <Image src={Logo} alt="MainLogo"/>
+            </Link>
             <div className={styles.menuTabWrapper}>
                 {/* 슬라이딩 넣구싶어서...ㅎㅎ */}
-                <div
-                    className={styles.slidingBackground}
-                    style={{
-                        transform: `translateX(${activeIndex * 12}rem)`,
-                    }}
-                />
+                {activeIndex >= 0 && (
+                    <div
+                        className={styles.slidingBackground}
+                        style={{
+                            transform: `translateX(${activeIndex * 12}rem)`,
+                        }}
+                    />
+                )}
                 {tabs.map((tab) => (
                     <div
                         key={tab.id}
-                        className={activeTab === tab.id ? styles.colorMenuTab : styles.greyMenuTab}
-                        onClick={() => setActiveTab(tab.id)}
+                        className={activeSection === tab.id ? styles.colorMenuTab : styles.greyMenuTab}
+                        onClick={() => handleClickTab(tab.id)}
                     >
                         <Image
-                            src={activeTab === tab.id ? tab.colorIcon : tab.greyIcon}
+                            src={activeSection === tab.id ? tab.colorIcon : tab.greyIcon}
                             alt={`${tab.label}Button`}
                         />
-                        <div className={activeTab === tab.id ? styles.colorTabText : styles.greyTabText}>
+                        <div className={activeSection === tab.id ? styles.colorTabText : styles.greyTabText}>
                             {tab.label}
                         </div>
                     </div>
@@ -67,9 +80,7 @@ export default function Header() {
             </button>
 
             {/* 로그인 모달 컴포넌트 */}
-            {/* {isModalOpen && <LoginModal onClose={handleModalClose} />} */}
-            {/* 세부 정보 입력 모달 컴포넌트 */}
-            {isModalOpen && <SignupModal onClose={handleModalClose} />}
+            {isModalOpen && <LoginModal onClose={handleModalClose} />}
         </div>
     )
 }

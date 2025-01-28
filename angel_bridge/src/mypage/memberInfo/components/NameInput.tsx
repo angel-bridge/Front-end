@@ -13,7 +13,7 @@ import ErrorMessage from './ErrorMessage'
 import { InputPropTypes } from '../types/inputProps'
 
 export default function NameInput(props: InputPropTypes) {
-  const { value, onChange, isError, setIsError } = props
+  const { value, onChange, isError, setIsError, apiValue } = props
 
   useEffect(() => {
     if (value.length > 10) {
@@ -27,11 +27,11 @@ export default function NameInput(props: InputPropTypes) {
   return (
     <div className={inputwithtag_container}>
       <p className={input_tag}>닉네임 *</p>
-      <input placeholder="팬더" className={input} onChange={onChange} />
+      <input placeholder={apiValue} className={input} onChange={onChange} />
       <div className={!isError ? name_error_container : error_container}>
         {isError && <ErrorMessage number={0} />}
         <p className={label}>
-          {value ? value.length : 2}
+          {apiValue ? apiValue.length : 2}
           /10
         </p>
       </div>
