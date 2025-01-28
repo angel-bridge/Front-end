@@ -68,7 +68,9 @@ export default function MissionSubmitStatusCard({
       <div
         style={{ pointerEvents: modalType === 'noModal' ? 'none' : 'auto' }}
         onClick={() => handleModal(modalType)}
-        className={`${style.card_container} variants && ${style.text_style[variants]}`}
+        className={`${style.card_container} variants && ${style.text_style[variants]}  ${
+          modalType === 'noModal' ? style.noHover : style.cardContainerHover
+        }`}
       >
         <div className={style.status_img}>
           <Image fill src={img} alt="미션 현황" />
