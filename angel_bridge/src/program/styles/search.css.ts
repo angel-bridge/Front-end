@@ -15,6 +15,7 @@ export const search_style = style([
     borderWidth: '0.2rem',
     borderColor: vars.grayScale.grayscale50,
     backgroundColor: vars.grayScale.grayscale00,
+    borderStyle: 'solid',
 
     backgroundImage: 'url(/assets/search.svg)',
     backgroundSize: '2.4rem',

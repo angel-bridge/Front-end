@@ -6,7 +6,7 @@ export const INQUIRY_LIST = [
     title: '자주묻는 질문',
     discription: 'FAQ 확인하기',
     image: FAQ,
-    link: 'https://angelbridge.notion.site/FAQ-17d59bdbf30a803d9298f2166e4a37cc?pvs=4',
+    link: 'https://angelbridge.notion.site/18959bdbf30a80ae9a65f70c2747d9dc?pvs=4',
   },
   {
     title: '문의하기',

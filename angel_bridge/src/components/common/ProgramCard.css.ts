@@ -36,6 +36,7 @@ export const activeBadge = style([
     position: 'absolute',
     top: '1.6rem',
     left: '1.6rem',
+    zIndex: '5',
     color: vars.grayScale.grayscale00,
   },
 ])
@@ -53,6 +54,7 @@ export const inactiveBadge = style([
     position: 'absolute',
     top: '1.6rem',
     left: '1.6rem',
+    zIndex: '5',
     color: vars.grayScale.grayscale00,
   },
 ])

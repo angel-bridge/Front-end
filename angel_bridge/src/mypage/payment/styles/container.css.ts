@@ -36,5 +36,6 @@ export const wrapper_style = style({
   flexDirection: 'column',
   justifyContent: 'space-between',
   gap: '2.4rem',
+  marginBottom: '4rem',
   minHeight: '90rem',
 })
