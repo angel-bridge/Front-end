@@ -21,6 +21,7 @@ export default function ProgramCard() {
   const { data, isLoading } = useGetDetailProgram({
     educationId: educationId as string,
   })
+
   return (
     <>
       {isLoading && <p>loading</p>}
@@ -44,7 +45,7 @@ export default function ProgramCard() {
           </div>
 
           <div className={banneranddetail_style}>
-            <PurchaseBtn />
+            <PurchaseBtn price={data?.price} />
             <ProgramSummary detailFile={data?.detailFile} />
           </div>
         </div>
