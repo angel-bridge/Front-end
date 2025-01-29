@@ -56,6 +56,7 @@ export const content_container = style({
   alignItems: 'flex-start',
 
   width: '44.2rem',
+  height: '40.4rem',
 
   paddingTop: '2.8rem',
   paddingBottom: '2.8rem',
@@ -64,6 +65,44 @@ export const content_container = style({
 
   borderRadius: '28px',
   backgroundColor: vars.grayScale.grayscale00,
+})
+
+//empthyview
+export const empthy_container = style([
+  subTitle20SB,
+  {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+
+    width: '44.2rem',
+    height: '40.4rem',
+
+    paddingTop: '2.8rem',
+    paddingBottom: '2.8rem',
+    paddingRight: '2rem',
+    paddingLeft: '2rem',
+
+    borderRadius: '28px',
+    backgroundColor: vars.grayScale.grayscale00,
+
+    color: vars.grayScale.grayscale200,
+  },
+])
+
+//title content
+export const mission_empthy_title = style({
+  display: 'flex',
+  flexDirection: 'column',
+  width: '39.8rem',
+  height: '19.2rem',
+  justifyContent: 'space-between',
+})
+
+export const empthy_text = style({
+  display: 'flex',
+  width: '39.8rem',
+  justifyContent: 'center',
 })
 
 //날짜나 오늘의 미션 제목 부분
