@@ -13,9 +13,15 @@ export function CheckoutPage() {
   const clientKey = process.env.NEXT_PUBLIC_CLIENT_KEY as string
   const customerKey = 'UTuk_CpV40JbupUHAF0De'
   const { mutate: postSaveAmountMutate } = usePostSaveAmount()
-  const storedPrice = localStorage.getItem('price')
 
-  const price = storedPrice && JSON.parse(storedPrice)
+  const [price, setPrice] = useState<number>(0)
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const storedPrice = localStorage.getItem('price')
+      setPrice(storedPrice ? JSON.parse(storedPrice) : 119000)
+    }
+  }, [price])
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [amount, setAmount] = useState({
@@ -69,7 +75,7 @@ export function CheckoutPage() {
     }
 
     renderPaymentWidgets()
-  }, [widgets])
+  }, [widgets, price])
 
   useEffect(() => {
     if (widgets == null) {
