@@ -13,6 +13,6 @@ export const page_container = style({
   justifyContent: 'space-between',
   alignItems: 'center',
 
-  height: '100vh',
+  height: '105.6rem',
   width: '100vw',
 })

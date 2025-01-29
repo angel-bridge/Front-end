@@ -16,6 +16,7 @@ export default function Wrapper() {
     return <p>data가 없습니다.</p>
   }
 
+  console.log(data)
   return (
     <div className={wrapper_style}>
       {data?.content &&
