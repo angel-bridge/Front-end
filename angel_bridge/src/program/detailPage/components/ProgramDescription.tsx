@@ -41,7 +41,7 @@ export default function ProgramDescription(props: ProgramDescriptionProps) {
       </div>
       <div className={detail_style_container}>
         <DescriptionTitle number={3} />
-        <p className={detail_style}>{price}</p>
+        <p className={detail_style}>{price}원</p>
       </div>
     </div>
   )
