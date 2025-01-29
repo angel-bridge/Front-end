@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation'
 import useGetMember from '@/mypage/api/hooks/useGetMember'
 import usePostLogout from '../hooks/usePostLogout'
 import * as styles from '@/app/login/styles/ProfileButton.css'
-import DefaultProfile from '@/app/login/assets/profile_img.jpg'
+import DefaultProfile from '@/app/login/assets/profile_img.png'
 import SignupModal from '@/app/home/components/SignupModal'
 
 export default function ProfileButton() {

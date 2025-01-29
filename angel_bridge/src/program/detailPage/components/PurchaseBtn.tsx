@@ -49,7 +49,7 @@ export default function PurchaseBtn({ price }: { price: number | undefined }) {
 
       <div className={purchased_fixed}>
         <div className={text}>
-          <p className={title}>창업 시작 챌린지 2기</p>
+          <p className={title}>예창패 지원 챌린지 3기</p>
           <p className={detail}>2월 23일 (일) 자정 마감</p>
         </div>
 

@@ -47,6 +47,7 @@ export const contentsWrapper = style({
 export const contents = style({
     display: 'flex',
     width: '50.8rem',
+    height: '15.7rem',
     padding: '2rem 2.8rem',
     boxSizing: 'border-box',
     flexDirection: 'column',

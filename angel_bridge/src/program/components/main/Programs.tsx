@@ -19,7 +19,7 @@ export default function Programs({
             <div key={educationId}>
               <ProgramCard
                 badgeText={recruitmentStatus}
-                badgeType={recruitmentStatus}
+                badgeType={recruitmentStatus === "모집중" ? "active" : "inactive"}
                 bio={description}
                 title={title}
                 preImage={preImage}
