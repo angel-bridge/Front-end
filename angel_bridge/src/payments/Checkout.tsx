@@ -14,19 +14,19 @@ export function CheckoutPage() {
   const customerKey = 'UTuk_CpV40JbupUHAF0De'
   const { mutate: postSaveAmountMutate } = usePostSaveAmount()
 
-  const [price, setPrice] = useState<number>(0)
+  // const [price, setPrice] = useState<number>(0)
 
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const storedPrice = localStorage.getItem('price')
-      setPrice(storedPrice ? JSON.parse(storedPrice) : 119000)
-    }
-  }, [price])
+  // useEffect(() => {
+  //   if (typeof window !== 'undefined') {
+  //     const storedPrice = localStorage.getItem('price')
+  //     setPrice(storedPrice ? JSON.parse(storedPrice) : 119000)
+  //   }
+  // }, [price])
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [amount, setAmount] = useState({
     currency: 'KRW',
-    value: price,
+    value: 89000,
   })
 
   const [ready, setReady] = useState(false)
@@ -55,7 +55,7 @@ export function CheckoutPage() {
       // ------ 주문의 결제 금액 설정 ------
       await widgets.setAmount({
         currency: 'KRW',
-        value: price,
+        value: 89000,
       })
 
       await Promise.all([
@@ -75,7 +75,7 @@ export function CheckoutPage() {
     }
 
     renderPaymentWidgets()
-  }, [widgets, price])
+  }, [widgets])
 
   useEffect(() => {
     if (widgets == null) {
@@ -102,8 +102,8 @@ export function CheckoutPage() {
             // ------ 서버 저장 성공 후 결제 진행 ------
             await widgets?.requestPayment({
               orderId,
-              orderName: '토스 티셔츠 외 2건',
-              customerName: '김토스',
+              orderName: '예창패 지원 챌린지 3기',
+              customerName: '호',
               customerEmail: 'customer123@gmail.com',
               customerMobilePhone: '01012341234',
               successUrl: `${window.location.origin}/mypage/mypaidList`,
