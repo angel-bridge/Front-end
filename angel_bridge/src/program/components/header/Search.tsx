@@ -8,7 +8,6 @@ export default function Search() {
 
   function handleSearch(e: React.ChangeEvent<HTMLInputElement>) {
     setSearch(e.target.value)
-    console.log(search)
   }
 
   return (
