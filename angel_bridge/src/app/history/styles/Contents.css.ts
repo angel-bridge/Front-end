@@ -11,12 +11,16 @@ export const wrapper = style({
 });
 
 export const emptyCard = style({
-    visibility: 'hidden',
-    width: '100%', 
-    height: '100%',
+    opacity: 0,
+    width: '50rem', 
+    height: '32.4rem',
 });
 
 export const warning = style([
     font.heading28B,
+    {
+        textAlign: 'center',
+        width: '100%',
+    }
 ]);
 
