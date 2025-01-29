@@ -7,7 +7,7 @@ export interface DetailType {
   educationEndDate: string
   recruitmentStartDate: string
   recruitmentEndDate: string
-  price: string
+  price: number
   preFile: string | StaticImport
   detailFile: string
 }

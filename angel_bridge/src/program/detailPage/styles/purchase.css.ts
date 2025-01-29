@@ -59,9 +59,9 @@ export const purchased_sticky = style({
 export const purchased_fixed = style({
   position: 'fixed',
   bottom: '10rem',
-  left: '50%',
+  left: '50.5%',
   transform: 'translateX(-50%)',
-  zIndex: 10,
+  zIndex: 5,
 
   width: '104rem',
   display: 'flex',
