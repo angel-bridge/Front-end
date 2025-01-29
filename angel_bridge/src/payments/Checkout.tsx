@@ -39,10 +39,6 @@ export function CheckoutPage() {
   }, [price])
 
   useEffect(() => {
-    setAmount({ currency: 'KRW', value: price })
-  }, [price])
-
-  useEffect(() => {
     async function fetchPaymentWidgets() {
       // ------  결제위젯 초기화 ------
       const tossPayments = await loadTossPayments(clientKey)
