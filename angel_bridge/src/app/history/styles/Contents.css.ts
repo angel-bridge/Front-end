@@ -14,7 +14,7 @@ export const centered = style({
     display: 'flex !important',
     alignItems: 'center',
     justifyContent: 'center',
-    height: '100%',
+    height: '70rem',
     width: '100%',
 });
 
