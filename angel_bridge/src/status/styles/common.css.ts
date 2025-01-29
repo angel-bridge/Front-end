@@ -145,7 +145,7 @@ export const subText_container_style = style({
   display: 'flex',
   flexDirection: 'column',
   height: '15rem',
-  gap: '1.2rem',
+  gap: '5rem',
   marginBottom: '4rem',
 })
 
