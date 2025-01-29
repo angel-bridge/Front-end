@@ -23,6 +23,29 @@ export const card_container = style([
   },
 ])
 
+export const cardContainerHover = style({
+  position: 'relative',
+  cursor: 'pointer',
+  transition: 'transform 0.3s ease, background-color 0.3s ease',
+  selectors: {
+    '&:hover': {
+      transform: 'translateY(-5px)',
+      backgroundColor: vars.purple.purple200,
+    },
+  },
+})
+
+export const noHover = style({
+  pointerEvents: 'none',
+  cursor: 'default',
+  selectors: {
+    '&:hover': {
+      transform: 'none',
+      backgroundColor: 'transparent',
+    },
+  },
+})
+
 export const text_style = styleVariants({
   green: {
     color: vars.sementic.sementicSuccess,

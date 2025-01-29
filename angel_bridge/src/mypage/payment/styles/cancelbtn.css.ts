@@ -14,6 +14,7 @@ export const cancel_btn = style([
     borderWidth: '2px',
     borderColor: vars.grayScale.grayscale200,
     borderRadius: '30px',
+    borderStyle: 'solid',
 
     color: vars.grayScale.grayscale300,
 

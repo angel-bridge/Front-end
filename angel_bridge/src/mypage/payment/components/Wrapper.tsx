@@ -1,13 +1,15 @@
 'use client'
 
-import React from 'react'
+import React, { useState } from 'react'
 import Content, { ContentProps } from './Content'
 import { wrapper_style } from '../styles/container.css'
 import useGetPayment from '@/mypage/api/hooks/useGetPayment'
+import PageNation from '@/program/components/main/PageNation'
 
 //결제 내역 부분입니다.
 export default function Wrapper() {
-  const { data, isLoading } = useGetPayment()
+  const [currentPage, setCurrentPage] = useState(1)
+  const { data, isLoading } = useGetPayment({ page: currentPage })
 
   if (isLoading) {
     return <p>isLoading</p>
@@ -34,6 +36,13 @@ export default function Wrapper() {
             </div>
           )
         })}
+      <PageNation
+        onClickPageNumber={(page) => setCurrentPage(page)}
+        onClickNextPage={() => setCurrentPage((prev) => prev + 1)}
+        onClickPrevPage={() => setCurrentPage((prev) => prev - 1)}
+        currentPage={currentPage}
+        totalPage={data?.totalPages || 1}
+      />
     </div>
   )
 }
