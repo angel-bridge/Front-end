@@ -21,7 +21,6 @@ export default function UpperFrame() {
     return <p>loading...</p>
   }
 
-  console.log(data)
   return (
     <div className={upper_container}>
       <div className={upper_content_container}>
