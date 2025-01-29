@@ -1,5 +1,5 @@
 import MyLectureCard from './MyLectureCard'
-import { wrapper, warning, emptyCard } from '../styles/Contents.css'
+import { wrapper, warning, emptyCard, centered } from '../styles/Contents.css'
 import { ProgramDataType } from '@/program/types/dataType'
 
 interface ContentsProps {
@@ -10,7 +10,7 @@ interface ContentsProps {
 export default function Contents({ data, isLoading }: ContentsProps) {
   if (isLoading) {
     return (
-      <div className={wrapper}>
+      <div className={`${wrapper} ${centered}`}>
         <div className={warning}>로딩 중...</div>
       </div>
     )
@@ -18,7 +18,7 @@ export default function Contents({ data, isLoading }: ContentsProps) {
 
   if (!data || data.length === 0) {
     return (
-      <div className={wrapper}>
+      <div className={`${wrapper} ${centered}`}>
         <div className={warning}>등록된 수강 프로그램이 없습니다.</div>
       </div>
     )

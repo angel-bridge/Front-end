@@ -10,6 +10,14 @@ export const wrapper = style({
     width: '104rem',
 });
 
+export const centered = style({
+    display: 'flex !important',
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: '100%',
+    width: '100%',
+});
+
 export const emptyCard = style({
     opacity: 0,
     width: '50rem', 
