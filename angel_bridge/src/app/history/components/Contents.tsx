@@ -25,7 +25,7 @@ export default function Contents({ data, isLoading }: ContentsProps) {
   }
 
   return (
-    <div className={wrapper}>
+    <div className={wrapper} data-length={data.length}>
       {data.map((item, index) => (
         <MyLectureCard
           educationId={item.educationId}
