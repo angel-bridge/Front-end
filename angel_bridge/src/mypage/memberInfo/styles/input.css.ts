@@ -14,6 +14,7 @@ export const input = style([
     borderColor: vars.grayScale.grayscale100,
     borderWidth: '2px',
     color: vars.grayScale.grayscale800,
+    borderStyle: 'solid',
 
     paddingLeft: '2rem',
 
