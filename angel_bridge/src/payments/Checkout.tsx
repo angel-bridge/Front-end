@@ -33,6 +33,19 @@ export function CheckoutPage() {
   const [widgets, setWidgets] = useState<TossPaymentsWidgets | null>(null)
 
   useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const storedPrice = localStorage.getItem('price')
+      const parsedPrice = storedPrice ? JSON.parse(storedPrice) : 89000
+      setPrice(parsedPrice)
+      setAmount({ currency: 'KRW', value: parsedPrice })
+    }
+  }, [])
+
+  useEffect(() => {
+    setAmount({ currency: 'KRW', value: price })
+  }, [price])
+
+  useEffect(() => {
     async function fetchPaymentWidgets() {
       // ------  결제위젯 초기화 ------
       const tossPayments = await loadTossPayments(clientKey)
@@ -106,7 +119,7 @@ export function CheckoutPage() {
               customerName: '호',
               customerEmail: 'customer123@gmail.com',
               customerMobilePhone: '01012341234',
-              successUrl: `${window.location.origin}/mypage/mypaidList`,
+              successUrl: `${window.location.origin}/payments/success`,
               failUrl: `${window.location.origin}/payments/fail`,
             })
           },

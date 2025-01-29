@@ -3,6 +3,8 @@
 import { Suspense, useEffect, useState } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { authInstance } from '@/api/authInstance'
+import * as styles from '@/payments/successpage.css'
+import Image from 'next/image'
 
 export default function SuccessPage() {
   const [isConfirmed, setIsConfirmed] = useState(false)
@@ -15,23 +17,6 @@ export default function SuccessPage() {
   const amount = searchParams.get('amount')
   const paymentKey = searchParams.get('paymentKey')
   const educationId = localStorage.getItem('educationId')
-
-  // async function confirmPayment({ educationId }: { educationId: number }) {
-  //   // TODO: API를 호출해서 서버에게 paymentKey, orderId, amount를 넘겨주세요.
-  //   // 서버에선 해당 데이터를 가지고 승인 API를 호출하면 결제가 완료됩니다.
-  //   // https://docs.tosspayments.com/reference#%EA%B2%B0%EC%A0%9C-%EC%8A%B9%EC%9D%B8
-  //   const response = await authInstance.post(
-  //     `/api/v1/payments/confirm/${educationId}`,
-  //     {
-  //       paymentKey,
-  //       orderId,
-  //       amount,
-  //     },
-  //   )
-  //   if (response) {
-  //     setIsConfirmed(true)
-  //   }
-  // }
 
   useEffect(() => {
     async function confirmPayment(educationId: string) {
@@ -46,12 +31,13 @@ export default function SuccessPage() {
         )
         if (response.status == 200) {
           setIsConfirmed(true)
+          router.push('/mypage/mypaidList')
         } else {
           throw new Error('결제 승인 실패: 서버 응답 x')
         }
       } catch (err) {
         console.error(err)
-        router.push(`/payments/fai`)
+        router.push('/payments/fail')
       }
     }
     if (educationId && orderId && amount && paymentKey) {
@@ -68,14 +54,33 @@ export default function SuccessPage() {
 
   return (
     <Suspense>
-      <div className="result wrapper">
-        <div className="box_section">
+      <div className={styles.wrapper}>
+        <div className={styles.confirmSuccess}>
           {isConfirmed ? (
             <>
-              <h2>결제 성공</h2>
-              <p>주문번호: {orderId}</p>
-              <p>결제 금액: {Number(amount).toLocaleString()}원</p>
-              <p>Payment Key: {paymentKey}</p>
+              <div className={styles.imageStyle}>
+                <Image
+                  src="https://static.toss.im/illusts/check-blue-spot-ending-frame.png"
+                  fill
+                  alt="토스체크표시"
+                />
+              </div>
+
+              <h2>결제를 완료했어요</h2>
+              <div className={styles.responseSection}>
+                <div className={styles.flexBetween}>
+                  <span className={styles.responseLabel}>결제 금액</span>
+                  <span className={styles.responseText}>{amount}</span>
+                </div>
+                <div className={styles.flexBetween}>
+                  <span className={styles.responseLabel}>주문번호</span>
+                  <span className={styles.responseText}>{orderId}</span>
+                </div>
+                <div className={styles.flexBetween}>
+                  <span className={styles.responseLabel}>paymentKey</span>
+                  <span className={styles.responseText}>{paymentKey}</span>
+                </div>
+              </div>
             </>
           ) : error ? (
             <div>
