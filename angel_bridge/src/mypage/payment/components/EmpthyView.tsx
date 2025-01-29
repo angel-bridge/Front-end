@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import React from 'react'
-import preparingIc from '../../assets/preparingIc.svg'
+import preparingIc from '@/program/assets/preparingIc.svg'
 import {
   empthy_icon,
   empthy_view_container,
