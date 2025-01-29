@@ -4,6 +4,7 @@ import * as style from '../../styles/common.css'
 import modalcancel from '../../assets/modalCancel.svg'
 import Image from 'next/image'
 import { useModalStore } from '@/status/store/useModal'
+import { useSubmit } from '@/status/store/useSubmit'
 
 //미션 제출 전 나오는 모달입니다.
 export default function SubmitMissionModal({
@@ -18,10 +19,14 @@ export default function SubmitMissionModal({
   assignmentId: number
 }) {
   const { setIsSubmitModalOpen } = useModalStore()
+  const { setTitle, setDescription, setAssignmentId } = useSubmit()
 
   function handleClickToSubmit() {
     closeSubmitMissionModal()
     setIsSubmitModalOpen()
+    setTitle(title)
+    setDescription(description)
+    setAssignmentId(assignmentId)
   }
 
   return (
