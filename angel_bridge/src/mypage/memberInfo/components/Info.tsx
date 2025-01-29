@@ -80,6 +80,7 @@ export default function Info() {
 
     // 실제 API 호출 부분
     mutate({ updatedData, newImage: image })
+    window.location.reload();
   }
 
   if (isLoading) return <p>loading....</p>
