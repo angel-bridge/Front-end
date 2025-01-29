@@ -6,7 +6,7 @@ export const wrapper = style({
   flexDirection: 'column',
   alignItems: 'center',
   maxWidth: '540px',
-  minHeight: '100vh',
+  minHeight: '40rem',
 })
 
 export const confirmSuccess = style({
