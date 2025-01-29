@@ -13,11 +13,14 @@ export function CheckoutPage() {
   const clientKey = process.env.NEXT_PUBLIC_CLIENT_KEY as string
   const customerKey = 'UTuk_CpV40JbupUHAF0De'
   const { mutate: postSaveAmountMutate } = usePostSaveAmount()
+  const storedPrice = localStorage.getItem('price')
+
+  const price = storedPrice && JSON.parse(storedPrice)
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [amount, setAmount] = useState({
     currency: 'KRW',
-    value: 500,
+    value: price,
   })
 
   const [ready, setReady] = useState(false)
@@ -46,7 +49,7 @@ export function CheckoutPage() {
       // ------ 주문의 결제 금액 설정 ------
       await widgets.setAmount({
         currency: 'KRW',
-        value: 5000,
+        value: price,
       })
 
       await Promise.all([
@@ -97,7 +100,7 @@ export function CheckoutPage() {
               customerName: '김토스',
               customerEmail: 'customer123@gmail.com',
               customerMobilePhone: '01012341234',
-              successUrl: `${window.location.origin}/payments/success`,
+              successUrl: `${window.location.origin}/mypage/mypaidList`,
               failUrl: `${window.location.origin}/payments/fail`,
             })
           },

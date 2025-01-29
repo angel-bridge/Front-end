@@ -12,15 +12,16 @@ import Image from 'next/image'
 import purchaseIcon from '../assets/purchase.svg'
 import { useParams, useRouter } from 'next/navigation'
 
-export default function PurchaseBtn() {
+export default function PurchaseBtn({ price }: { price: number | undefined }) {
   const params = useParams()
   const router = useRouter()
   const educationId = params.educationId as string
 
   function onClickPurchaseBtn() {
-    router.push(`/payments?eucationId=${educationId}`)
+    router.push(`/payments?eucationId=${educationId}&price=${price}`)
     if (typeof window !== 'undefined' && educationId != undefined) {
       localStorage.setItem('educationId', educationId)
+      localStorage.setItem('price', JSON.stringify(price))
     }
   }
 
