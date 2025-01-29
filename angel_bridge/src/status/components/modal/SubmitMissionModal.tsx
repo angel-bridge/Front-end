@@ -5,14 +5,17 @@ import modalcancel from '../../assets/modalCancel.svg'
 import Image from 'next/image'
 import { useModalStore } from '@/status/store/useModal'
 
+//미션 제출 전 나오는 모달입니다.
 export default function SubmitMissionModal({
   closeSubmitMissionModal,
   title,
   description,
+  assignmentId,
 }: {
   title: string | undefined
   description: string | undefined
   closeSubmitMissionModal: () => void
+  assignmentId: number
 }) {
   const { setIsSubmitModalOpen } = useModalStore()
 
@@ -27,7 +30,7 @@ export default function SubmitMissionModal({
         <div className={style.content_container}>
           <div className={style.text_container_style}>
             <div className={style.modal_title_closebtn}>
-              <p className={style.title_style}>2일차</p>
+              <p className={style.title_style}>{assignmentId}일차</p>
               <div onClick={closeSubmitMissionModal} className={close_modal}>
                 <Image src={modalcancel} fill alt="모달 닫기" />
               </div>
