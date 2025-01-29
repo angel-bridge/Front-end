@@ -15,7 +15,6 @@ export default function Recommends() {
             try {
                 const data = await getRecommendedProgram();
                 setPrograms(data);
-                console.log('3개', data);
             } catch (error) {
                 console.error("추천 프로그램 불러오기 실패:", error);
             }
@@ -43,6 +42,7 @@ export default function Recommends() {
                         }
                         title={program.title}
                         bio={program.description}
+                        preImage={program.preImage}
                         onClick={() => router.push(`/program/${program.educationId}`)}
                     />
                 ))}
