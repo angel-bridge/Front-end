@@ -16,13 +16,6 @@ export function CheckoutPage() {
 
   const [price, setPrice] = useState<number>(0)
 
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const storedPrice = localStorage.getItem('price')
-      setPrice(storedPrice ? JSON.parse(storedPrice) : 119000)
-    }
-  }, [price])
-
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [amount, setAmount] = useState({
     currency: 'KRW',
@@ -31,6 +24,19 @@ export function CheckoutPage() {
 
   const [ready, setReady] = useState(false)
   const [widgets, setWidgets] = useState<TossPaymentsWidgets | null>(null)
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const storedPrice = localStorage.getItem('price')
+      const parsedPrice = storedPrice ? JSON.parse(storedPrice) : 89000
+      setPrice(parsedPrice)
+      setAmount({ currency: 'KRW', value: parsedPrice })
+    }
+  }, [])
+
+  useEffect(() => {
+    setAmount({ currency: 'KRW', value: price })
+  }, [price])
 
   useEffect(() => {
     async function fetchPaymentWidgets() {
@@ -106,7 +112,7 @@ export function CheckoutPage() {
               customerName: '김토스',
               customerEmail: 'customer123@gmail.com',
               customerMobilePhone: '01012341234',
-              successUrl: `${window.location.origin}/mypage/mypaidList`,
+              successUrl: `${window.location.origin}/payments/success`,
               failUrl: `${window.location.origin}/payments/fail`,
             })
           },
