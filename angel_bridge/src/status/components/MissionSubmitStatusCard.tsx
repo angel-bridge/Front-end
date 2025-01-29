@@ -79,6 +79,7 @@ export default function MissionSubmitStatusCard({
       )}
       {modalType == 'submityet' && toSubmitModal && (
         <SubmitMissionModal
+          assignmentId={assignmentId}
           title={data?.title}
           description={data?.description}
           closeSubmitMissionModal={closeSubmitMissionModal}
