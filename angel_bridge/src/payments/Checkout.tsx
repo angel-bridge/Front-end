@@ -14,14 +14,7 @@ export function CheckoutPage() {
   const customerKey = 'UTuk_CpV40JbupUHAF0De'
   const { mutate: postSaveAmountMutate } = usePostSaveAmount()
 
-  // const [price, setPrice] = useState<number>(0)
-
-  // useEffect(() => {
-  //   if (typeof window !== 'undefined') {
-  //     const storedPrice = localStorage.getItem('price')
-  //     setPrice(storedPrice ? JSON.parse(storedPrice) : 119000)
-  //   }
-  // }, [price])
+  const [price, setPrice] = useState<number>(0)
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [amount, setAmount] = useState({
