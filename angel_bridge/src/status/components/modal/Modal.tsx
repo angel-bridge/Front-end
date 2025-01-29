@@ -5,7 +5,9 @@ import modalcancel from '../../assets/modalCancel.svg'
 import Image from 'next/image'
 import { MODAL_TYPE } from '@/status/core/modalType'
 import { useModalStore } from '@/status/store/useModal'
+import { useSubmit } from '@/status/store/useSubmit'
 
+//위에 미션박스 누르면 나타나는 모달
 export default function Modal({
   assignmentId,
   modalType,
@@ -17,6 +19,7 @@ export default function Modal({
   description: string | undefined
   modalType: string
 }) {
+  const { setTitle, setDescription, setAssignmentId } = useSubmit()
   const { setIsMdoalClose, setIsSubmitModalOpen } = useModalStore()
   const modal = MODAL_TYPE.find((modal) => {
     return modalType === modal.type
@@ -30,6 +33,9 @@ export default function Modal({
 
   function handleOpenSubmitModal() {
     setIsSubmitModalOpen()
+    setTitle(assignmentTitle)
+    setDescription(description)
+    setAssignmentId(assignmentId)
   }
 
   return (
