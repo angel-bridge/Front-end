@@ -10,7 +10,8 @@ export const header_style = style({
 
 export const programbanner_style = style({
   position: 'relative',
-  width: '104rem',
+  width: '100%',
   height: '14rem',
   top: '8rem',
+  overflow: 'hidden',
 })
