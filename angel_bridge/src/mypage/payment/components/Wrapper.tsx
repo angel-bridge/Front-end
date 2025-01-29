@@ -5,8 +5,9 @@ import Content, { ContentProps } from './Content'
 import { wrapper_style } from '../styles/container.css'
 import useGetPayment from '@/mypage/api/hooks/useGetPayment'
 import PageNation from '@/program/components/main/PageNation'
+import EmpthyView from './EmpthyView'
 
-//결제 내역 부분입니다.
+// 결제 내역 부분입니다.
 export default function Wrapper() {
   const [currentPage, setCurrentPage] = useState(1)
   const { data, isLoading } = useGetPayment({ page: currentPage })
@@ -14,34 +15,30 @@ export default function Wrapper() {
   if (isLoading) {
     return <p>isLoading</p>
   }
-  if (!data) {
-    return <p>data가 없습니다.</p>
+  if (!data || !data.content || data.content.length === 0) {
+    return <EmpthyView />
   }
 
   return (
     <div className={wrapper_style}>
-      {data?.content &&
-        data?.content.map((data: ContentProps) => {
-          return (
-            <div key={data.enrollementId}>
-              <Content
-                key={data.enrollementId}
-                date={data.date}
-                imageUrl={data.imageUrl}
-                status={data.status}
-                price={data.price}
-                educationName={data.educationName}
-                enrollementId={data.enrollementId}
-              />
-            </div>
-          )
-        })}
+      {data.content.map((item: ContentProps) => (
+        <Content
+          key={item.enrollementId}
+          date={item.date}
+          imageUrl={item.imageUrl}
+          status={item.status}
+          price={item.price}
+          educationName={item.educationName}
+          enrollementId={item.enrollementId}
+        />
+      ))}
+
       <PageNation
         onClickPageNumber={(page) => setCurrentPage(page)}
         onClickNextPage={() => setCurrentPage((prev) => prev + 1)}
         onClickPrevPage={() => setCurrentPage((prev) => prev - 1)}
         currentPage={currentPage}
-        totalPage={data?.totalPages || 1}
+        totalPage={data.totalPages || 1}
       />
     </div>
   )
