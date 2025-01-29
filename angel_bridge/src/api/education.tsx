@@ -5,7 +5,7 @@ export interface ProgramResult {
   preImage: string
   title: string
   description: string
-  recruitmentStatus: 'ONGOING' | 'UPCOMING' | 'CLOSED'
+  recruitmentStatus: string
 }
 
 interface FetchProgramResponse {

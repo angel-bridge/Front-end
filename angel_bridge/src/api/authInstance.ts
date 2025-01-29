@@ -9,7 +9,7 @@ export const authInstance = axios.create({
 
 authInstance.interceptors.request.use(
   (config) => {
-    const accessToken = process.env.NEXT_PUBLIC_ACCESS_TOKEN
+    const accessToken = localStorage.getItem('accessToken');
     if (accessToken) {
       config.headers['Authorization'] = `Bearer ${accessToken}`
     }
@@ -29,4 +29,4 @@ authInstance.interceptors.response.use(
     console.error('API 에러:', error.message)
     return Promise.reject(error)
   },
-)
+) 

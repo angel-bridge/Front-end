@@ -20,4 +20,14 @@ export const main_container = style({
   display: 'flex',
   flexDirection: 'column',
   gap: '1.6rem',
+
+  minHeight: '126.4rem',
+})
+
+export const program_pagnation = style({
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '1.6rem',
+  justifyContent: 'space-between',
+  minHeight: '126.4rem',
 })

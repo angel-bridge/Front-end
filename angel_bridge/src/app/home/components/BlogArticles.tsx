@@ -28,13 +28,15 @@ export default function BlogArticles() {
         <div className={style.articles}>
             <div className={style.titleWrapper}>
                 <div className={style.title}>NEW! 블로그 아티클</div>
-                <Link href = 'https://blog.naver.com/angel_bridge' target='_blank'>
+                <Link
+                    style={{ textDecoration: "none" }}
+                    href = 'https://blog.naver.com/angel_bridge' target='_blank'>
                     <div className={style.seeAll}>전체보기</div>
                 </Link>
             </div>
             <div className={style.contentsWrapper}>
             {articles.map((article, index) => (
-                <Link key={index} href = {article.link}>
+                <Link key={index} style={{ textDecoration: "none" }} href = {article.link}>
                     <div key={index} className={style.contents}>
                         <div className={style.textWrapper}>
                             <div className={style.contentTitle}>{article.title}</div>

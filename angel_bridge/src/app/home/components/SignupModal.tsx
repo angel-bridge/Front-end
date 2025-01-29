@@ -1,9 +1,12 @@
+'use client'
+
+import { useState } from 'react';
+import usePostMemberInfo from '@/app/login/hooks/usePostMemberInfo';
 import Image from 'next/image';
 import CloseButton from '@/app/home/assets/close_button.svg';
 import { CustomCheckbox } from './CustomCheckbox';
 
 import * as style from '@/app/home/styles/SignupModal.css';
-import { useState } from 'react';
 
 type SignupModalProps = {
     onClose: () => void;
@@ -24,6 +27,8 @@ export default function SignupModal({ onClose }: SignupModalProps) {
         phoneNumber.trim() !== '' &&
         checkedStates.age &&
         checkedStates.privacy;
+
+    const { mutate } = usePostMemberInfo();
 
     // 전체 동의 핸들러
     const handleAllCheckboxChange = () => {
@@ -49,6 +54,27 @@ export default function SignupModal({ onClose }: SignupModalProps) {
             return newStates;
         });
     };
+
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        if (!isFormValid) {
+            alert('필수 항목을 모두 입력해주세요.');
+            return;
+        }
+    
+        mutate(
+            { email, phoneNumber, isSelect: checkedStates.news },
+            {
+            onSuccess: () => {
+                alert(`회원가입이 완료되었습니다!`);
+                onClose();
+            },
+            onError: () => {
+                alert(`회원가입에 실패했습니다. 다시 시도해주세요!`);
+            },
+            }
+        );
+    };
     
     return (
         <div className={style.signupModal}>
@@ -58,7 +84,7 @@ export default function SignupModal({ onClose }: SignupModalProps) {
                 </button>
                 <div className={style.title}>추가 정보 입력</div>
                 <div className={style.announceText}>서비스 이용에 필요한 정보 입력 및 약관에 동의해 주세요</div>
-                <form>
+                <form onSubmit={handleSubmit}>
                     <div className={style.field}>
                         <div className={style.fieldTitle}>이메일 주소 *</div>
                         <input 
@@ -115,11 +141,13 @@ export default function SignupModal({ onClose }: SignupModalProps) {
                         </div>
                     </div>
                     <button
+                        type='submit'
                         className={`${style.signupButton} ${
                             isFormValid
                                 ? style.signupButtonVariants.active
                                 : style.signupButtonVariants.disabled
                         }`}
+                        disabled={!isFormValid}
                     >
                         <div
                             className={`${style.signupText} ${
@@ -128,7 +156,7 @@ export default function SignupModal({ onClose }: SignupModalProps) {
                                     : style.signupTextVariants.disabled
                             }`}
                         >
-                            회원가입 완료
+                        회원가입 완료
                         </div>
                     </button>
                 </form>

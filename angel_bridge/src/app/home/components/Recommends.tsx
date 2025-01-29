@@ -15,6 +15,7 @@ export default function Recommends() {
             try {
                 const data = await getRecommendedProgram();
                 setPrograms(data);
+                console.log('3개', data);
             } catch (error) {
                 console.error("추천 프로그램 불러오기 실패:", error);
             }
@@ -36,13 +37,9 @@ export default function Recommends() {
                 {programs.map((program) => (
                     <ProgramCard
                         key={program.educationId}
-                        badgeText={
-                            program.recruitmentStatus === "ONGOING" ? "모집중"
-                                : program.recruitmentStatus === "UPCOMING" ? "모집예정"
-                                : "모집완료"
-                        }
+                        badgeText={program.recruitmentStatus}
                         badgeType={
-                            program.recruitmentStatus === "ONGOING" ? "active" : "inactive"
+                            program.recruitmentStatus === "모집중" ? "active" : "inactive"
                         }
                         title={program.title}
                         bio={program.description}

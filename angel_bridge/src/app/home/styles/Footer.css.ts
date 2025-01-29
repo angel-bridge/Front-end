@@ -1,6 +1,5 @@
 import { style } from '@vanilla-extract/css'
 import { vars } from '@/style/theme.css'
-import * as font from '@/style/theme.css'
 
 export const footer = style({
     display: 'flex',

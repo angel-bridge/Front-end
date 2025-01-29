@@ -16,6 +16,8 @@ globalStyle('html, body', {
   fontFamily: 'Pretendard-Regular, sans-serif',
   lineHeight: 1.5,
   fontSize: '62.5%',
+  margin: 0,
+  padding: 0,
 })
 
 globalStyle('a', {
