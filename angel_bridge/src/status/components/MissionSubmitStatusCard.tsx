@@ -31,8 +31,6 @@ export default function MissionSubmitStatusCard({
     attendanceStatus,
   )
 
-  console.log('일부data', data)
-
   const [confirmSubmitModal, setConfirmSubmitModal] = useState(false)
   const [toSubmitModal, setToSubmitModal] = useState(false)
   const { isSubmitModal } = useModalStore()
