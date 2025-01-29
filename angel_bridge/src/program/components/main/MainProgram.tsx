@@ -2,7 +2,11 @@
 'use client'
 import React, { useEffect, useState } from 'react'
 import Programs from './Programs'
-import { length_style, main_container } from './styles/programmain.css'
+import {
+  length_style,
+  main_container,
+  program_pagnation,
+} from './styles/programmain.css'
 import { useProgramStore } from '@/program/store/useProgramStore'
 import useGetAllPrograms from '@/program/api/hooks/useGetAllPrograms'
 import useGetOngoings from '@/program/api/hooks/useGetOngoings'
@@ -88,6 +92,7 @@ export default function MainProgram() {
     searchlist,
     LoadingSearch,
     totalPage,
+    currentPage,
   ])
 
   //pagenation함수
@@ -111,22 +116,26 @@ export default function MainProgram() {
       ) : (
         <div className={main_container}>
           <p className={length_style}>
-            전체 {program ? program?.length : '0'}개
+            전체 {isEmpthy == 0 ? program?.length : '0'}개
           </p>
-          {isEmpthy == 1 ? (
-            <EmptySearch />
-          ) : isEmpthy == 2 ? (
-            <EmpthyView />
-          ) : (
-            <Programs programs={program} />
-          )}
-          <PageNation
-            onClickPageNumber={onClickPageNumber}
-            onClickNextPage={onClickNextPage}
-            onClickPrevPage={onClickPrevPage}
-            currentPage={currentPage}
-            totalPage={totalPage}
-          />
+          <div className={program_pagnation}>
+            {isEmpthy == 1 ? (
+              <EmptySearch />
+            ) : isEmpthy == 2 ? (
+              <EmpthyView />
+            ) : (
+              <Programs programs={program} />
+            )}
+            {isEmpthy == 0 && (
+              <PageNation
+                onClickPageNumber={onClickPageNumber}
+                onClickNextPage={onClickNextPage}
+                onClickPrevPage={onClickPrevPage}
+                currentPage={currentPage}
+                totalPage={totalPage}
+              />
+            )}
+          </div>
         </div>
       )}
     </>

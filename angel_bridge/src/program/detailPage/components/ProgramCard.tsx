@@ -13,7 +13,7 @@ import {
   programPhoto,
 } from '../styles/programcard.css'
 import ProgramSummary from './ProgramSummary'
-import BannerAndPurchase from './BannerAndPurchase'
+import PurchaseBtn from './PurchaseBtn'
 
 export default function ProgramCard() {
   const params = useParams()
@@ -44,7 +44,7 @@ export default function ProgramCard() {
           </div>
 
           <div className={banneranddetail_style}>
-            <BannerAndPurchase />
+            <PurchaseBtn />
             <ProgramSummary detailFile={data?.detailFile} />
           </div>
         </div>

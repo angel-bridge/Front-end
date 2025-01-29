@@ -1,5 +1,88 @@
-import React from 'react'
+'use client'
+import React, { useEffect, useState } from 'react'
+import {
+  button_style,
+  close_modal,
+  gray_button_style,
+} from '../../styles/button.css'
+import * as style from '../../styles/common.css'
+import modalcancel from '../../assets/modalCancel.svg'
+import Image from 'next/image'
+import { useModalStore } from '@/status/store/useModal'
 
+import * as input_style from '../../styles/input.css'
+import ErrorMessage from '@/mypage/memberInfo/components/ErrorMessage'
+import { content_container } from '@/status/styles/modal.css'
+import { useSubmit } from '@/status/store/useSubmit'
+import usePatchMissionLink from '@/status/api/hooks/usePatchMissionLink'
+import { useParams } from 'next/navigation'
+
+//미션제출 모달입니다
 export default function SubmitModal() {
-  return <div>SubmitModal</div>
+  const { title, description, assignmentId } = useSubmit()
+  const [notionLink, setNotionLink] = useState('')
+  const [isError, setIsError] = useState(false)
+
+  const params = useParams()
+  const educationId = params.educationId as string
+
+  const { mutate } = usePatchMissionLink()
+
+  const { setIsSubmitModalClose } = useModalStore()
+  const urlRegex = /^(https?|ftp):\/\/(-\.)?([^\s\/?\.#-]+\.?)+(\/[^\s]*)?$/i
+
+  useEffect(() => {
+    if (notionLink && urlRegex.test(notionLink) === false) {
+      setIsError(true)
+    } else {
+      setIsError(false)
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [notionLink, isError])
+
+  function handleClickToSubmit() {
+    setIsSubmitModalClose()
+    mutate({ educationId, assignmentId, submissionLink: notionLink })
+  }
+
+  return (
+    <div className={style.modal_background_two}>
+      <div className={style.modal_container}>
+        <div className={content_container}>
+          <div className={style.text_container_style}>
+            <div className={style.modal_title_closebtn}>
+              <p className={style.title_style}>{assignmentId}일차</p>
+              <div onClick={handleClickToSubmit} className={close_modal}>
+                <Image src={modalcancel} fill alt="모달 닫기" />
+              </div>
+            </div>
+
+            <div className={style.subText_container_style}>
+              <p className={style.second_title_style}>{title}</p>
+              <p className={style.description_style}>{description}</p>
+            </div>
+          </div>
+
+          <div className={input_style.input_button_container}>
+            <div className={input_style.inputwithtag_container}>
+              <p className={input_style.input_label}>노션 링크 *</p>
+              <input
+                onChange={(e) => setNotionLink(e.target.value)}
+                value={notionLink}
+                className={input_style.input_style}
+                placeholder="수행한 과제의 노션 링크를 제출해 주세요"
+              />
+              {isError && <ErrorMessage number={3} />}
+            </div>
+            <button
+              onClick={handleClickToSubmit}
+              className={!isError ? button_style : gray_button_style}
+            >
+              미션 제출하기
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
 }

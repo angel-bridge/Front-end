@@ -22,6 +22,27 @@ export const button_style = style([
   },
 ])
 
+//모달 회색 버튼입니다.
+export const gray_button_style = style([
+  title20SB,
+  {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+
+    width: '39.8rem',
+    height: '6.4rem',
+
+    backgroundColor: vars.grayScale.grayscale100,
+    borderRadius: '70px',
+    border: 'none',
+
+    color: vars.grayScale.grayscale400,
+
+    cursor: 'pointer',
+  },
+])
+
 export const bottom_black_style = style([
   {
     color: vars.grayScale.grayscale00,

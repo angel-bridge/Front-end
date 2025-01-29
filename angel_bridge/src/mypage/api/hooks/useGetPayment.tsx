@@ -2,10 +2,10 @@
 import { useQuery } from '@tanstack/react-query'
 import { getPayments } from '../utils/getPayments'
 
-export default function useGetPayment() {
+export default function useGetPayment({ page }: { page: number }) {
   const { data, isLoading } = useQuery({
-    queryKey: ['getPayments'],
-    queryFn: () => getPayments(),
+    queryKey: ['getPayments', page],
+    queryFn: () => getPayments({ page }),
   })
 
   return { data, isLoading }
