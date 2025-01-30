@@ -1,14 +1,15 @@
 'use client'
-
 import React, { useState } from 'react'
 import Content, { ContentProps } from './Content'
 import { wrapper_style } from '../styles/container.css'
 import useGetPayment from '@/mypage/api/hooks/useGetPayment'
 import PageNation from '@/program/components/main/PageNation'
 import EmpthyView from './EmpthyView'
+import { useQueryClient } from '@tanstack/react-query'
 
 // 결제 내역 부분입니다.
 export default function Wrapper() {
+  const queryClient = useQueryClient()
   const [currentPage, setCurrentPage] = useState(1)
   const { data, isLoading } = useGetPayment({ page: currentPage })
 
@@ -17,6 +18,13 @@ export default function Wrapper() {
   }
   if (!data || !data.content || data.content.length === 0) {
     return <EmpthyView />
+  }
+
+  //결제 취소 후에 실행될 함수입니다.
+  function handleCancelSuccess() {
+    queryClient.invalidateQueries({
+      queryKey: ['getPayments', { page: currentPage }],
+    })
   }
 
   return (
@@ -30,6 +38,7 @@ export default function Wrapper() {
           price={item.price}
           educationName={item.educationName}
           enrollmentId={item.enrollmentId}
+          handleCancelSuccess={handleCancelSuccess}
         />
       ))}
 

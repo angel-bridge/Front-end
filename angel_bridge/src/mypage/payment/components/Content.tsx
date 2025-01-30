@@ -15,10 +15,19 @@ export interface ContentProps {
   educationName: string
   price: string
   enrollmentId: number
+  handleCancelSuccess: () => void
 }
 
 export default function Content(props: ContentProps) {
-  const { date, status, imageUrl, educationName, price, enrollmentId } = props
+  const {
+    date,
+    status,
+    imageUrl,
+    educationName,
+    price,
+    enrollmentId,
+    handleCancelSuccess,
+  } = props
 
   console.log(enrollmentId)
   return (
@@ -34,7 +43,12 @@ export default function Content(props: ContentProps) {
           />
         </div>
 
-        {status === '결제 완료' && <CancelBtn enrollmentId={enrollmentId} />}
+        {status === '결제 완료' && (
+          <CancelBtn
+            handleCancelSuccess={handleCancelSuccess}
+            enrollmentId={enrollmentId}
+          />
+        )}
       </div>
     </div>
   )

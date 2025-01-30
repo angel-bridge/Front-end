@@ -3,7 +3,13 @@ import React from 'react'
 import { cancel_btn } from '../styles/cancelbtn.css'
 import usePostCancelPayments from '@/mypage/api/hooks/usePostCancelPayments'
 
-export default function CancelBtn({ enrollmentId }: { enrollmentId: number }) {
+export default function CancelBtn({
+  enrollmentId,
+  handleCancelSuccess,
+}: {
+  handleCancelSuccess: () => void
+  enrollmentId: number
+}) {
   const { mutate } = usePostCancelPayments()
 
   console.log(enrollmentId)
@@ -15,6 +21,7 @@ export default function CancelBtn({ enrollmentId }: { enrollmentId: number }) {
       {
         onSuccess: () => {
           alert('결제가 취소되었습니다.')
+          handleCancelSuccess()
         },
       },
     )
