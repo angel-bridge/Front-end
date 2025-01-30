@@ -23,13 +23,13 @@ export default function Wrapper() {
     <div className={wrapper_style}>
       {data.content.map((item: ContentProps) => (
         <Content
-          key={item.enrollementId}
+          key={item.enrollmentId}
           date={item.date}
           imageUrl={item.imageUrl}
           status={item.status}
           price={item.price}
           educationName={item.educationName}
-          enrollementId={item.enrollementId}
+          enrollmentId={item.enrollmentId}
         />
       ))}
 
