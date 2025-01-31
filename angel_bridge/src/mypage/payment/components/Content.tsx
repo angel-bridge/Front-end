@@ -29,7 +29,6 @@ export default function Content(props: ContentProps) {
     handleCancelSuccess,
   } = props
 
-  console.log(enrollmentId)
   return (
     <div className={content}>
       <div className={container}>
