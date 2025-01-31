@@ -1,7 +1,7 @@
 'use client'
 import React, { useState } from 'react'
 import Content, { ContentProps } from './Content'
-import { wrapper_style } from '../styles/container.css'
+import { content_wrapper, wrapper_style } from '../styles/container.css'
 import useGetPayment from '@/mypage/api/hooks/useGetPayment'
 import PageNation from '@/program/components/main/PageNation'
 import EmpthyView from './EmpthyView'
@@ -29,19 +29,20 @@ export default function Wrapper() {
 
   return (
     <div className={wrapper_style}>
-      {data.content.map((item: ContentProps) => (
-        <Content
-          key={item.enrollmentId}
-          date={item.date}
-          imageUrl={item.imageUrl}
-          status={item.status}
-          price={item.price}
-          educationName={item.educationName}
-          enrollmentId={item.enrollmentId}
-          handleCancelSuccess={handleCancelSuccess}
-        />
-      ))}
-
+      <div className={content_wrapper}>
+        {data.content.map((item: ContentProps) => (
+          <Content
+            key={item.enrollmentId}
+            date={item.date}
+            imageUrl={item.imageUrl}
+            status={item.status}
+            price={item.price}
+            educationName={item.educationName}
+            enrollmentId={item.enrollmentId}
+            handleCancelSuccess={handleCancelSuccess}
+          />
+        ))}
+      </div>
       <PageNation
         onClickPageNumber={(page) => setCurrentPage(page)}
         onClickNextPage={() => setCurrentPage((prev) => prev + 1)}
