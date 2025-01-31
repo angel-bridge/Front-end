@@ -4,7 +4,7 @@ import { getPayments } from '../utils/getPayments'
 
 export default function useGetPayment({ page }: { page: number }) {
   const { data, isLoading } = useQuery({
-    queryKey: ['getPayments', page],
+    queryKey: ['getPayments', { page }],
     queryFn: () => getPayments({ page }),
   })
 

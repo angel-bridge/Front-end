@@ -7,13 +7,13 @@ interface CancelResponse {
 }
 
 export const postCancelPayments = async (
-  enrollementId: number,
+  enrollmentId: number,
   cancelReason: string = '마음이 바뀌어서 결제 취소합니다',
 ) => {
   const response: CancelResponse = await authInstance.post(
-    `/api/v1/payments/cancel/${enrollementId}`,
+    `/api/v1/payments/cancel/${enrollmentId}`,
     {
-      cancelReason,
+      cancelReason: cancelReason,
     },
   )
   return response

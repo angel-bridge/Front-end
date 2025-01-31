@@ -4,21 +4,32 @@ import { cancel_btn } from '../styles/cancelbtn.css'
 import usePostCancelPayments from '@/mypage/api/hooks/usePostCancelPayments'
 
 export default function CancelBtn({
-  enrollementId,
+  enrollmentId,
+  handleCancelSuccess,
 }: {
-  enrollementId: number
+  handleCancelSuccess: () => void
+  enrollmentId: number
 }) {
   const { mutate } = usePostCancelPayments()
 
-  function handleCancelPayments(enrollementId: number) {
+  console.log(enrollmentId)
+  function handleCancelPayments(enrollmentId: number) {
     const cancelReason = '마음이 바뀌어서 결제 취소합니다.'
 
-    mutate({ enrollementId, cancelReason })
+    mutate(
+      { enrollmentId, cancelReason },
+      {
+        onSuccess: () => {
+          alert('결제가 취소되었습니다.')
+          handleCancelSuccess()
+        },
+      },
+    )
   }
 
   return (
     <button
-      onClick={() => handleCancelPayments(enrollementId)}
+      onClick={() => handleCancelPayments(enrollmentId)}
       className={cancel_btn}
     >
       결제 취소
